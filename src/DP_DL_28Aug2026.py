@@ -22,6 +22,10 @@ Requires dataretrieval>=1.3.0 (pip install -U dataretrieval).
 Fixed: waterdata.get_continuous() has no skip_geometry argument (it never
 returns geometry to begin with, unlike get_daily()) - removed it from the
 'iv' branch of NWIS_dl, which was raising a TypeError.
+Fixed CWMS_Download: office_id was hardcoded to 'NWDP' (not a real district
+code - a leftover copy of the nwdp-data API path segment) instead of the
+actual office being queried. Now uses office.upper(), matching the fix
+already applied to Modules/cwms_io.py in the Cowlitz_FF repo.
 
 @author: g2encjer
 """
@@ -115,7 +119,7 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
     for site, name in sites_dict.items():
         try:
             # Try to download data and store the dataframe for the tsid
-            data = cwms.get_timeseries(site, office_id='NWDP', begin=StartDate, end=EndDate).df
+            data = cwms.get_timeseries(site, office_id=office.upper(), begin=StartDate, end=EndDate).df
             # Check if the data is empty
             if data.empty:
                 print(f"Downloaded data for {site} is empty.")
