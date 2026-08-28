@@ -37,7 +37,7 @@ import os
 import requests
 
 
-RequiredRecordsDictPath = 'RequiredRecordsDictNWP_Short.csv'
+RequiredRecordsDictPath = r'../data/WIL_ELEV_DICT.csv'
 
 # Start and end date, probably water year
 startDate = '2023-12-25'
