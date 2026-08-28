@@ -22,14 +22,24 @@ Requires dataretrieval>=1.3.0 (pip install -U dataretrieval).
 Fixed: waterdata.get_continuous() has no skip_geometry argument (it never
 returns geometry to begin with, unlike get_daily()) - removed it from the
 'iv' branch of NWIS_dl, which was raising a TypeError.
-Fixed CWMS_Download: office_id was hardcoded to 'NWDP' (not a real district
-code - a leftover copy of the nwdp-data API path segment) instead of the
-actual office being queried. Now uses office.upper(), matching the fix
-already applied to Modules/cwms_io.py in the Cowlitz_FF repo.
+Tried changing CWMS_Download's office_id from 'NWDP' to office.upper() to
+match Modules/cwms_io.py in the Cowlitz_FF repo - didn't fix it. Reverted:
+office_id='NWDP' back to match CAS_Unreg_FF/src/#DataDownload.py (the
+Cowlitz initial data download script) exactly, and brought over that
+script's SSL cert handling too. That script builds its own combined CA
+bundle (certifi + the Windows ROOT store) and points REQUESTS_CA_BUNDLE
+at it directly, instead of relying on pip-system-certs's global
+monkey-patch, which doesn't survive every environment/upgrade (e.g. it can
+get silently undone when certifi itself gets reinstalled/upgraded - which
+`pip install -U dataretrieval` does). That silent TLS failure is the more
+likely reason CWMS was still failing after the office_id change.
 
 @author: g2encjer
 """
 #%%
+
+import os
+import tempfile
 
 import pandas as pd
 from dataretrieval import waterdata
@@ -40,8 +50,49 @@ from pydsstools.core import TimeSeriesContainer
 import numpy as np
 import time
 import pdb
-import os
 import requests
+
+import ssl
+import certifi
+
+# --- SSL Certificate Setup ---
+# Build a combined CA bundle (public CAs from certifi + the Windows ROOT
+# store) and point REQUESTS_CA_BUNDLE at it so requests/cwms/dataretrieval
+# trust USACE's internally-issued certs. This must run before any network
+# calls (CWMS_Download, NWIS_dl) below. On non-Windows platforms,
+# ssl.enum_certificates doesn't exist and this falls back to certifi alone.
+pem_path = os.path.join(tempfile.gettempdir(), "corp_plus_certifi.pem")
+
+
+def build_windows_ca_bundle(target_pem: str) -> str:
+    base_bundle = certifi.where()
+    with open(base_bundle, "rb") as src, open(target_pem, "wb") as dst:
+        dst.write(src.read())
+        try:
+            for cert_tuple in ssl.enum_certificates("ROOT"):
+                der_bytes = cert_tuple[0]
+                pem_str = ssl.DER_cert_to_PEM_cert(der_bytes)
+                dst.write(pem_str.encode("ascii"))
+        except AttributeError:
+            print("[WARNING] ssl.enum_certificates not available; using certifi only.")
+        except Exception as e:
+            print(f"[WARNING] Error reading Windows ROOT store: {e}")
+    return target_pem
+
+
+if not os.path.exists(pem_path):
+    try:
+        bundle_path = build_windows_ca_bundle(pem_path)
+        print(f"[INFO] Built combined CA bundle: {bundle_path}")
+    except Exception as e:
+        print(f"[WARNING] Failed to build combined CA bundle: {e}")
+        bundle_path = certifi.where()
+else:
+    bundle_path = pem_path
+
+os.environ["REQUESTS_CA_BUNDLE"] = bundle_path
+print(f"[INFO] Using CA bundle: {bundle_path}")
+# --- End SSL Setup ---
 
 
 RequiredRecordsDictPath = r'../data/WIL_ELEV_DICT.csv'
@@ -119,7 +170,7 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
     for site, name in sites_dict.items():
         try:
             # Try to download data and store the dataframe for the tsid
-            data = cwms.get_timeseries(site, office_id=office.upper(), begin=StartDate, end=EndDate).df
+            data = cwms.get_timeseries(site, office_id='NWDP', begin=StartDate, end=EndDate).df
             # Check if the data is empty
             if data.empty:
                 print(f"Downloaded data for {site} is empty.")
