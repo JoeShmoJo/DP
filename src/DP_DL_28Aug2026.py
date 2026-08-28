@@ -6,15 +6,26 @@ Created on Wed Oct  2 13:00:45 2024
 Removed Timestep as a variable and now resample to hourly or daily based on defined ResSim path in the process USGS and process CWMS functions 
 Added df = df.apply(pd.to_numeric,errors='coerce') to process CWMS function to catch odd format values downloading from CWMS 
 - 04May2026
-Removed SSL verify=False monkey-patch. Now uses pip-system-certs to pull certs from 
+Removed SSL verify=False monkey-patch. Now uses pip-system-certs to pull certs from
 the Windows certificate store. Run: pip install pip-system-certs
+- 28Aug2026
+USGS is decommissioning the legacy WaterServices API (waterservices.usgs.gov) in
+Q1 2027 in favor of the modernized USGS Water Data API (api.waterdata.usgs.gov).
+The dataretrieval.nwis module (nwis.get_record) is now deprecated and talks to the
+legacy API that USGS is actively winding down, which is why downloads that worked
+in May stopped working. Rewrote NWIS_dl to use dataretrieval.waterdata.get_continuous
+/get_daily instead. This changes site IDs to the "USGS-#######" monitoring_location_id
+format and returns a 'value' column instead of a numeric-named column, so
+process_usgs_data was updated to read 'value' (with a fallback to the old numeric
+column heuristic for anyone still on the legacy nwis module).
+Requires dataretrieval>=1.3.0 (pip install -U dataretrieval).
 
 @author: g2encjer
 """
 #%%
 
 import pandas as pd
-import dataretrieval.nwis as nwis
+from dataretrieval import waterdata
 import datetime
 import cwms
 from pydsstools.heclib.dss import HecDss
@@ -37,13 +48,45 @@ ObsDataWrite = 'obsData'
 
 #Functions
 def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
+    """
+    Downloads USGS data via the modernized USGS Water Data API
+    (dataretrieval.waterdata), which replaces the legacy WaterServices API
+    formerly accessed through dataretrieval.nwis.get_record.
+
+    service: 'iv' for continuous/instantaneous values, 'dv' for daily values
+    (reported as the daily mean, statistic_id '00003').
+    """
     NWIS = {}
+    # ISO 8601 interval covering the full start/end days, as required by the
+    # 'time' parameter of the waterdata getters.
+    time_range = f"{startDate}T00:00:00Z/{endDate}T23:59:59Z"
     for site, name in sites_dict.items():
+        # The new API keys sites as "USGS-#######" (agency-siteno) rather than
+        # the bare site number used by the old nwis module.
+        monitoring_location_id = site if str(site).upper().startswith('USGS-') else f"USGS-{site}"
         try:
-            data = nwis.get_record(sites=site, service=service, start=startDate, end=endDate, parameterCd=parameterCD)
+            if service == 'iv':
+                data, _ = waterdata.get_continuous(
+                    monitoring_location_id=monitoring_location_id,
+                    parameter_code=parameterCD,
+                    time=time_range,
+                    skip_geometry=True,
+                )
+            elif service == 'dv':
+                data, _ = waterdata.get_daily(
+                    monitoring_location_id=monitoring_location_id,
+                    parameter_code=parameterCD,
+                    statistic_id='00003',
+                    time=time_range,
+                    skip_geometry=True,
+                )
+            else:
+                raise ValueError(f"Unsupported service '{service}'. Use 'iv' or 'dv'.")
             if data.empty:
                 print(f"Downloaded data for {site} is empty.")
             else:
+                data['time'] = pd.to_datetime(data['time'])
+                data = data.set_index('time').sort_index()
                 NWIS[name] = data
         except Exception as e:
             print(f"Failed to download data for {site}: {e}")
@@ -80,15 +123,21 @@ def process_usgs_data(DataDict):
     results = []
     for df_name, df in DataDict.items():
         if not df.empty and df.shape[1] > 0:
-            # Identify columns that contain only numbers or underscores
-            valid_columns = [col for col in df.columns if col.replace('_', '').isdigit()]
-            if len(valid_columns) == 1:
-                df = df[valid_columns[0]].copy()
-            elif len(valid_columns) > 1:
-                print(f"Warning: Multiple valid columns found in {df_name}. Using the first one: {valid_columns[0]}")
-                df = df[valid_columns[0]].copy()
+            # The modernized waterdata API returns the observation in a 'value'
+            # column. Fall back to the old numeric-named-column heuristic for
+            # anyone still downloading via the legacy dataretrieval.nwis module.
+            if 'value' in df.columns:
+                df = df['value'].copy()
             else:
-                raise ValueError("No valid columns found that contain only numbers or underscores.")
+                valid_columns = [col for col in df.columns if col.replace('_', '').isdigit()]
+                if len(valid_columns) == 1:
+                    df = df[valid_columns[0]].copy()
+                elif len(valid_columns) > 1:
+                    print(f"Warning: Multiple valid columns found in {df_name}. Using the first one: {valid_columns[0]}")
+                    df = df[valid_columns[0]].copy()
+                else:
+                    raise ValueError("No valid columns found that contain only numbers or underscores.")
+            df = pd.to_numeric(df, errors='coerce')
             df[df < -9000] = np.nan
             df[df==-902]=np.nan
             df[df==-901]=np.nan
