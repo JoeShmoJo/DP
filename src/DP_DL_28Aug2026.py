@@ -19,6 +19,9 @@ format and returns a 'value' column instead of a numeric-named column, so
 process_usgs_data was updated to read 'value' (with a fallback to the old numeric
 column heuristic for anyone still on the legacy nwis module).
 Requires dataretrieval>=1.3.0 (pip install -U dataretrieval).
+Fixed: waterdata.get_continuous() has no skip_geometry argument (it never
+returns geometry to begin with, unlike get_daily()) - removed it from the
+'iv' branch of NWIS_dl, which was raising a TypeError.
 
 @author: g2encjer
 """
@@ -66,11 +69,12 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
         monitoring_location_id = site if str(site).upper().startswith('USGS-') else f"USGS-{site}"
         try:
             if service == 'iv':
+                # get_continuous has no skip_geometry kwarg - it never returns
+                # geometry to begin with.
                 data, _ = waterdata.get_continuous(
                     monitoring_location_id=monitoring_location_id,
                     parameter_code=parameterCD,
                     time=time_range,
-                    skip_geometry=True,
                 )
             elif service == 'dv':
                 data, _ = waterdata.get_daily(
