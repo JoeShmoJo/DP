@@ -61,8 +61,12 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
     """
     NWIS = {}
     # ISO 8601 interval covering the full start/end days, as required by the
-    # 'time' parameter of the waterdata getters.
-    time_range = f"{startDate}T00:00:00Z/{endDate}T23:59:59Z"
+    # 'time' parameter of the waterdata getters. Parse with pandas first so a
+    # loosely-formatted date (e.g. '2024-1-02') still produces a valid,
+    # zero-padded RFC3339 string instead of getting interpolated as-is.
+    start_dt = pd.to_datetime(startDate)
+    end_dt = pd.to_datetime(endDate) + pd.Timedelta(hours=23, minutes=59, seconds=59)
+    time_range = f"{start_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}/{end_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}"
     for site, name in sites_dict.items():
         # The new API keys sites as "USGS-#######" (agency-siteno) rather than
         # the bare site number used by the old nwis module.
