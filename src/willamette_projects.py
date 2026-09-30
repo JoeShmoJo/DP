@@ -11,28 +11,38 @@ CWMS tsid, e.g. 'DET' in 'DET.Elev-Forebay.Inst.1Hour.0.Best').
   keywords      : Upper-case strings that identify the project in a ResSimPath
   usgs_elev     : USGS forebay elevation gage (from data/WIL_ELEV_DICT.csv)
   usgs_outflow  : USGS gage just downstream of the project that normally
-                  matches the project outflow. Left as None where it hasn't
-                  been confirmed - fill these in (or use
-                  data/RedundantPairs_WIL.csv) so DP_QAQC.py can pair
-                  CWMS project outflow with the USGS gage automatically.
+                  matches the project outflow (the outflow gages used in
+                  RequiredRecordsDictNWP.csv). DET is paired with North
+                  Santiam at Niagara, which is below the Big Cliff
+                  re-regulating dam, so hourly values will differ from DET
+                  outflow while daily volumes should agree. None = no USGS
+                  gage between the project and the next reservoir (LOP -> Dexter
+                  Lake, GPR -> Foster Lake) or none in the dictionary (FOS: the
+                  nearest is South Santiam at Waterloo, well downstream).
 
 @author: g2encjer
 """
 
 PROJECTS = {
-    'HCR': {'name': 'Hills Creek',   'keywords': ['HILLS CREEK', 'HILLS CR'],       'usgs_elev': '14145100', 'usgs_outflow': None},
+    'HCR': {'name': 'Hills Creek',   'keywords': ['HILLS CREEK', 'HILLS CR'],       'usgs_elev': '14145100', 'usgs_outflow': '14145500'},
     'LOP': {'name': 'Lookout Point', 'keywords': ['LOOKOUT POINT', 'LOOKOUT PT'],   'usgs_elev': '14149000', 'usgs_outflow': None},
-    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': None},
-    'FAL': {'name': 'Fall Creek',    'keywords': ['FALL CREEK', 'FALL CR'],          'usgs_elev': '14150900', 'usgs_outflow': None},
-    'COT': {'name': 'Cottage Grove', 'keywords': ['COTTAGE GROVE LAKE', 'COTTAGE GROVE DAM'], 'usgs_elev': '14153000', 'usgs_outflow': None},
-    'DOR': {'name': 'Dorena',        'keywords': ['DORENA'],                         'usgs_elev': '14155000', 'usgs_outflow': None},
-    'CGR': {'name': 'Cougar',        'keywords': ['COUGAR'],                         'usgs_elev': '14159400', 'usgs_outflow': None},
-    'BLU': {'name': 'Blue River',    'keywords': ['BLUE RIVER LAKE', 'BLUE RIVER DAM'], 'usgs_elev': '14162100', 'usgs_outflow': None},
-    'FRN': {'name': 'Fern Ridge',    'keywords': ['FERN RIDGE'],                     'usgs_elev': '14168000', 'usgs_outflow': None},
+    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': '14150000'},
+    'FAL': {'name': 'Fall Creek',    'keywords': ['FALL CREEK', 'FALL CR'],          'usgs_elev': '14150900', 'usgs_outflow': '14151000'},
+    'COT': {'name': 'Cottage Grove', 'keywords': ['COTTAGE GROVE LAKE', 'COTTAGE GROVE DAM'], 'usgs_elev': '14153000', 'usgs_outflow': '14153500'},
+    'DOR': {'name': 'Dorena',        'keywords': ['DORENA'],                         'usgs_elev': '14155000', 'usgs_outflow': '14155500'},
+    'CGR': {'name': 'Cougar',        'keywords': ['COUGAR'],                         'usgs_elev': '14159400', 'usgs_outflow': '14159500'},
+    'BLU': {'name': 'Blue River',    'keywords': ['BLUE RIVER LAKE', 'BLUE RIVER DAM'], 'usgs_elev': '14162100', 'usgs_outflow': '14162200'},
+    'FRN': {'name': 'Fern Ridge',    'keywords': ['FERN RIDGE'],                     'usgs_elev': '14168000', 'usgs_outflow': '14169000'},
     'GPR': {'name': 'Green Peter',   'keywords': ['GREEN PETER'],                    'usgs_elev': '14186100', 'usgs_outflow': None},
     'FOS': {'name': 'Foster',        'keywords': ['FOSTER'],                         'usgs_elev': '14186600', 'usgs_outflow': None},
-    'DET': {'name': 'Detroit',       'keywords': ['DETROIT'],                        'usgs_elev': '14180500', 'usgs_outflow': None},
+    'DET': {'name': 'Detroit',       'keywords': ['DETROIT'],                        'usgs_elev': '14180500', 'usgs_outflow': '14181500'},
     'BCL': {'name': 'Big Cliff',     'keywords': ['BIG CLIFF'],                      'usgs_elev': '14181400', 'usgs_outflow': None},
+}
+
+# Willamette CWMS locations that aren't reservoir projects
+WILLAMETTE_CWMS_OTHER = {
+    'EUGO': 'Willamette River at Eugene',
+    'FRMO': 'Willamette basin flow location (in RequiredRecordsDictNWP.csv; confirm)',
 }
 
 # USGS site numbers in the Willamette basin (HUC 1709) fall in this range
@@ -112,6 +122,8 @@ def is_willamette(res_sim_path, download_key, source):
         site = usgs_site(download_key)
         if site.isdigit() and len(site) == 8:
             return WILLAMETTE_USGS_MIN <= int(site) <= WILLAMETTE_USGS_MAX
-    if source == 'CWMS' and cwms_location(download_key) in PROJECTS:
-        return True
+    if source == 'CWMS':
+        loc = cwms_location(download_key)
+        if loc in PROJECTS or loc in WILLAMETTE_CWMS_OTHER:
+            return True
     return any(kw in text for kw in WILLAMETTE_KEYWORDS)

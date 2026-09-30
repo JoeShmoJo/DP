@@ -33,15 +33,6 @@ monkey-patch, which doesn't survive every environment/upgrade (e.g. it can
 get silently undone when certifi itself gets reinstalled/upgraded - which
 `pip install -U dataretrieval` does). That silent TLS failure is the more
 likely reason CWMS was still failing after the office_id change.
-- 30Sep2026
-Pointed at RequiredRecordsDictWIL.csv (Willamette only, made from
-RequiredRecordsDictNWP.csv by PareDown_Willamette.py) and set the period to
-WY2026 (01Oct2025 - 30Sep2026). CWMS_Download now pulls through the end of
-EndDate instead of stopping at midnight. Hourly records are reindexed to the
-full requested period so gaps at either end are counted, and the summary stats
-gained 'Hours Expected', 'Hours Missing' and 'Pct Complete'. All hourly data
-is also written to ../out/Hourly_<startDate>_<endDate>.csv (long format:
-time_utc, Source, Download_Key, ResSimPath, value), which DP_QAQC.py reads.
 
 @author: g2encjer
 """
@@ -104,17 +95,13 @@ print(f"[INFO] Using CA bundle: {bundle_path}")
 # --- End SSL Setup ---
 
 
-RequiredRecordsDictPath = r'../data/RequiredRecordsDictWIL.csv'
+RequiredRecordsDictPath = r'../data/RequiredRecordsDictNWP_Short.csv'
 
 # Start and end date, probably water year
-startDate = '2025-10-01'
-endDate = '2026-09-30'
-# Output folder for the summary stats, hourly csv, and DSS file
-OutDir = r'../out'
-os.makedirs(OutDir, exist_ok=True)
+startDate = '2023-12-25'
+endDate = '2024-1-02'
 # DSS file with final results
-ObsDataWrite = os.path.join(OutDir, 'obsData')
-HourlyCsv = os.path.join(OutDir, f'Hourly_{startDate}_{endDate}.csv')
+ObsDataWrite = 'obsData' 
 
 
 #Functions
@@ -169,10 +156,9 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
     return NWIS
 
 def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
-    # Convert StartDate and EndDate to datetime objects. EndDate is pushed to
-    # the end of that day so the last day isn't dropped.
+    # Convert StartDate and EndDate to datetime objects
     StartDate = pd.to_datetime(StartDate)
-    EndDate = pd.to_datetime(EndDate) + pd.Timedelta(hours=23, minutes=59, seconds=59)
+    EndDate = pd.to_datetime(EndDate)
 
     # Initialize CWMS API session
     apiRoot = "https://wm." + office + ".ds.usace.army.mil:8243/nwdp-data/"
@@ -195,27 +181,7 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
             print(f"Failed to download data for {site}: {e}")
     return CWMS_data
 
-def full_period_resample(df, t, startDate, endDate):
-    """Resample to hourly/daily means and reindex to the whole requested
-    period so missing time at the start or end shows up as gaps."""
-    df = df.resample(t).mean()
-    tz = df.index.tz
-    start = pd.Timestamp(startDate)
-    end = pd.Timestamp(endDate) + pd.Timedelta(days=1) - pd.Timedelta(1, unit=t)
-    if tz is not None:
-        start, end = start.tz_localize(tz), end.tz_localize(tz)
-    return df.reindex(pd.date_range(start, end, freq=t, name=df.index.name))
-
-def completeness(df, t):
-    """Count expected/missing timesteps of a resampled (NaN-gapped) record."""
-    missing = int(df.isna().to_numpy().sum())
-    expected = int(df.shape[0])
-    label = 'Hours' if t == 'h' else 'Days'
-    return {f'{label} Expected': expected,
-            f'{label} Missing': missing,
-            'Pct Complete': round(100.0 * (expected - missing) / expected, 2) if expected else np.nan}
-
-def process_usgs_data(DataDict, startDate, endDate):
+def process_usgs_data(DataDict):
     # Create an empty list to store the summary stats
     results = []
     for df_name, df in DataDict.items():
@@ -246,24 +212,22 @@ def process_usgs_data(DataDict, startDate, endDate):
             time_diffs = df.index.to_series().diff().dropna()
             max_gap = time_diffs.max()
             max_gap_hours=max_gap.total_seconds()/3600.0
-            # Resample to hourly (or daily) over the full period
-            if '1HOUR' in df_name:
-                t = 'h'
-            elif '1DAY' in df_name:
-                t = 'D'
-            else:
-                print('timestep of ResSim path not 1HOUR or 1DAY')
-            df = full_period_resample(df, t, startDate, endDate)
             # Append the results for this dataframe to the list
             results.append({
                 'DataFrame': df_name,
                 'First Timestamp': first_timestamp,
                 'Last Timestamp': last_timestamp,
                 'Max Gap': max_gap,
-                'Max Gap Hours': max_gap_hours,
-                **completeness(df, t)
+                'Max Gap Hours': max_gap_hours
             })
-            # Replace nan with dss nan
+            # Resample to hourly and replace nan with dss nan
+            if '1HOUR' in df_name:
+                t = 'h'
+            elif '1DAY' in df_name:
+                t = 'D'
+            else:
+                print('timestep of ResSim path not 1HOUR or 1DAY')
+            df = df.resample(t).mean()
             df = df.fillna(-902)
             DataDict[df_name] = df
         else:
@@ -271,7 +235,7 @@ def process_usgs_data(DataDict, startDate, endDate):
     results_df = pd.DataFrame(results)
     return results_df
 
-def process_cwms_data(DataDict, startDate, endDate):
+def process_cwms_data(DataDict):
     # Create an empty list to store the summary stats
     results = []
     for df_name, df in DataDict.items():
@@ -294,24 +258,22 @@ def process_cwms_data(DataDict, startDate, endDate):
             time_diffs = df.index.to_series().diff().dropna()
             max_gap = time_diffs.max()
             max_gap_hours = max_gap.total_seconds()/3600.0
-            # Resample to hourly (or daily) over the full period
-            if '1HOUR' in df_name:
-                t = 'h'
-            elif '1DAY' in df_name:
-                t = 'D'
-            else:
-                print('timestep of ResSim path not 1HOUR or 1DAY')
-            df = full_period_resample(df, t, startDate, endDate)
             # Append the results for this dataframe to the list
             results.append({
                 'DataFrame': df_name,
                 'First Timestamp': first_timestamp,
                 'Last Timestamp': last_timestamp,
                 'Max Gap': max_gap,
-                'Max Gap Hours': max_gap_hours,
-                **completeness(df, t)
+                'Max Gap Hours' : max_gap_hours
             })
-            # Replace nan with dss nan
+            # Resample to hourly or daily, fill missing value standins
+            if '1HOUR' in df_name:
+                t = 'h'
+            elif '1DAY' in df_name:
+                t = 'D'
+            else:
+                print('timestep of ResSim path not 1HOUR or 1DAY')
+            df = df.resample(t).mean()
             df = df.fillna(-902)
             DataDict[df_name] = df
         else:
@@ -319,26 +281,6 @@ def process_cwms_data(DataDict, startDate, endDate):
     # Convert the list of results into a DataFrame
     results_df = pd.DataFrame(results)
     return results_df
-
-def write_hourly_csv(csv_file, DataDicts):
-    """Write every processed record to one long-format csv (-902 -> blank).
-    DataDicts: {source: (DataDict, {ResSimPath: Download_Key})}"""
-    frames = []
-    for source, (DataDict, keys) in DataDicts.items():
-        for pathname, df in DataDict.items():
-            s = df.iloc[:, 0] if isinstance(df, pd.DataFrame) else df
-            s = s.replace(-902, np.nan)
-            idx = s.index.tz_convert('UTC') if s.index.tz is not None else s.index
-            frames.append(pd.DataFrame({
-                'time_utc': idx.strftime('%Y-%m-%d %H:%M'),
-                'Source': source,
-                'Download_Key': keys.get(pathname, ''),
-                'ResSimPath': pathname,
-                'value': s.to_numpy(),
-            }))
-    if frames:
-        pd.concat(frames, ignore_index=True).to_csv(csv_file, index=False)
-        print(f"Wrote {csv_file}")
 
 def write_to_dss(dss_file, DataDict):
     for pathname, df in DataDict.items():
@@ -405,30 +347,22 @@ CWMS_Data_Dict = CWMS_Download(sites_dict=CWMS_dict, StartDate = startDate, EndD
 #%%
 # Process Data and create summary stats - this process gets rid of all the metadata that comes
 # in with the data, and also creates summary stats that are written to a csv.
-CWMS_Summary_Stats = process_cwms_data(CWMS_Data_Dict, startDate, endDate)
-USGS_Flow_Summary_Stats = process_usgs_data(USGS_Flow_Data_Dict, startDate, endDate)
-USGS_Elev_Summary_Stats = process_usgs_data(USGS_Elev_Data_Dict, startDate, endDate)
+CWMS_Summary_Stats = process_cwms_data(CWMS_Data_Dict)
+USGS_Flow_Summary_Stats = process_usgs_data(USGS_Flow_Data_Dict)
+USGS_Elev_Summary_Stats = process_usgs_data(USGS_Elev_Data_Dict)
 
 #%%
 Combined_Summary_Stats = pd.concat([CWMS_Summary_Stats,USGS_Flow_Summary_Stats,USGS_Elev_Summary_Stats], ignore_index= True)
 Combined_Summary_Stats['Max Gap Hours'] = Combined_Summary_Stats['Max Gap Hours'].astype(float).round(2)
 Combined_Summary_Stats.sort_values(by='Max Gap Hours', ascending=False, inplace=True)
 Combined_Summary_Stats.reset_index(drop=True, inplace=True)
-Combined_Summary_Stats.to_csv(os.path.join(OutDir, 'Combined_Summary_Stats.csv'), index=None)
-
-#%%
-# Hourly data for QA/QC (DP_QAQC.py). Keys map ResSimPath back to the download key.
-write_hourly_csv(HourlyCsv, {
-    'USGS': ({**USGS_Flow_Data_Dict, **USGS_Elev_Data_Dict},
-             {v: k for k, v in {**USGS_Flow_dict, **USGS_Elev_dict}.items()}),
-    'CWMS': (CWMS_Data_Dict, {v: k for k, v in CWMS_dict.items()}),
-})
+Combined_Summary_Stats.to_csv('../out/Combined_Summary_Stats.csv', index=None)
 
 #%%
 # Write obsdata. This writes the final dss file your ResSim alternatives will reference.
-# Written to the out folder (OutDir)
-write_to_dss(dss_file = ObsDataWrite, DataDict=USGS_Flow_Data_Dict)
-write_to_dss(dss_file = ObsDataWrite, DataDict=USGS_Elev_Data_Dict)
-write_to_dss(dss_file = ObsDataWrite, DataDict=CWMS_Data_Dict)
+# Write to out folder
+write_to_dss(dss_file = '../out/' + ObsDataWrite, DataDict=USGS_Flow_Data_Dict)
+write_to_dss(dss_file = '../out/' + ObsDataWrite, DataDict=USGS_Elev_Data_Dict)
+write_to_dss(dss_file = '../out/' + ObsDataWrite, DataDict=CWMS_Data_Dict)
 
 # %%

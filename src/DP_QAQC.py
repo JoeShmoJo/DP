@@ -28,7 +28,7 @@ QA/QC of the hourly Willamette records written by DP_DL_28Aug2026.py.
    Writes the flagged hours and a de-spiked copy (flagged hours replaced
    with the rolling median) so you can see what a cleaned record looks like.
 
-Outputs go to ../output/QAQC/.
+Outputs go to ../out/QAQC/.
 
 @author: g2encjer
 """
@@ -51,10 +51,10 @@ except ImportError:
 
 startDate = '2025-10-01'
 endDate = '2026-09-30'
-HourlyCsv = rf'../output/Hourly_{startDate}_{endDate}.csv'
+HourlyCsv = rf'../out/Hourly_{startDate}_{endDate}.csv'
 RecordsPath = r'../data/RequiredRecordsDictWIL.csv'
 PairsPath = r'../data/RedundantPairs_WIL.csv'
-OutDir = r'../output/QAQC'
+OutDir = r'../out/QAQC'
 MakePlots = True
 
 # --- Redundant record tolerances (hourly means) ---
@@ -106,7 +106,8 @@ def load_records(path):
 def draft_pairs(rec):
     """Guess CWMS/USGS pairs. One row per CWMS ELEV/FLOW record; USGS_Key is
     blank where no match was found so it's obvious what to fill in."""
-    cwms = rec[(rec['Source'] == 'CWMS') & rec['Parameter'].isin(['ELEV', 'FLOW'])]
+    # Only reservoir projects - river gages like EUGO have no USGS twin here
+    cwms = rec[(rec['Source'] == 'CWMS') & rec['Parameter'].isin(['ELEV', 'FLOW']) & rec['Project'].notna()]
     usgs = rec[rec['Source'] == 'USGS']
     rows = []
     for _, c in cwms.iterrows():
