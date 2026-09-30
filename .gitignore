@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+out/Hourly_*.csv
+data/usgs_api_key.txt
