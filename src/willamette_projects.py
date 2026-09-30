@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Shared Willamette project metadata used by PareDown_Willamette.py and
-DP_QAQC.py.
+Shared Willamette project metadata used by PareDown_Willamette.py,
+DP_DL_28Aug2026.py (via qaqc_records.py) and DP_QAQC.py.
 
 Created 30Sep2026
 
@@ -10,33 +10,35 @@ CWMS tsid, e.g. 'DET' in 'DET.Elev-Forebay.Inst.1Hour.0.Best').
   name          : Project name
   keywords      : Upper-case strings that identify the project in a ResSimPath
   usgs_elev     : USGS forebay elevation gage (from data/WIL_ELEV_DICT.csv)
-  usgs_outflow  : USGS gage just downstream of the project that normally
-                  matches the project outflow (the outflow gages used in
-                  RequiredRecordsDictNWP.csv). DET is paired with North
-                  Santiam at Niagara, which is below the Big Cliff
-                  re-regulating dam, so hourly values will differ from DET
-                  outflow while daily volumes should agree. None = no USGS
-                  gage between the project and the next reservoir (LOP -> Dexter
-                  Lake, GPR -> Foster Lake) or none in the dictionary (FOS: the
-                  nearest is South Santiam at Waterloo, well downstream).
+  usgs_outflow  : USGS gage just below the dam, used as the project's outflow
+                  record (hourly comparison with CWMS Flow-Out). None where
+                  the project releases straight into a re-regulating pool
+                  (DET -> Big Cliff Lake, LOP -> Dexter Lake).
+  usgs_rereg    : For DET and LOP, the gage below the re-regulating dam
+                  (North Santiam at Niagara below Big Cliff, Middle Fork
+                  near Dexter). The re-reg dam smooths hourly releases, so
+                  these are compared on DAILY means only.
+  GPR 14186200 (Middle Santiam R blw Green Peter Dam nr Foster) and
+  FOS 14187200 (South Santiam R nr Foster) aren't in
+  RequiredRecordsDictNWP.csv; they are downloaded for QA/QC only.
 
 @author: g2encjer
 """
 
 PROJECTS = {
-    'HCR': {'name': 'Hills Creek',   'keywords': ['HILLS CREEK', 'HILLS CR'],       'usgs_elev': '14145100', 'usgs_outflow': '14145500'},
-    'LOP': {'name': 'Lookout Point', 'keywords': ['LOOKOUT POINT', 'LOOKOUT PT'],   'usgs_elev': '14149000', 'usgs_outflow': None},
-    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': '14150000'},
-    'FAL': {'name': 'Fall Creek',    'keywords': ['FALL CREEK', 'FALL CR'],          'usgs_elev': '14150900', 'usgs_outflow': '14151000'},
-    'COT': {'name': 'Cottage Grove', 'keywords': ['COTTAGE GROVE LAKE', 'COTTAGE GROVE DAM'], 'usgs_elev': '14153000', 'usgs_outflow': '14153500'},
-    'DOR': {'name': 'Dorena',        'keywords': ['DORENA'],                         'usgs_elev': '14155000', 'usgs_outflow': '14155500'},
-    'CGR': {'name': 'Cougar',        'keywords': ['COUGAR'],                         'usgs_elev': '14159400', 'usgs_outflow': '14159500'},
-    'BLU': {'name': 'Blue River',    'keywords': ['BLUE RIVER LAKE', 'BLUE RIVER DAM'], 'usgs_elev': '14162100', 'usgs_outflow': '14162200'},
-    'FRN': {'name': 'Fern Ridge',    'keywords': ['FERN RIDGE'],                     'usgs_elev': '14168000', 'usgs_outflow': '14169000'},
-    'GPR': {'name': 'Green Peter',   'keywords': ['GREEN PETER'],                    'usgs_elev': '14186100', 'usgs_outflow': None},
-    'FOS': {'name': 'Foster',        'keywords': ['FOSTER'],                         'usgs_elev': '14186600', 'usgs_outflow': None},
-    'DET': {'name': 'Detroit',       'keywords': ['DETROIT'],                        'usgs_elev': '14180500', 'usgs_outflow': '14181500'},
-    'BCL': {'name': 'Big Cliff',     'keywords': ['BIG CLIFF'],                      'usgs_elev': '14181400', 'usgs_outflow': None},
+    'HCR': {'name': 'Hills Creek',   'keywords': ['HILLS CREEK', 'HILLS CR'],       'usgs_elev': '14145100', 'usgs_outflow': '14145500', 'usgs_rereg': None},
+    'LOP': {'name': 'Lookout Point', 'keywords': ['LOOKOUT POINT', 'LOOKOUT PT'],   'usgs_elev': '14149000', 'usgs_outflow': None, 'usgs_rereg': '14150000'},
+    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': '14150000', 'usgs_rereg': None},
+    'FAL': {'name': 'Fall Creek',    'keywords': ['FALL CREEK', 'FALL CR'],          'usgs_elev': '14150900', 'usgs_outflow': '14151000', 'usgs_rereg': None},
+    'COT': {'name': 'Cottage Grove', 'keywords': ['COTTAGE GROVE LAKE', 'COTTAGE GROVE DAM'], 'usgs_elev': '14153000', 'usgs_outflow': '14153500', 'usgs_rereg': None},
+    'DOR': {'name': 'Dorena',        'keywords': ['DORENA'],                         'usgs_elev': '14155000', 'usgs_outflow': '14155500', 'usgs_rereg': None},
+    'CGR': {'name': 'Cougar',        'keywords': ['COUGAR'],                         'usgs_elev': '14159400', 'usgs_outflow': '14159500', 'usgs_rereg': None},
+    'BLU': {'name': 'Blue River',    'keywords': ['BLUE RIVER LAKE', 'BLUE RIVER DAM'], 'usgs_elev': '14162100', 'usgs_outflow': '14162200', 'usgs_rereg': None},
+    'FRN': {'name': 'Fern Ridge',    'keywords': ['FERN RIDGE'],                     'usgs_elev': '14168000', 'usgs_outflow': '14169000', 'usgs_rereg': None},
+    'GPR': {'name': 'Green Peter',   'keywords': ['GREEN PETER'],                    'usgs_elev': '14186100', 'usgs_outflow': '14186200', 'usgs_rereg': None},
+    'FOS': {'name': 'Foster',        'keywords': ['FOSTER'],                         'usgs_elev': '14186600', 'usgs_outflow': '14187200', 'usgs_rereg': None},
+    'DET': {'name': 'Detroit',       'keywords': ['DETROIT'],                        'usgs_elev': '14180500', 'usgs_outflow': None, 'usgs_rereg': '14181500'},
+    'BCL': {'name': 'Big Cliff',     'keywords': ['BIG CLIFF'],                      'usgs_elev': '14181400', 'usgs_outflow': '14181500', 'usgs_rereg': None},
 }
 
 # Willamette CWMS locations that aren't reservoir projects

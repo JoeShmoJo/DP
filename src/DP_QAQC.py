@@ -15,9 +15,12 @@ QA/QC of the hourly Willamette records written by DP_DL_28Aug2026.py.
      - the time shift (lag) that best lines up flows, which shows up when the
        downstream gage lags the project release
    Pairs come from ../data/RedundantPairs_WIL.csv. If that file doesn't exist,
-   a draft is built from RequiredRecordsDictWIL.csv (same ResSimPath in both
-   sources, or same project + parameter using willamette_projects.py) and
-   written there for you to check/edit. Edit it and rerun to change pairs.
+   a draft is built from RequiredRecordsDictWIL.csv + QAQC_RecordsWIL.csv
+   using the gages in willamette_projects.py and written there for you to
+   check/edit. Edit it and rerun to change pairs. Detroit and Lookout Point
+   release into re-regulating pools (Big Cliff, Dexter), so their outflow is
+   compared with the gage below the re-reg dam on DAILY means (Timestep
+   column); everything else is HOURLY.
 
 2. Inflow spikes (CWMS computed inflow)
    Flags hours that are
@@ -52,7 +55,8 @@ except ImportError:
 startDate = '2025-10-01'
 endDate = '2026-09-30'
 HourlyCsv = rf'../out/Hourly_{startDate}_{endDate}.csv'
-RecordsPath = r'../data/RequiredRecordsDictWIL.csv'
+# Records dictionary + the QA/QC-only records built by DP_DL_28Aug2026.py
+RecordsPaths = [r'../data/RequiredRecordsDictWIL.csv', r'../data/QAQC_RecordsWIL.csv']
 PairsPath = r'../data/RedundantPairs_WIL.csv'
 OutDir = r'../out/QAQC'
 MakePlots = True
@@ -62,6 +66,7 @@ ELEV_TOL_FT = 0.10      # |CWMS - USGS| elevation difference allowed, ft
 FLOW_TOL_PCT = 5.0      # flow difference allowed, % of the USGS value ...
 FLOW_TOL_CFS = 50.0     # ... but never less than this many cfs
 MAX_LAG_HOURS = 6       # search +/- this many hours for the best flow alignment
+MIN_HOURS_PER_DAY = 20  # daily pairs: hours of data needed for a daily mean
 
 # --- Inflow spike detection ---
 HAMPEL_WINDOW_HOURS = 25   # centered rolling window (odd)
@@ -92,8 +97,9 @@ def load_hourly(csv_file):
     return series, paths
 
 
-def load_records(path):
-    rec = pd.read_csv(path, encoding='utf-8-sig', dtype={'Download_Key': str})
+def load_records(paths):
+    rec = pd.concat([pd.read_csv(p, encoding='utf-8-sig', dtype={'Download_Key': str})
+                     for p in paths if os.path.exists(p)], ignore_index=True)
     rec.columns = rec.columns.str.strip()
     rec['Source'] = rec['Source'].str.upper().str.strip()
     rec['Key'] = [norm_key(s, k) for s, k in zip(rec['Source'], rec['Download_Key'])]
@@ -105,7 +111,9 @@ def load_records(path):
 #%% Pairing
 def draft_pairs(rec):
     """Guess CWMS/USGS pairs. One row per CWMS ELEV/FLOW record; USGS_Key is
-    blank where no match was found so it's obvious what to fill in."""
+    blank where no match was found so it's obvious what to fill in. Projects
+    that release into a re-regulating pool (DET, LOP) also get a DAILY pair
+    with the gage below the re-reg dam."""
     # Only reservoir projects - river gages like EUGO have no USGS twin here
     cwms = rec[(rec['Source'] == 'CWMS') & rec['Parameter'].isin(['ELEV', 'FLOW']) & rec['Project'].notna()]
     usgs = rec[rec['Source'] == 'USGS']
@@ -130,16 +138,29 @@ def draft_pairs(rec):
                 how = 'same project + parameter'
         if len(match) > 1:
             how += f' ({len(match)} candidates, using first - check)'
+        rereg = PROJECTS.get(c['Project'], {}).get('usgs_rereg') if c['Parameter'] == 'FLOW' else None
+        if rereg:
+            rmatch = usgs[usgs['Key'] == str(rereg)]
+            rows.append({
+                'Project': c['Project'], 'Parameter': c['Parameter'], 'Timestep': 'DAILY',
+                'CWMS_Key': c['Key'], 'USGS_Key': rmatch['Key'].iloc[0] if len(rmatch) else str(rereg),
+                'Matched_By': 'gage below re-regulating dam - daily means only',
+                'CWMS_ResSimPath': c['ResSimPath'],
+                'USGS_ResSimPath': rmatch['ResSimPath'].iloc[0] if len(rmatch) else '',
+            })
+            if not len(match):
+                continue
         rows.append({
             'Project': c['Project'] or cwms_location(c['Key']),
             'Parameter': c['Parameter'],
+            'Timestep': 'HOURLY',
             'CWMS_Key': c['Key'],
             'USGS_Key': match['Key'].iloc[0] if len(match) else '',
             'Matched_By': how or 'NO MATCH - fill in USGS_Key',
             'CWMS_ResSimPath': c['ResSimPath'],
             'USGS_ResSimPath': match['ResSimPath'].iloc[0] if len(match) else '',
         })
-    return pd.DataFrame(rows).sort_values(['Project', 'Parameter'])
+    return pd.DataFrame(rows).sort_values(['Project', 'Parameter', 'Timestep'])
 
 
 def tolerance(param, usgs):
@@ -165,7 +186,15 @@ def best_lag(cwms, usgs, max_lag):
     return best
 
 
+def daily_mean(s):
+    return s.resample('D').mean().where(s.resample('D').count() >= MIN_HOURS_PER_DAY)
+
+
 def compare_pair(row, cwms, usgs):
+    daily = str(row.get('Timestep', 'HOURLY')).upper() == 'DAILY'
+    step = 'd' if daily else 'h'
+    if daily:
+        cwms, usgs = daily_mean(cwms), daily_mean(usgs)
     idx = cwms.index.union(usgs.index)
     cwms, usgs = cwms.reindex(idx), usgs.reindex(idx)
     both = cwms.notna() & usgs.notna()
@@ -174,17 +203,17 @@ def compare_pair(row, cwms, usgs):
     exceed = (diff.abs() > tol) & both
     d = diff.dropna()
     stats = {
-        'Project': row['Project'], 'Parameter': row['Parameter'],
+        'Project': row['Project'], 'Parameter': row['Parameter'], 'Timestep': 'DAILY' if daily else 'HOURLY',
         'CWMS_Key': row['CWMS_Key'], 'USGS_Key': row['USGS_Key'],
-        'Hours CWMS': int(cwms.notna().sum()), 'Hours USGS': int(usgs.notna().sum()),
-        'Hours Both': int(both.sum()),
-        'Hours CWMS Only': int((cwms.notna() & usgs.isna()).sum()),
-        'Hours USGS Only': int((usgs.notna() & cwms.isna()).sum()),
+        'Steps CWMS': int(cwms.notna().sum()), 'Steps USGS': int(usgs.notna().sum()),
+        'Steps Both': int(both.sum()),
+        'Steps CWMS Only': int((cwms.notna() & usgs.isna()).sum()),
+        'Steps USGS Only': int((usgs.notna() & cwms.isna()).sum()),
         'Bias (CWMS-USGS)': d.mean(), 'Median Diff': d.median(),
         'MAE': d.abs().mean(), 'RMSE': np.sqrt((d ** 2).mean()),
         'Max Abs Diff': d.abs().max() if len(d) else np.nan,
         'Max Abs Diff Time': d.abs().idxmax() if len(d) else pd.NaT,
-        'Hours Outside Tol': int(exceed.sum()),
+        'Steps Outside Tol': int(exceed.sum()),
         'Pct Outside Tol': 100.0 * exceed.sum() / both.sum() if both.sum() else np.nan,
     }
     flags = []
@@ -193,34 +222,36 @@ def compare_pair(row, cwms, usgs):
         spread = (d - d.median()).abs().median()
         flags.append(f"constant offset {stats['Median Diff']:+.2f} ft (datum?)" if spread <= ELEV_TOL_FT
                      else f"median diff {stats['Median Diff']:+.2f} ft")
-    if row['Parameter'] == 'FLOW':
+    if row['Parameter'] == 'FLOW' and not daily:
         lag, lag_mae = best_lag(cwms, usgs, MAX_LAG_HOURS)
         stats['Best Lag Hours (USGS behind CWMS)'] = lag
         stats['MAE at Best Lag'] = lag_mae
         if lag != 0 and lag_mae < 0.8 * stats['MAE']:
             flags.append(f'USGS lines up better shifted {lag:+d} h')
     if stats['Pct Outside Tol'] and stats['Pct Outside Tol'] > 5:
-        flags.append(f"{stats['Pct Outside Tol']:.1f}% of hours outside tolerance")
-    missing = max(stats['Hours CWMS Only'], stats['Hours USGS Only'])
-    if missing > 24:
-        flags.append(f'{missing} h only in one source')
+        flags.append(f"{stats['Pct Outside Tol']:.1f}% of {'days' if daily else 'hours'} outside tolerance")
+    missing = max(stats['Steps CWMS Only'], stats['Steps USGS Only'])
+    if missing > (1 if daily else 24):
+        flags.append(f'{missing} {step} only in one source')
     stats['Flags'] = '; '.join(flags)
 
     events = []
     for s, e in runs(exceed.to_numpy()):
         seg = slice(idx[s], idx[e])
         events.append({
-            'Project': row['Project'], 'Parameter': row['Parameter'],
+            'Project': row['Project'], 'Parameter': row['Parameter'], 'Timestep': stats['Timestep'],
             'CWMS_Key': row['CWMS_Key'], 'USGS_Key': row['USGS_Key'],
-            'Start': idx[s], 'End': idx[e], 'Hours': e - s + 1,
+            'Start': idx[s], 'End': idx[e], 'Steps': e - s + 1,
             'Mean Diff': diff[seg].mean(), 'Max Abs Diff': diff[seg].abs().max(),
             'CWMS Mean': cwms[seg].mean(), 'USGS Mean': usgs[seg].mean(),
         })
 
     monthly = pd.DataFrame({'absdiff': diff.abs(), 'exceed': exceed.where(both)})
     monthly = monthly.groupby(monthly.index.to_period('M')).agg(
-        MAE=('absdiff', 'mean'), Hours_Both=('absdiff', 'count'), Hours_Outside_Tol=('exceed', 'sum'))
+        MAE=('absdiff', 'mean'), Steps_Both=('absdiff', 'count'), Steps_Outside_Tol=('exceed', 'sum'))
+    monthly.insert(0, 'USGS_Key', row['USGS_Key'])
     monthly.insert(0, 'CWMS_Key', row['CWMS_Key'])
+    monthly.insert(0, 'Timestep', stats['Timestep'])
     monthly.insert(0, 'Parameter', row['Parameter'])
     monthly.insert(0, 'Project', row['Project'])
     return stats, events, monthly.reset_index(names='Month'), (cwms, usgs, diff, tol)
@@ -277,7 +308,7 @@ def plot_pair(stats, cwms, usgs, diff, tol, units, png):
     ax1.plot(usgs.index, usgs, color=ORANGE, lw=1.2, label=f"USGS {stats['USGS_Key']}")
     ax1.set_ylabel(units, color=INK)
     ax1.legend(frameon=False, fontsize=8, ncol=2, loc='lower right', bbox_to_anchor=(1, 1))
-    ax1.set_title(f"{stats['Project']} {stats['Parameter']}: CWMS vs USGS", loc='left', fontsize=11, color=INK)
+    ax1.set_title(f"{stats['Project']} {stats['Parameter']} ({stats['Timestep'].lower()}): CWMS vs USGS", loc='left', fontsize=11, color=INK)
     ax2.fill_between(tol.index, -tol, tol, color='#e6e5df', label='Tolerance', step='mid')
     ax2.plot(diff.index, diff, color=INK, lw=0.9, label='CWMS - USGS')
     ax2.set_ylabel(f'Diff ({units})', color=INK)
@@ -316,7 +347,7 @@ if __name__ == '__main__':
         os.makedirs(plot_dir, exist_ok=True)
 
     series, paths = load_hourly(HourlyCsv)
-    rec = load_records(RecordsPath)
+    rec = load_records(RecordsPaths)
 
     # ---- Redundant records ----
     if os.path.exists(PairsPath):
@@ -326,7 +357,9 @@ if __name__ == '__main__':
         pairs = draft_pairs(rec)
         pairs.to_csv(PairsPath, index=False)
         print(f'Drafted {PairsPath} - check it, edit if needed, and rerun.')
-    print(pairs[['Project', 'Parameter', 'CWMS_Key', 'USGS_Key']].to_string(index=False))
+    if 'Timestep' not in pairs.columns:
+        pairs['Timestep'] = 'HOURLY'
+    print(pairs[['Project', 'Parameter', 'Timestep', 'CWMS_Key', 'USGS_Key']].to_string(index=False))
 
     all_stats, all_events, all_monthly = [], [], []
     for _, row in pairs.iterrows():
@@ -345,7 +378,7 @@ if __name__ == '__main__':
         if MakePlots and plt is not None:
             units = 'FEET' if row['Parameter'] == 'ELEV' else 'CFS'
             plot_pair(stats, c, u, d, t, units,
-                      os.path.join(plot_dir, safe_name(f"pair_{row['Project']}_{row['Parameter']}_{ckey}.png")))
+                      os.path.join(plot_dir, safe_name(f"pair_{row['Project']}_{row['Parameter']}_{stats['Timestep']}_{ckey}_{ukey}.png")))
 
     if all_stats:
         pair_summary = pd.DataFrame(all_stats).sort_values('Pct Outside Tol', ascending=False)
@@ -353,7 +386,7 @@ if __name__ == '__main__':
         pd.DataFrame(all_events).to_csv(os.path.join(OutDir, 'Redundant_Pair_Events.csv'), index=False, float_format='%.3f')
         pd.concat(all_monthly).to_csv(os.path.join(OutDir, 'Redundant_Pair_Monthly.csv'), index=False, float_format='%.3f')
         print('\n---- Redundant pair summary ----')
-        print(pair_summary[['Project', 'Parameter', 'Hours Both', 'Bias (CWMS-USGS)', 'MAE',
+        print(pair_summary[['Project', 'Parameter', 'Timestep', 'Steps Both', 'Bias (CWMS-USGS)', 'MAE',
                             'Max Abs Diff', 'Pct Outside Tol', 'Flags']].round(2).to_string(index=False))
     else:
         print('No redundant pairs compared.')

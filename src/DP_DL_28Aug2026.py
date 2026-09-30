@@ -47,6 +47,13 @@ and sets API_USGS_PAT, which dataretrieval sends with every request. Without
 a key the API's anonymous rate limit is easy to hit on a full year of
 instantaneous data for this many gages. Request a key at
 https://api.waterdata.usgs.gov/signup/
+Also downloads the extra records DP_QAQC.py needs to compare USGS and CWMS
+for every project (data/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
+the Green Peter/Foster outflow gages). The first run builds that file by
+searching the CWMS catalog (CWMS_Catalog) and writes every candidate it found
+to ../out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
+and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
+out of the DSS file.
 
 @author: g2encjer
 """
@@ -68,6 +75,9 @@ import requests
 
 import ssl
 import certifi
+
+from willamette_projects import PROJECTS
+from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex
 
 # --- SSL Certificate Setup ---
 # Build a combined CA bundle (public CAs from certifi + the Windows ROOT
@@ -128,6 +138,8 @@ else:
 
 
 RequiredRecordsDictPath = r'../data/RequiredRecordsDictWIL.csv'
+# Extra records downloaded only for QA/QC (built from the CWMS catalog if missing)
+QAQCRecordsPath = r'../data/QAQC_RecordsWIL.csv'
 
 # Start and end date, probably water year
 startDate = '2025-10-01'
@@ -217,6 +229,25 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
             # Print the failed tsid and the error message
             print(f"Failed to download data for {site}: {e}")
     return CWMS_data
+
+def CWMS_Catalog(locations, office='nws'):
+    """Search the CWMS catalog for each location's Elev-Forebay and Flow-Out
+    tsids. Returns {location: [(tsid, latest_time), ...]}."""
+    apiRoot = "https://wm." + office + ".ds.usace.army.mil:8243/nwdp-data/"
+    api = cwms.api.init_session(api_root=apiRoot)
+    catalog = {}
+    for loc in locations:
+        try:
+            # timeseries_group_like=None: don't limit the search to the public
+            # 'DMZ Include List' group (the cwms-python default)
+            cat = cwms.get_timeseries_catalog(office_id='NWDP', like=catalog_regex(loc),
+                                              timeseries_group_like=None, include_extents=True).df
+            catalog[loc] = catalog_entries(cat)
+            print(f"{loc}: {len(catalog[loc])} catalog entries")
+        except Exception as e:
+            print(f"Failed catalog search for {loc}: {e}")
+            catalog[loc] = []
+    return catalog
 
 def full_period_resample(df, t, startDate, endDate):
     """Resample to hourly/daily means and reindex to the whole requested
@@ -416,6 +447,26 @@ CWMS_df = RequiredRecordsDict[RequiredRecordsDict['Source']=='CWMS']
 CWMS_dict = dict(zip(CWMS_df['Download_Key'],CWMS_df['ResSimPath']))
 
 #%%
+# QA/QC-only records. Built once from the CWMS catalog, then read from the csv
+# (edit it to change which tsids/gages are used, or delete it to rebuild).
+if not os.path.exists(QAQCRecordsPath):
+    catalog = CWMS_Catalog(PROJECTS.keys())
+    QAQC_Records, QAQC_Candidates = build_qaqc_records(RequiredRecordsDict, catalog, startDate)
+    QAQC_Records.to_csv(QAQCRecordsPath, index=False)
+    QAQC_Candidates.to_csv(os.path.join(OutDir, 'QAQC_CWMS_Candidates.csv'), index=False)
+    print(f"Wrote {QAQCRecordsPath} - review against {OutDir}/QAQC_CWMS_Candidates.csv")
+QAQC_Records = pd.read_csv(QAQCRecordsPath, dtype={'Download_Key': str})
+for source in ('USGS', 'CWMS'):
+    rows = QAQC_Records[QAQC_Records['Source'] == source]
+    for key, path in zip(rows['Download_Key'], rows['ResSimPath']):
+        if source == 'CWMS':
+            CWMS_dict[key] = path
+        elif 'ELEV' in path:
+            USGS_Elev_dict[key] = path
+        else:
+            USGS_Flow_dict[key] = path
+
+#%%
 # Download the data. All data is downloaded as instant. The processing later makes it hourly
 # or daily. You could also set the service to 'dv' for daily if you don't need hourly.
 
@@ -449,9 +500,11 @@ write_hourly_csv(HourlyCsv, {
 
 #%%
 # Write obsdata. This writes the final dss file your ResSim alternatives will reference.
-# Written to the out folder (OutDir)
-write_to_dss(dss_file = ObsDataWrite, DataDict=USGS_Flow_Data_Dict)
-write_to_dss(dss_file = ObsDataWrite, DataDict=USGS_Elev_Data_Dict)
-write_to_dss(dss_file = ObsDataWrite, DataDict=CWMS_Data_Dict)
+# Written to the out folder (OutDir). QA/QC-only records (paths ending in QAQC/) are skipped.
+def model_records(DataDict):
+    return {k: v for k, v in DataDict.items() if not k.endswith('QAQC/')}
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Flow_Data_Dict))
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Elev_Data_Dict))
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(CWMS_Data_Dict))
 
 # %%
