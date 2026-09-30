@@ -47,9 +47,14 @@ and sets API_USGS_PAT, which dataretrieval sends with every request. Without
 a key the API's anonymous rate limit is easy to hit on a full year of
 instantaneous data for this many gages. Request a key at
 https://api.waterdata.usgs.gov/signup/
+Records already in the hourly csv from an earlier run (same period, index
+covering the whole period, and at least one value) are reused instead of
+downloaded again, so rerunning after a change only downloads what's new or
+missing (ReuseDownloaded). Their summary stats rows are carried over from the
+previous Combined_Summary_Stats.csv.
 Also downloads the extra records DP_QAQC.py needs to compare USGS and CWMS
 for every project (data/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
-the Green Peter/Foster outflow gages). The first run builds that file by
+the Foster outflow gage). The first run builds that file by
 searching the CWMS catalog (CWMS_Catalog) and writes every candidate it found
 to ../out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
 and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
@@ -77,7 +82,7 @@ import ssl
 import certifi
 
 from willamette_projects import PROJECTS
-from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex
+from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex, prune_qaqc_records
 
 # --- SSL Certificate Setup ---
 # Build a combined CA bundle (public CAs from certifi + the Windows ROOT
@@ -150,6 +155,9 @@ os.makedirs(OutDir, exist_ok=True)
 # DSS file with final results
 ObsDataWrite = os.path.join(OutDir, 'obsData')
 HourlyCsv = os.path.join(OutDir, f'Hourly_{startDate}_{endDate}.csv')
+# Records already in HourlyCsv (same period, with values) are reused instead of
+# downloaded again. Set False to re-download everything.
+ReuseDownloaded = True
 
 
 #Functions
@@ -374,6 +382,26 @@ def process_cwms_data(DataDict, startDate, endDate):
     results_df = pd.DataFrame(results)
     return results_df
 
+def load_downloaded(csv_file, startDate, endDate):
+    """Records in an earlier hourly csv that count as already downloaded: the
+    index covers startDate through endDate and there's at least one value.
+    Returns {(Source, Download_Key): hourly Series (UTC, NaN for missing)}."""
+    if not os.path.exists(csv_file):
+        return {}
+    hourly = pd.read_csv(csv_file, dtype={'Download_Key': str},
+                         usecols=['time_utc', 'Source', 'Download_Key', 'value'])
+    hourly['time_utc'] = pd.to_datetime(hourly['time_utc'], utc=True)
+    start = pd.Timestamp(startDate, tz='UTC')
+    end = pd.Timestamp(endDate, tz='UTC') + pd.Timedelta(hours=23)
+    period = pd.date_range(start, end, freq='h')
+    done = {}
+    for (source, key), g in hourly.groupby(['Source', 'Download_Key']):
+        s = g.set_index('time_utc')['value'].astype(float).sort_index()
+        s = s[~s.index.duplicated()]
+        if s.index.min() <= start and s.index.max() >= end and s.notna().any():
+            done[(source, key)] = s.reindex(period)
+    return done
+
 def write_hourly_csv(csv_file, DataDicts):
     """Write every processed record to one long-format csv (-902 -> blank).
     DataDicts: {source: (DataDict, {ResSimPath: Download_Key})}"""
@@ -456,6 +484,11 @@ if not os.path.exists(QAQCRecordsPath):
     QAQC_Candidates.to_csv(os.path.join(OutDir, 'QAQC_CWMS_Candidates.csv'), index=False)
     print(f"Wrote {QAQCRecordsPath} - review against {OutDir}/QAQC_CWMS_Candidates.csv")
 QAQC_Records = pd.read_csv(QAQCRecordsPath, dtype={'Download_Key': str})
+QAQC_Records, QAQC_Dropped = prune_qaqc_records(QAQC_Records)
+if len(QAQC_Dropped):
+    print("Removed QA/QC records no longer used (see willamette_projects.py):")
+    print(QAQC_Dropped[['Download_Key', 'ResSimPath']].to_string(index=False))
+    QAQC_Records.to_csv(QAQCRecordsPath, index=False)
 for source in ('USGS', 'CWMS'):
     rows = QAQC_Records[QAQC_Records['Source'] == source]
     for key, path in zip(rows['Download_Key'], rows['ResSimPath']):
@@ -467,14 +500,22 @@ for source in ('USGS', 'CWMS'):
             USGS_Flow_dict[key] = path
 
 #%%
+# Records already downloaded in an earlier run (in HourlyCsv) are reused, not downloaded again
+Downloaded = load_downloaded(HourlyCsv, startDate, endDate) if ReuseDownloaded else {}
+def still_needed(sites_dict, source):
+    return {k: v for k, v in sites_dict.items() if (source, str(k)) not in Downloaded}
+n_all = len(USGS_Elev_dict) + len(USGS_Flow_dict) + len(CWMS_dict)
+n_need = len(still_needed(USGS_Elev_dict, 'USGS')) + len(still_needed(USGS_Flow_dict, 'USGS')) + len(still_needed(CWMS_dict, 'CWMS'))
+print(f"{n_all - n_need} of {n_all} records already downloaded in {HourlyCsv}; downloading {n_need}")
+
 # Download the data. All data is downloaded as instant. The processing later makes it hourly
 # or daily. You could also set the service to 'dv' for daily if you don't need hourly.
 
-USGS_Elev_Data_Dict = NWIS_dl(sites_dict = USGS_Elev_dict, service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '62614')
+USGS_Elev_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Elev_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '62614')
 
-USGS_Flow_Data_Dict = NWIS_dl(sites_dict = USGS_Flow_dict, service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '00060')
+USGS_Flow_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Flow_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '00060')
 
-CWMS_Data_Dict = CWMS_Download(sites_dict=CWMS_dict, StartDate = startDate, EndDate = endDate)
+CWMS_Data_Dict = CWMS_Download(sites_dict=still_needed(CWMS_dict, 'CWMS'), StartDate = startDate, EndDate = endDate)
 
 #%%
 # Process Data and create summary stats - this process gets rid of all the metadata that comes
@@ -483,9 +524,27 @@ CWMS_Summary_Stats = process_cwms_data(CWMS_Data_Dict, startDate, endDate)
 USGS_Flow_Summary_Stats = process_usgs_data(USGS_Flow_Data_Dict, startDate, endDate)
 USGS_Elev_Summary_Stats = process_usgs_data(USGS_Elev_Data_Dict, startDate, endDate)
 
+# Add the reused records (already hourly) back in, with -902 for missing like the processed ones
+Reused_Paths = []
+for sites_dict, source, DataDict in ((USGS_Elev_dict, 'USGS', USGS_Elev_Data_Dict),
+                                     (USGS_Flow_dict, 'USGS', USGS_Flow_Data_Dict),
+                                     (CWMS_dict, 'CWMS', CWMS_Data_Dict)):
+    for key, path in sites_dict.items():
+        if (source, str(key)) in Downloaded:
+            DataDict[path] = Downloaded[(source, str(key))].fillna(-902)
+            Reused_Paths.append(path)
+
+# Summary stats for reused records come from the previous run's summary
+Previous_Summary_Path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
+Previous_Summary_Stats = pd.DataFrame()
+if Reused_Paths and os.path.exists(Previous_Summary_Path):
+    Previous_Summary_Stats = pd.read_csv(Previous_Summary_Path)
+    Previous_Summary_Stats = Previous_Summary_Stats[Previous_Summary_Stats['DataFrame'].isin(Reused_Paths)]
+
 #%%
-Combined_Summary_Stats = pd.concat([CWMS_Summary_Stats,USGS_Flow_Summary_Stats,USGS_Elev_Summary_Stats], ignore_index= True)
-Combined_Summary_Stats['Max Gap Hours'] = Combined_Summary_Stats['Max Gap Hours'].astype(float).round(2)
+Combined_Summary_Stats = pd.concat([CWMS_Summary_Stats,USGS_Flow_Summary_Stats,USGS_Elev_Summary_Stats,Previous_Summary_Stats], ignore_index= True)
+if 'Max Gap Hours' in Combined_Summary_Stats.columns:
+    Combined_Summary_Stats['Max Gap Hours'] = Combined_Summary_Stats['Max Gap Hours'].astype(float).round(2)
 Combined_Summary_Stats.sort_values(by='Max Gap Hours', ascending=False, inplace=True)
 Combined_Summary_Stats.reset_index(drop=True, inplace=True)
 Combined_Summary_Stats.to_csv(os.path.join(OutDir, 'Combined_Summary_Stats.csv'), index=None)
