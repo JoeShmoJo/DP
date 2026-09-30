@@ -44,6 +44,7 @@ PROJECTS = {
 # Willamette CWMS locations that aren't reservoir projects
 WILLAMETTE_CWMS_OTHER = {
     'EUGO': 'Willamette River at Eugene',
+    'SCO': 'Scoggins Dam (Henry Hagg Lake), Tualatin basin',
     'FRMO': 'Willamette basin flow location (in RequiredRecordsDictNWP.csv; confirm)',
 }
 
@@ -62,6 +63,32 @@ WILLAMETTE_KEYWORDS = [
     'CALAPOOIA', 'MOLALLA', 'PUDDING', 'YAMHILL', 'LUCKIAMUTE', 'MARYS R',
     'TUALATIN', 'CLACKAMAS',
 ] + [kw for p in PROJECTS.values() for kw in p['keywords']]
+
+
+# ResSim alternative tabs (Observed/Timeseries csvs): location names that mark
+# a row as outside the Willamette basin, and extra Willamette names beyond
+# WILLAMETTE_KEYWORDS (gage-point names used in the ResSim network).
+NON_WILLAMETTE_LOCATIONS = [
+    'COLUMBIA', 'COWLITZ', 'MOSSYROCK', 'MAYFIELD', 'MERWIN', 'LEWIS', 'JOHN DAY', 'THE DALLES',
+    'BONNEVILLE', 'UMATILLA', 'KLICKITAT', 'DESCHUTES', 'TONGUE POINT', 'SANDY',
+]
+WILLAMETTE_LOCATIONS = WILLAMETTE_KEYWORDS + [p['name'].upper() for p in PROJECTS.values()] + [
+    'SCOGGINS', 'FERM RIDGE', 'EUGENE', 'JASPER', 'GOSHEN', 'HARRISBURG', 'MONROE', 'ALBANY', 'SALEM',
+    'JEFFERSON', 'MEHAMA', 'WATERLOO', 'VIDA', 'NEWBERG',
+]
+
+
+def location_basin(location, a_part='', b_part=''):
+    """'WIL', 'NON' or None (unknown) for a ResSim alternative-tab row."""
+    name = str(location).upper()
+    if name.startswith('WILLAMETTE'):          # e.g. Willamette+Columbia Slough
+        return 'WIL'
+    text = ' '.join([name, str(a_part).upper(), str(b_part).upper()])
+    if any(k in text for k in NON_WILLAMETTE_LOCATIONS):
+        return 'NON'
+    if any(k in text for k in WILLAMETTE_LOCATIONS):
+        return 'WIL'
+    return None
 
 
 def cwms_location(download_key):
