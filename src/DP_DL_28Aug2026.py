@@ -42,6 +42,11 @@ full requested period so gaps at either end are counted, and the summary stats
 gained 'Hours Expected', 'Hours Missing' and 'Pct Complete'. All hourly data
 is also written to ../out/Hourly_<startDate>_<endDate>.csv (long format:
 time_utc, Source, Download_Key, ResSimPath, value), which DP_QAQC.py reads.
+Reads a USGS Water Data API key from ../data/usgs_api_key.txt (git-ignored)
+and sets API_USGS_PAT, which dataretrieval sends with every request. Without
+a key the API's anonymous rate limit is easy to hit on a full year of
+instantaneous data for this many gages. Request a key at
+https://api.waterdata.usgs.gov/signup/
 
 @author: g2encjer
 """
@@ -102,6 +107,24 @@ else:
 os.environ["REQUESTS_CA_BUNDLE"] = bundle_path
 print(f"[INFO] Using CA bundle: {bundle_path}")
 # --- End SSL Setup ---
+
+# --- USGS API Key ---
+# dataretrieval sends API_USGS_PAT as the X-Api-Key header on Water Data API
+# requests. The key lives in a text file that is git-ignored - never commit it.
+UsgsApiKeyPath = r'../data/usgs_api_key.txt'
+if os.path.exists(UsgsApiKeyPath):
+    with open(UsgsApiKeyPath, encoding='utf-8-sig') as f:
+        usgs_api_key = f.read().strip()
+    if usgs_api_key:
+        os.environ['API_USGS_PAT'] = usgs_api_key
+        print(f"[INFO] USGS API key loaded from {UsgsApiKeyPath}")
+    else:
+        print(f"[WARNING] {UsgsApiKeyPath} is empty; USGS requests will be anonymous and rate limited.")
+elif os.environ.get('API_USGS_PAT'):
+    print("[INFO] Using USGS API key from the API_USGS_PAT environment variable.")
+else:
+    print(f"[WARNING] No USGS API key ({UsgsApiKeyPath} not found); USGS requests will be anonymous and rate limited.")
+# --- End USGS API Key ---
 
 
 RequiredRecordsDictPath = r'../data/RequiredRecordsDictWIL.csv'
