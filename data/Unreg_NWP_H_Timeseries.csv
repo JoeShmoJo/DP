@@ -1,0 +1,208 @@
+﻿Mica_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Duncan_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Corra Linn_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Upper Falls_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Thompson Falls_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+The Dalles_IN FLOW-LOC,Known Flow,shared/Locals-FinalWaterBalance.dss, ,THE DALLES_IN,FLOW-LOC,1HOUR,NWP
+Round Butte_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Rocky Reach_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Rock Island_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Revelstoke_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Priest Lake_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Post Falls_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pelton_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Noxon Rapids_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Nine Mile_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+McNary_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Lower Monumental_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Lower Granite_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Little Goose_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Little Falls_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Libby_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kerr FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+John Day_IN FLOW-LOC,Known Flow,shared/Locals-FinalWaterBalance.dss, ,JOHN DAY_IN,FLOW-LOC,1HOUR,NWP
+Ice Harbor_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Hungry Horse_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Hells Canyon_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Grand Coulee_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Dworshak_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Chelan_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Cabinet Gorge_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Brilliant_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Boundary_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Arrow Lakes_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Albeni Falls_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Chief Joseph_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Long Lake_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Monroe Street_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Wells_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Snake+Grande Ronde FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Bonners Ferry FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia Falls FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Spalding FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Birchbank FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Yakima FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Snake+Salmon FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+Sullivan FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+Priest FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+LakePendOreille_IF FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+Calispel Ck FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kuskunook FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Yaak FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Moyie FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Goat FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+Stillwater FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+SF FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+Mission+Jocko FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Umatilla FLOW-LOC,Known Flow,shared/obsData.dss,"UMATILLA RIVER NEAR UMATILLA, OR",14033500,FLOW,1HOUR,USGS
+Columbia+Okanogan FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Klickitat FLOW-LOC,Known Flow,shared/obsData.dss,"KLICKITAT RIVER NEAR PITT, WA",14113000,FLOW,1HOUR,USGS
+Columbia+Kettle FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Hood+Salmon FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,COLUMBIA+HOOD+SALMON,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Deschutes FLOW-LOC,Known Flow,shared/obsData.dss,"DESCHUTES RIVER AT MOODY, NEAR BIGGS, OR",14103000,FLOW,1HOUR,USGS
+Columbia+Alder CK FLOW-LOC,Known Flow,shared/Locals-Disaggregated.dss, ,COLUMBIA+ALDER CK,FLOW-LOC,1DAY,COMPUTED
+Columbia nr Willow Ck FLOW-LOC,Known Flow,shared/Locals-Disaggregated.dss, ,COLUMBIA NR WILLOW CK,FLOW-LOC,1DAY,COMPUTED
+Clearwater+Potlach FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Thompson FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Lightning Ck FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Flathead FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Chelan FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Fisher FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Methow FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Wenatchee FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Spokane FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead @ Flathead Lake FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille @ Box Canyon FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Snake_RM178.27 FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Wanapum_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Priest Rapids_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Upper Pend Oreille_Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+SF Clearwater_HW FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Seven Mile_IN FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Kalama FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,COLUMBIA+KALAMA,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Washougal FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,COLUMBIA+WASHOUGAL,FLOW-LOC,1HOUR,COMPUTED
+Merwin FLOW-IN,Known Flow,shared/obsData.dss,"LEWIS RIVER AT ARIEL, WA",14220500,FLOW,1HOUR,USGS
+Columbia+Wenatchee FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+Stillwater FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+SF FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Goat FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+Calispel Ck FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Lightning Ck FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Yakima+Naches FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Yakima_Modified FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Keechelus_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kachess_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Cle Elum_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Bumping Lake_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Tieton_IN FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Jackson Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Buffalo_HW Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Moose Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Gros Ventre Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flat Cr Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Hoback Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Greys Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Salt Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Palisades Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Heise Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Lorenzo Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+HenrysFk Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Shelley Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Blackfoot Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+American Falls Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Minidoka Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Milner Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kimberly Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Gooding_HW Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+King Hill Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Murphy Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Anderson Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Arrowrock SF Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Arrowrock MF Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Lucky Peak Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Boise at Divs Dam Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Glenwood Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Parma Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Deadwood Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+SF Payette Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+MF Payette Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Cascade Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Horseshoe Bend Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Payette (nr Payette)  Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Owyhee Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Nyssa Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Weiser Flow_IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Brownlee Local,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Hills Creek - Flow-Res In,Known Flow,shared/obsData.dss, ,HCR,FLOW-IN,1HOUR,CWMS
+Fall Creek - Flow-Res In,Known Flow,shared/obsData.dss, ,FAL,FLOW-IN,1HOUR,CWMS
+Cottage Grove - Flow-Res In,Known Flow,shared/obsData.dss, ,COT,FLOW-IN,1HOUR,CWMS
+Dorena - Flow-Res In,Known Flow,shared/obsData.dss, ,DOR,FLOW-IN,1HOUR,CWMS
+Eugene - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Willamette_at Eugene,FLOW-LOC,1HOUR,NWP
+Jasper - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,MF Willamette_at Jasper,FLOW-LOC,1HOUR,NWP
+Goshen - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,CF Willamette_at Goshen,FLOW-LOC,1HOUR,NWP
+Fern Ridge - Flow-Res In,Known Flow,shared/obsData.dss, ,FRN,FLOW-IN,1HOUR,CWMS
+Harrisburg - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Willamette_at Harrisburg,FLOW-LOC,1HOUR,NWP
+Monroe - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Long Tom_at Monroe,FLOW-LOC,1HOUR,NWP
+Albany - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Willamette_at Albany,FLOW-LOC,1HOUR,NWP
+Luckiamute - Flow-In (Suver),Known Flow,shared/obsData.dss,"LUCKIAMUTE RIVER NEAR SUVER, OR",14190500,FLOW,1HOUR,USGS
+Salem - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Willamette_at Salem,FLOW-LOC,1HOUR,NWP
+Yamhill - Flow-In (McMinnville),Known Flow,shared/obsData.dss,"SOUTH YAMHILL RIVER AT MCMINNVILLE, OR",14194150,FLOW,1HOUR,USGS
+Tualatin Flow-In (at Dilley),Known Flow,shared/Locals-FinalWaterBalance.dss, ,Tualatin_at Dilley,FLOW-LOC,1HOUR,NWP
+Tualatin Flow-In (at Farmington),Known Flow,shared/Locals-FinalWaterBalance.dss, ,Tualatin_at Farmington,FLOW-LOC,1HOUR,NWP
+Tualatin Flow-In (at West Linn),Known Flow,shared/Locals-FinalWaterBalance.dss, ,Tualatin_at West Linn,FLOW-LOC,1HOUR,NWP
+Jefferson - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Santiam_at Jefferson,FLOW-LOC,1HOUR,NWP
+Mehama - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,No Santiam_at Mehama,FLOW-LOC,1HOUR,NWP
+Detroit - Flow-Res In,Known Flow,shared/obsData.dss, ,DET,FLOW-IN,1HOUR,CWMS
+Waterloo - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,So Santiam_at Waterloo,FLOW-LOC,1HOUR,NWP
+Foster - Flow-Loc Inc (Cascadia),Known Flow,shared/Locals-FinalWaterBalance.dss, ,Foster_IN,FLOW-LOC,1HOUR,NWP
+Green Peter - Flow-Res In,Known Flow,shared/obsData.dss, ,GPR,FLOW-IN,1HOUR,CWMS
+Vida - Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Mckenzie_at Vida,FLOW-LOC,1HOUR,NWP
+Blue River - Flow-Res In,Known Flow,shared/obsData.dss, ,BLU,FLOW-IN,1HOUR,CWMS
+Cougar - Flow-Res In,Known Flow,shared/obsData.dss, ,CGR,FLOW-IN,1HOUR,CWMS
+Lookout Point - Flow-Res Loc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Lookout Point_IN,FLOW-LOC,1HOUR,NWP
+Scoggins_IN FLOW-LOC,Known Flow,shared/reservoirInflows.dss, ,SCOGGINS,FLOW-IN,1HOUR,CALCULATED INFLOW
+Newberg Flow-Loc Inc,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Willamette_at Newberg,FLOW-LOC,1HOUR,NWP
+Cowlitz_at Castle Rock FLOW-LOC,Known Flow,shared/Locals-FinalWaterBalance.dss, ,Cowlitz_at Castle Rock,FLOW-LOC,1HOUR,NWP
+Mossyrock_IN FLOW-IN,Known Flow,shared/obsData.dss, ,MOS,FLOW-IN,1HOUR,CWMS
+Molalla - Flow-In (Canby),Known Flow,shared/obsData.dss,"MOLALLA RIVER NEAR CANBY, OR",14200000,FLOW,1HOUR,USGS
+Willamette Falls Flow-Loc Inc,Known Flow,shared/Locals-Transformed.dss, ,WILLAMETTE FALLS,FLOW-LOC,1HOUR,COMPUTED
+Pudding - Flow-In (Aurora),Known Flow,shared/obsData.dss,"PUDDING RIVER AT AURORA, OR",14202000,FLOW,1HOUR,USGS
+Naches+Tieton FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Yakima+Cle Elum FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Mosier Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Mosier Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Little White Salmon FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Little White Salmon,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Wind FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Wind,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Eagle Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Eagle Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia_at Washougal FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia_at Washougal,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Sandy FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Sandy,FLOW-LOC,1HOUR,COMPUTED
+Willamette+Columbia Slough FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Willamette+Columbia Slough,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Salmon Ck+Burnt Bridge Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Salmon Ck+Burnt Bridge Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia_at Multnomah Channel FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia_at Multnomah Channel,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Germany Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Germany Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Beaver Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Beaver Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Clatskanie FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Clatskanie,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Plympton Ck FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Plympton Ck,FLOW-LOC,1HOUR,COMPUTED
+Columbia+Elochoman FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Columbia+Elochoman,FLOW-LOC,1HOUR,COMPUTED
+Yakima_at Umtanum FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Fisher FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Yaak FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kootenai+Moyie FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Flathead+Mission+Jocko FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Flathead FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork+Thompson FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clark Fork_at Plains FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Pend Oreille+Sullivan FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Okanogan FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Columbia+Methow FLOW-IN,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Clackamas_nr Oregon City FLOW-IN,Known Flow,shared/obsData.dss,"CLACKAMAS RIVER NEAR OREGON CITY, OR",14211010,FLOW,1HOUR,USGS
+Willamette_at Portland FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Willamette_at Portland,FLOW-LOC,1HOUR,COMPUTED
+Lewis+EF Lewis FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Lewis+EF Lewis,FLOW-LOC,1HOUR,COMPUTED
+Cowlitz+Coweeman FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Cowlitz+Coweeman,FLOW-LOC,1HOUR,COMPUTED
+Banks Lake Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Boise Fcst,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Dry Bed Irrigation Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+NY Canal Irrigation Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Irrigation Diversion (N & S Canals),Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Div between Glenwood-Parma,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Kittitas Canal Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
+Naches-Selah Canal Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
