@@ -47,9 +47,11 @@ and sets API_USGS_PAT, which dataretrieval sends with every request. Without
 a key the API's anonymous rate limit is easy to hit on a full year of
 instantaneous data for this many gages. Request a key at
 https://api.waterdata.usgs.gov/signup/
+Raw downloads are cached in ../out/cache so reruns only download what's
+missing (UseCache; delete a cache file to re-download that record).
 Also downloads the extra records DP_QAQC.py needs to compare USGS and CWMS
 for every project (data/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
-the Green Peter/Foster outflow gages). The first run builds that file by
+the Foster outflow gage). The first run builds that file by
 searching the CWMS catalog (CWMS_Catalog) and writes every candidate it found
 to ../out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
 and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
@@ -73,11 +75,12 @@ import time
 import pdb
 import requests
 
+import re
 import ssl
 import certifi
 
 from willamette_projects import PROJECTS
-from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex
+from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex, prune_qaqc_records
 
 # --- SSL Certificate Setup ---
 # Build a combined CA bundle (public CAs from certifi + the Windows ROOT
@@ -150,9 +153,22 @@ os.makedirs(OutDir, exist_ok=True)
 # DSS file with final results
 ObsDataWrite = os.path.join(OutDir, 'obsData')
 HourlyCsv = os.path.join(OutDir, f'Hourly_{startDate}_{endDate}.csv')
+# Raw downloads are cached here (one file per record and period) so rerunning
+# the script after a change only downloads records it doesn't already have.
+# Delete a file (or the folder) to force a fresh download of that record.
+UseCache = True
+CacheDir = os.path.join(OutDir, 'cache')
+os.makedirs(CacheDir, exist_ok=True)
+if UseCache and pd.Timestamp(endDate) >= pd.Timestamp.now().normalize():
+    print(f"[WARNING] endDate {endDate} is today or later - cached records stop at the time they were "
+          f"downloaded. Delete {CacheDir} to pick up newer data.")
 
 
 #Functions
+def cache_file(source, key, startDate, endDate):
+    name = re.sub(r'[^A-Za-z0-9._-]', '_', f'{source}_{key}_{startDate}_{endDate}')
+    return os.path.join(CacheDir, name + '.pkl')
+
 def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
     """
     Downloads USGS data via the modernized USGS Water Data API
@@ -170,7 +186,13 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
     start_dt = pd.to_datetime(startDate)
     end_dt = pd.to_datetime(endDate) + pd.Timedelta(hours=23, minutes=59, seconds=59)
     time_range = f"{start_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}/{end_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+    n_cached = 0
     for site, name in sites_dict.items():
+        cf = cache_file('USGS', f'{site}_{parameterCD}_{service}', startDate, endDate)
+        if UseCache and os.path.exists(cf):
+            NWIS[name] = pd.read_pickle(cf)
+            n_cached += 1
+            continue
         # The new API keys sites as "USGS-#######" (agency-siteno) rather than
         # the bare site number used by the old nwis module.
         monitoring_location_id = site if str(site).upper().startswith('USGS-') else f"USGS-{site}"
@@ -199,8 +221,11 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
                 data['time'] = pd.to_datetime(data['time'])
                 data = data.set_index('time').sort_index()
                 NWIS[name] = data
+                if UseCache:
+                    data.to_pickle(cf)
         except Exception as e:
             print(f"Failed to download data for {site}: {e}")
+    print(f"USGS {parameterCD}: {n_cached} of {len(sites_dict)} records loaded from cache")
     return NWIS
 
 def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
@@ -215,8 +240,14 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
 
     # Initialize empty dictionary to store data for each tsid
     CWMS_data = {}
+    n_cached = 0
     # Loop through each tsid
     for site, name in sites_dict.items():
+        cf = cache_file('CWMS', site, StartDate.strftime('%Y-%m-%d'), EndDate.strftime('%Y-%m-%d'))
+        if UseCache and os.path.exists(cf):
+            CWMS_data[name] = pd.read_pickle(cf)
+            n_cached += 1
+            continue
         try:
             # Try to download data and store the dataframe for the tsid
             data = cwms.get_timeseries(site, office_id='NWDP', begin=StartDate, end=EndDate).df
@@ -225,9 +256,12 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
                 print(f"Downloaded data for {site} is empty.")
             else:
                 CWMS_data[name] = data
+                if UseCache:
+                    data.to_pickle(cf)
         except Exception as e:
             # Print the failed tsid and the error message
             print(f"Failed to download data for {site}: {e}")
+    print(f"CWMS: {n_cached} of {len(sites_dict)} records loaded from cache")
     return CWMS_data
 
 def CWMS_Catalog(locations, office='nws'):
@@ -456,6 +490,11 @@ if not os.path.exists(QAQCRecordsPath):
     QAQC_Candidates.to_csv(os.path.join(OutDir, 'QAQC_CWMS_Candidates.csv'), index=False)
     print(f"Wrote {QAQCRecordsPath} - review against {OutDir}/QAQC_CWMS_Candidates.csv")
 QAQC_Records = pd.read_csv(QAQCRecordsPath, dtype={'Download_Key': str})
+QAQC_Records, QAQC_Dropped = prune_qaqc_records(QAQC_Records)
+if len(QAQC_Dropped):
+    print("Removed QA/QC records no longer used (see willamette_projects.py):")
+    print(QAQC_Dropped[['Download_Key', 'ResSimPath']].to_string(index=False))
+    QAQC_Records.to_csv(QAQCRecordsPath, index=False)
 for source in ('USGS', 'CWMS'):
     rows = QAQC_Records[QAQC_Records['Source'] == source]
     for key, path in zip(rows['Download_Key'], rows['ResSimPath']):

@@ -8,7 +8,7 @@ for each Willamette project:
     catalog by DP_DL_28Aug2026.py, or pinned via 'cwms_outflow' in
     willamette_projects.py), except where RequiredRecordsDict already has one
   - USGS forebay/outflow gages in willamette_projects.py that aren't already
-    in RequiredRecordsDict (e.g. Green Peter and Foster outflow gages)
+    in RequiredRecordsDict (e.g. the Foster outflow gage)
 These are downloaded and QA'd but never written to the DSS file. Their
 ResSimPaths end in /CWMS-QAQC/ or /USGS-QAQC/ so they're easy to tell apart.
 
@@ -78,6 +78,23 @@ def rank_tsid(tsid, param, latest=pd.NaT, period_start=None):
     return (stale, raw, vpref, ipref, tsid)
 
 
+def prune_qaqc_records(records):
+    """Drop QA/QC records willamette_projects.py no longer calls for (e.g. a
+    gage removed from the table, or an outflow for a project whose outflow
+    isn't compared). Returns (kept, dropped)."""
+    usgs_sites = {p[k] for p in PROJECTS.values() for k in ('usgs_elev', 'usgs_outflow') if p[k]}
+    keep = []
+    for _, r in records.iterrows():
+        if str(r['Source']).upper() == 'USGS':
+            keep.append(usgs_site(r['Download_Key']) in usgs_sites)
+        else:
+            loc = cwms_location(r['Download_Key'])
+            param = param_class(r['ResSimPath'], r['Download_Key'])
+            keep.append(not (param == 'FLOW' and loc in PROJECTS and not PROJECTS[loc]['usgs_outflow']))
+    keep = pd.Series(keep, index=records.index, dtype=bool)
+    return records[keep], records[~keep]
+
+
 def build_qaqc_records(required, catalog, period_start):
     """
     required : RequiredRecordsDict DataFrame (ResSimPath, Download_Key, Source)
@@ -95,6 +112,9 @@ def build_qaqc_records(required, catalog, period_start):
     for loc, proj in PROJECTS.items():
         entries = catalog.get(loc, [])
         for param in CWMS_PARAMS:
+            # No outflow gage to compare against -> don't download a QA/QC outflow
+            if param == 'FLOW' and not proj['usgs_outflow']:
+                continue
             ranked = []
             for tsid, latest in entries:
                 key = rank_tsid(tsid, param, latest, period_start)
@@ -123,7 +143,7 @@ def build_qaqc_records(required, catalog, period_start):
                 records.append({'ResSimPath': f'//{loc}/{DSS_C_PART[param]}//1HOUR/CWMS-QAQC/',
                                 'Download_Key': chosen, 'Source': 'CWMS'})
 
-        for param, site in (('ELEV', proj['usgs_elev']), ('FLOW', proj['usgs_outflow']), ('FLOW', proj['usgs_rereg'])):
+        for param, site in (('ELEV', proj['usgs_elev']), ('FLOW', proj['usgs_outflow'])):
             if site and site not in req_usgs and not any(r['Download_Key'] == site for r in records):
                 c_part = 'ELEV-FOREBAY' if param == 'ELEV' else 'FLOW'
                 records.append({'ResSimPath': f"/{proj['name'].upper()} QAQC/{site}/{c_part}//1HOUR/USGS-QAQC/",
