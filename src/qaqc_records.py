@@ -5,8 +5,8 @@ Created 30Sep2026
 Builds the list of extra records DP_QAQC.py needs to check USGS against CWMS
 for each Willamette project:
   - CWMS Elev-Forebay and Flow-Out for every project (picked from the CWMS
-    catalog by DP_DL_28Aug2026.py), except where RequiredRecordsDict already
-    has one
+    catalog by DP_DL_28Aug2026.py, or pinned via 'cwms_outflow' in
+    willamette_projects.py), except where RequiredRecordsDict already has one
   - USGS forebay/outflow gages in willamette_projects.py that aren't already
     in RequiredRecordsDict (e.g. Green Peter and Foster outflow gages)
 These are downloaded and QA'd but never written to the DSS file. Their
@@ -27,7 +27,12 @@ DSS_C_PART = {'ELEV': 'ELEV-FOREBAY', 'FLOW': 'FLOW-OUT'}
 
 # When a project has several versions of a record, prefer (in order) these
 # versions and intervals. Anything not listed ranks after the listed ones.
-VERSION_PREF = ['CBT-REV', 'MIXED-REV', 'MIXED-COMPUTED-REV', 'CBT-COMPUTED-REV', 'GDACS-COMPUTED-REV']
+# (Willamette outflow is stored as e.g. DEX.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV,
+# forebay elevation like MAY.Elev-Forebay.Inst.0.0.MIXED-REV.)
+VERSION_PREF = {
+    'ELEV': ['CBT-REV', 'MIXED-REV', 'MIXED-COMPUTED-REV', 'CBT-COMPUTED-REV', 'GDACS-COMPUTED-REV'],
+    'FLOW': ['CBT-REV', 'MIXED-COMPUTED-REV', 'MIXED-REV', 'CBT-COMPUTED-REV', 'GDACS-COMPUTED-REV'],
+}
 INTERVAL_PREF = ['1Hour', '15Minutes', '30Minutes', '10Minutes', '5Minutes', '6Minutes', '0']
 DAILY_OR_LONGER = ('DAY', 'WEEK', 'MONTH', 'YEAR')
 
@@ -68,7 +73,7 @@ def rank_tsid(tsid, param, latest=pd.NaT, period_start=None):
         stale = int(latest < pd.Timestamp(period_start, tz='UTC'))
     v = version.upper()
     raw = 2 if 'RAW' in v else (0 if 'REV' in v else 1)
-    vpref = next((i for i, pref in enumerate(VERSION_PREF) if v == pref), len(VERSION_PREF))
+    vpref = next((i for i, pref in enumerate(VERSION_PREF[param]) if v == pref), len(VERSION_PREF[param]))
     ipref = INTERVAL_PREF.index(interval) if interval in INTERVAL_PREF else len(INTERVAL_PREF)
     return (stale, raw, vpref, ipref, tsid)
 
@@ -98,11 +103,19 @@ def build_qaqc_records(required, catalog, period_start):
             ranked.sort()
             already = (loc, param) in req_cwms
             chosen = None if already or not ranked else ranked[0][1]
+            # A tsid pinned in willamette_projects.py wins over the catalog pick
+            pinned = proj.get('cwms_outflow') if param == 'FLOW' else None
+            if pinned and not already:
+                chosen = pinned
+                if pinned not in [t for _k, t, _l in ranked]:
+                    candidates.append({'Project': loc, 'Parameter': param, 'Rank': 0, 'Download_Key': pinned,
+                                       'Latest Time': pd.NaT, 'Chosen': True,
+                                       'Note': 'pinned in willamette_projects.py'})
             for i, (_key, tsid, latest) in enumerate(ranked):
                 candidates.append({'Project': loc, 'Parameter': param, 'Rank': i + 1, 'Download_Key': tsid,
                                    'Latest Time': latest, 'Chosen': tsid == chosen,
                                    'Note': 'RequiredRecordsDict already has this parameter' if already else ''})
-            if not ranked and not already:
+            if not ranked and not already and not pinned:
                 candidates.append({'Project': loc, 'Parameter': param, 'Rank': None, 'Download_Key': '',
                                    'Latest Time': pd.NaT, 'Chosen': False,
                                    'Note': f'nothing in catalog matching {catalog_regex(loc)}'})

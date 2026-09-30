@@ -18,6 +18,8 @@ CWMS tsid, e.g. 'DET' in 'DET.Elev-Forebay.Inst.1Hour.0.Best').
                   (North Santiam at Niagara below Big Cliff, Middle Fork
                   near Dexter). The re-reg dam smooths hourly releases, so
                   these are compared on DAILY means only.
+  cwms_outflow  : (optional) CWMS Flow-Out tsid to use for QA/QC. When set it
+                  overrides the CWMS catalog search in qaqc_records.py.
   GPR 14186200 (Middle Santiam R blw Green Peter Dam nr Foster) and
   FOS 14187200 (South Santiam R nr Foster) aren't in
   RequiredRecordsDictNWP.csv; they are downloaded for QA/QC only.
@@ -28,7 +30,8 @@ CWMS tsid, e.g. 'DET' in 'DET.Elev-Forebay.Inst.1Hour.0.Best').
 PROJECTS = {
     'HCR': {'name': 'Hills Creek',   'keywords': ['HILLS CREEK', 'HILLS CR'],       'usgs_elev': '14145100', 'usgs_outflow': '14145500', 'usgs_rereg': None},
     'LOP': {'name': 'Lookout Point', 'keywords': ['LOOKOUT POINT', 'LOOKOUT PT'],   'usgs_elev': '14149000', 'usgs_outflow': None, 'usgs_rereg': '14150000'},
-    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': '14150000', 'usgs_rereg': None},
+    'DEX': {'name': 'Dexter',        'keywords': ['DEXTER'],                         'usgs_elev': '14149500', 'usgs_outflow': '14150000', 'usgs_rereg': None,
+            'cwms_outflow': 'DEX.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV'},
     'FAL': {'name': 'Fall Creek',    'keywords': ['FALL CREEK', 'FALL CR'],          'usgs_elev': '14150900', 'usgs_outflow': '14151000', 'usgs_rereg': None},
     'COT': {'name': 'Cottage Grove', 'keywords': ['COTTAGE GROVE LAKE', 'COTTAGE GROVE DAM'], 'usgs_elev': '14153000', 'usgs_outflow': '14153500', 'usgs_rereg': None},
     'DOR': {'name': 'Dorena',        'keywords': ['DORENA'],                         'usgs_elev': '14155000', 'usgs_outflow': '14155500', 'usgs_rereg': None},
@@ -38,7 +41,8 @@ PROJECTS = {
     'GPR': {'name': 'Green Peter',   'keywords': ['GREEN PETER'],                    'usgs_elev': '14186100', 'usgs_outflow': '14186200', 'usgs_rereg': None},
     'FOS': {'name': 'Foster',        'keywords': ['FOSTER'],                         'usgs_elev': '14186600', 'usgs_outflow': '14187200', 'usgs_rereg': None},
     'DET': {'name': 'Detroit',       'keywords': ['DETROIT'],                        'usgs_elev': '14180500', 'usgs_outflow': None, 'usgs_rereg': '14181500'},
-    'BCL': {'name': 'Big Cliff',     'keywords': ['BIG CLIFF'],                      'usgs_elev': '14181400', 'usgs_outflow': '14181500', 'usgs_rereg': None},
+    'BCL': {'name': 'Big Cliff',     'keywords': ['BIG CLIFF'],                      'usgs_elev': '14181400', 'usgs_outflow': '14181500', 'usgs_rereg': None,
+            'cwms_outflow': 'BCL.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV'},
 }
 
 # Willamette CWMS locations that aren't reservoir projects
