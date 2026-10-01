@@ -11,7 +11,7 @@ steps, run in order:
   3. Mini-simulations           MiniSimulations.dss and Results/*.csv
 
 The window stays open between steps. Each step opens a progress window and
-writes a log to shared/DamagesPrevented/logs/. File locations are in DPSettings.py.
+writes a log to scripts/DamagesPrevented/DPdata/logs/. File locations are in DPSettings.py.
 
 Adapted from the AFDR DPMenuGUI (Ryan Cahill): same progress window and
 background task, without the Columbia, RAS, Chart 80 and plotting steps.

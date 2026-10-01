@@ -5,14 +5,14 @@ Created 30Sep2026
 Builds the list of extra records DP_QAQC.py needs to check USGS against CWMS
 for each Willamette project:
   - CWMS Elev-Forebay and Flow-Out for every project (picked from the CWMS
-    catalog by DP_DL_28Aug2026.py, or pinned via 'cwms_outflow' in
+    catalog by DP_Download.py, or pinned via 'cwms_outflow' in
     willamette_projects.py), except where RequiredRecordsDict already has one
   - USGS forebay/outflow gages in willamette_projects.py that aren't already
     in RequiredRecordsDict (e.g. the Foster outflow gage)
 These are downloaded and QA'd but never written to the DSS file. Their
 ResSimPaths end in /CWMS-QAQC/ or /USGS-QAQC/ so they're easy to tell apart.
 
-No network calls here - DP_DL_28Aug2026.py does the catalog query and passes
+No network calls here - DP_Download.py does the catalog query and passes
 the results in.
 
 @author: g2encjer
