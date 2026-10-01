@@ -1,0 +1,39 @@
+﻿Willamette_at Albany,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"WILLAMETTE RIVER AT ALBANY, OR",14174000,FLOW,1HOUR,USGS
+Willamette_at Newberg,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"WILLAMETTE RIVER AT NEWBERG, OR",14197900,FLOW,1HOUR,USGS
+Willamette_at Salem,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"WILLAMETTE RIVER AT SALEM, OR",14191000,FLOW,1HOUR,USGS
+So Santiam_at Waterloo,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"SOUTH SANTIAM RIVER AT WATERLOO, OR",14187500,FLOW,1HOUR,USGS
+No Santiam_at Mehama,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"NORTH SANTIAM RIVER AT MEHAMA, OR",14183000,FLOW,1HOUR,USGS
+Santiam_at Jefferson,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"SANTIAM RIVER AT JEFFERSON, OR",14189000,FLOW,1HOUR,USGS
+Long Tom_at Monroe,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"LONG TOM RIVER AT MONROE, OR",14170000,FLOW,1HOUR,USGS
+Willamette_at Harrisburg,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"WILLAMETTE RIVER AT HARRISBURG, OR",14166000,FLOW,1HOUR,USGS
+McKenzie_at Vida,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"MCKENZIE RIVER NEAR VIDA, OR",14162500,FLOW,1HOUR,USGS
+Willamette_at Eugene,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,EUGO,FLOW,1HOUR,CWMS
+CF WIllamette_nr Goshen,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"COAST FORK WILLAMETTE RIVER NEAR GOSHEN, OR",14157500,FLOW,1HOUR,USGS
+MF Willamette_at Jasper,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"MIDDLE FORK WILLAMETTE RIVER AT JASPER, OR",14152000,FLOW,1HOUR,USGS
+Big Cliff_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"NORTH SANTIAM RIVER AT NIAGARA, OR",14181500,FLOW,1HOUR,USGS
+Detroit_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,DET,FLOW-OUT,1HOUR,CWMS
+Foster_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,FOS,FLOW-OUT,1HOUR,CWMS
+Green Peter_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,GPR,FLOW-OUT,1HOUR,CWMS
+Fern Ridge_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"LONG TOM RIVER NEAR ALVADORE, OR",14169000,FLOW,1HOUR,USGS
+Blue River_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"BLUE RIVER AT BLUE RIVER, OR",14162200,FLOW,1HOUR,USGS
+Cougar_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR",14159500,FLOW,1HOUR,USGS
+Cottage Grove_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR",14153500,FLOW,1HOUR,USGS
+Dorena_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"ROW RIVER NEAR COTTAGE GROVE, OR",14155500,FLOW,1HOUR,USGS
+Fall Creek_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR",14151000,FLOW,1HOUR,USGS
+Dexter_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR",14150000,FLOW,1HOUR,USGS
+Lookout Point_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,LOP,FLOW-OUT,1HOUR,CWMS
+Hills Creek_OUT,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR",14145500,FLOW,1HOUR,USGS
+Foster_IN,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,FOS,FLOW-IN,1HOUR,CWMS
+Lookout Point_IN,Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,LOP,FLOW-IN,1HOUR,CWMS
+Big Cliff-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"BIG CLIFF LAKE NEAR NIAGARA, OR",14181400,ELEV-FOREBAY,1HOUR,USGS
+Detroit-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"DETROIT LAKE NEAR DETROIT, OR",14180500,ELEV-FOREBAY,1HOUR,USGS
+Green Peter-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"GREEN PETER LAKE NEAR FOSTER, OR",14186100,ELEV-FOREBAY,1HOUR,USGS
+Fern Ridge-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"FERN RIDGE LAKE NEAR ELMIRA, OR",14168000,ELEV-FOREBAY,1HOUR,USGS
+Blue River-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"BLUE RIVER LAKE NEAR BLUE RIVER, OR",14162100,ELEV-FOREBAY,1HOUR,USGS
+Cougar-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"COUGAR LAKE NEAR RAINBOW, OR",14159400,ELEV-FOREBAY,1HOUR,USGS
+Cottage Grove-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"COTTAGE GROVE LAKE NR COTTAGE GROVE, OR",14153000,ELEV-FOREBAY,1HOUR,USGS
+Dorena-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"DORENA LAKE NEAR COTTAGE GROVE, OR",14155000,ELEV-FOREBAY,1HOUR,USGS
+Fall Creek-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"FALL CREEK LAKE NEAR LOWELL, OR",14150900,ELEV-FOREBAY,1HOUR,USGS
+Dexter-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"DEXTER LAKE AT DEXTER, OR",14149500,ELEV-FOREBAY,1HOUR,USGS
+Lookout Point-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"LOOKOUT POINT LAKE NEAR LOWELL, OR",14149000,ELEV-FOREBAY,1HOUR,USGS
+Hills Creek-Pool,Elevation,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"HILLS CREEK LAKE NEAR OAKRIDGE, OR",14145100,ELEV-FOREBAY,1HOUR,USGS

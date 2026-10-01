@@ -18,8 +18,8 @@ this file is only what to do.
 - [ ] **Optional - reuse your last download:** copy your existing
       `Hourly_2025-10-01_2026-09-30.csv` into `scripts/DamagesPrevented/DP_Download/out/`.
       Then the next download only fetches what's missing (the two Scoggins records).
-- [ ] **Zero-flow record:** leave `shared/DamagesPrevented/Zero Flow record.dss` where it is,
-      or move it to `scripts/DamagesPrevented/DPdata/` and repoint its 16 rows (section C).
+- [ ] **Zero-flow record:** copy `shared/DamagesPrevented/Zero Flow record.dss` to
+      `scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss` (underscores; the repointed tables use that name).
 
 ## B. Download the observed data (desktop Python, not ResSim)
 
@@ -68,6 +68,11 @@ locals. Missing hours are stored as -902. From the last download's
 
 Change only the **DSS file** column; leave the A-F parts as they are. Save each alternative.
 
+Ready-made tables: `DP_REPO/data/NewResSimPaths/*_DP.csv` (Obs Observed tab, Obs Timeseries
+tab, Unreg Timeseries tab). Open in Excel, copy all rows, paste over the table. For a new
+export, run `DP_Download/RepointAlternativeTables.py <export.csv>`. The rows listed below
+are what those tables change.
+
 **Observed alternative, Observed Data tab - 39 rows**
 `shared/DamagesPrevented/obsData.dss` -> `scripts/DamagesPrevented/DP_Download/out/obsData.dss`
 
@@ -115,10 +120,11 @@ Dexter, Lookout Point, Hills Creek).
 
 ## E. Configure Damages Prevented
 
-- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. The
-      last six (Willamette_abv Falls at Oregon City, Willamette+Clackamas, Willamette+Marys,
-      McKenzie R. NR Walterville, MF Willamette_blw NFork nr Oakridge, McKenzie_nr Coburg)
-      are from the old model; rename to the new junction names or delete them.
+- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. All 22
+      are checked against the new network's node list (`DP_REPO/data/node _list`). Three old
+      names were changed: McKenzie R. NR Walterville -> `Mkenzie_nr Walterville`,
+      MF Willamette_blw NFork nr Oakridge -> `MF Willamette NR Oakridge`, and
+      Willamette+Clackamas dropped (the network ends at Willamette Falls).
 - [ ] `config/Reservoirs.txt`: the 13 projects, spelled as in the network.
 - [ ] `DPSettings.py`: only if you want different file locations. `REREG` pairs Big Cliff
       with Detroit and Dexter with Lookout Point.
