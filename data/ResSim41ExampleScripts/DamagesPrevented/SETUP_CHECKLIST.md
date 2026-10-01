@@ -63,6 +63,9 @@ locals. Missing hours are stored as -902. From the last download's
       both on a 1-hour time step.
 - [ ] Lookback start and end inside the downloaded period (and before any gap at the end).
 - [ ] Unregulated alternative: every reservoir passes inflow.
+- [ ] Diversions inactive in both alternatives (no diverted flow). Damages Prevented ignores
+      them (`INCLUDE_DIVERSIONS = False` in `DPSettings.py`), so an active diversion would make
+      the ResSim computes differ from the water-balance locals and the mini-simulations.
 
 ### D2. Repoint DSS files (alternative editors)
 

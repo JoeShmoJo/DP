@@ -38,6 +38,7 @@ import os, csv, logging
 
 from NWDJyLib import cRouting, cFile
 from NWDJyLib.ResSim import cResSim, ResSimController
+from DamagesPrevented import DPSettings
 
 ################################################################################
 # CLASS DEFINITIONS
@@ -291,8 +292,11 @@ def runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outpu
                          useObsData = False, isStrict = True, displayMessages = True)
                         tsBank.depositTS(simDssFile, tsName, locFlowTSM)
                     flowTSM = flowTSM.add(locFlowTSM)
-                #Diversions come out (should be 0 in unregulated if that's expected)
-                divElems = cResSim.getConnectedDiversions(elem)
+                #Diversions come out (should be 0 in unregulated if that's expected).
+                #Ignored unless DPSettings.INCLUDE_DIVERSIONS.
+                divElems = None
+                if DPSettings.INCLUDE_DIVERSIONS:
+                    divElems = cResSim.getConnectedDiversions(elem)
                 if divElems:
                     for divElem in divElems:
                         divNode = divElem.getUpstreamNode() #diverted flow is in the upstream node

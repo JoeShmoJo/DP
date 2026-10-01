@@ -255,6 +255,31 @@ check(len(rs) == 13 and "Big Cliff" in rs and "Dexter" in rs, "Reservoirs.txt: 1
 check(DPSettings.REREG == {"Detroit": "Big Cliff", "Lookout Point": "Dexter"}, "re-reg pairs")
 
 ################################################################################
+print "\n== Diversions whose rule can't be read (no rule on the controller, as in the new watershed)"
+class _NoRuleCtrl(object):
+    def getRuleVector(self): return []
+class _NoRuleDiv(F.DiversionElement):
+    def getController(self): return _NoRuleCtrl()
+    def getUpstreamNode(self): return "Div1 node"
+div = _NoRuleDiv("Div1")
+txtD = Txt()
+check(cWaterBalance._diversionTSM(div, None, None, "1HOUR", None, None, txtD) is None,
+      "no rule and no previous compute: not deducted (None), no crash")
+_origGet = cWaterBalance.cResSim.getTSMFromSimulationDSS
+_origTr = cWaterBalance.cTsUtils.transformTSM
+cWaterBalance.cResSim.getTSMFromSimulationDSS = lambda *a, **k: "computed div flow"
+cWaterBalance.cTsUtils.transformTSM = lambda tsm, tsInt: (tsm, tsInt)
+got = cWaterBalance._diversionTSM(div, None, None, "1HOUR", None, None, txtD)
+cWaterBalance.cResSim.getTSMFromSimulationDSS = _origGet
+cWaterBalance.cTsUtils.transformTSM = _origTr
+check(got == ("computed div flow", "1HOUR"), "no rule but a previous compute: uses the computed diversion flow")
+
+#Diversions are ignored by default: fail loudly if either step even looks for one
+check(DPSettings.INCLUDE_DIVERSIONS == False, "diversions ignored by default")
+def _noDiversionLookups(*a):
+    raise AssertionError("getConnectedDiversions called with INCLUDE_DIVERSIONS = False")
+cWaterBalance.cResSim.getConnectedDiversions = _noDiversionLookups
+
 print "\n== Step 2 before step 1: the missing transformed local stops the compute with a pointer to step 1"
 txt = Txt()
 res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, True, Bar(), txt)

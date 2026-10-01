@@ -95,6 +95,9 @@ Reduction credited to R at a control point = average of
 (unregulated peak - WITH ONLY R peak) and (WITHOUT R peak - observed peak),
 peaks rounded to the nearest 100 cfs.
 
+Diversions are ignored (`INCLUDE_DIVERSIONS = False`); keep them inactive in
+both alternatives.
+
 Supported reach routing: SSARR, Muskingum, Modified Puls, Null. Both steps
 that route check every reach first and name any they can't reproduce.
 
