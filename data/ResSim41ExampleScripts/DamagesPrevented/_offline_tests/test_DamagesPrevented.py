@@ -129,7 +129,7 @@ def build():
         net.reservoirs[name] = res
         return res
     J = {}
-    for n in ("Res1_IN", "Res1_OUT", "Res2_IN", "Res2_OUT", "Rereg2_IN", "Rereg2_OUT", "Conf", "Mouth"):
+    for n in ("Res1_IN", "Res1_OUT", "Res2_IN", "Res2_OUT", "Rereg2_IN", "Rereg2_OUT", "Trib0", "Conf", "Mouth"):
         J[n] = junction(n)
     loc = {}
     loc["Res1"] = local(J["Res1_IN"], "Res1 Inflow")
@@ -137,6 +137,7 @@ def build():
     loc["Conf"] = local(J["Conf"], "Conf Local")
     loc["ConfTrib"] = local(J["Conf"], "Conf Trib")
     loc["ConfZero"] = local(J["Conf"], "Conf Zero")
+    loc["Trib0"] = local(J["Trib0"], "Trib0 Zero")   #headwater whose only local is the zero record (like Trail Bridge)
     loc["Mouth"] = local(J["Mouth"], "Mouth Local")
     R = {}
     R["Res1"] = reservoir("Res1", J["Res1_IN"], J["Res1_OUT"])
@@ -145,9 +146,10 @@ def build():
     reach("R1", J["Res1_OUT"], J["Conf"])
     reach("R2", J["Res2_OUT"], J["Rereg2_IN"])
     reach("R3", J["Rereg2_OUT"], J["Conf"])
+    reach("R5", J["Trib0"], J["Conf"])
     reach("R4", J["Conf"], J["Mouth"])
     J["Mouth"].dsNode.down = None   #end of the network
-    net.headwaters = [J["Res1_IN"], J["Res2_IN"]]
+    net.headwaters = [J["Res1_IN"], J["Res2_IN"], J["Trib0"]]
     return net, J, R, loc
 
 NET, J, R, LOC = build()
@@ -176,6 +178,7 @@ inputSet.put(F.TSRecord("~Conf Local:known", VK, CALC_REL, CONF_LOCAL_PATH))
 inputSet.put(F.TSRecord("~Conf Trib:known", VK, OBS_REL, "//CONF TRIB/FLOW//1HOUR/USGS/"))
 #mapped to the zero record, which (like the real one) doesn't cover the window - here it doesn't exist at all
 inputSet.put(F.TSRecord("~Conf Zero:known", VK, DPSettings.ZERO_FLOW_DSS, "/ZERO/ZERO/FLOW//1DAY/DUMMY/"))
+inputSet.put(F.TSRecord("~Trib0 Zero:known", VK, DPSettings.ZERO_FLOW_DSS, "/ZERO/ZERO/FLOW//1DAY/DUMMY/"))
 inputSet.put(F.TSRecord("~Mouth Local:known", VK, CALC_REL, WF_PATH))
 
 F.putRecord(OBSDATA, "/G/RES1 OUT GAGE/FLOW//1HOUR/USGS/", Q1, TIMES)
@@ -208,7 +211,8 @@ obsOut = outputSet("OBS", [
     ("~Conf:flow", VF, CONF_OBS), ("~Mouth:flow", VF, MOUTH_OBS),
     ("~R1:flow", VF, Q1), ("~R3:flow", VF, QR),
     ("~Res1 Inflow:flow", VF, I1), ("~Res2 Inflow:flow", VF, I2),
-    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
+    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Trib0 Zero:flow", VF, [0.]*8),
+    ("~Trib0:flow", VF, [0.]*8), ("~R5:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
 UNREG_CONF = plus(I1, I2, L)
 unregOut = outputSet("UNREG", [
     ("~Res1:in", VIN, I1), ("~Res1:out", VOUT, I1),
@@ -218,7 +222,8 @@ unregOut = outputSet("UNREG", [
     ("~Conf:flow", VF, UNREG_CONF), ("~Mouth:flow", VF, plus(UNREG_CONF, M)),
     ("~R1:flow", VF, I1), ("~R3:flow", VF, I2),
     ("~Res1 Inflow:flow", VF, I1), ("~Res2 Inflow:flow", VF, I2),
-    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
+    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Trib0 Zero:flow", VF, [0.]*8),
+    ("~Trib0:flow", VF, [0.]*8), ("~R5:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
 #the observed data ResSim copies into simulation.dss
 for path, values in (("/G/RES1 OUT GAGE/FLOW//1HOUR/USGS/", Q1), ("/G/CONF GAGE/FLOW//1HOUR/USGS/", CONF_OBS),
                      ("/G/REREG2 OUT GAGE/FLOW//1HOUR/USGS/", QR)):
