@@ -192,6 +192,14 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
         txtArea.printToGUI("All input time series look good!")
 
     simDss = DSS.open(simDssFile, lookbackTime, endTime)
+    #A zero series on the alternative time step over the window, for junctions
+    #where nothing flows in (e.g. a headwater whose only local is the zero record)
+    zeroTSM = None
+    for recs in tsBank.tsmDict.values():
+        for tsm in recs.values():
+            zeroTSM = tsm.multiply(0)
+            break
+        if zeroTSM is not None: break
     rssRunObj = ResSimController.getRssRun(run.getKey()) #for diversion flows from the last compute
     divsNotDeducted = [] #diversions with no flow from their rule or a previous compute
     tribFlows = {} #keys are Elements (e.g. reaches), values are TimeSeriesMath
@@ -341,6 +349,10 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
             if obsTSM:
                 logging.info("\tObserved flow exists at %s: resetting flow" %elemName)
                 regTSM = obsTSM.copy()
+            if regTSM is None:
+                #nothing flows in here (e.g. a headwater with only zero-record locals)
+                logging.info("\tNo flow into %s: carrying zero flow" %elemName)
+                regTSM = zeroTSM.copy()
         elif isinstance(element, ReachElement):
             routeReach = cRouting.buildReach(element.getFunction())
             logging.info("Reach : %s" %elemName)
