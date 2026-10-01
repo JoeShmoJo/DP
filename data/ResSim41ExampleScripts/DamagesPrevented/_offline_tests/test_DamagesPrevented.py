@@ -33,6 +33,9 @@ import fake_hec as F
 
 WS = tempfile.mkdtemp(prefix="dp_ws_")
 F.install(WS)
+#ResSim 4.1's ClientApp.Workspace() is the AppData workspace, not the watershed.
+#Point the fake one somewhere else so nothing can rely on it.
+F._ClientApp.ws = F.Workspace(os.path.join(WS, "NOT_THE_WATERSHED_AppData"))
 
 from DamagesPrevented import DPSettings, cTransform, cWaterBalance, cMiniSims
 
@@ -223,6 +226,10 @@ F.Module.sim = sim
 F.Module.rssRuns = {"Obs_NWP_H-----0": F.RssRun(NET, altObsRun, obsOut),
                     "Unreg_NWP_H---0": F.RssRun(NET, altUnreg, unregOut)}
 
+print "\n== File locations resolve against the watershed, not ClientApp.Workspace()"
+check(DPSettings.absPath(DPSettings.DPCALC_DSS) == os.path.abspath(os.path.join(WS, DPSettings.DPCALC_DSS)),
+      "DPSettings.absPath uses the network's watershed folder")
+
 def writeText(fileName, text):
     handle = open(fileName, "w")
     handle.write(text)
@@ -240,7 +247,9 @@ rows = cTransform.parseTransformCSV(os.path.join(cfg, "TransformedLocals.csv"))
 check(len(rows) == 1 and rows[0]["bPart"] == "WILLAMETTE FALLS" and rows[0]["station"] == "14202000"
       and rows[0]["areaRatio"] == 1.5 and rows[0]["aMove1"] is None, "TransformedLocals.csv: Willamette Falls = 1.5 x 14202000")
 cps = cMiniSims.readNameList(os.path.join(cfg, "ControlPoints.txt"))
-check(len(cps) == 23 and "CF WIllamette_nr Goshen" in cps and "Willamette+Marys" in cps, "ControlPoints.txt: 23 names, comments stripped")
+check(len(cps) == 22 and "CF WIllamette_nr Goshen" in cps and "Mkenzie_nr Walterville" in cps
+      and "MF Willamette NR Oakridge" in cps and "Willamette+Clackamas" not in cps,
+      "ControlPoints.txt: 22 names, inline comments stripped")
 rs = cMiniSims.readNameList(os.path.join(cfg, "Reservoirs.txt"))
 check(len(rs) == 13 and "Big Cliff" in rs and "Dexter" in rs, "Reservoirs.txt: 13 reservoirs")
 check(DPSettings.REREG == {"Detroit": "Big Cliff", "Lookout Point": "Dexter"}, "re-reg pairs")

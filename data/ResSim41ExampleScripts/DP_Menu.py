@@ -11,57 +11,40 @@
 # scripts/DamagesPrevented and write CSV files instead of .xls.
 ###############################################################################
 
-#ClientAppWrapper moved to hec.rss.script in ResSim 4.1. 4.1 still accepts the old
-#path but warns that support will be removed. Import both ways so this
-#file runs under 4.1 and 3.5 alike.
-try:
-    from hec.rss.script import ClientAppWrapper        #ResSim 4.1
-except ImportError:
-    from hec.script import ClientAppWrapper            #ResSim 3.5
 import os, sys
 print "\nStarting Damages Prevented menu..."
 
-#ClientApp moved from hec.client to hec.clientapp.client in ResSim 4.1
+#ResSim moved from hec.script to hec.rss.script in ResSim 4.1
 try:
-    from hec.clientapp.client import ClientApp       #ResSim 4.1
+    from hec.rss.script import ResSim                  #ResSim 4.1
 except ImportError:
-    from hec.client import ClientApp                 #ResSim 3.5
+    from hec.script import ResSim                      #ResSim 3.5
 
 # The scripts folder must be on sys.path for "NWDJyLib" and "DamagesPrevented" to
-# import. Try every way of finding it and use the first that holds both packages.
-def _candidateScriptDirs():
-    dirs = []
-    try:
-        dirs.append(ClientApp.Workspace().makeAbsolutePath("scripts"))
-    except:
-        pass
-    try:
-        dirs.append(os.path.join(ClientAppWrapper.getWatershed().getWkspDir(), "scripts"))
-    except:
-        pass
-    try:
-        dirs.append(os.path.dirname(os.path.abspath(__file__)))
-    except:
-        pass
-    return dirs
+# import. ResSim 4.1 runs this file from a copy in the user's AppData workspace
+# (...AppData/Roaming/HEC/HEC-ResSim/4.1/CWMS/<watershed>/scripts/Modules/...),
+# and getWkspDir() points there too. The open simulation's network knows the real
+# watershed folder, the same way the scripted rules find it.
+def _watershedScriptsDir():
+    module = ResSim.getCurrentModule()
+    if module.getName() != "Simulation":
+        raise AssertionError("Damages Prevented runs from the Simulation module. ResSim is in the %s module." %module.getName())
+    simulation = module.getSimulation()
+    if not simulation:
+        raise AssertionError("Open the simulation holding the Observed and Unregulated alternatives, then run Damages Prevented again.")
+    for run in simulation.getSimulationRuns():
+        return str(run.getRssSystem().makeAbsolutePathFromWatershed("scripts"))
+    raise AssertionError("The open simulation has no alternatives.")
 
-def _hasPackages(d):
-    return os.path.isfile(os.path.join(d, "NWDJyLib", "__init__.py")) and \
-           os.path.isfile(os.path.join(d, "DamagesPrevented", "__init__.py"))
+def _hasPackage(d, pkg):
+    return os.path.isfile(os.path.join(d, pkg, "__init__.py"))
 
-modulePath = None
-triedDirs = _candidateScriptDirs()
-for d in triedDirs:
-    if _hasPackages(str(d)):
-        modulePath = str(d)
-        break
-if modulePath is None:
-    msg = "Could not find the scripts folder holding NWDJyLib and DamagesPrevented.\nLooked in:"
-    for d in triedDirs:
-        msg += "\n   %s   (NWDJyLib/__init__.py: %s, DamagesPrevented/__init__.py: %s)" %(d,
-               os.path.isfile(os.path.join(str(d), "NWDJyLib", "__init__.py")),
-               os.path.isfile(os.path.join(str(d), "DamagesPrevented", "__init__.py")))
-    msg += "\nBoth folders must be directly inside <watershed>/scripts, each with an __init__.py."
+modulePath = _watershedScriptsDir()
+if not (_hasPackage(modulePath, "NWDJyLib") and _hasPackage(modulePath, "DamagesPrevented")):
+    msg = "The watershed scripts folder is\n   %s\n" %modulePath
+    msg += "   NWDJyLib/__init__.py found: %s\n" %_hasPackage(modulePath, "NWDJyLib")
+    msg += "   DamagesPrevented/__init__.py found: %s\n" %_hasPackage(modulePath, "DamagesPrevented")
+    msg += "Both folders must be directly inside that scripts folder, each with an __init__.py."
     raise AssertionError(msg)
 print "Scripts folder: %s" %modulePath
 if not modulePath in sys.path:
