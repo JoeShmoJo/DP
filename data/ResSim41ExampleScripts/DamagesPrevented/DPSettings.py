@@ -21,6 +21,7 @@ DP_DIR = "scripts/DamagesPrevented"
 OBSDATA_DSS = DP_DIR + "/DP_Download/out/obsData.dss"    #downloaded USGS/CWMS data (DP_Download.py)
 DATA_DIR = DP_DIR + "/DPdata"                            #everything the ResSim steps write
 DPCALC_DSS = DATA_DIR + "/DPcalc.dss"                    #computed locals the Obs/Unreg alternatives read
+ZERO_FLOW_DSS = DATA_DIR + "/Zero_Flow_record.dss"       #dummy zero record; locals mapped here count as 0 in step 2
 MINISIM_DSS = DATA_DIR + "/MiniSimulations.dss"          #mini-simulation output time series
 RESULTS_DIR = DATA_DIR + "/Results"                      #mini-simulation CSV tables
 LOG_DIR = DATA_DIR + "/logs"                             #one log file per step
