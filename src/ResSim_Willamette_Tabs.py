@@ -6,16 +6,11 @@ Makes Willamette-only copies of the ResSim alternative tabs exported to
 ../data (the *_Observed.csv and *_Timeseries.csv files) and checks that
 obsData.dss has every record the Willamette rows point to.
 
-Each row is: location, parameter, DSS file, A, B, C, E, F. For a row outside
-the Willamette basin (see location_basin in willamette_projects.py):
-  - Timeseries tabs: flow rows (Known Flow, Input Time Series, Lookback
-    Release) point to the dummy zero record already used in these tabs
-    (shared/Locals-Dummy.dss, B=0 CFS, FLOW, 1DAY). There is no zero-elevation
-    dummy, so Lookback Elevation rows are blanked (ResSim then uses the
-    alternative's initial conditions).
-  - Observed tabs: the path is blanked, which is how these tabs already mark
-    'no observed data' (a zero observed record would show up as a bogus
-    observed line in the comparisons).
+Each row is: location, parameter, DSS file, A, B, C, E, F. Every row outside
+the Willamette basin (see location_basin in willamette_projects.py) that has a
+record path - from obsData.dss or any other DSS file, on any tab - is pointed
+at the dummy zero record already used in these tabs (shared/Locals-Dummy.dss,
+B=0 CFS, FLOW, 1DAY). Rows with no path are left blank.
 Willamette rows are kept. Those pointing at obsData.dss are checked against
 the records in obsData.dss; a path that isn't there is renamed to the
 obsData.dss record with the same B and C parts if there's exactly one, and
@@ -38,8 +33,6 @@ DataDir = r'../data'
 ObsDss = r'../out/obsData.dss'
 ObsDssInTabs = 'shared/obsData.dss'
 DummyRecord = ['shared/Locals-Dummy.dss', ' ', '0 CFS', 'FLOW', '1DAY', ' ']
-BlankRecord = [' '] * 6
-ELEVATION_PARAMS = {'Elevation', 'Lookback Elevation'}
 
 
 def dss_records(dss_file):
@@ -75,7 +68,6 @@ def path_parts(path):
 def willamette_copy(in_file, obs_records):
     with open(in_file, encoding='utf-8-sig', newline='') as f:
         rows = list(csv.reader(f))
-    is_observed = in_file.lower().endswith('_observed.csv')
     report = []
     for row in rows:
         row += [' '] * (8 - len(row))
@@ -84,13 +76,8 @@ def willamette_copy(in_file, obs_records):
             continue
         basin = location_basin(loc, row[3], row[4])
         if basin == 'NON':
-            if is_observed or param in ELEVATION_PARAMS:
-                row[2:8] = BlankRecord
-                action = 'blanked'
-            else:
-                row[2:8] = DummyRecord
-                action = 'dummy zero record'
-            report.append((loc, param, action, ''))
+            report.append((loc, param, 'dummy zero record', f'(was {dss} {row_path(row)})'))
+            row[2:8] = DummyRecord
         elif basin is None:
             report.append((loc, param, 'UNKNOWN BASIN - left as is', row_path(row)))
         elif dss == ObsDssInTabs:
@@ -119,7 +106,7 @@ if __name__ == '__main__':
     for tab in tabs:
         out_file, report = willamette_copy(tab, obs_records)
         print(f'\n{os.path.basename(tab)} -> {os.path.basename(out_file)}')
-        for action in ('dummy zero record', 'blanked', 'renamed to obsData.dss record',
+        for action in ('dummy zero record', 'renamed to obsData.dss record',
                        'MISSING from obsData.dss', 'UNKNOWN BASIN - left as is'):
             hits = [r for r in report if r[2] == action]
             if hits:

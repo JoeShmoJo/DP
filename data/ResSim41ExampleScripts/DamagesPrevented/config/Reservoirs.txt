@@ -1,0 +1,17 @@
+#Reservoirs to run with/without mini-simulations for. Read by DamagesPrevented/cMiniSims.py.
+#One ResSim reservoir name per line. Anything after a # is ignored.
+#Re-regulating reservoirs (Big Cliff, Dexter) are listed so their names are checked,
+#but they are run together with Detroit and Lookout Point (REREG in DPSettings.py).
+Hills Creek
+Lookout Point
+Dexter
+Fall Creek
+Dorena
+Cottage Grove
+Cougar
+Blue River
+Fern Ridge
+Green Peter
+Foster
+Detroit
+Big Cliff
