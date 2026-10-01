@@ -31,6 +31,7 @@ import logging
 from NWDJyLib import cRouting
 from NWDJyLib.ResSim import cResSim, ResSimController
 from NWDJyLib.DSS import cDSS, cTsUtils
+from DamagesPrevented import DPSettings
 
 ################################################################################
 
@@ -211,7 +212,9 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
                         return None
         if isinstance(element, JunctionElement):
             logging.info("Junction: %s" %elemName)
-            divElems = cResSim.getConnectedDiversions(element)
+            divElems = None
+            if DPSettings.INCLUDE_DIVERSIONS:
+                divElems = cResSim.getConnectedDiversions(element)
             if divElems: #deduct any diversion
                 for divElem in divElems:
                     logging.info("\tDiversion found: %s" %divElem)
@@ -333,7 +336,7 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
         msg = "\nWARNING: %d diversion(s) were not deducted (taken as 0):" %len(divsNotDeducted)
         for d in divsNotDeducted:
             msg += "\n   %s" %d
-        msg += "\nTheir rules (e.g. scripted rules) can't be evaluated outside a compute, and"
+        msg += "\nTheir rules (e.g. scripted rules) can't be read outside a compute, and"
         msg += "\nalternative %s has no computed diversion flow for them yet." %altName
         msg += "\nThe locals above therefore include those withdrawals. To account for them:"
         msg += "\ncompute %s, run this step again (it then uses the computed diversion" %altName
@@ -350,16 +353,16 @@ def _diversionTSM(divElem, rtw, inputTSDataSet, tsInt, simDss, rssRunObj, txtAre
     Flow taken by a diversion over the simulation window, or None.
 
     First from the diversion's own rule (constant, seasonal, monthly or time
-    series, via cResSim.getDiversionTSC). Diversions with no rule on their
-    controller, or a rule that can't be evaluated outside a compute (scripted,
-    flexible), fall back to the diversion flow from the alternative's last
+    series, via cResSim.getDiversionTSC). Diversions whose rule it can't read
+    (scripted or flexible rules, or a rule not on the element's controller, which
+    raises IndexError there), fall back to the diversion flow from the alternative's last
     compute in simulation.dss, as the mini-simulations read it. None if neither
     has it.
     """
     try:
         divTSC = cResSim.getDiversionTSC(divElem, rtw, inputTSDataSet)
     except:
-        divTSC = None #e.g. no rule on the controller (IndexError)
+        divTSC = None #e.g. IndexError: no rule on the element's controller
     if divTSC is not None:
         return cTsUtils.transformTSM(TimeSeriesMath(divTSC), tsInt)
     try:

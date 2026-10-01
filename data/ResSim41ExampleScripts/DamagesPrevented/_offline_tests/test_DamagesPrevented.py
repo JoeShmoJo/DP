@@ -274,6 +274,12 @@ cWaterBalance.cResSim.getTSMFromSimulationDSS = _origGet
 cWaterBalance.cTsUtils.transformTSM = _origTr
 check(got == ("computed div flow", "1HOUR"), "no rule but a previous compute: uses the computed diversion flow")
 
+#Diversions are ignored by default: fail loudly if either step even looks for one
+check(DPSettings.INCLUDE_DIVERSIONS == False, "diversions ignored by default")
+def _noDiversionLookups(*a):
+    raise AssertionError("getConnectedDiversions called with INCLUDE_DIVERSIONS = False")
+cWaterBalance.cResSim.getConnectedDiversions = _noDiversionLookups
+
 print "\n== Step 2 before step 1: the missing transformed local stops the compute with a pointer to step 1"
 txt = Txt()
 res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, True, Bar(), txt)

@@ -34,6 +34,14 @@ RESERVOIRS_TXT = CONFIG_DIR + "/Reservoirs.txt"          #reservoirs to run with
 #one project in the mini-simulations, credited to the upstream reservoir.
 REREG = {"Detroit": "Big Cliff", "Lookout Point": "Dexter"}
 
+#Include diversions? False (normal): Damages Prevented ignores every diversion -
+#the water-balance locals don't deduct them and the mini-simulations don't take
+#them out. Keep the diversions inactive in the Observed and Unregulated
+#alternatives so the ResSim computes match. True deducts each diversion's flow
+#(from its rule if constant/seasonal/monthly/time series, else from the last
+#compute); scripted diversions then need compute -> step 2 -> compute.
+INCLUDE_DIVERSIONS = False
+
 #Allow negative water-balance locals? Normally yes, so the Observed
 #alternative reproduces the observed flows.
 NEGATIVE_LOCALS_ALLOWED = True
