@@ -1,0 +1,45 @@
+﻿TRSO_Thomas Creek nr Scio,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Coburg_HMSsub_McKenzieRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+HMSsub_NFMFWillametteRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+HMSsub_MFWillametteRv_S40,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+ALBO_ Albany_HMSsub_WillametteRv_S60,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Willamette_at Albany,FLOW-LOC,1HOUR,NWP
+OCUO_Oregon City_HMSsub_WillametteRv_S30,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,WILLAMETTE FALLS,FLOW-LOC,1HOUR,COMPUTED
+Willamette_at Wilsonville,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+NBGO_Newberg_HMSsub_WillametteRv_S40,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Willamette_at Newberg,FLOW-LOC,1HOUR,NWP
+SLMO_Salem_HMSsub_WillametteRv_S50,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Willamette_at Salem,FLOW-LOC,1HOUR,NWP
+WTLO_Waterloo_HMSsub_SSantiamRv_S15,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,So Santiam_at Waterloo,FLOW-LOC,1HOUR,NWP
+MEHO_Mehama_HMSsub_NSantiamRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,No Santiam_at Mehama,FLOW-LOC,1HOUR,NWP
+LSMO_Little North Santiam at Mehama,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+NSJO_Greens Bridge_HMSsub_NSantiamRv_S05,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+No Santiam+So Santiam_Local_NSR_S07,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+No Santiam+So Santiam_Local_SSR_S08,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+JFFO Santiam_at Jefferson loc,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Santiam_at Jefferson,FLOW-LOC,1HOUR,NWP
+MNRO_Monroe_HMSsub_LongTomRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Long Tom_at Monroe,FLOW-LOC,1HOUR,NWP
+HARO_Harrisburg_HMSsub_WillametteRv_S80,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Willamette_at Harrisburg,FLOW-LOC,1HOUR,NWP
+McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+VIDO_Vida_HMSsub_McKenzieRv_S18,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Mckenzie_at Vida,FLOW-LOC,1HOUR,NWP
+MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+EUGO_Willamette at Eugene,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Willamette_at Eugene,FLOW-LOC,1HOUR,NWP
+GOSO_Goshen_HMSsub_CFWillametteRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,CF Willamette_at Goshen,FLOW-LOC,1HOUR,NWP
+JASO_Jasper_HMSsub_MFWillametteRv_S10,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,MF Willamette_at Jasper,FLOW-LOC,1HOUR,NWP
+Big Cliff Local Inflow_HMSsub_NSantiamRv_S15,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Detroit Inflow,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,DET,FLOW-IN,1HOUR,CWMS
+Foster Local Inflow_HMSsub_SSantiamRv_S20,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Foster_IN,FLOW-LOC,1HOUR,NWP
+Green Peter Inflow_HMSsub_SSantiamRv_S30,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,GPR,FLOW-IN,1HOUR,CWMS
+Fern Ridge Inflow_HMSsub_LongTomRv_S20,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,FRN,FLOW-IN,1HOUR,CWMS
+Blue River Inflow_HMSsub_BlueRv_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,BLU,FLOW-IN,1HOUR,CWMS
+Cougar Inflow_HMSsub_SFMcKenzieRv_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,CGR,FLOW-IN,1HOUR,CWMS
+Cottage Grove Inflow_HMSsub_CFWillametteRV_S20,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,COT,FLOW-IN,1HOUR,CWMS
+Dorena Inflow_HMSsub_RowRv_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,DOR,FLOW-IN,1HOUR,CWMS
+Fall Creek Inflow_HMSsub_FallCk_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,FAL,FLOW-IN,1HOUR,CWMS
+Dexter Local Inflow_HMSsub_MFWillametteRVS20,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60,Known Flow,scripts/DamagesPrevented/DPdata/DPcalc.dss, ,Lookout Point_IN,FLOW-LOC,1HOUR,NWP
+Hills Creek Inflow_HMSsub_ MFWillametteRv_S60,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss, ,HCR,FLOW-IN,1HOUR,CWMS
+TRBO_Trail Bridge Inflow,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+CANO_Molalla River at Canby_Local_JMolaR_S06,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"MOLALLA RIVER NEAR CANBY, OR",14200000,FLOW,1HOUR,USGS
+SUVO_Suver_HMSsub_LuckiamuteRv_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"LUCKIAMUTE RIVER NEAR SUVER, OR",14190500,FLOW,1HOUR,USGS
+AURO_Pudding River nr Aurora,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"PUDDING RIVER AT AURORA, OR",14202000,FLOW,1HOUR,USGS
+MCMO_McMinnville_Local_JYamhR_S01,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"SOUTH YAMHILL RIVER AT MCMINNVILLE, OR",14194150,FLOW,1HOUR,USGS
+WSLO_West Linn_HMSsub_TualatinRv_S10,Known Flow,scripts/DamagesPrevented/DP_Download/out/obsData.dss,"TUALATIN RIVER AT WEST LINN, OR",14207500,FLOW,1HOUR,USGS
+CORO_Corvallis_HMSsub_WillametteRv_S70,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+PHIO_ Philomath_HMSsub_MarysRV_S70,Known Flow,scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
