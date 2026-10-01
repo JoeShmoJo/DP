@@ -39,7 +39,7 @@ def _sameFile(a, b):
     return str(a).replace("\\", "/").upper() == str(b).replace("\\", "/").upper()
 
 def _checkIn(tsBank, network, dssDict, tsDataSet, rssConstant, tsInt, beginTime, endTime,
-             onlyFile=None, skipFile=None, reportMissing=True):
+             onlyFile=None, skipFile=None, reportMissing=True, zeroFile=None):
     """
     Loads the records of tsDataSet with variable rssConstant into tsBank,
     converted to tsInt, keyed by the absolute DSS file name.
@@ -52,6 +52,7 @@ def _checkIn(tsBank, network, dssDict, tsDataSet, rssConstant, tsInt, beginTime,
     skipFile:      skip the records mapped to this file
     reportMissing: list records that don't exist (off for DPcalc.dss, whose
                    locals don't exist until this step writes them)
+    zeroFile:      the dummy zero-flow file; never loaded (its locals count as 0)
     Returns a message listing missing records and records that don't cover the
     whole time window (blank if none).
     """
@@ -68,6 +69,8 @@ def _checkIn(tsBank, network, dssDict, tsDataSet, rssConstant, tsInt, beginTime,
         if onlyFile is not None and not _sameFile(dssName, onlyFile):
             continue
         if skipFile is not None and _sameFile(dssName, skipFile):
+            continue
+        if zeroFile is not None and _sameFile(dssName, zeroFile):
             continue
         if "COMPUTE_ME" in str(dssName).upper():
             continue
@@ -169,10 +172,11 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
     #Load every input time series up front, converted to the alternative time step
     txtArea.printToGUI("Loading input time series...")
     tsBank = cResSim.tsmBank()
+    zeroDssFile = network.makeAbsolutePathFromWatershed(DPSettings.ZERO_FLOW_DSS)
     obsMsg = _checkIn(tsBank, network, dssDict, obsTSDataSet, RssModelVariableConstants.VID_NODE_FLOW,
-                      tsInt, lookbackTime, endTime, skipFile = outDssFile)
+                      tsInt, lookbackTime, endTime, skipFile = outDssFile, zeroFile = zeroDssFile)
     stdMsg = _checkIn(tsBank, network, dssDict, inputTSDataSet, RssModelVariableConstants.VID_NODE_KNOWNFLOW,
-                      tsInt, lookbackTime, endTime, skipFile = outDssFile)
+                      tsInt, lookbackTime, endTime, skipFile = outDssFile, zeroFile = zeroDssFile)
     calcMsg = _checkIn(tsBank, network, dssDict, inputTSDataSet, RssModelVariableConstants.VID_NODE_KNOWNFLOW,
                        tsInt, lookbackTime, endTime, onlyFile = outDssFile, reportMissing = False)
     if obsMsg or stdMsg or calcMsg:
@@ -247,8 +251,14 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
                         errMsg += "\nSee the warnings above about missing or short time series."
                         _stop(errMsg, txtArea, tsBank, simDss, dssDict)
                         return None
-            #Local flows at this junction (one node per local)
+            #Local flows at this junction (one node per local). Every local mapped to
+            #another file (a gaged tributary, the zero record) is added to the routed
+            #flow. Where there is observed flow, the one local mapped to DPcalc.dss is
+            #then computed as observed - (routed + those other locals).
             rssConstant = RssModelVariableConstants.VID_NODE_KNOWNFLOW
+            if element in hwJuncs:
+                regTSM = None #a headwater starts a new branch
+            computeLocals = [] #(name, pathname, interval, dss file) of the locals to compute here
             for node in nodes:
                 if str(node.getDownstreamElement()) != elemName: continue
                 if node.getUpstreamElement(): continue #a connected element, not a local
@@ -266,54 +276,67 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
                 locFlowTsInt = DSSPathString(locFlowPath).getEPart()
                 locFlowDssFilename = network.makeAbsolutePathFromWatershed(tsRec.getDSSFilename())
                 factor = tsrp.getFactor() #local inflow multiplier
-                if obsTSM: #observed flow here - compute the local
-                    obsTSM.setType("PER-AVER")
-                    if len(locFlowPath) == locFlowPath.count("/"):
-                        msg = "\t\tBlank local flow pathname at %s - not computing a local" %elemName
-                        logging.warning(msg)
-                        txtArea.printToGUI(msg)
-                    elif element in hwJuncs:
-                        #headwater junction: the local is the observed flow
-                        obsTSMToWrite = cTsUtils.transformTSM(obsTSM, locFlowTsInt)
-                        _writeLocal(obsTSMToWrite.getData(), locFlowPath, locFlowDssFilename, outDssFile, simDss, outDss, elemName, txtArea)
-                        numLocals += 1
-                    else:
-                        msg = "Local Flow at: %s" %elemName
-                        txtArea.printToGUI(msg)
-                        logging.info(msg)
-                        locTSC = obsTSM.subtract(regTSM).getData()
-                        if not negs:
-                            locTSC = cTsUtils.removeNegativeLocals(locTSC)
-                        locTSM = cTsUtils.transformTSM(TimeSeriesMath(locTSC), locFlowTsInt)
-                        _writeLocal(locTSM.getData(), locFlowPath, locFlowDssFilename, outDssFile, simDss, outDss, elemName, txtArea)
-                        numLocals += 1
-                elif tsRecObs:
+                if len(locFlowPath) == locFlowPath.count("/"):
+                    msg = "\t\tBlank local flow pathname for %s at %s - not used" %(tsrp.getName(), elemName)
+                    logging.warning(msg)
+                    txtArea.printToGUI(msg)
+                    continue
+                if obsTSM and _sameFile(locFlowDssFilename, outDssFile):
+                    computeLocals.append((tsrp.getName(), locFlowPath, locFlowTsInt, locFlowDssFilename))
+                    continue
+                if _sameFile(locFlowDssFilename, zeroDssFile):
+                    logging.info("\t\tZero-flow local (not read): %s" %tsrp.getName())
+                    continue
+                if tsRecObs and not obsTSM:
                     #observed flow expected here but blank - all local goes downstream
-                    logging.info("\t\tObserved flow at %s is blank; not adding local flow" %elemName)
+                    logging.info("\t\tObserved flow at %s is blank; not adding local flow %s" %(elemName, tsrp.getName()))
+                    continue
+                #add the mapped local
+                locFlowTSM = tsBank.withdrawTS(locFlowDssFilename, locFlowPath)
+                if locFlowTSM is None:
+                    errMsg = "Local flow %s at %s could not be read:\n%s\n%s" %(tsrp.getName(), elemName, locFlowDssFilename, locFlowPath)
+                    errMsg += "\nThis local is not computed by this step, so it must already exist"
+                    errMsg += "\nand cover the whole simulation window (lookback to end)."
+                    errMsg += "\nIf it is listed in the warnings above as not covering the full window,"
+                    errMsg += "\nextend the record or change the simulation window so they line up."
+                    if _sameFile(locFlowDssFilename, outDssFile):
+                        errMsg += "\nIt is mapped to %s - run step 1 (transform gage data) first if it is a transformed local." %outDssFile
+                    _stop(errMsg, txtArea, tsBank, simDss, dssDict)
+                    return None
+                locFlowTSM = locFlowTSM.multiply(factor)
+                if regTSM is None:
+                    regTSM = locFlowTSM.copy()
                 else:
-                    #no observed flow here - add the mapped local
-                    if len(locFlowPath) == locFlowPath.count("/"):
-                        msg = "\t\tBlank local flow pathname at %s - not adding local flow" %elemName
-                        logging.warning(msg)
-                        txtArea.printToGUI(msg)
+                    regTSM = regTSM.add(locFlowTSM)
+                logging.info("\t\tAdded input local flow: %s (%s)" %(tsrp.getName(), locFlowPath))
+            if obsTSM:
+                if len(computeLocals) > 1:
+                    errMsg = "%d locals at %s are mapped to %s:" %(len(computeLocals), elemName, outDssFile)
+                    for c in computeLocals:
+                        errMsg += "\n   %s  %s" %(c[0], c[1])
+                    errMsg += "\nOnly one local per gaged junction can take the water balance."
+                    errMsg += "\nMap the others to the zero-flow record (or their own data) in the Timeseries tab."
+                    _stop(errMsg, txtArea, tsBank, simDss, dssDict)
+                    return None
+                elif len(computeLocals) == 0:
+                    msg = "\tObserved flow at %s but no local here is mapped to %s - none computed" %(elemName, outDssFile)
+                    logging.info(msg)
+                else:
+                    locName, locFlowPath, locFlowTsInt, locFlowDssFilename = computeLocals[0]
+                    msg = "Local Flow at: %s (%s)" %(elemName, locName)
+                    txtArea.printToGUI(msg)
+                    logging.info(msg)
+                    obsTSM.setType("PER-AVER")
+                    if regTSM is None:
+                        #nothing arrives from upstream (headwater): the local is the observed flow
+                        locTSC = obsTSM.copy().getData()
                     else:
-                        locFlowTSM = tsBank.withdrawTS(locFlowDssFilename, locFlowPath)
-                        if locFlowTSM is None:
-                            errMsg = "Local flow at %s could not be read:\n%s\n%s" %(elemName, locFlowDssFilename, locFlowPath)
-                            errMsg += "\nThere is no observed flow here, so this local must already exist"
-                            errMsg += "\nand cover the whole simulation window (lookback to end)."
-                            errMsg += "\nIf it is listed in the warnings above as not covering the full window,"
-                            errMsg += "\nextend the record or change the simulation window so they line up."
-                            if _sameFile(locFlowDssFilename, outDssFile):
-                                errMsg += "\nIt is mapped to %s - run step 1 (transform gage data) first if it is a transformed local." %outDssFile
-                            _stop(errMsg, txtArea, tsBank, simDss, dssDict)
-                            return None
-                        locFlowTSM = locFlowTSM.multiply(factor)
-                        if element in hwJuncs or regTSM is None:
-                            regTSM = locFlowTSM.copy()
-                        else:
-                            regTSM = regTSM.add(locFlowTSM)
-                        logging.info("\t\tAdded input local flow: %s" %locFlowPath)
+                        locTSC = obsTSM.subtract(regTSM).getData()
+                    if not negs:
+                        locTSC = cTsUtils.removeNegativeLocals(locTSC)
+                    locTSM = cTsUtils.transformTSM(TimeSeriesMath(locTSC), locFlowTsInt)
+                    _writeLocal(locTSM.getData(), locFlowPath, locFlowDssFilename, outDssFile, simDss, outDss, elemName, txtArea)
+                    numLocals += 1
             #Observed flow resets the routed flow (also at points with no local, e.g. dam outlets)
             if obsTSM:
                 logging.info("\tObserved flow exists at %s: resetting flow" %elemName)

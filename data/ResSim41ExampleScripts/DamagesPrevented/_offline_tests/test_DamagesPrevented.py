@@ -65,7 +65,9 @@ Q1  = [100., 300., 600., 900., 1000., 900., 700., 500.]     #Res1 outflow
 I2  = [200., 800., 2400., 3100., 2000., 1000., 600., 400.]  #Res2 inflow
 Q2  = [200., 500., 900., 1200., 1300., 1100., 900., 700.]   #Res2 outflow = Rereg2 inflow
 QR  = [250., 450., 950., 1150., 1350., 1150., 850., 650.]   #Rereg2 outflow
-L   = [50., 120., 400., 700., 500., 300., 150., 100.]       #Conf local
+L   = [50., 120., 400., 700., 500., 300., 150., 100.]       #Conf local (total)
+T   = [20., 40., 100., 150., 120., 80., 50., 40.]           #gaged tributary at Conf (like LSMO at Mehama)
+LC  = [l - x for l, x in zip(L, T)]                         #Conf local the water balance computes
 PUD = [100., 200., 300., 400., 300., 200., 150., 120.]      #Pudding R gage -> Mouth local x1.5
 M   = [1.5*v for v in PUD]
 
@@ -133,6 +135,8 @@ def build():
     loc["Res1"] = local(J["Res1_IN"], "Res1 Inflow")
     loc["Res2"] = local(J["Res2_IN"], "Res2 Inflow")
     loc["Conf"] = local(J["Conf"], "Conf Local")
+    loc["ConfTrib"] = local(J["Conf"], "Conf Trib")
+    loc["ConfZero"] = local(J["Conf"], "Conf Zero")
     loc["Mouth"] = local(J["Mouth"], "Mouth Local")
     R = {}
     R["Res1"] = reservoir("Res1", J["Res1_IN"], J["Res1_OUT"])
@@ -169,12 +173,16 @@ inputSet = F.TSDataSet()
 inputSet.put(F.TSRecord("~Res1 Inflow:known", VK, OBS_REL, "//RES1/FLOW-IN//1HOUR/CWMS/"))
 inputSet.put(F.TSRecord("~Res2 Inflow:known", VK, OBS_REL, "//RES2/FLOW-IN//1HOUR/CWMS/"))
 inputSet.put(F.TSRecord("~Conf Local:known", VK, CALC_REL, CONF_LOCAL_PATH))
+inputSet.put(F.TSRecord("~Conf Trib:known", VK, OBS_REL, "//CONF TRIB/FLOW//1HOUR/USGS/"))
+#mapped to the zero record, which (like the real one) doesn't cover the window - here it doesn't exist at all
+inputSet.put(F.TSRecord("~Conf Zero:known", VK, DPSettings.ZERO_FLOW_DSS, "/ZERO/ZERO/FLOW//1DAY/DUMMY/"))
 inputSet.put(F.TSRecord("~Mouth Local:known", VK, CALC_REL, WF_PATH))
 
 F.putRecord(OBSDATA, "/G/RES1 OUT GAGE/FLOW//1HOUR/USGS/", Q1, TIMES)
 F.putRecord(OBSDATA, "/G/REREG2 OUT GAGE/FLOW//1HOUR/USGS/", QR, TIMES)
 F.putRecord(OBSDATA, "/G/CONF GAGE/FLOW//1HOUR/USGS/", CONF_OBS, TIMES)
 F.putRecord(OBSDATA, "//RES1/FLOW-IN//1HOUR/CWMS/", I1, TIMES)
+F.putRecord(OBSDATA, "//CONF TRIB/FLOW//1HOUR/USGS/", T, TIMES)
 F.putRecord(OBSDATA, "//RES2/FLOW-IN//1HOUR/CWMS/", I2, TIMES)
 F.putRecord(OBSDATA, "/PUDDING RIVER AT AURORA, OR/14202000/FLOW//1HOUR/USGS/", PUD, TIMES)
 
@@ -200,7 +208,7 @@ obsOut = outputSet("OBS", [
     ("~Conf:flow", VF, CONF_OBS), ("~Mouth:flow", VF, MOUTH_OBS),
     ("~R1:flow", VF, Q1), ("~R3:flow", VF, QR),
     ("~Res1 Inflow:flow", VF, I1), ("~Res2 Inflow:flow", VF, I2),
-    ("~Conf Local:flow", VF, L), ("~Mouth Local:flow", VF, M)])
+    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
 UNREG_CONF = plus(I1, I2, L)
 unregOut = outputSet("UNREG", [
     ("~Res1:in", VIN, I1), ("~Res1:out", VOUT, I1),
@@ -210,7 +218,7 @@ unregOut = outputSet("UNREG", [
     ("~Conf:flow", VF, UNREG_CONF), ("~Mouth:flow", VF, plus(UNREG_CONF, M)),
     ("~R1:flow", VF, I1), ("~R3:flow", VF, I2),
     ("~Res1 Inflow:flow", VF, I1), ("~Res2 Inflow:flow", VF, I2),
-    ("~Conf Local:flow", VF, L), ("~Mouth Local:flow", VF, M)])
+    ("~Conf Local:flow", VF, LC), ("~Conf Trib:flow", VF, T), ("~Conf Zero:flow", VF, [0.]*8), ("~Mouth Local:flow", VF, M)])
 #the observed data ResSim copies into simulation.dss
 for path, values in (("/G/RES1 OUT GAGE/FLOW//1HOUR/USGS/", Q1), ("/G/CONF GAGE/FLOW//1HOUR/USGS/", CONF_OBS),
                      ("/G/REREG2 OUT GAGE/FLOW//1HOUR/USGS/", QR)):
@@ -299,17 +307,28 @@ print "\n== Step 2: water-balance locals"
 txt = Txt()
 res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, True, Bar(), txt)
 check(res == 1, "one local computed (Conf); got %s" %res)
-check(series(DPCALC, CONF_LOCAL_PATH) == [round(v, 6) for v in L],
-      "Conf local = Conf gage - (Res1 gage + Rereg2 gage), routed")
+check(series(DPCALC, CONF_LOCAL_PATH) == [round(v, 6) for v in LC],
+      "Conf local = Conf gage - (Res1 gage + Rereg2 gage, routed, + the gaged tributary at Conf)")
 check(series(DPCALC, WF_PATH) == [round(v, 6) for v in M], "Willamette Falls left as is in DPcalc.dss")
-check(series(SIMDSS, CONF_LOCAL_PATH) == [round(v, 6) for v in L], "local also written to simulation.dss")
+check(series(SIMDSS, CONF_LOCAL_PATH) == [round(v, 6) for v in LC], "local also written to simulation.dss")
+check(series(OBSDATA, "//CONF TRIB/FLOW//1HOUR/USGS/") == [round(v, 6) for v in T], "the other local at Conf is left alone")
 
 print "\n== Step 2 with negative locals not allowed"
 F.putRecord(OBSDATA, "/G/CONF GAGE/FLOW//1HOUR/USGS/", plus(Q1, QR, [-30.] + L[1:]), TIMES)
 res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, False, Bar(), Txt())
 loc = F.getRecord(DPCALC, CONF_LOCAL_PATH).values
-check(min(loc) >= 0 and abs(sum(loc) - (sum(L[1:]) - 30.)) < 1e-6, "negative local removed, volume kept")
+check(min(loc) >= 0 and abs(sum(loc) - (sum(L[1:]) - 30. - sum(T))) < 1e-6, "negative local removed, volume kept")
 F.putRecord(OBSDATA, "/G/CONF GAGE/FLOW//1HOUR/USGS/", CONF_OBS, TIMES)
+
+print "\n== Step 2 with two locals at one gaged junction both mapped to DPcalc.dss"
+TRIB_REC = inputSet.getTSRecord("~Conf Trib:known", VK)
+inputSet.put(F.TSRecord("~Conf Trib:known", VK, CALC_REL, "//CONF TRIB/FLOW-LOC//1HOUR/NWP/"))
+txt2 = Txt()
+res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, True, Bar(), txt2)
+check(res is None and "Only one local per gaged junction" in txt2.text(), "stops and names both locals")
+inputSet.put(TRIB_REC)
+res = cWaterBalance.computeWaterBalanceLocals("Obs_NWP_H", DPCALC, True, Bar(), Txt())
+check(res == 1 and series(DPCALC, CONF_LOCAL_PATH) == [round(v, 6) for v in LC], "back to normal after repointing")
 
 ################################################################################
 print "\n== Step 3: mini-simulations"
