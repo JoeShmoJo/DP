@@ -33,6 +33,14 @@ monkey-patch, which doesn't survive every environment/upgrade (e.g. it can
 get silently undone when certifi itself gets reinstalled/upgraded - which
 `pip install -U dataretrieval` does). That silent TLS failure is the more
 likely reason CWMS was still failing after the office_id change.
+- 01Oct2026
+Moved into the watershed's scripts/DamagesPrevented/DP_Download folder (was
+src/DP_DL_28Aug2026.py) so Damages Prevented is self-contained. Every path is
+now relative to this script's folder, not the working directory:
+config/ (records dictionaries, USGS API key), out/ (obsData.dss, hourly csv,
+summary stats), QAQC/ (DP_QAQC.py and its outputs). obsData.dss is written as
+DSS 7 for ResSim 4.1, and rewritten from scratch each run (the reused records
+are written again too) so no DSS 6 file or stale record is left behind.
 - 30Sep2026
 Pointed at RequiredRecordsDictWIL.csv (Willamette only, made from
 RequiredRecordsDictNWP.csv by PareDown_Willamette.py) and set the period to
@@ -40,9 +48,9 @@ WY2026 (01Oct2025 - 30Sep2026). CWMS_Download now pulls through the end of
 EndDate instead of stopping at midnight. Hourly records are reindexed to the
 full requested period so gaps at either end are counted, and the summary stats
 gained 'Hours Expected', 'Hours Missing' and 'Pct Complete'. All hourly data
-is also written to ../out/Hourly_<startDate>_<endDate>.csv (long format:
+is also written to out/Hourly_<startDate>_<endDate>.csv (long format:
 time_utc, Source, Download_Key, ResSimPath, value), which DP_QAQC.py reads.
-Reads a USGS Water Data API key from ../data/usgs_api_key.txt (git-ignored)
+Reads a USGS Water Data API key from config/usgs_api_key.txt (git-ignored)
 and sets API_USGS_PAT, which dataretrieval sends with every request. Without
 a key the API's anonymous rate limit is easy to hit on a full year of
 instantaneous data for this many gages. Request a key at
@@ -53,10 +61,10 @@ downloaded again, so rerunning after a change only downloads what's new or
 missing (ReuseDownloaded). Their summary stats rows are carried over from the
 previous Combined_Summary_Stats.csv.
 Also downloads the extra records DP_QAQC.py needs to compare USGS and CWMS
-for every project (data/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
+for every project (config/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
 the Foster outflow gage). The first run builds that file by
 searching the CWMS catalog (CWMS_Catalog) and writes every candidate it found
-to ../out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
+to out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
 and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
 out of the DSS file.
 
@@ -79,7 +87,18 @@ import pdb
 import requests
 
 import ssl
+import sys
 import certifi
+
+# Every path below is relative to this script's folder (DP_Download), so it
+# runs the same from any working directory.
+try:
+    ScriptDir = os.path.dirname(os.path.abspath(__file__))
+except NameError:  # running cell-by-cell without __file__ - run from the DP_Download folder
+    ScriptDir = os.getcwd()
+ConfigDir = os.path.join(ScriptDir, 'config')
+if ScriptDir not in sys.path:
+    sys.path.insert(0, ScriptDir)
 
 from willamette_projects import PROJECTS
 from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex, prune_qaqc_records
@@ -126,7 +145,7 @@ print(f"[INFO] Using CA bundle: {bundle_path}")
 # --- USGS API Key ---
 # dataretrieval sends API_USGS_PAT as the X-Api-Key header on Water Data API
 # requests. The key lives in a text file that is git-ignored - never commit it.
-UsgsApiKeyPath = r'../data/usgs_api_key.txt'
+UsgsApiKeyPath = os.path.join(ConfigDir, 'usgs_api_key.txt')
 if os.path.exists(UsgsApiKeyPath):
     with open(UsgsApiKeyPath, encoding='utf-8-sig') as f:
         usgs_api_key = f.read().strip()
@@ -142,18 +161,18 @@ else:
 # --- End USGS API Key ---
 
 
-RequiredRecordsDictPath = r'../data/RequiredRecordsDictWIL.csv'
+RequiredRecordsDictPath = os.path.join(ConfigDir, 'RequiredRecordsDictWIL.csv')
 # Extra records downloaded only for QA/QC (built from the CWMS catalog if missing)
-QAQCRecordsPath = r'../data/QAQC_RecordsWIL.csv'
+QAQCRecordsPath = os.path.join(ConfigDir, 'QAQC_RecordsWIL.csv')
 
 # Start and end date, probably water year
 startDate = '2025-10-01'
 endDate = '2026-09-30'
 # Output folder for the summary stats, hourly csv, and DSS file
-OutDir = r'../out'
+OutDir = os.path.join(ScriptDir, 'out')
 os.makedirs(OutDir, exist_ok=True)
-# DSS file with final results
-ObsDataWrite = os.path.join(OutDir, 'obsData')
+# DSS file with final results - the alternatives read this (DSS 7 for ResSim 4.1)
+ObsDataWrite = os.path.join(OutDir, 'obsData.dss')
 HourlyCsv = os.path.join(OutDir, f'Hourly_{startDate}_{endDate}.csv')
 # Records already in HourlyCsv (same period, with values) are reused instead of
 # downloaded again. Set False to re-download everything.
@@ -453,7 +472,7 @@ def write_to_dss(dss_file, DataDict):
         tsc.type = "INST-VAL"  # Assuming this is always the type
         # Write the data to the DSS file to the out folder
 
-        with HecDss.Open(dss_file, version=6) as fid:
+        with HecDss.Open(dss_file, version=7) as fid:
             fid.put_ts(tsc)
         
 #%%
@@ -562,6 +581,11 @@ write_hourly_csv(HourlyCsv, {
 # Written to the out folder (OutDir). QA/QC-only records (paths ending in QAQC/) are skipped.
 def model_records(DataDict):
     return {k: v for k, v in DataDict.items() if not k.endswith('QAQC/')}
+# Start a fresh DSS 7 file each run (every record, reused or new, is written below).
+# Close obsData.dss in ResSim / DSSVue first, or this delete fails.
+for f in (ObsDataWrite, ObsDataWrite[:-4] + '.dsc'):
+    if os.path.exists(f):
+        os.remove(f)
 write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Flow_Data_Dict))
 write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Elev_Data_Dict))
 write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(CWMS_Data_Dict))

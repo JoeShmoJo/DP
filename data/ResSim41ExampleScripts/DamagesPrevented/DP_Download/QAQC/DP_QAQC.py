@@ -2,7 +2,7 @@
 """
 Created 30Sep2026
 
-QA/QC of the hourly Willamette records written by DP_DL_28Aug2026.py.
+QA/QC of the hourly Willamette records written by DP_Download.py.
 
 1. Redundant USGS vs CWMS records
    Pairs a CWMS record with the USGS record that should match it
@@ -14,7 +14,7 @@ QA/QC of the hourly Willamette records written by DP_DL_28Aug2026.py.
      - a constant offset (usually a datum difference) for elevations
      - the time shift (lag) that best lines up flows, which shows up when the
        downstream gage lags the project release
-   Pairs come from ../data/RedundantPairs_WIL.csv. If that file doesn't exist,
+   Pairs come from ../config/RedundantPairs_WIL.csv. If that file doesn't exist,
    a draft is built from RequiredRecordsDictWIL.csv + QAQC_RecordsWIL.csv
    using the gages in willamette_projects.py and written there for you to
    check/edit. Edit it and rerun to change pairs. Detroit, Lookout Point and
@@ -31,15 +31,26 @@ QA/QC of the hourly Willamette records written by DP_DL_28Aug2026.py.
    Writes the flagged hours and a de-spiked copy (flagged hours replaced
    with the rolling median) so you can see what a cleaned record looks like.
 
-Outputs go to ../out/QAQC/.
+Inputs come from ../out (hourly csv) and ../config; outputs go to out/ next to
+this script. Paths are relative to this script's folder, not the working directory.
 
 @author: g2encjer
 """
 #%%
 import os
+import sys
 
 import numpy as np
 import pandas as pd
+
+# This script lives in DP_Download/QAQC; everything is found relative to it
+try:
+    QAQCDir = os.path.dirname(os.path.abspath(__file__))
+except NameError:  # running cell-by-cell without __file__ - run from the QAQC folder
+    QAQCDir = os.getcwd()
+DownloadDir = os.path.dirname(QAQCDir)
+if DownloadDir not in sys.path:
+    sys.path.insert(0, DownloadDir)
 
 from willamette_projects import (PROJECTS, param_class, project_for_record,
                                  usgs_site, cwms_location)
@@ -54,11 +65,12 @@ except ImportError:
 
 startDate = '2025-10-01'
 endDate = '2026-09-30'
-HourlyCsv = rf'../out/Hourly_{startDate}_{endDate}.csv'
-# Records dictionary + the QA/QC-only records built by DP_DL_28Aug2026.py
-RecordsPaths = [r'../data/RequiredRecordsDictWIL.csv', r'../data/QAQC_RecordsWIL.csv']
-PairsPath = r'../data/RedundantPairs_WIL.csv'
-OutDir = r'../out/QAQC'
+HourlyCsv = os.path.join(DownloadDir, 'out', f'Hourly_{startDate}_{endDate}.csv')
+# Records dictionary + the QA/QC-only records built by DP_Download.py
+RecordsPaths = [os.path.join(DownloadDir, 'config', 'RequiredRecordsDictWIL.csv'),
+                os.path.join(DownloadDir, 'config', 'QAQC_RecordsWIL.csv')]
+PairsPath = os.path.join(DownloadDir, 'config', 'RedundantPairs_WIL.csv')
+OutDir = os.path.join(QAQCDir, 'out')
 MakePlots = True
 
 # --- Redundant record tolerances (hourly means) ---

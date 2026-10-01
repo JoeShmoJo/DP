@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Shared Willamette project metadata used by PareDown_Willamette.py,
-DP_DL_28Aug2026.py (via qaqc_records.py) and DP_QAQC.py.
+DP_Download.py (via qaqc_records.py) and DP_QAQC.py.
 
 Created 30Sep2026
 
@@ -9,7 +9,7 @@ PROJECTS is keyed by CWMS location ID (the first '.'-separated piece of a
 CWMS tsid, e.g. 'DET' in 'DET.Elev-Forebay.Inst.1Hour.0.Best').
   name          : Project name
   keywords      : Upper-case strings that identify the project in a ResSimPath
-  usgs_elev     : USGS forebay elevation gage (from data/WIL_ELEV_DICT.csv)
+  usgs_elev     : USGS forebay elevation gage (from the original WIL_ELEV_DICT.csv)
   usgs_outflow  : USGS gage just below the dam, compared hour by hour with the
                   CWMS Flow-Out. None = no outflow comparison: DET, LOP and
                   GPR release into Big Cliff, Dexter and Foster Lakes, and

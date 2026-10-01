@@ -4,7 +4,7 @@ Created 30Sep2026
 
 Pares RequiredRecordsDictNWP.csv (Willamette + Columbia) down to the
 Willamette records only and writes RequiredRecordsDictWIL.csv, which
-DP_DL_28Aug2026.py reads.
+DP_Download.py reads. Both files are in config/ next to this script.
 
 A row is kept when any of these are true (see willamette_projects.py):
   - USGS: site number is in the Willamette basin range (1414xxxx-1421xxxx)
@@ -15,12 +15,18 @@ Kept and dropped rows are both printed so you can confirm the split.
 @author: g2encjer
 """
 #%%
+import os
+
 import pandas as pd
 
 from willamette_projects import is_willamette, project_for_record, param_class
 
-InPath = r'../data/RequiredRecordsDictNWP.csv'
-OutPath = r'../data/RequiredRecordsDictWIL.csv'
+try:
+    ScriptDir = os.path.dirname(os.path.abspath(__file__))
+except NameError:  # running cell-by-cell without __file__ - run from the DP_Download folder
+    ScriptDir = os.getcwd()
+InPath = os.path.join(ScriptDir, 'config', 'RequiredRecordsDictNWP.csv')
+OutPath = os.path.join(ScriptDir, 'config', 'RequiredRecordsDictWIL.csv')
 
 #%%
 # utf-8-sig strips the byte-order mark Excel puts on CSVs
