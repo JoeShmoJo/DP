@@ -13,10 +13,7 @@ Everything Damages Prevented uses lives under scripts/DamagesPrevented:
     DPdata/Results/*.csv          flow reduction tables
     DPdata/logs/*.log             one log per step
 """
-try:
-    from hec.clientapp.client import ClientApp       #ResSim 4.1
-except ImportError:
-    from hec.client import ClientApp                 #ResSim 3.5
+from NWDJyLib.ResSim import ResSimController
 
 ################################################################################
 # USER INPUT
@@ -51,5 +48,15 @@ UNREG_ALT_HINT = "UNR"
 ################################################################################
 
 def absPath(relPath):
-    """Absolute path of a file given relative to the watershed folder."""
-    return ClientApp.Workspace().makeAbsolutePath(relPath)
+    """
+    Absolute path of a file given relative to the watershed folder.
+
+    Uses the network of the open simulation, like the scripted rules do. In
+    ResSim 4.1 ClientApp.Workspace() is the user's AppData workspace
+    (...AppData/Roaming/HEC/HEC-ResSim/4.1/CWMS/<watershed>), not the
+    watershed folder, so it can't be used here.
+    """
+    simulation = ResSimController.getSimulation()
+    for run in simulation.getSimulationRuns():
+        return run.getRssSystem().makeAbsolutePathFromWatershed(relPath)
+    raise AssertionError("The open simulation has no alternatives. Open the simulation holding the Observed and Unregulated alternatives.")

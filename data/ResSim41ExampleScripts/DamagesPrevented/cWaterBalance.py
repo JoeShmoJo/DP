@@ -37,40 +37,67 @@ from NWDJyLib.DSS import cDSS, cTsUtils
 def _sameFile(a, b):
     return str(a).replace("\\", "/").upper() == str(b).replace("\\", "/").upper()
 
-def _checkInFromFile(tsBank, network, dssFileObj, dssFileName, tsDataSet, rssConstant, tsInt, beginTime, endTime):
+def _checkIn(tsBank, network, dssDict, tsDataSet, rssConstant, tsInt, beginTime, endTime,
+             onlyFile=None, skipFile=None, reportMissing=True):
     """
-    Loads the records of tsDataSet that are mapped to dssFileName into tsBank.
-    Records that don't exist (locals not computed yet) are skipped quietly; a
-    local that is needed but missing is reported where it is used.
-    Records that don't cover the whole time window are listed in the returned message.
+    Loads the records of tsDataSet with variable rssConstant into tsBank,
+    converted to tsInt, keyed by the absolute DSS file name.
+
+    Does what cResSim.tsmBank.checkInTimeSeries does, except that relative DSS
+    file names are resolved against the watershed (network) rather than
+    ClientApp.Workspace(), which in ResSim 4.1 is the AppData workspace.
+
+    onlyFile:      load only the records mapped to this file
+    skipFile:      skip the records mapped to this file
+    reportMissing: list records that don't exist (off for DPcalc.dss, whose
+                   locals don't exist until this step writes them)
+    Returns a message listing missing records and records that don't cover the
+    whole time window (blank if none).
     """
     beginHecTime = HecTime(beginTime)
     endHecTime = HecTime(endTime)
-    msg = ""
+    missing = ""
+    truncated = ""
     for tsRec in tsDataSet.getTSRecords():
         if tsRec.getVariableId() != rssConstant:
             continue
-        recFile = network.makeAbsolutePathFromWatershed(tsRec.getDSSFilename())
-        if not _sameFile(recFile, dssFileName):
+        if tsRec.getDSSFilename() == "":
+            continue
+        dssName = network.makeAbsolutePathFromWatershed(tsRec.getDSSFilename())
+        if onlyFile is not None and not _sameFile(dssName, onlyFile):
+            continue
+        if skipFile is not None and _sameFile(dssName, skipFile):
+            continue
+        if "COMPUTE_ME" in str(dssName).upper():
             continue
         pathname = tsRec.getDSSPathname()
         if len(pathname) == pathname.count("/"):
             continue
-        if tsBank.containsTS(dssFileName, pathname):
+        if tsBank.containsTS(dssName, pathname):
             continue
         try:
-            tsm = dssFileObj.read(pathname)
+            tsm = dssDict[dssName].read(pathname)
         except:
+            if reportMissing:
+                missing += "\n  Name:       %s" %tsRec.getName()
+                missing += "\n  Dss File:   %s" %dssName
+                missing += "\n  Pathname:   %s\n" %pathname
             continue
         first = HecTime(tsm.firstValidDate(), HecTime.MINUTE_INCREMENT)
         last = HecTime(tsm.lastValidDate(), HecTime.MINUTE_INCREMENT)
         if first.notEqualTo(beginHecTime) or last.notEqualTo(endHecTime):
-            msg += "\n  Name:       %s" %tsRec.getName()
-            msg += "\n  Pathname:   %s" %pathname
-            msg += "\n  Covers:     %s to %s (need %s to %s)\n" %(first.dateAndTime(), last.dateAndTime(),
-                                                                  beginHecTime.dateAndTime(), endHecTime.dateAndTime())
+            truncated += "\n  Name:       %s" %tsRec.getName()
+            truncated += "\n  Dss File:   %s" %dssName
+            truncated += "\n  Pathname:   %s" %pathname
+            truncated += "\n  Covers:     %s to %s (need %s to %s)\n" %(first.dateAndTime(), last.dateAndTime(),
+                                                                    beginHecTime.dateAndTime(), endHecTime.dateAndTime())
             continue
-        tsBank.depositTS(dssFileName, pathname, cTsUtils.transformTSM(tsm, tsInt))
+        tsBank.depositTS(dssName, pathname, cTsUtils.transformTSM(tsm, tsInt))
+    msg = ""
+    if missing:
+        msg += "\n\nTime Series that do not exist:" + missing
+    if truncated:
+        msg += "\n\nTime Series not defined over the full time window:" + truncated
     return msg
 
 def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
@@ -141,19 +168,19 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
     #Load every input time series up front, converted to the alternative time step
     txtArea.printToGUI("Loading input time series...")
     tsBank = cResSim.tsmBank()
-    obsMsg = tsBank.checkInTimeSeries(dssDict, obsTSDataSet, lookbackTime, endTime,
-     ignoreDssFile = outDssFile, rssConstant = RssModelVariableConstants.VID_NODE_FLOW, tsInt = tsInt)
-    stdMsg = tsBank.checkInTimeSeries(dssDict, inputTSDataSet, lookbackTime, endTime,
-     ignoreDssFile = outDssFile, rssConstant = RssModelVariableConstants.VID_NODE_KNOWNFLOW, tsInt = tsInt)
-    calcMsg = _checkInFromFile(tsBank, network, outDss, outDssFile, inputTSDataSet,
-     RssModelVariableConstants.VID_NODE_KNOWNFLOW, tsInt, lookbackTime, endTime)
+    obsMsg = _checkIn(tsBank, network, dssDict, obsTSDataSet, RssModelVariableConstants.VID_NODE_FLOW,
+                      tsInt, lookbackTime, endTime, skipFile = outDssFile)
+    stdMsg = _checkIn(tsBank, network, dssDict, inputTSDataSet, RssModelVariableConstants.VID_NODE_KNOWNFLOW,
+                      tsInt, lookbackTime, endTime, skipFile = outDssFile)
+    calcMsg = _checkIn(tsBank, network, dssDict, inputTSDataSet, RssModelVariableConstants.VID_NODE_KNOWNFLOW,
+                       tsInt, lookbackTime, endTime, onlyFile = outDssFile, reportMissing = False)
     if obsMsg or stdMsg or calcMsg:
         #Reported, not fatal (as in the original): a series that is truly needed
         #stops the compute where it is used, with its name.
         errMsg = "WARNING: not every mapped time series covers the full time window."
         if obsMsg: errMsg += "\nObserved Data tab:" + obsMsg
         if stdMsg: errMsg += "\nTimeseries tab:" + stdMsg
-        if calcMsg: errMsg += "\nTimeseries tab (%s):\n%s" %(outDssFile, calcMsg)
+        if calcMsg: errMsg += "\nTimeseries tab (%s):%s" %(outDssFile, calcMsg)
         logging.warning(errMsg)
         txtArea.printToGUI(errMsg)
     else:
