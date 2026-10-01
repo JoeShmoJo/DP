@@ -187,6 +187,8 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
         txtArea.printToGUI("All input time series look good!")
 
     simDss = DSS.open(simDssFile, lookbackTime, endTime)
+    rssRunObj = ResSimController.getRssRun(run.getKey()) #for diversion flows from the last compute
+    divsNotDeducted = [] #diversions with no flow from their rule or a previous compute
     tribFlows = {} #keys are Elements (e.g. reaches), values are TimeSeriesMath
     numLocals = 0
     regTSM = None
@@ -213,11 +215,10 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
             if divElems: #deduct any diversion
                 for divElem in divElems:
                     logging.info("\tDiversion found: %s" %divElem)
-                    divTSC = cResSim.getDiversionTSC(divElem, rtw, inputTSDataSet)
-                    if divTSC is None:
-                        logging.warning("\tCouldn't retrieve a time series for Diversion: %s" %divElem)
-                    else:
-                        divTSM = cTsUtils.transformTSM(TimeSeriesMath(divTSC), tsInt)
+                    divTSM = _diversionTSM(divElem, rtw, inputTSDataSet, tsInt, simDss, rssRunObj, txtArea)
+                    if divTSM is None:
+                        divsNotDeducted.append(str(divElem))
+                    elif regTSM is not None:
                         regTSM = regTSM.subtract(divTSM)
             if element in confJuncs:
                 #confluence junction: add the flow from the other upstream reaches
@@ -328,10 +329,50 @@ def computeWaterBalanceLocals(altName, outDssFile, negs, bar, txtArea):
     simDss.close()
     for dssFile in dssDict.values(): dssFile.close()
     bar.setValue(100)
+    if divsNotDeducted:
+        msg = "\nWARNING: %d diversion(s) were not deducted (taken as 0):" %len(divsNotDeducted)
+        for d in divsNotDeducted:
+            msg += "\n   %s" %d
+        msg += "\nTheir rules (e.g. scripted rules) can't be evaluated outside a compute, and"
+        msg += "\nalternative %s has no computed diversion flow for them yet." %altName
+        msg += "\nThe locals above therefore include those withdrawals. To account for them:"
+        msg += "\ncompute %s, run this step again (it then uses the computed diversion" %altName
+        msg += "\nflows), and compute %s once more." %altName
+        logging.warning(msg)
+        txtArea.printToGUI(msg)
     msg = "\nDone. %d water-balance local(s) written to %s" %(numLocals, outDssFile)
     logging.info(msg)
     txtArea.printToGUI(msg)
     return numLocals
+
+def _diversionTSM(divElem, rtw, inputTSDataSet, tsInt, simDss, rssRunObj, txtArea):
+    """
+    Flow taken by a diversion over the simulation window, or None.
+
+    First from the diversion's own rule (constant, seasonal, monthly or time
+    series, via cResSim.getDiversionTSC). Diversions with no rule on their
+    controller, or a rule that can't be evaluated outside a compute (scripted,
+    flexible), fall back to the diversion flow from the alternative's last
+    compute in simulation.dss, as the mini-simulations read it. None if neither
+    has it.
+    """
+    try:
+        divTSC = cResSim.getDiversionTSC(divElem, rtw, inputTSDataSet)
+    except:
+        divTSC = None #e.g. no rule on the controller (IndexError)
+    if divTSC is not None:
+        return cTsUtils.transformTSM(TimeSeriesMath(divTSC), tsInt)
+    try:
+        divNode = divElem.getUpstreamNode() #diverted flow is in the upstream node
+        divTSM = cResSim.getTSMFromSimulationDSS(simDss, divNode, rssRunObj, RssModelVariableConstants.VID_NODE_FLOW,
+                                                  txtArea, useObsData = False, isStrict = False, displayMessages = False)
+    except:
+        divTSM = None
+    if divTSM is None:
+        logging.warning("\tNo diversion flow from the rule or a previous compute: %s (taken as 0)" %divElem)
+        return None
+    logging.info("\tDiversion flow taken from the last compute: %s" %divElem)
+    return cTsUtils.transformTSM(divTSM, tsInt)
 
 def _writeLocal(tsc, locFlowPath, locFlowDssFilename, outDssFile, simDss, outDss, elemName, txtArea):
     """Writes a computed local to simulation.dss and to the file it is mapped to."""
