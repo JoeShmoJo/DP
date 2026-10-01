@@ -1,0 +1,81 @@
+#This file contains the names of all reservoirs, even those that shouldn't receive any damages prevented credit. A separate spreadsheet will weed out which projects should and should not be counted. Running all reservoirs allows us to see how much flow reduction comes from each reservoir in reality.
+Mica
+Revelstoke
+Arrow Lakes
+Libby
+Duncan
+Corra Linn
+Upper Bonnington
+Lower Bonnington
+Slocan
+Brilliant
+Hungry Horse
+Kerr
+Thompson Falls
+Noxon Rapids
+Cabinet Gorge
+Priest Lake
+Albeni Falls
+Box Canyon
+Boundary
+Seven Mile
+Waneta
+Post Falls
+Upper Falls
+Monroe Street
+Nine Mile
+Long Lake
+Little Falls
+Grand Coulee
+Chief Joseph
+Wells
+Chelan
+Rocky Reach
+Rock Island
+Wanapum
+Priest Rapids
+Keechelus
+Kachess
+Cle Elum
+Bumping Lake
+Tieton
+Jackson Lake
+Palisades
+American Falls
+Owyhee
+Anderson Ranch
+Arrowrock
+Lucky Peak
+Deadwood
+Cascade
+Brownlee
+Oxbow
+Hells Canyon
+Dworshak
+Lower Granite
+Little Goose
+Lower Monumental
+Ice Harbor
+McNary
+John Day
+Round Butte
+Pelton
+Pelton ReReg
+The Dalles
+Bonneville
+Hills Creek
+Lookout Point
+Dexter
+Fall Creek
+Dorena
+Cottage Grove
+Cougar
+Blue River
+Fern Ridge
+Green Peter
+Foster
+Detroit
+Big Cliff
+Scoggins
+Mossyrock
+Mayfield

@@ -1,0 +1,61 @@
+
+### CONSERVATION MODEL EXTRACT SCRIPT ###
+# This script must be manaully Added to the Simulation Module to make the a python script callable from a simulation
+# this script initiates a BAT file that initiates CONDA or MINICONDA, and environment, and runs a python script
+
+from hec.script import MessageBox, ClientAppWrapper
+from java.lang import ProcessBuilder
+import java.io
+import os
+import sys
+
+print "\nStarting BAT caller..."
+
+# --- Resolve workspace + bat path (anchored to the watershed workspace) ---
+wksp_dir = ClientAppWrapper.getWatershed().getWkspDir()
+scripts_dir = os.path.join(wksp_dir, "scripts")
+externalpython_dir = os.path.join(scripts_dir,"ExternalPython")
+bat_path = os.path.join(externalpython_dir, "Extract.bat")
+
+print "Workspace dir :", wksp_dir
+print "Scripts dir   :", scripts_dir
+print "BAT path      :", bat_path
+
+if not os.path.exists(bat_path):
+    msg = "BAT file not found:\n%s\n\nExpected under watershed workspace scripts folder." % bat_path
+    print msg
+    MessageBox.showError(msg, "BAT Not Found")
+    raise IOError(msg)
+
+# --- Build command ---
+# /c runs and exits. Use call so .bat chaining works properly.
+cmd = ["cmd.exe", "/c", "call", bat_path]
+
+# --- Launch process ---
+pb = ProcessBuilder(cmd)
+pb.directory(java.io.File(scripts_dir))          # working directory = ...\scripts
+pb.redirectErrorStream(True)                     # merge stderr into stdout
+
+proc = pb.start()
+
+# --- Read output ---
+reader = java.io.BufferedReader(java.io.InputStreamReader(proc.getInputStream()))
+lines = []
+while True:
+    line = reader.readLine()
+    if line is None:
+        break
+    lines.append(line)
+    print line
+
+exit_code = proc.waitFor()
+
+# --- Handle result ---
+if exit_code != 0:
+    out = "\n".join(lines)
+    msg = "Extract.bat failed (exit code %d).\n\nOutput:\n%s" % (exit_code, out)
+    print msg
+
+    raise RuntimeError(msg)
+
+

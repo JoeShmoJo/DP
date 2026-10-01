@@ -1,0 +1,30 @@
+############################
+# DiversionFromCSV scripted rule
+#
+# Paste this into the ResSim scripted rule editor at EVERY diversion and every
+# return. It is the same text at all of them: the script asks ResSim which
+# element it is attached to and reads the matching column, so nothing here
+# needs editing per element.
+#
+# All the real code lives in scripts/externalRules/DiversionFromCSV.py, so it
+# exists in one place instead of being copied into every element.
+#
+# The reload() below is the important part. ResSim keeps imported Jython modules
+# alive for the whole session, so without it, edits to the .py are not picked up
+# until ResSim is closed and reopened. Same pattern as
+# scripts/Willamette/StateVars/PctFull_LOP_Init.py
+############################
+import sys
+
+def initRuleScript(currentRule, network):
+    #Make sure the scripts folder is importable, then load the external module
+    modulePath = network.makeAbsolutePathFromWatershed("scripts")
+    if not modulePath in sys.path:
+        sys.path.append(modulePath)
+    from externalRules import DiversionFromCSV
+    reload(DiversionFromCSV)
+    return DiversionFromCSV.initRuleScript(currentRule, network)
+
+def runRuleScript(currentRule, network, currentRuntimestep):
+    from externalRules import DiversionFromCSV
+    return DiversionFromCSV.runRuleScript(currentRule, network, currentRuntimestep)

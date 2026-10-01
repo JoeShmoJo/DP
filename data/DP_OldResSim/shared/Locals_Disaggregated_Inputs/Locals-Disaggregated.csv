@@ -1,0 +1,184 @@
+#This file contains instructions on how to compute disaggregated tributary locals,,,,,,,,,,
+#A disaggregated local flow is one that depends on other local flows already existing (modified flow points),,,,,,,,,,
+#It is formulated as a CSV file so that it can be easily viewed/edited in Excel,,,,,,,,,,
+#The output dss file; output fPart; and timestep should be defined by the subroutine that uses this file,,,,,,,,,,
+#The headers are briefly explained here:,,,,,,,,,,
+#,Command: The script will run through the list of commands. Each block must begin with START and end with WRITE,,,,,,,,,
+#,,START,"The timeseries to read in at the beginning and set as ""active""",,,,,,,
+#,,ADD,A timeseries to be added to the active TS,,,,,,,
+#,,SUBTRACT,A timeseries to be subtracted to the active TS,,,,,,,
+#,,MULTIPLY,Multiply the active TS by a constant,,,,,,,
+#,,FLOOR,"Caps all values in the time series to the minimum value specified as ""Constant""",,,,,,,
+#,,CEILING,"Caps all values in the time series to the maximum value specified as ""Constant""",,,,,,,
+#,,SHIFTHRS,"Shifts all values by the number of hours specified as ""Constant"" (positive or negative)",,,,,,,
+#,,INDEX,Not functional yet,,,,,,,
+#,,MOVE1,Uses the MOVE.1 technique to extend streamflow records based on a nearby gage,,,,,,,
+#,,,MOVE.1 technique summary (uses logarithm base 10 of flows):,,,,,,,
+#,,,,xData is log10 of flow data of the predictor station during period of concurrent data,,,,,,
+#,,,,yData is log10 of flow data of the predicted station during period of concurrent data,,,,,,
+#,,,,Eqn: Yhat = Ybar + Sy/Sx(X-Xbar),,,,,,
+#,,ROUTE,Routes flow directly from US_JuncName to DS_JuncName (no other locals added in) using ResSim routing parameters defined,,,,,,,
+#,,WRITE,The timeseries to be written out (Bpart and Cpart defined),,,,,,,
+#,DSS File: the name of the DSS file to read from (in the shared directory),,,,,,,,,
+#,"Bpart: the Bpart of the record to be read or written, depending on the command",,,,,,,,,
+#,"Cpart: the Cpart of the record to be read or written, depending on the command",,,,,,,,,
+#,Constant: a constant (typically used with MULTIPLY to factor the timeseries),,,,,,,,,
+#,US_JuncName: only used with ROUTE--the upstream junction to route from as named in ResSim,,,,,,,,,
+#,DS_JuncName: only used with ROUTE--the upstream junction to route to as named in ResSim,,,,,,,,,
+#,YBarMOVE1: average of the yData (only used in MOVE1),,,,,,,,,
+#,XBarMOVE1: average of the xData (only used in MOVE1),,,,,,,,,
+#,SlopeMOVE1: Sy/Sx (std dev of y-data divided by std dev of x-data) (only used in MOVE1),,,,,,,,,
+#Command,DSS File,Bpart,Cpart,Constant,US_JuncName,DS_JuncName,YBarMOVE1,XBarMOVE1,SlopeMOVE1,Comments
+START,Locals-ModifiedFlowPts.dss,BFEI,FLOW-LOC,,,,,,,0.027 *  [BFE4L - (Kooteai+Moyie) - (Kootenai+Yaak) - (Kootenai+Fisher)]
+#SUBTRACT,obsData.dss,,,,,,,,,Moyie River gage at Eileen discontinued
+SUBTRACT,obsData.dss,12304500,FLOW,,,,,,,Yaak River gage
+SUBTRACT,obsData.dss,12302055,FLOW,,,,,,,Fisher River gage
+MULTIPLY,,,,0.027,,,,,,
+WRITE,,Kootenai+Fisher,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BFEI,FLOW-LOC,,,,,,,0.792 *  [BFE4L - (Kooteai+Moyie) - (Kootenai+Yaak) - (Kootenai+Fisher)]
+#SUBTRACT,obsData.dss,,,,,,,,,Moyie River gage at Eileen discontinued
+SUBTRACT,obsData.dss,12304500,FLOW,,,,,,,Yaak River gage
+SUBTRACT,obsData.dss,12302055,FLOW,,,,,,,Fisher River gage
+MULTIPLY,,,,0.792,,,,,,
+WRITE,,Kootenai+Yaak,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BFEI,FLOW-LOC,,,,,,,0.144 * [BFE4L - (Kooteai+Moyie) - (Kootenai+Yaak) - (Kootenai+Fisher)]
+#SUBTRACT,obsData.dss,,,,,,,,,Moyie River gage at Eileen discontinued
+SUBTRACT,obsData.dss,12304500,FLOW,,,,,,,Yaak River gage
+SUBTRACT,obsData.dss,12302055,FLOW,,,,,,,Fisher River gage
+MULTIPLY,,,,0.144,,,,,,
+WRITE,,Kootenai+Moyie,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BFEI,FLOW-LOC,,,,,,,0.248 * [BFE4LN] - 76.3
+MULTIPLY,,,,0.248,,,,,,
+SUBTRACT,,,,76.3,,,,,,
+WRITE,,Kootenai+Moyie,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,COR,FLOW-LOC,,,,,,,0.035 * [COR4L]
+MULTIPLY,,,,0.035,,,,,,
+WRITE,,Kuskunook,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,COR,FLOW-LOC,,,,,,,0.091 * [COR4L]
+MULTIPLY,,,,0.091,,,,,,
+WRITE,,Kootenai+Goat,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,COR,FLOW-LOC,,,,,,,0.237 * [COR4L]
+MULTIPLY,,,,0.237,,,,,,
+WRITE,,Kootenai+Goat,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,CFMM,FLOW-LOC,,,,,,,MF+NF+0.50*(CFM4L-NF-MF)
+SUBTRACT,obsData.dss,12358500,FLOW,,,,,,,
+SUBTRACT,obsData.dss,FCFM,FLOW,,,,,,,More reliable than USGS
+MULTIPLY,,,,0.5,,,,,,
+ADD,obsData.dss,12358500,FLOW,,,,,,,
+ADD,obsData.dss,FCFM,FLOW,,,,,,,More reliable than USGS
+WRITE,,Flathead+SF,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,CFMM,FLOW-LOC,,,,,,,0.13*(CFM4L-NF-MF)
+SUBTRACT,obsData.dss,12358500,FLOW,,,,,,,
+SUBTRACT,obsData.dss,FCFM,FLOW,,,,,,,More reliable than USGS
+MULTIPLY,,,,0.13,,,,,,
+WRITE,,Flathead+SF,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,obsData.dss,12365700,FLOW,,,,,,,Stillwater R
+ADD,obsData.dss,12366080,FLOW,,,,,,,Whitefish R
+WRITE,,Flathead+Stillwater,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,KER,FLOW-LOC,,,,,,,0.088 * [Ker IN_LOCAL - (Flathead + Stillwater_FLOW_IN)] = 0.088 * [KER4L - (Gaged Flathead + Stillwater)]
+SUBTRACT,obsData.dss,12365700,FLOW,,,,,,,
+SUBTRACT,obsData.dss,12366080,FLOW,,,,,,,
+MULTIPLY,,,,0.088,,,,,,
+WRITE,,Flathead+Stillwater,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,KER,FLOW-LOC,,,,,,,0.56 * [Ker IN_LOCAL - (Flathead + Stillwater_FLOW_IN)] = 0.56 * [KER4L - (Gaged Flathead + Stillwater)]
+SUBTRACT,obsData.dss,12365700,FLOW,,,,,,,
+SUBTRACT,obsData.dss,12366080,FLOW,,,,,,,
+MULTIPLY,,,,0.56,,,,,,
+WRITE,,Flathead+Flathead Lake,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,TOM,FLOW-LOC,,,,,,,0.408*[TOM4L - (Gaged Clark Fork+Flathead) - (Clark Fork+Thompson)]
+SUBTRACT,obsData.dss,12389500,FLOW,,,,,,,Thompson River
+SUBTRACT,obsData.dss,12354500,FLOW,,,,,,,Clark Fork at St Regis
+MULTIPLY,,,,0.408,,,,,,
+WRITE,,Flathead+Mission+Jocko,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,TOM,FLOW-LOC,,,,,,,0.261*[TOM4L - (Gaged Clark Fork+Flathead) - (Clark Fork+Thompson)]
+SUBTRACT,obsData.dss,12389500,FLOW,,,,,,,Thompson River
+SUBTRACT,obsData.dss,12354500,FLOW,,,,,,,Clark Fork at St Regis
+MULTIPLY,,,,0.261,,,,,,
+WRITE,,Flathead+Mission+Jocko,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,TOM,FLOW-LOC,,,,,,,0.132*[TOM4L - (Gaged Clark Fork+Flathead) - (Clark Fork+Thompson)]
+SUBTRACT,obsData.dss,12389500,FLOW,,,,,,,Thompson River
+SUBTRACT,obsData.dss,12354500,FLOW,,,,,,,Clark Fork at St Regis
+MULTIPLY,,,,0.132,,,,,,
+WRITE,,Clark Fork+Flathead,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,TOM,FLOW-LOC,,,,,,,0.138*[TOM4L - (Gaged Clark Fork+Flathead) - (Clark Fork+Thompson)]
+SUBTRACT,obsData.dss,12389500,FLOW,,,,,,,Thompson River
+SUBTRACT,obsData.dss,12354500,FLOW,,,,,,,Clark Fork at St Regis
+MULTIPLY,,,,0.138,,,,,,
+WRITE,,Clark Fork+Thompson,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,ALF,FLOW-LOC,,,,,,,0.039 * [Albeni Falls_IN_LOCAL] = 0.039 * [ALF4L]
+MULTIPLY,,,,0.039,,,,,,
+WRITE,,Clark Fork+Lightning Ck,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,ALF,FLOW-LOC,,,,,,,0.420 * [Albeni Falls_IN_LOCAL] = 0.420 * [ALF4L]
+MULTIPLY,,,,0.42,,,,,,
+WRITE,,Pend Oreille+LakePendOreille_IF,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,ALF,FLOW-LOC,,,,,,,0.249 * [ALF4L] + .214 [ALF4L]
+MULTIPLY,,,,0.463,,,,,,
+WRITE,,Pend Oreille+Priest,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BOX,FLOW-LOC,,,,,,,0.231 * [Box Canyon_In_LOCAL] = 0.231 * [BOX4L]
+MULTIPLY,,,,0.231,,,,,,
+WRITE,,Pend Oreille+Calispel Ck,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BOX,FLOW-LOC,,,,,,,0.211 * [Box Canyon_In_LOCAL] = 0.211 * [BOX4L]
+MULTIPLY,,,,0.211,,,,,,
+WRITE,,Pend Oreille+Calispel Ck,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,BDY,FLOW-LOC,,,,,,,0.209 * [Boundary_IN_LOCAL] = 0.209 * [BDY4L]
+MULTIPLY,,,,0.209,,,,,,
+WRITE,,Pend Oreille+Sullivan,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,obsData.dss,12321500,FLOW,,,,,,,"Use 0.724 * [USGS Boundary Creek near Porthill, ID] "
+MULTIPLY,,,,0.724,,,,,,"Previous CRT work used: 0.724 * [USGS Boundary Creek near Porthill, ID] + 0.288 * [BDY4L]"
+WRITE,,Pend Oreille+Sullivan,FLOW-IN,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,GCL,FLOW-LOC,,,,,,,0.496 *  [Grand Coulee_IN_LOCAL - (USGS 12404500)]
+SUBTRACT,obsData.dss,12404500,FLOW,,,,,,,Kettle River Near Laurier
+MULTIPLY,,,,0.496,,,,,,
+WRITE,,Columbia+Spokane,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,WEL,FLOW-LOC,,,,,,,0.692 * [WEL4L - (Gaged Columbia + Methow) - (Gaged Columbia + Okanogan)]
+SUBTRACT,obsData.dss,12449950,FLOW,,,,,,,Methow
+SUBTRACT,obsData.dss,12447200,FLOW,,,,,,,Okanogan
+MULTIPLY,,,,0.692,,,,,,
+WRITE,,Columbia+Okanogan,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,WEL,FLOW-LOC,,,,,,,0.240 * [WEL4L - (Gaged Columbia + Methow) - (Gaged Columbia + Okanogan)]
+SUBTRACT,obsData.dss,12449950,FLOW,,,,,,,Methow
+SUBTRACT,obsData.dss,12447200,FLOW,,,,,,,Okanogan
+MULTIPLY,,,,0.24,,,,,,
+WRITE,,Columbia+Methow,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,RRH,FLOW-LOC,,,,,,,0.128 * [Rocky Reach IN_LOCAL] = 0.128 * [RRH4L]
+MULTIPLY,,,,0.128,,,,,,
+WRITE,,Columbia+Chelan,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,RIS,FLOW-LOC,,,,,,,.108*[Rock_Island_IN_LOCAL]=0.120 * [Rock Island_IN_LOCAL - (Gaged Columbia + Wenatchee)] = 0.120 * [RIS4L - (Gaged Columbia + Wenatchee)]
+MULTIPLY,,,,0.108,,,,,,
+WRITE,,Columbia+Wenatchee,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+#Lower Columbia,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,JDA,FLOW-LOC,,,,,,,Take 10.9% of the Modified Flow Local flow at JDA
+MULTIPLY,,,,0.109,,,,,,
+WRITE,,Columbia+Alder CK,FLOW-LOC,,,,,,,
+,,,,,,,,,,
+START,Locals-ModifiedFlowPts.dss,JDA,FLOW-LOC,,,,,,,Take 6.8% of the Modified Flow Local flow at JDA
+MULTIPLY,,,,0.068,,,,,,
+WRITE,,Columbia nr Willow Ck,FLOW-LOC,,,,,,,

@@ -1,0 +1,89 @@
+#ExtractList_USGS.txt				
+#This file contains USGS gages to be extracted from the USGS website				
+#Meant to be used as an input to a Jython script				
+#The calling script will specify the output dss file, time window, time step, etc.				
+#The USGS gages should appear below in the following format (semi-colon delimited):				
+#  Field 1: The USGS code (14123500)				
+#  Field 2: The parameter to retrieve (Flow, Stage, Elev, Elev2, Elev29)				
+#           If Flow or Stage is selected, the raw USGS data will be retrieved				
+#           Flow   param code = 00060				
+#           Stage  param code = 00065				
+#           Elev   param code = 00065 (add gage zero elev to stage readings, e.g. Lake CDA)				
+#           Elev2  param code = 00062 (resv elev, e.g. KER)				
+#           Elev29 param code = 72020 (elev NGVD29, e.g. HGH)				
+#           If Elev is selected, the gage elevation (from the USGS database)				
+#            will be added to the stage readings, and the vertical datum will be 				
+#            appended to the C-part of the output DSS record (e.g. -NGVD29)   				
+#  Field 3: The corresponding CBT code for this site (e.g. WHBI)
+#  Field 4: The USGS site description (e.g. Klickitat R near Pitt WA)
+#  Field 5: Any comments about the site (use a # sign)			
+#e.g.
+#12304500	Flow	TRYM	Yaak River near Troy MT                          	#Test				
+#The # character can be used to denote a comment line				
+				
+#USGSID 	#Parm	#CBT	#Description	#Comments
+				
+#######################################################################				
+#CANADA				
+#######################################################################				
+				
+				
+#######################################################################				
+#NWS				
+#######################################################################				
+				
+##KOOTENAI				
+12301933	Flow	LIB	Kootenai River bl Libby Dam nr Libby MT            	
+12302055	Flow	FISM	Fisher River near Libby MT                         	
+12304500	Flow	TRYM	Yaak River near Troy MT                            	
+12305000	Flow	LEOI	Kootenai River at Leonia ID                        	#Kootenai+Yaak
+12308000	Flow	KRMI	Kootenai River Bel Moyie River nr Bonners Ferry ID 	#Kootenai+Moyie
+12309500	Stage	BFEI	Kootenai River at Bonners Ferry ID                	
+				
+##FLATHEAD				
+12362000	Elev29	HGH	Hungry Horse Reservoir nr Hungry Horse MT	
+12362500	Flow	HGH	S F Flathead River nr Columbia Falls MT         	
+12358500	Flow	WGCM	M F Flathead River near West Glacier MT         	
+12355500	Flow	FCFM	N F Flathead River nr Columbia Falls MT         	
+12363000	Flow	CFMM	Flathead River at Columbia Falls MT             	
+12365700	Flow	SRLM	Stillwater River at Lawrence Park, at Kalispell	
+12366080	Flow	WFRM	Whitefish River nr mouth at Kalispell, MT	
+12369000	Flow		Flathead River near Bigfork MT	
+12370000	Flow	SWRM	Swan River near Bigfork, MT                     	
+12371550	Elev2	KER	Flathead Lake at Polson MT	
+12372000	Flow	KER	Flathead River near Polson MT                   	
+				
+##CLARK FORK				
+12354500	Flow	SRGM	Clark Fork at St. Regis MT                          	
+12389000	Flow	PLNM	Clark Fork near Plains MT                           	
+12389500	Flow		Thompson River near Thompson Falls MT	
+12392155	Flow		Lightning Creek at Clark Fork ID	
+				
+##PEND OREILLE				
+#12394000	Flow	PSLI	Priest River nr Coolin ID                          	#POR ends in 2006
+12395000	Flow	PRTI	Priest River nr Priest River ID                     	
+12395500	Flow	ALF	Pend Oreille River at Newport WA                    	
+12396500	Flow	BOX 	Pend Oreille River below Box Canyon near Ione WA    	
+12321500	Flow		Boundary Creek nr Porthill ID                      	#Used for disaggregation
+				
+##COLUMBIA				
+12399500	Flow	CIBW	Columbia River at International Boundary            	
+12404500	Flow	LAUW	Kettle River near Laurier, WA                       	
+				
+##SPOKANE				
+12415500	Elev	COEI	COEUR D ALENE LAKE AT COEUR D ALENE ID              	
+#12417610	Flow		SPOKANE RIVER NR COEUR D ALENE LAKE OUTLET @CDA ID  	#discontinued
+12419000	Flow	POSI	Spokane River nr Post Falls ID                      	#Post Falls Outflow
+12433200	Flow		Chamokane Creek Below Falls near Long Lake WA       	#near Little Falls_IN
+				
+##COLUMBIA				
+12447200	Flow	OKMW	Okanogan River at Malott WA                         	
+12449950	Flow	PATW	Methow River near Pateros WA                        	
+12462500	Flow	MONW	Wenatchee River at Monitor WA                       	
+12472800	Flow	PRD	Columbia River Below Priest Rapids Dam WA           	
+				
+##YAKIMA				
+12484500	Flow	UMTW	YAKIMA RIVER AT UMTANUM, WA                          	
+12500450	Flow		YAKIMA RIVER ABOVE AHTANUM CREEK AT UNION GAP, WA   	#close to PARW, not exactly
+12510500	Flow	KIOW	Yakima River at Kiona WA                            	#Yakima_Modified
+				

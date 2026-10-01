@@ -1,0 +1,50 @@
+#This file contains instructions on how to compute transformed tributary locals,,,,,,,
+#A transformed local flow is one that does not depend on other local flows,,,,,,,
+#Any transformed local flows simply takes gage data and transforms it,,,,,,,
+#It is formulated as a CSV file so that it can be easily viewed/edited in Excel,,,,,,,
+#The input observed data dss file; output dss file; output f part; and timestep should be defined by the subroutine that uses this file,,,,,,,
+#The headers are briefly explained here:,,,,,,,
+#,Output Bpart: The Bpart of the dss record that will be output,,,,,,
+#,,"This field can also say ""ADD"". If ADD is specified, this line will be added to the line below",,,,,
+#,,"When the script hits a non-""ADD"" line, it will write out results",,,,,
+#,Output Cpart: The Cpart of the dss record that will be output,,,,,,
+#,Input Station can either be a USGS gage number or a CWMS gage code (Required Field),,,,,,
+#,"Area ratio and/or MOVE.1 can be defined--if both are defined, the data will have MOVE.1 applied, then the area ratio",,,,,,
+#,Area ratio (optional) can be used to factor the Input Station time series by a multiplier,,,,,,
+#,MOVE.1 technique summary:,,,,,,
+#,xData is flow data of the predictor station,,,,,,
+#,yData is flow data of the predicted station,,,,,,
+#,"If the MOVE.1 regression was done in log space, the prediction equation in linear space can be written as:",,,,,,
+#,,Eqn: Yhat = a*X^b,,,,,
+#,aMOVE1: parameter from above equation,,,,,,
+#,bMOVE1: parameter from above equation,,,,,,
+#,BiasCorrectionFactor: Optional parameter that can be used with MOVE.1,,,,,,
+#,,"If supplied, all transformed values will be multiplied by this value to compensate for the transformation from log space to linear space",,,,,
+#Output Bpart,Output Cpart,Input Station,Area ratio,aMOVE.1,bMOVE.1,BiasCorrectionFactor,Comments
+######Willamette (above the Falls),,,,,,,
+Willamette Falls,Flow-LOC,14202000,1.5,,,,"Ungaged Local allowance from 2010 Modified flow report: Factor Pudding R @ Aurora (1.5 in Nov-Apr, 1.2 in May-Oct, assume 1.5 for simplicity)"
+######Lower Columbia (Above Bonneville),,,,,,,
+ADD,,14120000,1,,,,Hood River
+Columbia+Hood+Salmon,Flow-LOC,14123500,1,,,,White Salmon River
+Columbia+Mosier Ck,Flow-LOC,14113200,5.11,,,,14113200 * DAR (212/41.5=5.11)
+Columbia+Little White Salmon,Flow-LOC,14123500,0.35,,,,14123500 * DAR (136/392=0.35)
+Columbia+Wind,Flow-LOC,14123500,0.57,,,,14123500 * DAR (225/392=0.57)
+Columbia+Eagle Ck,Flow-LOC,14123500,0.34,,,,"14123500 * DAR (132/392=0.34), or Wind River extended gage * DAR (132/225=0.587)"
+######Lower Columbia (Below Bonneville),,,,,,,
+Columbia_at Washougal,Flow-LOC,14222500,1.53,1.197,0.986,1.02,Washougal River gage extension (before DAR application) * DAR (165/108=1.53)
+Columbia+Sandy,Flow-LOC,14142500,1.15,,,,14142500 * DAR (501/436=1.15)
+Columbia+Washougal,Flow-LOC,14222500,1.94,1.197,0.986,1.02,{14222500-East Fork Lewis} * DAR = (209/108=1.94)
+Willamette_at Portland,Flow-LOC,14211500,3.5,,,,14211500 * DAR (94/26.8=3.5)
+Willamette+Columbia Slough,Flow-LOC,14211500,2.42,0.0307,0.99,1.64,{14211500-Johnson Creek} * DAR (64.9/26.8=2.42)
+Columbia+Salmon Ck+Burnt Bridge Ck,Flow-LOC,14222500,11.4,0.022,1.175,1.08,{14222500-East Fork Lewis} * DAR (209/18.3=11.4)
+Columbia_at Multnomah Channel,Flow-LOC,14222500,1.53,,,,{14222500-East Fork Lewis} * DAR (191/125=1.53)
+Columbia+Kalama,Flow-LOC,14222500,1.25,12.197,0.707,1.02,{14222500-East Fork Lewis} * DAR = (248/198=1.25)
+Lewis+EF Lewis,Flow-LOC,14222500,1.7,,,,14222500 * DAR (212/125=1.7)
+Cowlitz+Coweeman,Flow-LOC,14222500,1.09,0.753,0.951,1.03,{14222500-East Fork Lewis} * DAR (130/119=1.09)
+Columbia+Beaver Ck,Flow-LOC,12025000,2.89,0.0787,1.148,1.11,Clatskanie gage extension (before DAR application) * DAR (153/53=2.89)
+Columbia+Germany Ck,Flow-LOC,12025000,5.29,0.226,0.985,1.04,{12025000-Newaukum} * DAR (146/27.6=5.29)
+Columbia+Clatskanie,Flow-LOC,12025000,1.81,0.0787,1.148,1.11,{12025000-Newaukum} * DAR (96/53=1.81)
+Columbia+Plympton Ck,Flow-LOC,12025000,0.92,0.0787,1.148,1.11,Clatskanie gage extension (before DAR application) * DAR (49/53=0.924)
+Columbia+Elochoman,Flow-LOC,12025000,5.29,0.226,0.985,1.04,Same as Germany Creek
+######NWW addition beginning in WY15,,,,,,,
+Hoback_HW,Flow,13023000,1.079,,,,"1.079 * 13023000; excellent correlation with the gage Greys, 13023000"

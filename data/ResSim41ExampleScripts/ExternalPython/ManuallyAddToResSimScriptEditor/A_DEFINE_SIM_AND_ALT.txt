@@ -1,0 +1,59 @@
+from hec.script import Plot
+#from hec.io import TimeSeriesContainer
+#from hec.io import PairedDataContainer
+#from hec.hecmath import TimeSeriesMath
+#from hec.hecmath import PairedDataMath
+from hec.heclib.dss import HecDss, DSSPathname
+#import java
+
+from hec.script import MessageBox, ClientAppWrapper
+from java.lang import ProcessBuilder
+from java.awt import Desktop
+import java.io
+import os
+import sys
+
+print "\nStarting CONFIG opener..."
+
+# --- Resolve workspace paths ---
+wksp_dir = ClientAppWrapper.getWatershed().getWkspDir()
+scripts_dir = os.path.join(wksp_dir, "scripts")
+externalpython_dir = os.path.join(scripts_dir, "ExternalPython")
+config_path = os.path.join(externalpython_dir, "CONFIG.py")
+
+# Directory you actually want opened
+alt_config_dir = os.path.join(scripts_dir, "alt_config")
+
+print "Workspace dir :", wksp_dir
+print "Scripts dir   :", scripts_dir
+print "External dir  :", externalpython_dir
+print "Config path   :", config_path
+print "Alt config dir:", alt_config_dir
+
+if not os.path.exists(config_path):
+    msg = "CONFIG.py not found:\n%s" % config_path
+    print msg
+    MessageBox.showError(msg, "CONFIG.py Not Found")
+    raise IOError(msg)
+
+# --- Open CONFIG.py in Notepad ---
+cmd_edit = ["notepad.exe", os.path.abspath(config_path)]
+print "Edit command  :", cmd_edit
+pb_edit = ProcessBuilder(cmd_edit)
+pb_edit.start()
+
+# --- Open alt_config directory ---
+alt_dir_file = java.io.File(os.path.abspath(alt_config_dir))
+
+if not alt_dir_file.exists():
+    msg = "alt_config directory not found:\n%s" % alt_config_dir
+    print msg
+    MessageBox.showError(msg, "Directory Not Found")
+else:
+    print "Opening directory:", alt_dir_file.getAbsolutePath()
+    if Desktop.isDesktopSupported():
+        Desktop.getDesktop().open(alt_dir_file)
+    else:
+        print "Desktop API not supported."
+
+print "Finished launching editor and directory."

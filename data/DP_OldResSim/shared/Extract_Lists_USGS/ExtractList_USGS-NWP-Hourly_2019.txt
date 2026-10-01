@@ -1,0 +1,93 @@
+#ExtractList_USGS.txt				
+#This file contains USGS gages to be extracted from the USGS website				
+#Meant to be used as an input to a Jython script				
+#The calling script will specify the output dss file, time window, time step, etc.				
+#The USGS gages should appear below in the following format (semi-colon delimited):				
+#  Field 1: The USGS code (14123500)				
+#  Field 2: The parameter to retrieve (Flow, Stage, Elev, Elev3, Elev29)				
+#           If Flow or Stage is selected, the raw USGS data will be retrieved				
+#           Flow   param code = 00060				
+#           Stage  param code = 00065				
+#           Elev   param code = 00065 (add gage zero elev to stage readings, e.g. Lake CDA)				
+#           Elev3  param code = 00062 (resv elev, e.g. KER)				
+#           Elev29 param code = 72020 (elev NGVD29, e.g. HGH)				
+#           If Elev is selected, the gage elevation (from the USGS database)				
+#            will be added to the stage readings, and the vertical datum will be 				
+#            appended to the C-part of the output DSS record (e.g. -NGVD29)   				
+#  Field 3: The corresponding CBT code for this site (e.g. WHBI)
+#  Field 4: The USGS site description (e.g. Klickitat R near Pitt WA)
+#  Field 5: Any comments about the site (use a # sign)			
+#e.g.
+#12304500	Flow	TRYM	Yaak River near Troy MT                          	#Test				
+#The # character can be used to denote a comment line				
+				
+#USGSID 	#Parm	#CBT	#Description	#Comments
+				
+##MIDDLE FORK WILLAMETTE				
+14145100	Elev3	HCR	Hills Creek Lake near Oakridge, OR	
+14145500	Flow	HCRO	MF Willamette River abv Salt Creek, near Oakridge, OR	
+14149000	Elev3	LOP	Lookout Point Lake near Lowell, OR	
+14149500	Elev3	DEX	Dexter Dam at Dexter, OR	
+14150000	Flow	DEXO	MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR 	
+14150900	Elev3	FAL	Fall Creek Lake near Lowell, OR	
+14151000	Flow	FALO	Fall Creek blw Winberry Creek, near Fall Creek, OR	
+14152000	Flow	JASO	MIDDLE FORK WILLAMETTE RIVER AT JASPER, OR 	
+				
+##COAST FORK WILLAMETTE				
+14155000	Elev3	DOR	Dorena Lake near Cottage Grove, OR	
+14155500	Flow	DORO	Row River near Cottage Grove, OR	
+14153000	Elev3	COT	Cottage Grove Lake nr Cottage Grove, Oreg	
+14153500	Flow	COTO	Coast Fork Willamette R blw Cottage Grove Dam, OR	
+14157500	Flow	GOSO	COAST FORK WILLAMETTE RIVER NEAR GOSHEN, OR 	
+				
+##MCKENZIE				
+14159400	Elev3	CGR	Cougar Lake near Rainbow, OR	
+14159500	Flow	CGRO	South Fork McKenzie River near Rainbow, OR	
+14162100	Elev3	BLU	Blue River Lake near Blue River, OR	
+14162200	Flow	BLUO	Blue River at Blue River, OR	
+14162500	Flow	VIDO	MCKENZIE RIVER NEAR VIDA, OR 	
+14163150	Flow	MZLO	MCKENZIE RIVER BLW LEABURG DAM, NR LEABURG, OR 	
+14163900	Flow	WLTO	MCKENZIE RIVER NEAR WALTERVILLE, OR 	
+				
+##WILLAMETTE				
+14166000	Flow	HARO	WILLAMETTE RIVER AT HARRISBURG, OR 	
+				
+##LONG TOM				
+14168000	Elev3	FRN	Fern Ridge Lake near Elmira, OR	
+14169000	Flow	FRNO	Long Tom River near Alvadore, OR	
+14170000	Flow	MNRO	Long Tom River at Monroe, OR	
+				
+##WILLAMETTE				
+14171000	Flow	MRPO	Marys River near Philomath, OR	
+14171600	Flow	WRCO	WILLAMETTE RIVER AT CORVALLIS, OR 	
+14174000	Flow	ALBO	WILLAMETTE RIVER AT ALBANY, OR 	
+				
+##SANTIAM				
+14186100	Elev3	GPR	Green Peter Lake near Foster, OR	
+#14186200	Stage	GPRO	Middle Santiam R blw Green Peter Lake nr Foster, OR	#stage only
+14186600	Elev3	FOS	Foster Lake at Foster, OR	
+14187200	Flow	FOSO	South Santiam River near Foster, OR	
+14187500	Flow	WTLO	SOUTH SANTIAM RIVER AT WATERLOO, OR 	
+14180500	Elev3	DET	Detroit Lake near Detroit, OR	
+14181400	Elev3	BCL	Big Cliff Dam near Niagara, OR	
+14181500	Flow	BCLO	North Santiam River at Niagara, OR	
+14183000	Flow	MEHO	NORTH SANTIAM RIVER AT MEHAMA, OR 	
+14189000	Flow	JFFO	SANTIAM RIVER AT JEFFERSON, OR 	
+				
+##WILLAMETTE				
+14190500	Flow	SUVO	Luckiamute River near Suver, OR	
+14191000	Flow	SLMO	WILLAMETTE RIVER AT SALEM, OR 	
+14194150	Flow	MCMO	South Yamhill River at McMinnville, OR	
+14197900	Flow	NBGO	WILLAMETTE RIVER AT NEWBERG, OR 	
+14202000	Flow	AURO	PUDDING RIVER AT AURORA, OR 	
+14200000	Flow	CANO	MOLALLA RIVER NEAR CANBY, OR 	
+				
+##TUALATIN				
+#14202980	Flow	SCOO	Scoggins Ck blw Henry Hagg Lake, nr Gaston, OR	#No flow data-OWRD
+14203500	Flow	DLLO	TUALATIN RIVER NEAR DILLEY, OR 	
+#14206500	Flow	FRMO	TUALATIN R AT FARMINGTON, OR 	#No flow data-OWRD
+14207500	Flow	WSLO	Tualatin River at West Linn, OR	
+
+##COLUMBIA				
+#14144700	Stage	VANW	COLUMBIA RIVER AT VANCOUVER, WA                    	#VAPW is the NOAA gage
+#14246900	Stage	CBAO	Columbia River @ Beaver Army Terminal nr Quincy,OR 	#New gage in 2014

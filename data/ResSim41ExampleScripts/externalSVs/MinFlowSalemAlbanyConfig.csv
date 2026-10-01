@@ -1,0 +1,13 @@
+#This file contains basic configuration for the Salem and Albany rules to show which reservoirs support the rule and the min/max conservation pools for those reservoirs,,,,,,,,,,,
+"#The SummerBufferElev parameter is based on judgement, and represents when to abandon the Salem/Albany operation because we are drafting too deeply. This replaced the old ""buffer"" zone, and is assumed to apply linearly in time from SummerBufferElev on 31July to MinConElev on 31Oct.",,,,,,,,,,,
+"#The MaxRelease parameter is based on judgement, and is a limit on the release each project can contribute to mainstem flow targets. If left unchecked, projects might draft extremely fast to meet mainstem flow targets.",,,,,,,,,,,
+Variable,Hills Creek,Lookout Point,Fall Creek,Cottage Grove,Dorena,Fern Ridge,Cougar,Blue River,Green Peter,Foster,Detroit
+Abbreviation,HCR,LOP,FAL,COT,DOR,FRN,CGR,BLU,GPR,FOS,DET
+SupportsAlbany,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE
+SupportsSalem,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE
+MaxConElev,1541,926,830,790,832,373.5,1690,1350,1010,637,1563.5
+MinConElev,1448,825,728,750,770.5,353,1532,1180,922,613,1450
+MinConStor,155400,118800,9621,3139,7095,2802,5220,3971,159900,31100,154400
+SummerBufferElev,1470,850,740,760,790,361,1570,1250,944,613,1480
+MaxRelease,1800,2700,200,100,200,999999,400,300,999999,999999,999999
+TravelTimeDays,2,2,2,2,2,2,2,2,1,2,1

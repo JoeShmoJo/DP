@@ -1,0 +1,327 @@
+#ExtractList_CWMS.txt
+#This file contains CWMS pathnames to be extracted from the CWMS database
+#Meant to be used as an input to a Jython script
+#The calling script will specify the output dss file, time window, time step, etc.
+#To locate CWMS pathnames, DBQuery can be browsed:
+#http://nwp-wmlocal2.nwp.usace.army.mil/common/dbquery/www/index.html
+#The CWMS pathnames should appear below exactly as they appear in DBQuery
+#e.g. "BLU.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV"
+#The "#" character can be used to denote a comment line
+
+###############################################################################
+#CANADA
+###############################################################################
+
+##COLUMBIA
+MCDB.Flow-In.Ave.~1Day.1Day.BCHYDRO-REV       #Mica
+MCDB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV
+MCDB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+REVB.Flow-In.Ave.~1Day.1Day.BCHYDRO-REV       #Revelstoke
+REVB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV
+REVB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+ARDB.Flow-In.Ave.~1Day.1Day.BCHYDRO-REV       #Arrow
+ARDB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV
+ARDB.Elev-Forebay.Inst.0.0.BCHYDRO-REV
+
+##KOOTENAI
+LIB.Flow-In.Ave.~1Day.1Day.CBT-REV            #Libby
+LIB.Flow-Out.Ave.~1Day.1Day.CBT-REV 
+LIB.Elev-Forebay.Ave.~1Day.1Day.CBT-REV 
+FISM.Flow.Inst.15Minutes.0.USGS-RAW           #Kootenai+Fisher FLOW-LOC
+TRYM.Flow.Inst.15Minutes.0.USGS-RAW           #Kootenai+Yaak FLOW-LOC
+LEOI.Flow.Inst.15Minutes.0.USGS-RAW           #Kootenai+Yaak
+KRMI.Flow.Inst.15Minutes.0.USGS-RAW           #Kootenai blw Moyie River
+BFEI.Stage.Inst.15Minutes.0.USGS-RAW          #Bonners Ferry (Use Stage Only)
+BFEI.Flow.Ave.1Hour.0.CENWS-COMPUTED-RAW      #Not sure how this is calculated...
+DCDB.Flow-In.Ave.~1Day.1Day.BCHYDRO-REV       #Duncan
+DCDB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV 
+DCDB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+QBYB.Flow-In.Ave.~1Day.1Day.BCHYDRO-REV       #Queens Bay flow in
+QBYB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV      #Corra Linn Dam outflow
+QBYB.Elev-Lake.Inst.~1Day.0.BCHYDRO-REV       #Elevation a Queens Bay (typically reported)
+CORB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV    #Corra Linn forebay (below Grohman Narrows)
+BRDB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV      #Brilliant
+#No inflow pathname for Brilliant
+BRDB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+
+##COLUMBIA
+BIRB.Flow.Inst.0.0.BCHYDRO-RAW                #Birchbank (Murphy Creek)
+
+###############################################################################
+#NWS
+###############################################################################
+
+##FLATHEAD
+HGH.Flow-In.Ave.~1Day.1Day.CBT-REV
+HGH.Flow-Out.Ave.~1Day.1Day.CBT-REV 
+HGHM.Flow.Inst.15Minutes.0.USGS-RAW            
+HGH.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+WGCM.Flow.Inst.15Minutes.0.GOES-REV            #MF Flathead
+FCFM.Flow.Inst.15Minutes.0.GOES-REV            #NF Flathead
+CFMM.Flow.Inst.15Minutes.0.USGS-RAW
+SRLM.Flow.Inst.15Minutes.0.USGS-RAW            #Stillwater River
+WFRM.Flow.Inst.15Minutes.0.GOES-REV            #Whitefish River
+SWRM.Flow.Inst.15Minutes.0.USGS-RAW            #Swan River
+KERM.Flow-In.Inst.~1Day.0.CBT-REV
+KERM.Flow-Out.Inst.~1Day.0.CBT-REV
+KERM.Elev-Pool.Inst.15Minutes.0.USGS-RAW       #Lake elev (typically reported)
+KER.Elev-Forebay.Inst.~1Day.0.CBT-REV          #Acually is lake elev as well, not actually forebay at dam face!
+##CLARK FORK
+SRGM.Flow.Inst.15Minutes.0.USGS-RAW            #Clark Fork at St. Regis
+PLNM.Flow.Inst.15Minutes.0.GOES-REV
+#No valid pathname for Thompson Falls inflow
+TOM.Flow-Out.Ave.~1Day.1Day.CBT-REV
+TOM.Elev-Forebay.Inst.~1Day.0.CBT-REV
+NOX.Flow-In.Ave.~1Day.1Day.CBT-REV
+NOX.Flow-Out.Ave.~1Day.1Day.CBT-REV
+NOX.Elev-Forebay.Inst.1Hour.0.CBT-REV
+CAB.Flow-In.Ave.~1Day.1Day.CENWS-COMPUTED-RAW 
+CAB.Flow-Out.Ave.~1Day.1Day.CBT-REV
+CAB.Elev-Forebay.Inst.1Hour.0.CBT-REV
+PRTI.Flow.Inst.15Minutes.0.GOES-REV
+HOPI.Elev-Lake.Inst.0.0.CBT-REV               #Pend Oreille Lake near Hope
+ALF.Flow-In.Ave.~1Day.1Day.CBT-REV
+ALF.Flow-Out.Ave.~1Day.1Day.CBT-REV
+ALF.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+BOX.Flow-Out.Ave.~1Day.1Day.CBT-REV
+BOX.Elev-Forebay.Inst.~1Day.0.CBT-REV
+BDY.Flow-In.Ave.~1Day.1Day.CBT-REV
+BDY.Flow-Out.Ave.~1Day.1Day.CBT-REV
+BDY.Elev-Forebay.Inst.1Hour.0.CBT-REV
+SEVB.Flow-In.Ave.1Hour.1Hour.BCHYDRO-RAW
+SEVB.Flow-Out.Inst.~1Day.0.BCHYDRO-REV
+SEVB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+WANB.Flow-Out.Ave.~1Day.1Day.BCHYDRO-REV
+WANB.Elev-Forebay.Inst.1Hour.0.BCHYDRO-REV
+
+##COLUMBIA
+CIBW.Flow.Inst.15Minutes.0.USGS-RAW          #Columbia at International Boundary
+LAUW.Flow.Inst.15Minutes.0.USGS-REV          #Columbia+Kettle
+
+##SPOKANE 
+COEI.Flow-In.Ave.~1Day.1Day.CBT-REV          #Post Falls-Lake Coeur d'Alene
+COEI.Flow-Out.Ave.~1Day.1Day.CBT-REV
+COEI.Elev-Forebay.Inst.0.0.CBT-REV
+LLK.Flow-Out.Ave.~1Day.1Day.CBT-REV          #Long Lake Outflow
+LLK.Elev-Forebay.Inst.~1Day.0.CBT-REV        #Long Lake Elevation
+
+##COLUMBIA
+GCL.Flow-In.Ave.~1Day.1Day.CBT-REV           #Grand Coulee
+GCL.Flow-Out.Ave.~1Day.1Day.CBT-REV
+GCL.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+BNK.Flow-Pumping.Ave.~1Day.1Day.CBT-RAW      #Banks Lake Diversion
+CHJ.Flow-In.Ave.~1Day.1Day.CBT-REV           #Chief Joseph
+CHJ.Flow-Out.Ave.~1Day.1Day.CBT-REV
+CHJ.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+OKMW.Flow.Inst.15Minutes.0.USGS-REV          #Columbia+Okanogan FLOW-LOC
+PATW.Flow.Inst.15Minutes.0.USGS-REV          #Columbia+Methow FLOW-LOC
+WEL.Flow-In.Ave.~1Day.1Day.CBT-REV           #Wells
+WEL.Flow-Out.Ave.~1Day.1Day.CBT-REV
+WEL.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+CHL.Flow-In.Ave.~1Day.1Day.CBT-REV           #Chelan
+CHL.Flow-Out.Ave.~1Day.1Day.CBT-REV
+CHL.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+RRH.Flow-In.Ave.~1Day.1Day.CBT-REV           #Rocky Reach
+RRH.Flow-Out.Ave.~1Day.1Day.CBT-REV
+RRH.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+MONW.Flow.Inst.15Minutes.0.USGS-REV          #Columbia+Wenatchee FLOW-IN
+RIS.Flow-In.Ave.~1Day.1Day.CBT-REV           #Rock Island
+RIS.Flow-Out.Ave.~1Day.1Day.CBT-REV
+RIS.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+WAN.Flow-In.Ave.~1Day.1Day.CBT-REV           #Wanapum
+WAN.Flow-Out.Ave.~1Day.1Day.CBT-REV
+WAN.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+PRD.Flow-In.Ave.~1Day.1Day.CBT-REV           #Priest Rapids
+PRD.Flow-Out.Ave.~1Day.1Day.CBT-REV
+PRD.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+
+##YAKIMA
+CLE.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV  #Cle Elum
+CLE.Flow-Out.Ave.~1Day.1Day.USBR-RAW
+CLE.Elev-Forebay.Ave.~1Day.1Day.USBR-RAW
+KEE.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV  #Keechelus
+KEE.Flow-Out.Ave.~1Day.1Day.USBR-RAW
+KEE.Elev-Forebay.Ave.~1Day.1Day.USBR-RAW
+KAC.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV  #Kachess
+KAC.Flow-Out.Ave.~1Day.1Day.USBR-RAW
+KAC.Elev-Forebay.Ave.~1Day.1Day.USBR-RAW
+KTCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Kittitas Canal Diversion
+YUMW.Flow.Inst.15Minutes.0.USBR-RAW           #Yakima at Cle Elum
+UMTW.Flow.Inst.15Minutes.0.USGS-RAW           #Yakima at Umtanum
+BUM.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV  #Bumping Lake
+BUM.Flow-Out.Ave.~1Day.1Day.USBR-RAW
+BUM.Elev-Forebay.Ave.~1Day.1Day.USBR-RAW
+RIM.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV  #Tieton
+RIM.Flow-Out.Ave.~1Day.1Day.USBR-RAW          
+RIM.Elev-Forebay.Ave.~1Day.1Day.USBR-RAW
+NSCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Naches-Selah Canal Diversion
+TIEW.Flow-Canal.Ave.15Minutes.0.USBR-RAW      #Tieton Canal Diversion
+WOPW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Wapatox Canal Diversion
+NACW.Flow.Inst.15Minutes.0.USBR-RAW           #Naches R near Naches
+RSCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #New Reservation Canal Diversion
+RZCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Roza Canal Diversion
+SNCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Sunnyside Canal Diversion
+PARW.Flow.Inst.15Minutes.0.USBR-RAW           #Yakima at Parker
+CHCW.Flow-Diversion.Inst.15Minutes.0.USBR-RAW #Chandler Canal Diversion
+KIOW.Flow.Inst.15Minutes.0.USGS-REV           #Yakima at Kiona
+
+
+###############################################################################
+#NWW
+###############################################################################
+
+##SNAKE
+JCK.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Jackson Lake
+JCK.Flow-Out.Ave.~1Day.1Day.USBR-COMPUTED-REV
+JCK.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+BFKY.Flow.Inst.15Minutes.0.USGS-RAW            #Buffalo River
+GROY.Flow.Inst.15Minutes.0.USGS-RAW            #Gros Ventre River
+JKSY.Flow.Inst.15Minutes.0.USGS-REV            #Snake DS Flat_CK
+GREY.Flow.Inst.15Minutes.0.USGS-RAW            #Greys River
+SALY.Flow.Inst.15Minutes.0.USGS-REV            #Salt River
+PAL.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Palisades
+PALI.Flow.Inst.15Minutes.0.USGS-REV
+PAL.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+#ALPY.Flow.Inst.15Minutes.0.USGS-REV           #Snake nr Alpine
+HEII.Flow.Inst.15Minutes.0.USGS-REV            #Heise
+DRYI.Flow.Inst.0.0.USBR-RAW                    #Dry Bed Diversion near Ririe
+LORI.Flow.Inst.15Minutes.0.USGS-REV            #Lorenzo
+REXI.Flow.Inst.15Minutes.0.USGS-REV            #Rexburg (Henry's Fork)
+SHYI.Flow.Inst.15Minutes.0.USGS-REV            #Shelley
+BLFI.Flow.Inst.15Minutes.0.USGS-RAW            #Blackfoot River
+BFTI.Flow.Inst.15Minutes.0.USGS-RAW            #Snake nr Blackfoot
+AMF.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #American Falls
+AMFI.Flow.Inst.15Minutes.0.USGS-REV
+AMF.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+MINI.Flow.Inst.15Minutes.0.USGS-REV            #Minidoka
+MILI.Flow.Inst.15Minutes.0.USGS-REV            #Milner
+#STFI.Flow.Inst.15Minutes.0.USGS-REV            #Snake at Twin Falls (just use USGS)
+SKHI.Flow.Inst.15Minutes.0.USGS-REV            #King Hill
+#SWAI.Flow.Inst.15Minutes.0.IDP-REV             #Murphy (data not available)
+
+##OWYHEE
+OWY.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Owyhee
+OWY.Flow-Out.Ave.~1Day.1Day.USBR-RAW           
+OWY.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+OWCO.Flow-Canal.Ave.~1Day.1Day.USBR-RAW        #Owyhee Canal at Owyhee Dam Diversion
+
+##BOISE
+AND.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Anderson Ranch
+ANDI.Flow.Ave.~1Day.1Day.USBR-RAW
+AND.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+SFNI.Flow.Inst.15Minutes.0.USGS-REV            #Arrowrock_IN_SF
+BTSI.Flow.Inst.15Minutes.0.USGS-REV            #Arrowrock_IN_MF
+ARK.Flow-In.Inst.15Minutes.0.USBR-COMPUTED-REV #Arrowrock
+#ARKI.Flow.Ave.~1Day.1Day.USBR-RAW
+ARK.Flow-Out.Ave.~1Day.1Day.USBR-COMPUTED-REV 
+ARK.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+MORI.Flow.Inst.15Minutes.0.USGS-REV            #Mores River
+LUC.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Lucky Peak
+LUC.Flow-Out.Inst.0.0.USBR-REV
+LUC.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+BSEI.Flow-Canal.Inst.0.0.USBR-RAW              #New York Canal Diversion
+#BDDI.Flow.Inst.0.0.USBR-COMPUTED-REV          #DD_Boise nr Boise NO FLOW DATA
+BIGI.Flow.Inst.15Minutes.0.USGS-REV            #Glenwood Bridge
+PARI.Flow.Inst.15Minutes.0.USGS-REV            #Parma
+
+##SNAKE
+SNYI.Flow.Inst.15Minutes.0.USGS-REV            #Nyssa
+
+##PAYETTE
+DED.Flow-In.Ave.~1Day.1Day.USBR-COMPUTED-REV   #Deadwood
+DEDI.Flow.Inst.15Minutes.0.USGS-REV
+DED.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+PRLI.Flow.Inst.15Minutes.0.USGS-REV            #Payette SF_HW
+MFPI.Flow.Inst.15Minutes.0.USGS-REV            #Payette MF_HW
+CSC.Flow-In.Ave.~1Day.1Day.USBR-RAW            #Cascade
+CSCI.Flow.Ave.~1Day.1Day.USBR-COMPUTED-REV
+CSC.Elev-Forebay.Inst.~1Day.0.USBR-COMPUTED-REV
+HRSI.Flow.Inst.15Minutes.0.USGS-REV            #Horseshoe Bend
+PRPI.Flow.Inst.15Minutes.0.USGS-REV            #Payette
+
+##SNAKE                                 
+WSRI.Flow.Inst.15Minutes.0.USGS-REV            #Weiser River
+BRN.Flow-In.Inst.~1Day.0.IDP-REV               #Brownlee
+BRN.Flow-Out.Inst.~1Day.0.IDP-COMPUTED-REV
+BRN.Elev-Forebay.Inst.~1Day.0.IDP-REV
+BRN.Elev-Forebay.Inst.~1Day.0.IDP-RAW          #Sometimes REV doesn't work...
+HCD.Flow-In.Ave.~1Day.1Day.IDP-COMPUTED-REV    #Hells Canyon
+#HCDI.Flow.Inst.15Minutes.0.USGS-RAW
+HCD.Flow-Out.Ave.~1Day.1Day.IDP-REV
+HCD.Elev-Forebay.Inst.~1Day.0.IDP-RAW
+WHBI.Flow.Inst.15Minutes.0.USGS-REV            #White Bird (Salmon River)
+CHGI.Flow.Inst.15Minutes.0.USGS-REV            #China Gardens (Snake_RM178.27)
+#TRYO.Flow.Inst.15Minutes.0.USGS-REV           #Grande Ronde at Troy
+ANAW.Flow.Inst.15Minutes.0.USGS-REV            #Anatone
+
+##CLEARWATER
+DWR.Flow-In.Ave.~1Day.1Day.CBT-REV
+DWR.Flow-Out.Ave.~1Day.1Day.CBT-REV
+DWR.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+SPDI.Flow.Inst.15Minutes.0.USGS-REV            #USGS outflow gage 13342500
+PRII.Flow.Inst.15Minutes.0.USGS-RAW            #USGS outflow gage for Clearwater+Potlach
+ORFI.Flow.Inst.15Minutes.0.USGS-REV            #USGS outflow gage for Orofino Junction
+
+##SNAKE
+LWG.Flow-In.Ave.~1Day.1Day.CBT-REV             #Lower Granite
+LWG.Flow-Out.Ave.~1Day.1Day.CBT-REV
+LWG.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+LGS.Flow-In.Ave.~1Day.1Day.CBT-REV             #Little Goose
+LGS.Flow-Out.Ave.~1Day.1Day.CBT-REV
+LGS.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+LMN.Flow-In.Ave.~1Day.1Day.CBT-REV             #Lower Monumental
+LMN.Flow-Out.Ave.~1Day.1Day.CBT-REV
+LMN.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+IHR.Flow-In.Ave.~1Day.1Day.CBT-REV             #Ice Harbor
+IHR.Flow-Out.Ave.~1Day.1Day.CBT-REV
+IHR.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+
+##COLUMBIA
+MCN.Flow-In.Ave.~1Day.1Day.CBT-REV
+MCN.Flow-Out.Ave.~1Day.1Day.CBT-REV
+MCN.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+
+###############################################################################
+#NWP
+###############################################################################
+
+##COLUMBIA
+UMAO.Flow.Inst.0.0.MIXED-REV
+WIMO.Flow.Inst.0.0.USGS-REV
+JDA.Flow-In.Ave.~1Day.1Day.CBT-REV
+JDA.Flow-Out.Ave.1Hour.1Hour.CBT-REV
+JDA.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+MODO.Flow.Inst.0.0.Best
+#NO PATHNAMES DEFINED FOR PELTON OR ROUND BUTTE OF DESCHUTES RIVER
+TDA.Flow-In.Ave.~1Day.1Day.CBT-REV
+TDA.Flow-Out.Ave.~1Day.1Day.CBT-REV
+TDA.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+PITW.Flow.Inst.0.0.USGS-REV
+HODO.Flow.Inst.0.0.Best
+UNDW.Flow.Inst.15Minutes.0.GOES-REV
+BON.Flow-In.Ave.~1Day.1Day.CBT-REV
+BON.Flow-Out.Ave.~1Day.1Day.CBT-REV
+BON.Elev-Forebay.Inst.~1Day.0.CBT-RAW 
+
+SNDO.Flow.Inst.0.0.MIXED-COMPUTED-REV
+
+##CLACKAMAS
+ESTO.Flow.Inst.0.0.USGS-REV
+OCYO.Flow.Inst.0.0.USGS-REV
+
+##WILLAMETTE
+#SYCO.Flow.Inst.15Minutes.0.USGS-REV                #no data, get directly from USGS
+#PRTO.Stage.Inst.15Minutes.0.USGS-REV
+
+##LEWIS
+HSSW.Flow.Inst.0.0.MIXED-COMPUTED-REV
+MERW.Flow.Inst.0.0.MIXED-COMPUTED-REV
+
+##COWLITZ
+MOS.Flow-In.Inst.0.0.TCL-REV                        #Mossyrock
+MOS.Elev-Forebay.Inst.0.0.TCL-REV
+MOS.Flow-Out.Inst.0.0.TCL-REV
+MAY.Flow-In.Inst.0.0.TCL-REV                        #Mayfield
+MAY.Elev-Forebay.Inst.0.0.TCL-REV
+MAY.Flow-Out.Inst.0.0.TCL-REV
+CASW.Flow.Inst.0.0.USGS-REV                         #Castle Rock

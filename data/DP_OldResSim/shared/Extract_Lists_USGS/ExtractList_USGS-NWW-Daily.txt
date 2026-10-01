@@ -1,0 +1,86 @@
+#ExtractList_USGS.txt				
+#This file contains USGS gages to be extracted from the USGS website				
+#Meant to be used as an input to a Jython script				
+#The calling script will specify the output dss file, time window, time step, etc.				
+#The USGS gages should appear below in the following format (semi-colon delimited):				
+#  Field 1: The USGS code (14123500)				
+#  Field 2: The parameter to retrieve (Flow, Stage, Elev, Elev2, Elev29)				
+#           If Flow or Stage is selected, the raw USGS data will be retrieved				
+#           Flow   param code = 00060				
+#           Stage  param code = 00065				
+#           Elev   param code = 00065 (add gage zero elev to stage readings, e.g. Lake CDA)				
+#           Elev2  param code = 00062 (resv elev, e.g. KER)				
+#           Elev29 param code = 72020 (elev NGVD29, e.g. HGH)				
+#           If Elev is selected, the gage elevation (from the USGS database)				
+#            will be added to the stage readings, and the vertical datum will be 				
+#            appended to the C-part of the output DSS record (e.g. -NGVD29)   				
+#  Field 3: The corresponding CBT code for this site (e.g. WHBI)
+#  Field 4: The USGS site description (e.g. Klickitat R near Pitt WA)
+#  Field 5: Any comments about the site (use a # sign)			
+#e.g.
+#12304500	Flow	TRYM	Yaak River near Troy MT                          	#Test				
+#The # character can be used to denote a comment line				
+				
+#USGSID 	#Parm	#CBT	#Description	#Comments
+				
+#######################################################################				
+#NWW				
+#######################################################################				
+##SNAKE				
+13011000	Flow	JCK	SNAKE RIVER NR MORAN WY                            	
+13011900	Flow	BFKY	BUFFALO FORK AB LAVA CREEK NR MORAN WY             	#HW Buffalo Flow_IN       
+13013650	Flow		SNAKE RIVER AT MOOSE, WY                           	#Moose
+13018750	Flow	JKSY	SNAKE RIVER BL FLAT CREEK NR JACKSON WY            	
+13015000	Flow	GROY	GROS VENTRE RIVER AT ZENITH WY                     	#HW Gros Ventre Flow_IN
+#13019500	Flow		HOBACK RIVER NR JACKSON WY                        	#HW Hoback Flow_IN
+13023000	Flow	GREY	GREYS RIVER AB RESERVOIR NR ALPINE WY              	#HW Grey Flow_IN
+13027500	Flow	SALY	SALT RIVER AB RESERVOIR NR ETNA WY                 	#HW Salt Flow_IN        
+13032500	Flow	PALI	SNAKE RIVER NR IRWIN ID                            	
+13037500	Flow	HEII	SNAKE RIVER NR HEISE ID                            	
+13038500	Flow	LORI	SNAKE RIVER AT LORENZO ID                          	
+13056500	Flow	REXI	HENRYS FORK NR REXBURG ID                          	#HW HenrysFk Flow_IN
+13060000	Flow	SHYI	SNAKE RIVER NR SHELLEY ID                          	
+13068500	Flow	BLFI	BLACKFOOT RIVER NR BLACKFOOT ID                    	#HW Blackfoot Flow_IN
+13069500	Flow	BFTI	SNAKE RIVER NR BLACKFOOT ID                        	#near American Falls_IN
+13081500	Flow	MINI	SNAKE R NR MINIDOKA ID (AT HOWELLS FERRY)          	
+13087995	Flow	MILI	SNAKE RIVER GAGING STATION AT MILNER ID            	
+13090500	Flow	STFI	SNAKE RIVER NR TWIN FALLS ID                       	#very close to former Kimberley gage
+13152500	Flow	MLDI	MALAD RIVER NR GOODING ID                          	#Gooding_HW Flow_IN
+13154500	Flow	SKHI	SNAKE RIVER AT KING HILL ID                        	
+				
+##OWYHEE				
+#13182000	Flow	OWY	OWYHEE RIVER ABOVE OWYHEE RESERVOIR, OREG.        	#HW Owyhee Flow_IN
+13183000	Flow	OWY	OWYHEE RIVER BELOW OWYHEE DAM, OR                  	#OWYHEE_BELOW OWYHEE 
+				
+##BOISE				
+13190500	Flow	ANDI	SF BOISE RIVER AT ANDERSON RANCH DAM ID            	
+13192200	Flow	SFNI	SF BOISE RIVER AT NEAL BRIDGE NR ARROWROCK DAM ID  	#Arrowrock_IN_SF
+13185000	Flow	BTSI	BOISE RIVER NR TWIN SPRINGS ID                     	#Arrowrock_IN_MF Flow_IN
+13200000	Flow	MORI	MORES CREEK AB ROBIE CREEK NR ARROWROCK DAM ID     	#HW Lucky Peak Local 
+#13201500	Elev	LUC	LUCKY PEAK LAKE NR BOISE ID                        	
+13206000	Flow	BIGI	BOISE RIVER AT GLENWOOD BRIDGE NR BOISE ID         	#Glenwood Bridge
+13213000	Flow	PARI	BOISE RIVER NR PARMA ID                            	#HW Parma Local
+				
+##SNAKE				
+13213100	Flow	SNYI	SNAKE RIVER AT NYSSA OR                            	
+				
+##PAYETTE				
+13236500	Flow	DEDI	DEADWOOD RIVER BL DEADWOOD RES NR LOWMAN ID        	#DEADWOOD_OUT 
+13235000	Flow	PRLI	SOUTH FORK PAYETTE RIVER AT LOWMAN, ID             	#HW SF Payette Flow_IN
+13237920	Flow	MFPI	MIDDLE FORK PAYETTE RIVER NR CROUCH ID             	#HW MF Payette Flow_IN
+13247500	Flow	HRSI	PAYETTE RIVER NR HORSESHOE BEND ID                 	#Horseshoe Bend
+13251000	Flow	PRPI	PAYETTE RIVER NR PAYETTE ID                        	#Payette (nr Payette)
+				
+##SNAKE				
+13266000	Flow	WSRI	WEISER RIVER NR WEISER ID                          	#HW Weiser Flow_IN
+13317000	Flow	WHBI	SALMON RIVER AT WHITE BIRD ID                      	#Snake+Salmon
+13317660	Flow	CHGI	SNAKE RIVER BL MCDUFF RAPIDS AT CHINA GARDENS, ID  	#HW Snake_RM178.27
+13333000	Flow	TRYO	GRANDE RONDE RIVER AT TROY, OR                     	#Not currently used
+13334300	Flow	ANAW	SNAKE RIVER NEAR ANATONE, WA                       	#Snake+Grande Ronde
+#13290450	Flow	HCD	SNAKE RIVER AT HELLS CANYON DAM ID-OR STATE LINE  	#not good data from USGS
+				
+##CLEARWATER				
+13340000	Flow	ORFI	CLEARWATER RIVER AT OROFINO ID                     	#Orofino Flow
+#13341050	Flow	PEKI	CLEARWATER RIVER NR PECK ID                        	#Flow 5 mi downstream of Dworshak
+13341570	Flow	PRII	POTLATCH RIVER BEL LITTLE POTLATCH CR NR SPALDING  	#Provides inflow to Clearwater 7 mi upstream of Lewiston
+13342500	Flow	SPDI	CLEARWATER RIVER AT SPALDING ID                    	#SPDI Flow

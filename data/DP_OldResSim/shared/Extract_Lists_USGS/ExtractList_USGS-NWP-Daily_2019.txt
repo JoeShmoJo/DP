@@ -1,0 +1,63 @@
+#ExtractList_USGS.txt				
+#This file contains USGS gages to be extracted from the USGS website				
+#Meant to be used as an input to a Jython script				
+#The calling script will specify the output dss file, time window, time step, etc.				
+#The USGS gages should appear below in the following format (semi-colon delimited):				
+#  Field 1: The USGS code (14123500)				
+#  Field 2: The parameter to retrieve (Flow, Stage, Elev, Elev2, Elev29)				
+#           If Flow or Stage is selected, the raw USGS data will be retrieved				
+#           Flow   param code = 00060				
+#           Stage  param code = 00065				
+#           Elev   param code = 00065 (add gage zero elev to stage readings, e.g. Lake CDA)				
+#           Elev2  param code = 00062 (resv elev, e.g. KER)				
+#           Elev29 param code = 72020 (elev NGVD29, e.g. HGH)				
+#           If Elev is selected, the gage elevation (from the USGS database)				
+#            will be added to the stage readings, and the vertical datum will be 				
+#            appended to the C-part of the output DSS record (e.g. -NGVD29)   				
+#  Field 3: The corresponding CBT code for this site (e.g. WHBI)
+#  Field 4: The USGS site description (e.g. Klickitat R near Pitt WA)
+#  Field 5: Any comments about the site (use a # sign)			
+#e.g.
+#12304500	Flow	TRYM	Yaak River near Troy MT                          	#Test				
+#The # character can be used to denote a comment line				
+				
+#USGSID 	#Parm	#CBT	#Description	#Comments
+				
+#######################################################################				
+#NWP				
+#######################################################################				
+##COLUMBIA				
+14033500	Flow	UMAO	Umatilla River near Umatilla, OR                    	
+14034608	Flow	WIMO	Willow Creek at Morgan Street, at Heppner,OR        	
+14103000	Flow	MODO	Deschutes River at Moody, near Biggs, OR            	
+
+##DESCHUTES				
+#14092500	Flow	PERO	Deschutes River near Madras, OR                    	#at Pelton_OUT
+				
+##COLUMBIA				
+14105700	Flow	TDA	Columbia River at The Dalles, OR                    	
+14113000	Flow	PITW	Klickitat River near Pitt, WA                       	
+14113200	Flow	MSRO	Mosier Creek Near Mosier, OR                     	
+14120000	Flow	HODO	Hood River at Tucker Bridge, near Hood River, OR    	
+14113290	Elev	HOCO	Columbia River at Hood River, OR                    	#has stage POR from 2013-03-15 to present
+14123500	Flow	UNDW	White Salmon River near Underwood, WA               	
+14142500	Flow	SNDO	Sandy River blw Bull Run River, nr Bull Run, OR     	
+				
+##WILLAMETTE				
+14207770	Elev	ORC	Willamette River below Falls, at Oregon City, OR    	
+14210000	Flow	ESTO	Clackamas River at Estacada, OR                     	
+14211010	Flow	OCYO	Clackamas River near Oregon City, OR                	#COCO to NWRFC
+14211315	Flow	TYCO	Tryon Creek near Lake Oswego, OR                	
+14211500	Flow	SYCO	Johnson Creek at Sycamore, OR                 	
+14211720	Flow	PRTO	Willamette River at Portland, OR                	
+
+##LEWIS				
+14222500	Flow	HSSW	East Fork Lewis River near Heisson, WA              	
+14220500	Flow	MERW	Lewis River at Ariel, WA                            	
+				
+##COWLITZ				
+14238000	Flow	MAY	Cowlitz River below Mayfield Dam, WA                	
+14243000	Flow	CASW	Cowlitz River at Castle Rock, WA                    	
+
+12025000	Flow	NEWW	Newaukum River near Chehalis, WA                	#Necessary for regressions
+12020000	Flow	DOTW	Chehalis River near Doty, WA                    	#Necessary for regressions

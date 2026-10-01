@@ -1,0 +1,41 @@
+#ExtractList_CWMS.txt
+#This file contains CWMS pathnames to be extracted from the CWMS database
+#Meant to be used as an input to a Jython script
+#The calling script will specify the output dss file, time window, time step, etc.
+#To locate CWMS pathnames, DBQuery can be browsed:
+#http://nwp-wmlocal2.nwp.usace.army.mil/common/dbquery/www/index.html
+#The CWMS pathnames should appear below exactly as they appear in DBQuery
+#e.g. "BLU.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV"
+#The "#" character can be used to denote a comment line
+#MCN.Flow-In.Ave.~1Day.1Day.CBT-REV
+#MCN.Flow-Out.Ave.~1Day.1Day.CBT-REV
+#MCN.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+
+###############################################################################
+#NWP
+###############################################################################
+
+##COLUMBIA
+#UMAO.Flow.Inst.0.0.MIXED-REV
+#WIMO.Flow.Inst.0.0.USGS-REV
+#JDA.Flow-In.Ave.~1Day.1Day.CBT-REV
+#JDA.Flow-Out.Ave.1Hour.1Hour.CBT-REV
+#JDA.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+#MODO.Flow.Inst.0.0.Best
+#NO PATHNAMES DEFINED FOR PELTON OR ROUND BUTTE OF DESCHUTES RIVER
+#TDA.Flow-In.Ave.~1Day.1Day.CBT-REV
+#TDA.Flow-Out.Ave.~1Day.1Day.CBT-REV
+#TDA.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+#PITW.Flow.Inst.0.0.USGS-REV
+#HODO.Flow.Inst.0.0.Best
+#UNDW.Flow.Inst.15Minutes.0.GOES-REV
+#BON.Flow-In.Ave.~1Day.1Day.CBT-REV
+#BON.Flow-Out.Ave.~1Day.1Day.CBT-REV
+#BON.Elev-Forebay.Inst.~1Day.0.CBT-RAW 
+#LOS.Elev-Forebay.Ave.~1Day.1Day.CBT-RAW
+#LOS.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+#LOS.Elev-Forebay.Inst.0.0.MIXED-RAW
+#LOS.Elev-Forebay.Inst.0.0.MIXED-REV
+LOS.Flow-Out.Ave.~1Day.1Day.CBT-REV
+LOS.Flow-Gen.Ave.~1Day.1Day.CBT-REV
+LOS.Flow-Spill.Ave.~1Day.1Day.CBT-REV

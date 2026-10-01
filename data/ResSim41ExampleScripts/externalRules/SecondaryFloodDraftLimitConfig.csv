@@ -1,0 +1,9 @@
+#This file contains basic configuration for the secondary flood storage evacuation limits. Only the reservoirs shown here have secondary flood storage,,,,,,,
+# This config file is picked up by the SecondaryFloodDraftLimit.py script. Which is in turn picked up by scripted rules at the reservoirs.,,,,,,,
+#August 2022,,,,,,,
+Variable,Hills Creek,Lookout Point,Cougar,Blue River,Green Peter,Detroit,Notes
+SecondaryFloodElev,1479.2,856,1579.4,1250,952,1484.5,From WillametteReservoirStatistics.xlsx
+LimitDrafts,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,Should drafts actually be limited? Or does the secondary flood storage distinction basically meaningless?
+MinDraftRate,,5040,,,2370,4300,In ac-ft per day. Typically sourced from the water control manual directly or from the slope of the rule curve after 15Nov. 
+PhCap,,7860,,,4760,5850,Assumed Powerhouse capacity at the secondary flood elevation. The slight difference in capacity between secondary flood elevation and minimum conservation is neglected.
+Notes,Secondary flood pool mentioned to be based on Columbia River flows (pool held higher if Columbia flows are low). This is not done in practice. Correspondence on this is in the GPR WCM.,WCM says to limit drafts to PH capacity.,Secondary flood pool mentioned to be based on Columbia River flows (pool held higher if Columbia flows are low). This is not done in practice. Correspondence on this is in the GPR WCM.,Secondary elevation not mentioned in WCM. Must come from HDOC 531?,WCM says to limit drafts to the higher of PH capacity and inflow+2370 ac-ft/day.,Mentioned in Willamette SOP as a constraint. Secondary flood pool mentioned to be based on Columbia River flows (pool held higher if Columbia flows are low). This is not done in practice.,

@@ -1,0 +1,188 @@
+<generalAdapterRun xmlns="http://www.wldelft.nl/fews" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews http://chps1/schemas/generalAdapterRun.xsd">
+	<general>
+		<description>HEC-ResSim model for Fox River</description>
+		<piVersion>1.8</piVersion>
+		<rootDir>$RESSIM_MODEL_DIR$/fox_chain</rootDir>
+		<workDir>$RESSIM_APP_DIR$</workDir>
+		<exportDir>%ROOT_DIR%/input</exportDir>
+		<exportDataSetDir>%ROOT_DIR%/base</exportDataSetDir>
+		<exportIdMap>IdExportRESSIM</exportIdMap>
+		<exportUnitConversionsId>displayEnglishUnits</exportUnitConversionsId>
+		<importDir>%ROOT_DIR%/output</importDir>
+		<importIdMap>IdImportRESSIM</importIdMap>
+		<importUnitConversionsId>ImportEnglishUnits</importUnitConversionsId>
+		<dumpFileDir>$GA_DUMPFILEDIR$</dumpFileDir>
+		<dumpDir>%ROOT_DIR%</dumpDir>
+		<diagnosticFile>%ROOT_DIR%/log/preadapter.xml</diagnosticFile>
+	</general>
+	<activities>
+		<startUpActivities>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/input/*.*</filter>
+			</purgeActivity>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/output/*.*</filter>
+			</purgeActivity>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/base/*</filter>
+			</purgeActivity>
+			<purgeActivity>
+				<filter>%ROOT_DIR%/logs/*.*</filter>
+			</purgeActivity>
+		</startUpActivities>
+		<exportActivities>
+			<exportStateActivity>
+				<moduleInstanceId>RESSIM_baldhill_UpdateStates</moduleInstanceId>
+				<stateExportDir>%ROOT_DIR%/input</stateExportDir>
+				<stateConfigFile>state.xml</stateConfigFile>
+				<stateLocations type="file">
+					<stateLocation>
+						<readLocation>hotstart.nhs</readLocation>
+						<writeLocation>hotstart.nhs</writeLocation>
+					</stateLocation>
+					<stateLocation>
+						<readLocation>hotstart.dss</readLocation>
+						<writeLocation>hotstart.dss</writeLocation>
+					</stateLocation>
+				</stateLocations>
+				<stateSelection>
+					<warmState>
+						<stateSearchPeriod unit="hour" start="-24" end="0"/>
+					</warmState>
+				</stateSelection>
+			</exportStateActivity>
+			<exportTimeSeriesActivity>
+				<exportFile>inputs.xml</exportFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>DataPrep_baldhill_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>PELV</parameterId>
+						<locationId>BLDN8RSM</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<relativeViewPeriod end="0" startOverrulable="true" endOverrulable="true" unit="hour" />
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>DataPrep_baldhill_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>RQOT</parameterId>
+						<locationId>BLDN8RSM</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<relativeViewPeriod end="0" startOverrulable="true" endOverrulable="true" unit="hour" />
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet><!--
+					<timeSeriesSet>
+						<moduleInstanceId>UNITHG_VCRN8LOC_VCRN8_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SQIN</parameterId>
+						<locationId>VCRN8LOC</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<relativeViewPeriod end="0" startOverrulable="true" endOverrulable="true" unit="hour" />
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>-->
+					<timeSeriesSet>
+						<moduleInstanceId>ADDSUB_BLDN8_ADDRTD_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SQIN</parameterId>
+						<locationId>BLDN8INQ</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<relativeViewPeriod end="0" startOverrulable="true" endOverrulable="true" unit="hour" />
+						<readWriteMode>read only</readWriteMode>
+					</timeSeriesSet>
+				</timeSeriesSets>
+			</exportTimeSeriesActivity>
+			<exportDataSetActivity>
+				<moduleInstanceId>RESSIM_baldhill_UpdateStates</moduleInstanceId>
+			</exportDataSetActivity>
+			<exportRunFileActivity>
+				<exportFile>%ROOT_DIR%/run.xml</exportFile>
+				<properties>
+					<string key="resSimLogDir" value="%ROOT_DIR%/logs"/>
+					<string key="watershedWkspFile" value="%ROOT_DIR%/base/Chain_O_Lakes_Short/Chain_O_Lakes_Short.wksp"/>
+					<string key="simulationName" value="2003.10.01-1200"/>
+					<string key="alternativeName" value="StdOps"/>
+					<string key="templatePythonScriptFile" value="%ROOT_DIR%/template.py"/>
+					<string key="newPythonScriptFile" value="%ROOT_DIR%/script.py"/>
+					<string key="overridesDir" value="%ROOT_DIR%/overrides"/>
+					<int key="lookBackHours" value="30"/>
+				</properties>
+			</exportRunFileActivity>
+		</exportActivities>
+		<executeActivities>
+			<!-- ResSim PreAdapter -->
+			<executeActivity>
+				<command>
+					<className>nl.wldelft.fews.adapter.hec.ResSimPreAdapter</className>
+					<binDir>$RESSIM_MODEL_DIR$/bin</binDir>
+				</command>
+				<arguments>
+					<argument>%ROOT_DIR%/run.xml</argument>
+				</arguments>
+				<timeOut>600000</timeOut>
+			</executeActivity>
+			<!-- ResSim execution using script -->
+			<executeActivity>
+				<command>
+					<executable>$RESSIM_APP_DIR$/$RESSIM_BATCH_FILENAME$</executable>
+				</command>
+				<arguments>
+					<argument>$RESSIM_APP_DIR$</argument>
+					<argument>%ROOT_DIR%/script.py</argument>
+					<argument>%ROOT_DIR%</argument>
+				</arguments>
+				<timeOut>1800000</timeOut>
+			</executeActivity>
+			<!-- ResSim PostAdapter -->
+			<executeActivity>
+				<command>
+					<className>nl.wldelft.fews.adapter.hec.ResSimPostAdapter</className>
+					<binDir>$RESSIM_MODEL_DIR$/bin</binDir>
+				</command>
+				<arguments>
+					<argument>%ROOT_DIR%/run.xml</argument>
+				</arguments>
+				<timeOut>600000</timeOut>
+			</executeActivity>
+		</executeActivities>
+		<!-- import converted FEWS PIXML time series and hotstart states-->
+		<importActivities>
+			<importTimeSeriesActivity>
+				<importFile>simulation.xml</importFile>
+				<timeSeriesSets>
+					<timeSeriesSet>
+						<moduleInstanceId>RESSIM_baldhill_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SQIN</parameterId>
+						<locationId>BLDN8RSM</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>
+					<timeSeriesSet>
+						<moduleInstanceId>RESSIM_baldhill_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SPEL</parameterId>
+						<locationId>BLDN8RSM</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet><!--
+					<timeSeriesSet>
+						<moduleInstanceId>RESSIM_baldhill_Forecast</moduleInstanceId>
+						<valueType>scalar</valueType>
+						<parameterId>SQIN</parameterId>
+						<locationId>VCRN8RSM</locationId>
+						<timeSeriesType>simulated forecasting</timeSeriesType>
+						<timeStep multiplier="6" unit="hour" />
+						<readWriteMode>add originals</readWriteMode>
+					</timeSeriesSet>-->
+				</timeSeriesSets>
+			</importTimeSeriesActivity>
+		</importActivities>
+	</activities>
+</generalAdapterRun>

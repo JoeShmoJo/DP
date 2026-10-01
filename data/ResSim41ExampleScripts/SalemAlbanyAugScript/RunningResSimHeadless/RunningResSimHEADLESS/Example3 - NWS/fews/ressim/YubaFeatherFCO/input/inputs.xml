@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TimeSeries xmlns="http://www.wldelft.nl/fews/PI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wldelft.nl/fews/PI http://fews.wldelft.nl/schemas/version1.0/pi-schemas/pi_timeseries.xsd" version="1.2">
+    <timeZone>0.0</timeZone>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>OROVILLE</locationId>
+            <parameterId>ELEV-RES</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - OROVILLE DAM</stationName>
+            <units>FT</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="790.46" flag="2"/>
+        <event date="2009-06-29" time="13:00:00" value="790.4199" flag="2"/>
+        <event date="2009-06-29" time="14:00:00" value="790.20996" flag="2"/>
+        <event date="2009-06-29" time="15:00:00" value="790.16016" flag="2"/>
+        <event date="2009-06-29" time="16:00:00" value="790.0801" flag="2"/>
+        <event date="2009-06-29" time="17:00:00" value="790.03015" flag="2"/>
+        <event date="2009-06-29" time="18:00:00" value="789.95996" flag="2"/>
+        <event date="2009-06-29" time="19:00:00" value="789.95996" flag="2"/>
+        <event date="2009-06-29" time="20:00:00" value="789.8901" flag="2"/>
+        <event date="2009-06-29" time="21:00:00" value="789.77" flag="2"/>
+        <event date="2009-06-29" time="22:00:00" value="789.68994" flag="2"/>
+        <event date="2009-06-29" time="23:00:00" value="789.6401" flag="2"/>
+        <event date="2009-06-30" time="00:00:00" value="789.5699" flag="2"/>
+        <event date="2009-06-30" time="01:00:00" value="789.5302" flag="2"/>
+        <event date="2009-06-30" time="02:00:00" value="789.47015" flag="2"/>
+        <event date="2009-06-30" time="03:00:00" value="789.39996" flag="2"/>
+        <event date="2009-06-30" time="04:00:00" value="789.42" flag="2"/>
+        <event date="2009-06-30" time="05:00:00" value="789.27" flag="2"/>
+        <event date="2009-06-30" time="06:00:00" value="789.1299" flag="2"/>
+        <event date="2009-06-30" time="07:00:00" value="789.0801" flag="2"/>
+        <event date="2009-06-30" time="08:00:00" value="789.0302" flag="2"/>
+        <event date="2009-06-30" time="09:00:00" value="789.01013" flag="2"/>
+        <event date="2009-06-30" time="10:00:00" value="788.98" flag="2"/>
+        <event date="2009-06-30" time="11:00:00" value="788.95013" flag="2"/>
+        <event date="2009-06-30" time="12:00:00" value="789.05023" flag="2"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>NEW BULLARDS BAR</locationId>
+            <parameterId>ELEV-RES</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>N YUBA - NEW BULLARDS BAR</stationName>
+            <units>FT</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="1934.19" flag="2"/>
+        <event date="2009-06-29" time="13:00:00" value="1934.18" flag="2"/>
+        <event date="2009-06-29" time="14:00:00" value="1934.18" flag="2"/>
+        <event date="2009-06-29" time="15:00:00" value="1934.18" flag="2"/>
+        <event date="2009-06-29" time="16:00:00" value="1934.1503" flag="2"/>
+        <event date="2009-06-29" time="17:00:00" value="1934.1503" flag="2"/>
+        <event date="2009-06-29" time="18:00:00" value="1934.1116" flag="2"/>
+        <event date="2009-06-29" time="19:00:00" value="1934.0814" flag="2"/>
+        <event date="2009-06-29" time="20:00:00" value="1934.0515" flag="2"/>
+        <event date="2009-06-29" time="21:00:00" value="1934.0115" flag="2"/>
+        <event date="2009-06-29" time="22:00:00" value="1933.9718" flag="2"/>
+        <event date="2009-06-29" time="23:00:00" value="1933.922" flag="2"/>
+        <event date="2009-06-30" time="00:00:00" value="1933.882" flag="2"/>
+        <event date="2009-06-30" time="01:00:00" value="1933.8414" flag="2"/>
+        <event date="2009-06-30" time="02:00:00" value="1933.791" flag="2"/>
+        <event date="2009-06-30" time="03:00:00" value="1933.7513" flag="2"/>
+        <event date="2009-06-30" time="04:00:00" value="1933.7015" flag="2"/>
+        <event date="2009-06-30" time="05:00:00" value="1933.6713" flag="2"/>
+        <event date="2009-06-30" time="06:00:00" value="1933.6512" flag="2"/>
+        <event date="2009-06-30" time="07:00:00" value="1933.6415" flag="2"/>
+        <event date="2009-06-30" time="08:00:00" value="1933.6116" flag="2"/>
+        <event date="2009-06-30" time="09:00:00" value="1933.6116" flag="2"/>
+        <event date="2009-06-30" time="10:00:00" value="1933.6116" flag="2"/>
+        <event date="2009-06-30" time="11:00:00" value="1933.6116" flag="2"/>
+        <event date="2009-06-30" time="12:00:00" value="1933.6116" flag="2"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>OROVILLE</locationId>
+            <parameterId>FLOW-OUT</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - OROVILLE DAM</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="13:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="14:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="15:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="16:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="17:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="18:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="19:00:00" value="5999.994" flag="2"/>
+        <event date="2009-06-29" time="20:00:00" value="6499.9937" flag="2"/>
+        <event date="2009-06-29" time="21:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-29" time="22:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-29" time="23:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="00:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="01:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="02:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="03:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="04:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="05:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="06:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="07:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="08:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="09:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="10:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="11:00:00" value="6999.993" flag="2"/>
+        <event date="2009-06-30" time="12:00:00" value="6999.993" flag="2"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>NEW BULLARDS BAR</locationId>
+            <parameterId>FLOW-OUT</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>N YUBA - NEW BULLARDS BAR</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="13:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="14:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="15:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="16:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="17:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="18:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="19:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="20:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="21:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="22:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-29" time="23:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="00:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="01:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="02:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="03:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="04:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="05:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="06:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="07:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="08:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="09:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="10:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="11:00:00" value="3599.9966" flag="2"/>
+        <event date="2009-06-30" time="12:00:00" value="3599.9966" flag="2"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>OROVILLE-CONTROLLED</locationId>
+            <parameterId>FLOW-OUT</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - OROVILLE DAM</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="5999.994" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="6499.9937" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="6999.993" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="6999.993" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>OROVILLE-UNCONTROLLED</locationId>
+            <parameterId>FLOW-OUT</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-06-30" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - OROVILLE DAM</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="13:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="14:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="15:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="16:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="17:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="18:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="19:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="20:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="21:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="22:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-29" time="23:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="00:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="01:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="02:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="03:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="04:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="05:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="06:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="07:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="08:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="09:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="10:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="11:00:00" value="0.0" flag="2"/>
+        <event date="2009-06-30" time="12:00:00" value="0.0" flag="2"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>CAMP FAR WEST OUTFLOW</locationId>
+            <parameterId>FLOW-LOC</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>BEAR - CAMP FAR WEST</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="110.56839" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="110.328285" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="110.08817" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="109.84805" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="109.60794" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="109.36783" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="109.12772" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="108.901726" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="108.67221" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="108.44621" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="108.22023" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="107.990715" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="107.76472" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="107.549324" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="107.33393" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="107.12207" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="106.90668" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="106.691284" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="106.47588" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="106.27108" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="106.06628" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="105.86147" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="105.653145" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="105.44834" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="105.24354" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="105.003426" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="104.766846" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="104.52673" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="104.29015" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="104.053566" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="103.81346" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="103.58746" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="103.36501" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="103.13902" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="102.91303" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="102.690575" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="102.464584" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="102.25273" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="102.03732" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="101.82546" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="101.6136" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="101.3982" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="101.18635" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="100.98507" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="100.78379" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="100.58253" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="100.381256" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="100.179985" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="99.978714" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="99.742134" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="99.50908" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="99.2725" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="99.03591" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="98.80287" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="98.566284" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="98.34737" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="98.1249" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="97.905975" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="97.683525" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="97.46459" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="97.242134" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="97.0338" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="96.82547" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="96.61714" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="96.40527" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="96.19694" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="95.9886" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="95.79086" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="95.58959" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="95.39185" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="95.194115" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="94.99284" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="94.795105" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="94.56205" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="94.332535" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="94.09949" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="93.86643" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="93.63691" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="93.40386" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="93.18494" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="92.96954" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="92.75061" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="92.53169" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="92.31629" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="92.09737" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="91.89256" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="91.68777" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="91.48296" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="91.27816" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="91.07336" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="90.86855" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="90.670815" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="90.4766" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="90.27886" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="90.08112" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="89.88692" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="89.68918" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="89.459656" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="89.23013" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="89.00415" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="88.774635" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="88.54511" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="88.31559" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="88.10019" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="87.884796" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="87.6694" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="87.45401" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="87.23861" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="87.02322" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="86.81841" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="86.61715" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="86.412346" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="86.21107" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="86.0098" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="85.805" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="85.61432" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="85.42011" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="85.22944" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="85.035225" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="84.84455" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="84.65034" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="84.42435" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="84.198364" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="83.972374" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="83.74639" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="83.52039" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="83.29441" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="83.08254" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="82.87068" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="82.65881" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="82.446945" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="82.23509" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="82.023224" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="81.825485" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="81.62775" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="81.43" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="81.22874" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="81.031" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="80.83325" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="80.64257" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="80.45543" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="80.26475" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="80.07407" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="79.886925" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="79.69625" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>DRY WHEATLAND</locationId>
+            <parameterId>FLOW-LOC</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>DRY CK - WHEATLAND, NR</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="0.0" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="0.0" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>ENGLEBRIGHT LOCAL</locationId>
+            <parameterId>FLOW-LOC</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>YUBA - SMARTVILLE, NR</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="1836.8167" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="1873.6316" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="1910.4501" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="1947.265" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="1984.0835" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="2020.8984" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="1984.0835" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="1947.265" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="1910.4501" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="1873.6316" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="1836.8167" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="1799.9983" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="1830.4607" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="1860.9198" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="1891.3823" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="1921.8448" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="1952.3038" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="1982.7664" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>MARYSVILLE LOCAL</locationId>
+            <parameterId>FLOW-LOC</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>YUBA - MARYSVILLE, NR</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="1458.9993" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="1467.9999" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="1421.9972" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="1449.9985" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="1439.9985" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="1439.9985" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="1439.9985" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="1476.9972" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="1421.9972" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="1458.9993" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="1476.9972" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="1449.9985" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="1439.9985" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="1449.9985" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="1430.9979" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="1421.9972" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="1413.0" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="1467.9999" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="1421.9972" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="1422.3892" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="1422.7811" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="1423.173" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="1423.565" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="1423.9604" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="1424.3524" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="1424.7408" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="1425.1292" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="1425.5212" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="1425.9097" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="1426.298" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="1426.6865" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="1427.0748" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="1427.4598" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="1427.8481" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="1428.2401" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="1428.6249" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="1429.0134" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="1429.4054" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="1429.8009" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="1430.1929" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="1430.5847" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="1430.9801" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="1431.3722" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="1431.7642" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="1432.1595" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="1432.5515" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="1432.9435" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="1433.3353" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="1433.7274" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="1434.1158" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="1434.5042" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="1434.8961" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="1435.2847" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="1435.673" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="1436.065" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="1436.4534" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="1436.8383" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="1437.2267" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="1437.6151" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="1438.0" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="1438.3884" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="1438.7804" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="1439.1758" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="1439.5677" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="1439.9633" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="1440.3588" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="1440.7507" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="1441.1427" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="1441.5345" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="1441.9265" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="1442.3185" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="1442.7104" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="1443.1023" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="1443.4908" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="1443.8828" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="1444.2748" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="1444.6631" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="1445.0515" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="1445.44" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="1445.8284" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="1446.2133" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="1446.6017" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="1446.9901" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="1447.375" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="1447.767" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="1448.1589" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="1448.5544" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="1448.9463" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="1449.3383" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="1449.7338" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="1450.1257" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="1450.5177" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="1450.9097" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="1451.3015" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="1451.697" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="1452.089" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="1452.481" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="1452.8694" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="1453.2577" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="1453.6497" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="1454.0381" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="1454.4265" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="1454.815" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="1455.2034" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="1455.5918" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="1455.9801" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="1456.3687" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="1456.7534" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="1457.142" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="1457.5339" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="1457.9293" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="1458.3214" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="1458.7131" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="1459.1086" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="1459.5042" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="1459.8961" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="1460.2881" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="1460.68" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="1461.0684" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="1461.4604" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="1472.3715" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="1498.3071" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="1530.6835" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="1565.8212" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="1602.1417" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="1638.8932" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="1654.8677" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="1640.9695" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="1614.1969" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="1581.9052" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="1547.2478" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="1511.5803" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="1485.9978" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="1475.2633" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="1470.892" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="1469.2534" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="1468.7767" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="1468.8015" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="1477.7422" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>YUBA LOCAL</locationId>
+            <parameterId>FLOW-LOC</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - YUBA CITY</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="5149.995" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="5196.9937" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="5228.9956" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="5228.9956" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="5260.994" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="5260.994" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="5276.993" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="5308.9956" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="5308.9956" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="5292.996" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="5340.9937" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="5389.9946" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="5439.9946" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="5572.9956" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="5675.9937" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="5709.994" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="5831.9927" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="5902.9956" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="5956.9927" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="6001.1694" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="6038.384" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="6069.0156" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="6096.5405" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="6121.4907" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="6144.0337" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="6164.199" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="6182.1934" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="6198.076" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="6211.855" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="6224.1396" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="6235.114" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="6245.057" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="6253.85" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="6261.4487" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="6268.239" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="6274.15" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="6279.365" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="6283.9414" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="6288.0977" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="6291.9077" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="6295.198" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="6298.108" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="6300.4844" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="6302.8857" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="6305.0854" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="6306.816" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="6308.3833" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="6309.902" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="6311.1904" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="6312.204" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="6313.126" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="6313.8105" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="6314.623" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="6315.47" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="6316.131" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="6316.9326" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="6317.5786" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="6317.9634" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="6318.2603" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="6318.7363" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="6319.277" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="6319.418" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="6319.6333" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="6320.082" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="6320.4" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="6320.474" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="6320.46" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="6320.8306" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="6321.332" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="6321.466" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="6321.4736" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="6321.6465" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="6321.876" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="6321.918" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="6322.1016" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="6322.335" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="6322.374" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="6322.349" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="6322.518" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="6322.7446" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="6322.78" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="6322.7583" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="6322.9214" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="6323.143" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="6323.182" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="6323.1577" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="6323.32" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="6323.546" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="6323.585" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="6323.5566" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="6323.726" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="6323.952" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="6323.9907" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="6324.1743" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="6324.404" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="6324.447" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="6324.425" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="6324.588" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="6324.8135" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="6324.8525" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="6324.8315" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="6324.9937" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="6325.2197" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="6325.259" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="6325.238" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="6325.4" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="6325.622" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="6325.665" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="6325.8447" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="6326.074" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="6326.1167" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="6326.095" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="6326.258" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="6326.4805" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="6326.5225" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="6326.498" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="6326.6636" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="6326.886" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="6326.9287" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="6327.113" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="6327.3423" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="6327.8013" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="6330.3926" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="6336.6" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="6346.2964" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="6358.62" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="6372.4585" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="6386.2017" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="6396.5864" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="6400.223" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="6396.5967" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="6387.854" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="6375.961" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="6362.621" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="6350.467" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="6341.4097" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="6335.668" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="6332.4795" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="6330.76" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>OROVILLE</locationId>
+            <parameterId>FLOW-RES IN</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>FEATHER - OROVILLE DAM</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="2605.9968" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="1919.3943" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="1894.3131" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="1869.2743" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="1026.9976" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="2292.999" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="1628.9991" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="8892.992" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="4979.995" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="1794.4403" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="1794.4368" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="1074.9989" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="3043.9978" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="2895.9966" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="3702.9978" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="5049.995" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="7738.993" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="1794.4261" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="1794.4192" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="1795.9022" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="1261.9973" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="2194.9978" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="9099.991" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="6861.9917" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="1803.2079" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="1804.1508" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="1805.097" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="1806.0398" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="1806.9827" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="1807.929" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="1808.8717" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="1810.1995" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="1811.52" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="1812.8444" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="1814.1685" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="1815.489" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="1816.8132" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="1818.3351" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="1819.8534" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="1821.3754" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="1822.8937" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="1824.4155" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="1825.9338" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="1827.6007" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="1829.2708" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="1830.9409" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="1832.6077" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="1834.2778" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="1835.9445" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="1837.7383" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="1839.5286" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="1841.3224" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="1843.1162" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="1844.9064" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="1846.7001" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="1848.6952" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="1850.6866" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="1852.6818" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="1854.6804" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="1856.6719" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="1858.667" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="1860.6337" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="1862.6041" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="1864.5743" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="1866.5413" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="1868.5116" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="1870.4784" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="1872.6465" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="1874.8145" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="1876.9827" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="1879.1471" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="1881.3152" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="1883.4868" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="1885.5984" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="1887.71" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="1889.8252" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="1891.9366" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="1894.0482" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="1896.1598" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="1898.3881" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="1900.6196" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="1902.8477" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="1905.0758" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="1907.3074" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="1909.5355" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="1911.7142" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="1913.8964" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="1916.0786" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="1918.2573" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="1920.4359" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="1922.6146" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="1924.931" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="1927.2474" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="1929.5638" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="1931.8801" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="1934.1965" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="1936.5128" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="1938.7798" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="1941.0469" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="1943.3208" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="1945.5876" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="1947.8547" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="1950.1217" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="1952.5264" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="1954.9275" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="1957.3322" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="1959.7368" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="1962.1378" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="1964.5425" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="1966.7988" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="1969.0552" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="1971.3152" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="1973.5715" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="1975.8314" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="1978.0878" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="1980.4606" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="1982.8335" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="1985.2064" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="1987.5757" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="1989.9486" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="1992.3214" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="1990.7537" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="1989.1823" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="1987.6145" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="1986.0468" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="1984.4755" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="1982.9076" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="1981.6471" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="1980.39" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="1979.1294" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="1977.8689" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="1976.6117" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="1975.3512" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="1974.1506" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="1972.9465" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="1971.746" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="1970.5419" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="1969.3413" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="1968.1372" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="1966.6365" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="1965.1357" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="1963.635" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="1962.1343" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="1960.6337" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="1959.1329" flag="0"/>
+    </series>
+    <series>
+        <header>
+            <type>instantaneous</type>
+            <locationId>NEW BULLARDS BAR</locationId>
+            <parameterId>FLOW-RES IN</parameterId>
+            <timeStep unit="second" multiplier="3600"/>
+            <startDate date="2009-06-29" time="12:00:00"/>
+            <endDate date="2009-07-05" time="12:00:00"/>
+            <missVal>-999.0</missVal>
+            <stationName>N YUBA - NEW BULLARDS BAR</stationName>
+            <units>CFS</units>
+        </header>
+        <event date="2009-06-29" time="12:00:00" value="261.99832" flag="0"/>
+        <event date="2009-06-29" time="13:00:00" value="413.49536" flag="0"/>
+        <event date="2009-06-29" time="14:00:00" value="564.9994" flag="0"/>
+        <event date="2009-06-29" time="15:00:00" value="1143.0002" flag="0"/>
+        <event date="2009-06-29" time="16:00:00" value="1128.7065" flag="0"/>
+        <event date="2009-06-29" time="17:00:00" value="1119.9989" flag="0"/>
+        <event date="2009-06-29" time="18:00:00" value="667.9937" flag="0"/>
+        <event date="2009-06-29" time="19:00:00" value="215.99907" flag="0"/>
+        <event date="2009-06-29" time="20:00:00" value="689.00006" flag="0"/>
+        <event date="2009-06-29" time="21:00:00" value="416.00244" flag="0"/>
+        <event date="2009-06-29" time="22:00:00" value="144.99986" flag="0"/>
+        <event date="2009-06-29" time="23:00:00" value="101.99849" flag="0"/>
+        <event date="2009-06-30" time="00:00:00" value="510.9988" flag="0"/>
+        <event date="2009-06-30" time="01:00:00" value="210.99908" flag="0"/>
+        <event date="2009-06-30" time="02:00:00" value="152.49985" flag="0"/>
+        <event date="2009-06-30" time="03:00:00" value="94.00062" flag="0"/>
+        <event date="2009-06-30" time="04:00:00" value="115.699036" flag="0"/>
+        <event date="2009-06-30" time="05:00:00" value="136.99846" flag="0"/>
+        <event date="2009-06-30" time="06:00:00" value="141.99844" flag="0"/>
+        <event date="2009-06-30" time="07:00:00" value="258.00116" flag="0"/>
+        <event date="2009-06-30" time="08:00:00" value="451.50024" flag="0"/>
+        <event date="2009-06-30" time="09:00:00" value="644.9993" flag="0"/>
+        <event date="2009-06-30" time="10:00:00" value="511.99808" flag="0"/>
+        <event date="2009-06-30" time="11:00:00" value="421.99817" flag="0"/>
+        <event date="2009-06-30" time="12:00:00" value="680.9986" flag="0"/>
+        <event date="2009-06-30" time="13:00:00" value="678.4386" flag="0"/>
+        <event date="2009-06-30" time="14:00:00" value="675.87854" flag="0"/>
+        <event date="2009-06-30" time="15:00:00" value="673.31854" flag="0"/>
+        <event date="2009-06-30" time="16:00:00" value="692.2204" flag="0"/>
+        <event date="2009-06-30" time="17:00:00" value="711.1257" flag="0"/>
+        <event date="2009-06-30" time="18:00:00" value="730.03107" flag="0"/>
+        <event date="2009-06-30" time="19:00:00" value="748.9364" flag="0"/>
+        <event date="2009-06-30" time="20:00:00" value="767.8453" flag="0"/>
+        <event date="2009-06-30" time="21:00:00" value="786.75415" flag="0"/>
+        <event date="2009-06-30" time="22:00:00" value="805.6701" flag="0"/>
+        <event date="2009-06-30" time="23:00:00" value="824.58606" flag="0"/>
+        <event date="2009-07-01" time="00:00:00" value="843.502" flag="0"/>
+        <event date="2009-07-01" time="01:00:00" value="861.33746" flag="0"/>
+        <event date="2009-07-01" time="02:00:00" value="880.2322" flag="0"/>
+        <event date="2009-07-01" time="03:00:00" value="899.1234" flag="0"/>
+        <event date="2009-07-01" time="04:00:00" value="895.949" flag="0"/>
+        <event date="2009-07-01" time="05:00:00" value="892.7781" flag="0"/>
+        <event date="2009-07-01" time="06:00:00" value="889.60364" flag="0"/>
+        <event date="2009-07-01" time="07:00:00" value="886.4398" flag="0"/>
+        <event date="2009-07-01" time="08:00:00" value="883.283" flag="0"/>
+        <event date="2009-07-01" time="09:00:00" value="880.11914" flag="0"/>
+        <event date="2009-07-01" time="10:00:00" value="876.9695" flag="0"/>
+        <event date="2009-07-01" time="11:00:00" value="873.8233" flag="0"/>
+        <event date="2009-07-01" time="12:00:00" value="870.6771" flag="0"/>
+        <event date="2009-07-01" time="13:00:00" value="867.5344" flag="0"/>
+        <event date="2009-07-01" time="14:00:00" value="864.39185" flag="0"/>
+        <event date="2009-07-01" time="15:00:00" value="861.24915" flag="0"/>
+        <event date="2009-07-01" time="16:00:00" value="858.1277" flag="0"/>
+        <event date="2009-07-01" time="17:00:00" value="854.9956" flag="0"/>
+        <event date="2009-07-01" time="18:00:00" value="851.8706" flag="0"/>
+        <event date="2009-07-01" time="19:00:00" value="848.75977" flag="0"/>
+        <event date="2009-07-01" time="20:00:00" value="845.63824" flag="0"/>
+        <event date="2009-07-01" time="21:00:00" value="842.52386" flag="0"/>
+        <event date="2009-07-01" time="22:00:00" value="839.4236" flag="0"/>
+        <event date="2009-07-01" time="23:00:00" value="836.32684" flag="0"/>
+        <event date="2009-07-02" time="00:00:00" value="833.22656" flag="0"/>
+        <event date="2009-07-02" time="01:00:00" value="829.0423" flag="0"/>
+        <event date="2009-07-02" time="02:00:00" value="825.91724" flag="0"/>
+        <event date="2009-07-02" time="03:00:00" value="822.7958" flag="0"/>
+        <event date="2009-07-02" time="04:00:00" value="819.6743" flag="0"/>
+        <event date="2009-07-02" time="05:00:00" value="818.8692" flag="0"/>
+        <event date="2009-07-02" time="06:00:00" value="818.0606" flag="0"/>
+        <event date="2009-07-02" time="07:00:00" value="817.27325" flag="0"/>
+        <event date="2009-07-02" time="08:00:00" value="816.4823" flag="0"/>
+        <event date="2009-07-02" time="09:00:00" value="815.6948" flag="0"/>
+        <event date="2009-07-02" time="10:00:00" value="814.90735" flag="0"/>
+        <event date="2009-07-02" time="11:00:00" value="814.12" flag="0"/>
+        <event date="2009-07-02" time="12:00:00" value="813.3325" flag="0"/>
+        <event date="2009-07-02" time="13:00:00" value="812.5521" flag="0"/>
+        <event date="2009-07-02" time="14:00:00" value="811.7753" flag="0"/>
+        <event date="2009-07-02" time="15:00:00" value="810.99493" flag="0"/>
+        <event date="2009-07-02" time="16:00:00" value="810.2323" flag="0"/>
+        <event date="2009-07-02" time="17:00:00" value="809.46606" flag="0"/>
+        <event date="2009-07-02" time="18:00:00" value="808.7033" flag="0"/>
+        <event date="2009-07-02" time="19:00:00" value="807.9371" flag="0"/>
+        <event date="2009-07-02" time="20:00:00" value="807.1743" flag="0"/>
+        <event date="2009-07-02" time="21:00:00" value="806.4081" flag="0"/>
+        <event date="2009-07-02" time="22:00:00" value="805.6595" flag="0"/>
+        <event date="2009-07-02" time="23:00:00" value="804.9074" flag="0"/>
+        <event date="2009-07-03" time="00:00:00" value="804.1588" flag="0"/>
+        <event date="2009-07-03" time="01:00:00" value="802.3332" flag="0"/>
+        <event date="2009-07-03" time="02:00:00" value="801.55994" flag="0"/>
+        <event date="2009-07-03" time="03:00:00" value="800.79364" flag="0"/>
+        <event date="2009-07-03" time="04:00:00" value="800.0274" flag="0"/>
+        <event date="2009-07-03" time="05:00:00" value="799.2577" flag="0"/>
+        <event date="2009-07-03" time="06:00:00" value="798.49146" flag="0"/>
+        <event date="2009-07-03" time="07:00:00" value="797.7287" flag="0"/>
+        <event date="2009-07-03" time="08:00:00" value="796.96954" flag="0"/>
+        <event date="2009-07-03" time="09:00:00" value="796.2104" flag="0"/>
+        <event date="2009-07-03" time="10:00:00" value="795.4547" flag="0"/>
+        <event date="2009-07-03" time="11:00:00" value="794.69904" flag="0"/>
+        <event date="2009-07-03" time="12:00:00" value="793.9435" flag="0"/>
+        <event date="2009-07-03" time="13:00:00" value="793.19836" flag="0"/>
+        <event date="2009-07-03" time="14:00:00" value="792.45337" flag="0"/>
+        <event date="2009-07-03" time="15:00:00" value="791.70825" flag="0"/>
+        <event date="2009-07-03" time="16:00:00" value="790.9773" flag="0"/>
+        <event date="2009-07-03" time="17:00:00" value="790.2464" flag="0"/>
+        <event date="2009-07-03" time="18:00:00" value="789.519" flag="0"/>
+        <event date="2009-07-03" time="19:00:00" value="788.7916" flag="0"/>
+        <event date="2009-07-03" time="20:00:00" value="788.06775" flag="0"/>
+        <event date="2009-07-03" time="21:00:00" value="787.3474" flag="0"/>
+        <event date="2009-07-03" time="22:00:00" value="786.62354" flag="0"/>
+        <event date="2009-07-03" time="23:00:00" value="785.90674" flag="0"/>
+        <event date="2009-07-04" time="00:00:00" value="785.18286" flag="0"/>
+        <event date="2009-07-04" time="01:00:00" value="783.37494" flag="0"/>
+        <event date="2009-07-04" time="02:00:00" value="782.62634" flag="0"/>
+        <event date="2009-07-04" time="03:00:00" value="781.87775" flag="0"/>
+        <event date="2009-07-04" time="04:00:00" value="781.1398" flag="0"/>
+        <event date="2009-07-04" time="05:00:00" value="780.3947" flag="0"/>
+        <event date="2009-07-04" time="06:00:00" value="779.65674" flag="0"/>
+        <event date="2009-07-04" time="07:00:00" value="778.93286" flag="0"/>
+        <event date="2009-07-04" time="08:00:00" value="778.209" flag="0"/>
+        <event date="2009-07-04" time="09:00:00" value="777.4851" flag="0"/>
+        <event date="2009-07-04" time="10:00:00" value="776.7683" flag="0"/>
+        <event date="2009-07-04" time="11:00:00" value="776.055" flag="0"/>
+        <event date="2009-07-04" time="12:00:00" value="775.3382" flag="0"/>
+        <event date="2009-07-04" time="13:00:00" value="774.62494" flag="0"/>
+        <event date="2009-07-04" time="14:00:00" value="773.91876" flag="0"/>
+        <event date="2009-07-04" time="15:00:00" value="773.209" flag="0"/>
+        <event date="2009-07-04" time="16:00:00" value="772.5063" flag="0"/>
+        <event date="2009-07-04" time="17:00:00" value="771.81067" flag="0"/>
+        <event date="2009-07-04" time="18:00:00" value="771.108" flag="0"/>
+        <event date="2009-07-04" time="19:00:00" value="770.41235" flag="0"/>
+        <event date="2009-07-04" time="20:00:00" value="769.7203" flag="0"/>
+        <event date="2009-07-04" time="21:00:00" value="769.0282" flag="0"/>
+        <event date="2009-07-04" time="22:00:00" value="768.3432" flag="0"/>
+        <event date="2009-07-04" time="23:00:00" value="767.65814" flag="0"/>
+        <event date="2009-07-05" time="00:00:00" value="766.9731" flag="0"/>
+        <event date="2009-07-05" time="01:00:00" value="765.2041" flag="0"/>
+        <event date="2009-07-05" time="02:00:00" value="764.49786" flag="0"/>
+        <event date="2009-07-05" time="03:00:00" value="763.7916" flag="0"/>
+        <event date="2009-07-05" time="04:00:00" value="763.0854" flag="0"/>
+        <event date="2009-07-05" time="05:00:00" value="762.38275" flag="0"/>
+        <event date="2009-07-05" time="06:00:00" value="761.68005" flag="0"/>
+        <event date="2009-07-05" time="07:00:00" value="760.988" flag="0"/>
+        <event date="2009-07-05" time="08:00:00" value="760.2959" flag="0"/>
+        <event date="2009-07-05" time="09:00:00" value="759.6073" flag="0"/>
+        <event date="2009-07-05" time="10:00:00" value="758.9223" flag="0"/>
+        <event date="2009-07-05" time="11:00:00" value="758.2373" flag="0"/>
+        <event date="2009-07-05" time="12:00:00" value="757.5487" flag="0"/>
+    </series>
+</TimeSeries>

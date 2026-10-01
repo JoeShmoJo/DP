@@ -1,0 +1,109 @@
+##########################
+#RAS-Junctions.list
+#This file contains all ResSim junctions to be exported to DSS
+#for use by a subsequent RAS model
+#Total flow and all local flows will be written out
+##########################
+#Headwater reservoir outflow junctions
+Arrow Lakes_OUT
+Libby_OUT
+Duncan_OUT
+Brilliant_OUT
+Hungry Horse_OUT
+Priest Lake_OUT
+Waneta_OUT
+Little Falls_OUT
+Chelan_OUT
+Dworshak_OUT
+Pelton_OUT
+##########################
+#Junction flow points that hook into RAS models
+Columbia at Border
+Yakima_Modified
+Snake_RM178.27
+Orofino
+Willamette Falls
+Cowlitz_at Castle Rock
+##########################
+#Points with local flows
+Kootenai+Fisher
+Kootenai+Yaak
+Kootenai+Moyie
+Bonners Ferry
+Kootenai+Goat
+Kuskunook
+Corra Linn_IN
+Birchbank
+Flathead+SF
+Columbia Falls
+Flathead+Stillwater
+Flathead @ Flathead Lake
+Kerr_IN
+Flathead+Mission+Jocko
+Clark Fork+Flathead
+Clark Fork+Thompson
+Thompson Falls_IN
+Noxon Rapids_IN
+Cabinet Gorge_IN
+Clark Fork+Lightning Ck
+Pend Oreille+Clark Fork
+Pend Oreille+LakePendOreille_IF
+Pend Oreille+Priest
+Albeni Falls_IN
+Pend Oreille+Calispel Ck
+Pend Oreille @ Box Canyon
+Pend Oreille+Sullivan
+Boundary_IN
+Columbia+Kettle
+Columbia+Spokane
+Grand Coulee_IN
+Chief Joseph_IN
+Columbia+Okanogan
+Columbia+Methow
+Wells_IN
+Columbia+Chelan
+Rocky Reach_IN
+Columbia+Wenatchee
+Rock Island_IN
+Wanapum_IN
+Priest Rapids_IN
+Columbia+Yakima
+Snake_RM178.27
+Snake+Grande Ronde
+Clearwater+Potlach
+Spalding
+Lower Granite_IN
+Little Goose_IN
+Lower Monumental_IN
+Ice Harbor_IN
+McNary_IN
+Columbia+Umatilla
+Columbia+Alder CK
+Columbia nr Willow Ck
+John Day_IN
+Columbia+Deschutes
+The Dalles_IN
+Columbia+Klickitat
+Columbia+Mosier Ck
+Columbia+Hood+Salmon
+Columbia+Little White Salmon
+Columbia+Wind
+Columbia+Eagle Ck
+Columbia_at Washougal
+Columbia+Sandy
+Columbia+Washougal
+Clackamas_nr Oregon City
+Willamette_at Portland
+Willamette+Columbia Slough
+Columbia+Salmon Ck+Burnt Bridge Ck
+Columbia_at Multnomah Channel
+Merwin
+Lewis+EF Lewis
+Columbia+Kalama
+Cowlitz+Coweeman
+Columbia+Germany Ck
+Columbia+Beaver Ck
+Columbia+Clatskanie
+Columbia+Plympton Ck
+Columbia+Elochoman
+Columbia_at Tongue Point

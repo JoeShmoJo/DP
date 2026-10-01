@@ -1,0 +1,33 @@
+"# In the Columbia Basin, every agency and group has a slightly different naming convention",,,,
+"# This file is the definitive source to lookup naming conventions for PARAMETERS, not Locations",,,,
+# This is intended to be the master list that can be retrieved by scripts to convert between naming conventions if necessary,,,,
+#The # character can be used to denote a comment line,,,,
+"#You can add additional columns with no problem or rearrange the columns, but don't rename them",,,,
+"# Feel free to open this file in excel and apply the ""filter"" feature to sort through this list",,,,
+"#Note that if the same value is present more than once in the same column, the first occurrence will be used",,,,
+SHEF_CODE,CWMS_PARAM,RESSIM_PARAM,NWRFC_CODE,NOTES
+HG,Stage,Stage,SSTG,Height of Gage
+HF,Elev-Forebay,Elev-Pool,,"most projects, e.g. John Day"
+HL,Elev-Lake,Elev-Pool,,e.g. Albeni Falls
+HL,Elev-Pool,Elev-Pool,,e.g. SKQ
+QA,Flow-Unreg,Flow-Unreg,W,"Discharge, adjusted for storage at project only"
+QD,Flow-Canal,Flow-Canal,,
+QG,Flow-Power,Flow-Qpower,,
+QI,Flow-In,Flow-IN,,
+QL,Flow-Local,Flow-Local,XE,Local Flow
+QN,Flow-Natural,Flow-Natural,N,"""Natural"" ensemble flow"
+QP,Flow-Pumping,Flow-Pump,,
+QR,Flow,Flow,,"Discharge, river"
+QS,Flow-Spill,Flow-Spill,,
+QR,Flow-OUT,Flow-OUT,,Total project outflow (QT has also been used before)
+HL-NAT,Elev-Lake-Natural,Elev-Pool,,Only really applicable to Kootenay Lake
+HL-IJC,Elev-RuleCurve,Elev-Zone,,Only really applicable to Kootenay Lake
+HL,Elev-NGVD29,,,Used for Lake CDA and Flathead Lake (from USGS)
+QI-CP,Flow-IN,Flow-IN,,No longer used. Computed inflow from known elev/release.
+QL-CP,Flow-Local,Flow-Local,,No longer used. Computed local inflow by routing from upstream.
+QR-CP,Flow,Flow,,"No longer used. Computed flow at computation points (e.g. BFEI), misc methods"
+QR-RFS,Flow,Flow,,No longer used. ??
+HF-ADJ,Elev-Forebay,Elev-Forebay,,No longer used. Adjusted forebay from recalculation based on inflow and outflow.
+QI-ADJ,Flow-IN,Flow-IN,,No longer used. Adjusted inflow to reservoir made from indexing flows from an upstream gage. 
+QL-ADJ,Flow-Local,Flow-Local,,No longer used. Adjusted local flow made from indexing flows from an upstream gage. 
+HL-ADJ,Elev-Lake,Elev-Pool,,No longer used. Adjusted lake height from recalculation based on inflow and outflow.

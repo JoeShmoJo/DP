@@ -1,0 +1,320 @@
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/script.py
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO
+Java Version is 1.6.0_13
+OS Name is Linux
+setLogFile: set to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/ResSim.log
+Help Set HEC-DSSVue not found
+Version stamp is 3.1.6.9R date 2010.01.04.11.21 
+Loaded debug logging properties file: /u/werner/hec/HEC-ResSim/HEC-ResSim31_RC2_Build_9/./config/logger.properties
+Starting RmiFileManager()
+loadPlugIns:looking for Manifest entries starting with ServerMainClass
+setupLogfile(): dir=/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO name=Scheduler cycle=dy
+Unit.loadFromFile: loading from /u/werner/.HEC/HEC-ResSim/3.1/config/db/definitions/unitConversions.def
+found jythonlib.jar in classpath./jar/sys/jythonlib.jar
+::::::::
+::
+:: Initializing Jython interpreter environment.
+:: Application home variable = CWMS_HOME
+:: CWMS_HOME = /u/werner/.HEC/HEC-ResSim/3.1
+:: Jython script path = /u/werner/.HEC/HEC-ResSim/3.1/scripts/pythonCache:./jar/sys/jythonlib.jar/lib
+::
+::::::::
+ScriptEngine.execute: running script /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/script.py
+execute:no additional arguments
+openWatershed:opening workspace file /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/YubaFeatherFCO.wksp
+openWatershed:creating Identifier for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/YubaFeatherFCO.wksp
+setAppStartDir:set to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO
+ClientApp Thread=Thread[main,5,main]
+openWorkspace: user werner workspace YubaFeatherFCO path /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/YubaFeatherFCO.wksp
+Status : Loading Workspace
+Creating Client-Local Watershed :YubaFeatherFCO
+
+openWorkspace:Creating Client-Local Workspace :YubaFeatherFCO
+Reading watershed file : YubaFeatherFCO.wksp
+
+fireUserChange: user=werner change=opened Callback count=0
+Progress 10%
+Creating Client Workspace
+
+Status : Retrieving Map Information...
+Returning DefaultDataList for hec.model.ModifiedTime
+loadParameters: reading file /u/werner/.HEC/HEC-ResSim/3.1/config/db/definitions/parameters_units.def
+Progress 30%
+Status : Loading...
+Loading maps ....
+
+Progress 50%
+Loading schematic elements ....
+
+Progress 60%
+getInstance:drawPropClassname=hec.client.HecStreamAlignmentDrwPro
+load:hec.map.streamAlignment.StreamAlignmentDPData 0 scale=-1
+load:hec.map.streamAlignment.StreamAlignmentDPData 1 scale=-1
+load:hec.map.streamAlignment.StreamAlignmentDPData 0 scale=-1
+Status : Loading modules...
+Progress 70%
+Progress 72%
+Progress 73%
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align
+Call back message: Modified|werner
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/TimeSeries.icons
+Progress 75%
+Progress 80%
+Reading /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/TimeSeriesLayers.config
+Updating schematic...
+
+Progress 85%
+Progress 90%
+Progress 100%
+openWorkspace:workspace=/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO
+openWorkspace:ps._pd is a hec.client.uh
+openWorkspace:getting Progress thread...
+MenuLoader.run:props file name = rss/rss.SimulationModule.properties
+loadManager:Untitled: no file to read
+managerAdded: got Proxy for yubafeather_rs model rss
+writing: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs.simperiod
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs.simperiod|Unlocked|werner
+Call back message: Modified|werner
+createSimulation:created simulation yubafeather_rs
+Setting Simulation Information...
+Loading Simulation Workapce to Copy
+openWorkspace: user werner workspace yubafeather_rs path /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/yubafeather_rs.wksp
+openWorkspace:Creating Client-Local Workspace :yubafeather_rs
+fireUserChange: user=werner change=opened Callback count=0
+returning defaultDataListcontainer
+Returning DefaultDataList for hec.model.ModifiedTime
+adding Simulation run AltA------
+Setting the Simulation Runs for this Simulation
+
+Creating New Base Model Trial for AltA------
+
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA------.simrun
+loadManager:Untitled: no file to read
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA------.simrun
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.malt
+managerAdded: got Proxy for 'AltA------0' model=rss class=hec.rss.model.RssSimRun
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun|Unlocked|werner
+Call back message: Modified|werner
+name = [AltA------0] modelId=[AltA------]
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.malt
+Creating Model Forecast Alt for AltA
+loadManager:Untitled: no file to read
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.malt
+managerAdded: got Proxy for 'AltA------:AltA' model=rss class=hec.model.ModelAlt
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt|Unlocked|werner
+Call back message: Modified|werner
+readFile:AltA reading /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.ralt
+Copying files for AltA
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/Current.rsys
+DssFileManager url set to //145.9.228.156:8089/DssFileManager-YubaFeatherFCO
+
+Network marked as modified.  The network was created in an earlier version and will be converted to the latest version.
+
+
+Network marked as modified.  The network was created in an earlier version and will be converted to the latest version.
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align
+loadManager:Untitled: no file to read
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/Current.rsys
+DssFileManager url set to //145.9.228.156:8089/DssFileManager-yubafeather_rs
+
+Network marked as modified.  The network was created in an earlier version and will be converted to the latest version.
+
+
+Network marked as modified.  The network was created in an earlier version and will be converted to the latest version.
+managerAdded: got Proxy for 'AltA------:Current' model=rss class=hec.rss.model.RssSystem
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys|Unlocked|werner
+Call back message: Modified|werner
+unloading ref cnt=-1
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.fits
+loadManager:Untitled: no file to read
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.fits
+managerAdded: got Proxy for 'AltA------:AltA' model=rss class=hec.model.TSDataSet
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits|Unlocked|werner
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits|Write Locked by|werner
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits|Unlocked|werner
+Call back message: Modified|werner
+unloading ref cnt=0
+loadManager:Untitled: no file to read
+Program-Determined Flow Computation Method: Instantaneous
+
+managerAdded: got Proxy for 'AltA------:AltA' model=rss class=hec.rss.model.RssAlt
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.ralt|Unlocked|werner
+Call back message: Modified|werner
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt|Write Locked by|werner
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt|Unlocked|werner
+Call back message: Modified|werner
+copyModelAltTo took : 2619 ms.
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun|Write Locked by|werner
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun|Unlocked|werner
+Call back message: Modified|werner
+Saving StreamAlignment...
+
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/stream.align
+****removeCallBack: removing for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits
+removeReference: removed /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits from list of open files
+****removeCallBack: removing for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.fits
+removeReference: removed /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/AltA.fits from list of open files
+****removeCallBack: removing for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align
+Call back message: unbound
+removeReference: removed /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align from list of open files
+unloading ref cnt=0
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/stream.align
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/stream.align|Write Locked by|werner
+writing /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/stream.align
+writing stream:Sacramento River
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/stream.align|Unlocked|werner
+Call back message: Modified|werner
+Copying Program Order...
+
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs.simperiod|Write Locked by|werner
+writing: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs.simperiod
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs.simperiod|Unlocked|werner
+Call back message: Modified|werner
+Save the Workspace yubafeather_rs
+Save the Workspace supplemental
+Save the Workspace rss
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------.simrun
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt
+Call back message: /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.malt|Write Locked by|werner
+readFile:AltA------:AltA reading /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.ralt
+Opening Network /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys
+
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys
+RssSimRunGlyph: using ResSim Network:/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys
+Oroville Outflow JCT.getStream: can't find stream for node ~E46
+Oroville Inflow JCT (NFk FE).getStream: can't find stream for node ~E47
+Oroville Inflow JCT (MFk FE).getStream: can't find stream for node ~E48
+Oroville Inflow JCT (SFk FE).getStream: can't find stream for node ~E49
+Bear Confluence.getStream: can't find stream for node ~E123
+FR + YR Junc.getStream: can't find stream for node ~E124
+Honcut Confluence.getStream: can't find stream for node ~E125
+Nicalous.getStream: can't find stream for node ~E126
+Yuba City.getStream: can't find stream for node ~E127
+Unet-Gridley.getStream: can't find stream for node ~E129
+Gridley.getStream: can't find stream for node ~E130
+Unet-Thermalito.getStream: can't find stream for node ~E131
+New Bullards Bar Outflow JCT.getStream: can't find stream for node ~E148
+New Bullards Bar Inflow JCT.getStream: can't find stream for node ~E149
+Deer Cr Confluence.getStream: can't find stream for node ~E161
+MFk Yuba Confluence.getStream: can't find stream for node ~E165
+SFk Yuba Confluence.getStream: can't find stream for node ~E166
+Englebright.getStream: can't find stream for node ~E167
+Unet-Englebright.getStream: can't find stream for node ~E168
+Marysville.getStream: can't find stream for node ~E173
+Unet-Dry Bear.getStream: can't find stream for node ~E241
+Unet-Bear.getStream: can't find stream for node ~E242
+Dry Bear Confluence.getStream: can't find stream for node ~E243
+Dry Creek Confluence.getStream: can't find stream for node ~E255
+Yuba Below Deer.getStream: can't find stream for node ~E256
+Dry Wheatland.getStream: can't find stream for node ~E261
+Camp Far West Outflow JCT.getStream: can't find stream for node ~E265
+NR Wheatland.getStream: can't find stream for node ~E268
+RssSimRunGlyph: using ResSim Network:/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_Current.rsys
+Oroville Outflow JCT.getStream: can't find stream for node ~E46
+Oroville Inflow JCT (NFk FE).getStream: can't find stream for node ~E47
+Oroville Inflow JCT (MFk FE).getStream: can't find stream for node ~E48
+Oroville Inflow JCT (SFk FE).getStream: can't find stream for node ~E49
+Bear Confluence.getStream: can't find stream for node ~E123
+FR + YR Junc.getStream: can't find stream for node ~E124
+Honcut Confluence.getStream: can't find stream for node ~E125
+Nicalous.getStream: can't find stream for node ~E126
+Yuba City.getStream: can't find stream for node ~E127
+Unet-Gridley.getStream: can't find stream for node ~E129
+Gridley.getStream: can't find stream for node ~E130
+Unet-Thermalito.getStream: can't find stream for node ~E131
+New Bullards Bar Outflow JCT.getStream: can't find stream for node ~E148
+New Bullards Bar Inflow JCT.getStream: can't find stream for node ~E149
+Deer Cr Confluence.getStream: can't find stream for node ~E161
+MFk Yuba Confluence.getStream: can't find stream for node ~E165
+SFk Yuba Confluence.getStream: can't find stream for node ~E166
+Englebright.getStream: can't find stream for node ~E167
+Unet-Englebright.getStream: can't find stream for node ~E168
+Marysville.getStream: can't find stream for node ~E173
+Unet-Dry Bear.getStream: can't find stream for node ~E241
+Unet-Bear.getStream: can't find stream for node ~E242
+Dry Bear Confluence.getStream: can't find stream for node ~E243
+Dry Creek Confluence.getStream: can't find stream for node ~E255
+Yuba Below Deer.getStream: can't find stream for node ~E256
+Dry Wheatland.getStream: can't find stream for node ~E261
+Camp Far West Outflow JCT.getStream: can't find stream for node ~E265
+NR Wheatland.getStream: can't find stream for node ~E268
+Running Time Series Extract
+opening /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/rss/AltA------_AltA.fits
+Extract AlternativeAltA------:AltA
+Extract TSDataSet  AltA------:AltA
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/FEATHER/OROVILLE/FLOW-RES IN//1HOUR/CDEC/ Number Read 195
+
+Extracted /FEATHER/OROVILLE/FLOW-RES IN//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/NORTH YUBA/ENGLEBRIGHT LOCAL/FLOW-LOC//1HOUR/CDEC/ Number Read 195
+
+Extracted /NORTH YUBA/ENGLEBRIGHT LOCAL/FLOW-LOC//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/NORTH YUBA/NEW BULLARDS BAR/FLOW-RES IN//1HOUR/CDEC/ Number Read 195
+
+Extracted /NORTH YUBA/NEW BULLARDS BAR/FLOW-RES IN//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/DRY CR/DRY WHEATLAND/FLOW-LOC//1HOUR/CDEC/ Number Read 195
+
+Extracted /DRY CR/DRY WHEATLAND/FLOW-LOC//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/BEAR/CAMP FAR WEST OUTFLOW/FLOW-LOC//1HOUR/CDEC/ Number Read 195
+
+Extracted /BEAR/CAMP FAR WEST OUTFLOW/FLOW-LOC//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/YUBA/YUBA LOCAL/FLOW-LOC//1HOUR/CDEC/ Number Read 195
+
+Extracted /YUBA/YUBA LOCAL/FLOW-LOC//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/YUBA/MARYSVILLE LOCAL/FLOW-LOC//1HOUR/CDEC/ Number Read 195
+
+Extracted /YUBA/MARYSVILLE LOCAL/FLOW-LOC//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/FEATHER/OROVILLE/ELEV-RES//1HOUR/CDEC/ Number Read 195
+
+Extracted /FEATHER/OROVILLE/ELEV-RES//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/FEATHER/OROVILLE-CONTROLLED/FLOW-OUT//1HOUR/CDEC/ Number Read 195
+
+Extracted /FEATHER/OROVILLE-CONTROLLED/FLOW-OUT//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/FEATHER/OROVILLE-UNCONTROLLED/FLOW-OUT//1HOUR/CDEC/ Number Read 195
+
+Extracted /FEATHER/OROVILLE-UNCONTROLLED/FLOW-OUT//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/NORTH YUBA/NEW BULLARDS BAR/ELEV-RES//1HOUR/CDEC/ Number Read 195
+
+Extracted /NORTH YUBA/NEW BULLARDS BAR/ELEV-RES//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Using TimeStep of 1Hour
+/u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss::/NORTH YUBA/NEW BULLARDS BAR/FLOW-OUT//1HOUR/CDEC/ Number Read 195
+
+Extracted /NORTH YUBA/NEW BULLARDS BAR/FLOW-OUT//1HOUR/CDEC/ from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/inputs.dss to /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/simulation.dss
+Error:Errors Occured in the Time Series Extract. Check Log File For Details.
+finishCreatingSimulation:*** new Simulation Created ***
+ManagerProxyList.saveManager(main): failed to find ManagerProxy for yubafeather_rs
+Failed to open ResSim Run file for AltA------0
+Program-Determined Flow Computation Method: Instantaneous
+
+Shutting down
+getFileManager: No Workspace!
+getFileManager: No Workspace!
+yubafeather_rs: unloading
+unloading ref cnt=0
+Close the RmiWorkspace yubafeather_rs
+ - /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs/shared/modified.dbf
+fireUserChange: user=werner change=closed Callback count=0
+removeWorkspace:removing workspace /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs
+removeWorkspace:WARNING failed to find workspace for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs
+Close the RmiWorkspace YubaFeatherFCO
+ - /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/shared/modified.dbf
+fireUserChange: user=werner change=closed Callback count=0
+removeWorkspace:removing workspace /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO
+removeWorkspace:WARNING failed to find workspace for /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO
+eventDispatched:window closed

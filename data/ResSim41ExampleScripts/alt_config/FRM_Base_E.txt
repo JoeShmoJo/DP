@@ -1,0 +1,14 @@
+#If any changes to the default are desired, you can put the values here
+
+#For 3-hour, we don't want to do a 2-step mainsteam flow augmentation.
+#Just do the one-pass method, which is more approximate, but OK for these purposes
+mainstemFlowAugMethod: NoFlowAug
+
+#No IRRMs for FRM baseline
+irrmActive: {"Detroit":false, "Hills Creek":false, "Lookout Point":false, "Cougar":false}
+
+#No deep drawdowns or spring spill for FRM baseline
+
+DeepDrawdownConfigCSV: "scripts/externalRules/DeepDrawdownConfigNone.csv"
+
+SpringSpillConfigCSV: "scripts/externalRules/SpringSpillConfigNone.csv"

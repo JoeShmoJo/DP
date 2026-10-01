@@ -1,0 +1,96 @@
+# 
+# Data file for datum shift script for CRT ResSim models
+#   Format: tab-separated fields
+#   Field 1:  CBT Location code
+#   Field 2:  Vertical datum shift (NAVD 88 elevation minus NGVD29 elevation)
+#   Field 3:  Full name of location as exists in the ResSim model (case-sensitive!)
+
+#Canada and Kootenai
+MCDB	4.7	Mica
+REVB	4.5	Revelstoke
+ARDB	4.3	Arrow Lakes
+LIB	3.9	Libby
+DCDB	4.3	Duncan
+CORB	4.3	Corra Linn
+UBN	4.2	Upper Bonnington
+LBN	4.2	Lower Bonnington
+SLO	4.2	Slocan
+BRDB	4.2	Brilliant
+#Pend Oreille
+HGH	3.9	Hungry Horse
+KERM	3.6	Kerr
+TOM	3.8	Thompson Falls
+NOX	3.9	Noxon Rapids
+CAB	3.9	Cabinet Gorge
+PSL	4	Priest Lake
+ALF	3.9	Albeni Falls
+BOX	4	Box Canyon
+BDY	4	Boundary
+SEVB	4.1	Seven Mile
+WANB	4	Waneta
+#Spokane
+COEI	3.8	Post Falls
+UPF	3.8	Upper Falls
+MON	3.8	Monroe Street
+NIN	3.8	Nine Mile
+LLK	3.8	Long Lake
+LFL	3.8	Little Falls
+#Mid-Columbia
+GCL	3.9	Grand Coulee
+CHJ	4	Chief Joseph
+WEL	4	Wells
+CHL	3.9	Chelan
+RRH	3.8	Rocky Reach
+RIS	3.7	Rock Island
+WAN	3.5	Wanapum
+PRD	3.5	Priest Rapids
+#Yakima
+KEE	4	Keechelus
+KAC	3.9	Kachess
+CLE	3.9	Cle Elum
+BUM	3.9	Bumping Lake
+TTN	3.8	Tieton
+#Upper Snake
+JCK	4.3	Jackson Lake
+PAL	4	Palisades
+AMF	3.3	American Falls
+OWY	3.3	Owyhee
+AND	3.4	Anderson Ranch
+ARK	3.4	Arrowrock
+LUC	3.3	Lucky Peak
+DED	4	Deadwood
+CSC	3.6	Cascade
+#Lower Snake
+BRN	3.3	Brownlee
+OXB	3.4	Oxbow
+HCD	3.6	Hells Canyon
+DWR	3.3	Dworshak
+LWG	3.4	Lower Granite
+LGS	3.2	Little Goose
+LMN	3.3	Lower Monumental
+IHR	3.4	Ice Harbor
+#Lower Columbia
+MCN	3.3	McNary
+JDA	3.2	John Day
+ROU	3.6	Round Butte
+PEL	3.6	Pelton
+RER	3.5	Pelton ReReg
+TDA	3.3	The Dalles
+BON	3.3	Bonneville
+#Willamette
+HCR	3.7	Hills Creek
+LOP	3.7	Lookout Point
+DEX	3.6	Dexter
+FAL	3.6	Fall Creek
+DOR	3.8	Dorena
+COT	3.8	Cottage Grove
+CGR	3.8	Cougar
+BLU	3.8	Blue River
+FRN	3.6	Fern Ridge
+GPR	3.5	Green Peter
+FOS	3.4	Foster
+DET	3.6	Detroit
+BCL	3.6	Big Cliff
+SCO	3.5	Scoggins
+MOS	3.5	Mossyrock
+MAY	3.5	Mayfield

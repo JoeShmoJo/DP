@@ -1,0 +1,9 @@
+===== Wed 03/11/2026 11:53:04.52 =====
+BAT_DIR=C:\Projects\CWMS_RESSIM_ONLY\NWP_Willamette_Master_09Mar2026_RFC_Update\scripts\ExternalPython\
+ENV_NAME=hydro39
+PY_SCRIPT=ALT_COMPARISON_PLOTS.py
+
+Found CONDA_ROOT=C:\Users\g2encjer\AppData\Local\miniconda3
+Using PYTHON_EXE=C:\Users\g2encjer\AppData\Local\miniconda3\envs\hydro39\python.exe
+--- Running ExternalPython: ALT_COMPARISON_PLOTS.py --- 
+CMD: "C:\Users\g2encjer\AppData\Local\miniconda3\envs\hydro39\python.exe" "ALT_COMPARISON_PLOTS.py" "ALT_COMPARISON_PLOTS.py" "ExternalPython"

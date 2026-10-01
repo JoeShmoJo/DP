@@ -1,0 +1,10 @@
+===== Fri 03/06/2026 13:53:41.69 =====
+BAT_DIR=C:\Projects\CWMS_RESSIM_ONLY\NWP_Willamette_Master_2025-12-11-FOS_NoOvertop\scripts\ExternalPython\
+ENV_NAME=hydro39
+PY_SCRIPT=DefineSimAndAlt.py
+
+Found CONDA_ROOT=C:\Users\g2encjer\AppData\Local\miniconda3
+Using PYTHON_EXE=C:\Users\g2encjer\AppData\Local\miniconda3\envs\hydro39\python.exe
+--- Running ExternalPython: DefineSimAndAlt.py --- 
+CMD: "C:\Users\g2encjer\AppData\Local\miniconda3\envs\hydro39\python.exe" "DefineSimAndAlt.py" "DefineSimAndAlt.py" "ExternalPython"
+Done.

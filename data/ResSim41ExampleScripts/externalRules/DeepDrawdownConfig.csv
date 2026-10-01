@@ -1,0 +1,11 @@
+#First 5 lines are comments,,,,,,,,,
+#This config is for a script that sets a drawdown period and max duration. ,,,,,,,,,
+#Blank,,,,,,,,,
+#Blank,,,,,,,,,
+#BlankResSim reservoir name,Start trying to drawdown on this month,and this day,The date we hope to achieve the drawdown target,,Stop trying to drawdown no matter what in this month,and this day,"Once drawdown is successful for this many total days, stop trying to drawdown.",Drawdown target elevation,
+RESERVOIR,START_MONTH,START_DAY,TARGET_MONTH,TARGET_DAY,END_MONTH,END_DAY,DURATION_DAYS,TARGET_ELEV,ACTIVE
+Green Peter,10,1,11,15,12,31,30,780,TRUE
+Detroit,10,1,11,15,12,31,30,1395,TRUE
+Lookout Point,9,15,11,15,12,31,30,750,TRUE
+Fall Creek,10,1,11,15,12,31,30,680,TRUE
+Cougar,10,1,11,15,12,31,30,1505,TRUE

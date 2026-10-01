@@ -1,0 +1,5 @@
+#If any changes to the default are desired, you can put the values here
+
+#For 3-hour, we don't want to do a 2-step mainsteam flow augmentation.
+#Just do the one-pass method, which is more approximate, but OK for these purposes
+mainstemFlowAugMethod: AllocationBasedOnConservationStorage
