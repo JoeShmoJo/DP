@@ -1,0 +1,378 @@
+0,SUVO Luckiamute_nr Suver,~E0,SUVO Luckiamute_nr Suver,SUVO Luckiamute_nr Suver to Willamette+Luckiamute,Luckiamute,73843.73,0.2253
+1,Tualitan+Scoggins,~E1,Tualitan+Scoggins,Tualitan+Scoggins to Willamette+Tualatin,Tualatin_River,322436.93,0.7555
+2,MCMO South Yamill_at McMinnville,~E2,MCMO South Yamill_at McMinnville,MCMO South Yamill_at McMinnville to Willamette+Yamhill,Yamhill,86723.26,0.9773
+3,CANO Molalla_nr Canby,~E3,CANO Molalla_nr Canby,CANO Molalla_nr Canby to Molalla+Pudding,Molalla,33513.05,0.1218
+4,AURO Pudding_at Aurora,~E4,AURO Pudding_at Aurora,AURO Pudding_at Aurora to Molalla+Pudding,Pudding,40660.25,0.1203
+5,Molalla+Pudding,~E5,Molalla+Pudding,Molalla+Pudding to Willamette+Molalla,Molalla,8534.61,0.0311
+6,Willamette+Mill,~E6,Willamette+Mill,Willamette+Mill to Willamette+Yamhill,Willamette_River,441434.91,0.4483
+7,Willamette+Rickreall,~E7,Willamette+Rickreall,Willamette+Rickreall to Willamette_at Salem,Willamette_River,465233.47,0.4724
+8,Willamette+Ash Cr,~E8,Willamette+Ash Cr,Willamette+Ash Cr to Willamette+Rickreall,Willamette_River,505262.48,0.5131
+9,So Santiam+Thomas Cr,~E9,So Santiam+Thomas Cr,So Santiam+Thomas Cr to No Santiam+So Santiam,South_Santiam_River,14412.36,0.0490
+10,So Santiam+Crabtree Cr,~E10,So Santiam+Crabtree Cr,So Santiam+Crabtree Cr to So Santiam+Thomas Cr,South_Santiam_River,17714.84,0.0602
+11,So Santiam+McDowell Cr,~E11,So Santiam+McDowell Cr,So Santiam+McDowell Cr to So Santiam_at Waterloo,South_Santiam_River,141219.66,0.4798
+12,Long Tom+Amazon Cr,~E12,Long Tom+Amazon Cr,Long Tom+Amazon Cr to Long Tom_at Monroe,Long_Tom_River,79350.18,0.3420
+13,Long Tom_nr Alvadore,~E13,Long Tom_nr Alvadore,Long Tom_nr Alvadore to Long Tom+Amazon Cr,Long_Tom_River,127580.12,0.5498
+14,McKenzie+Mohawk,~E14,McKenzie+Mohawk,McKenzie+Mohawk to McKenzie_nr Coburg,McKenzie_River,51165.70,0.1836
+15,Abv Hayden Bridge_at Springfield,~E15,Abv Hayden Bridge_at Springfield,Abv Hayden Bridge_at Springfield to McKenzie+Mohawk,McKenzie_River,57652.37,0.2069
+16,Below Leaburg Dam,~E16,Below Leaburg Dam,Below Leaburg Dam to Mkenzie_nr Walterville,McKenzie_River,174508.45,0.6262
+17,Blue_at Blue River,~E17,Blue_at Blue River,Blue_at Blue River to McKenzie+Blue,Blue_River,4617.61,0.0735
+18,SF MkKenzie_nr Rainbow,~E18,SF MkKenzie_nr Rainbow,SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie,South_Fork_McKenzie_River,34944.96,0.3463
+19,MF Willamette_nr Dexter,~E19,MF Willamette_nr Dexter,MF Willamette_nr Dexter to MF Willamette+Fall,Middle_Fork_Willamette_River,70471.60,0.2366
+20,MF Willamette+Salmon Cr,~E20,MF Willamette+Salmon Cr,MF Willamette+Salmon Cr to MF Willamette+NF Willamette,Middle_Fork_Willamette_River,222654.78,0.7475
+21,MF Willamette+Salt Cr,~E21,MF Willamette+Salt Cr,MF Willamette+Salt Cr to MF Willamette+Salmon Cr,Middle_Fork_Willamette_River,231760.49,0.7780
+22,MF Willamette_abv Salt Cr nr Oakridge,~E22,MF Willamette_abv Salt Cr nr Oakridge,MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr,Middle_Fork_Willamette_River,233647.75,0.7844
+23,McKenzie_nr Coburg,~E23,McKenzie_nr Coburg,McKenzie_nr Coburg to Willamette+McKenzie,McKenzie_River,16970.07,0.0609
+24,MF Willamette+NF Willamette,~E24,MF Willamette+NF Willamette,MF Willamette+NF Willamette to MF Willamette NR Oakridge,Middle_Fork_Willamette_River,199192.89,0.6687
+25,Willamette_at Albany,~E25,Willamette_at Albany,Willamette_at Albany to Willamette+Santiam,Willamette_River,631495.56,0.6413
+26,Willamette Falls,~E26,Willamette Falls, ,Willamette_River,135866.53,0.1380
+27,Willamette_abv Falls at Oregon City,~E27,Willamette_abv Falls at Oregon City,Willamette_abv Falls at Oregon City to Willamette Falls,Willamette_River,140484.07,0.1427
+28,Willamette+Tualatin,~E28,Willamette+Tualatin,Willamette+Tualatin to Willamette_abv Falls at Oregon City,Willamette_River,149015.95,0.1513
+29,Willamette+Molalla,~E29,Willamette+Molalla,Willamette+Molalla to Willamette+Tualatin,Willamette_River,187037.45,0.1899
+30,Willamette_at Wilsonville,~E30,Willamette_at Wilsonville,Willamette_at Wilsonville to Willamette+Molalla,Willamette_River,201970.74,0.2051
+31,Willamette_at Newberg,~E31,Willamette_at Newberg,Willamette_at Newberg to Willamette_at Wilsonville,Willamette_River,263314.84,0.2674
+32,Willamette+Yamhill,~E32,Willamette+Yamhill,Willamette+Yamhill to Willamette_at Newberg,Willamette_River,289209.51,0.2937
+33,Willamette_at Salem,~E33,Willamette_at Salem,Willamette_at Salem to Willamette+Mill,Willamette_River,444332.99,0.4512
+34,So Santiam_at Waterloo,~E34,So Santiam_at Waterloo,So Santiam_at Waterloo to Lebanon Div_IN,South_Santiam_River,118148.35,0.4014
+35,No Santiam_at Niagara,~E35,No Santiam_at Niagara,No Santiam_at Niagara to No Santiam_at Mehama,North_Santiam_River,238514.33,0.7636
+36,No Santiam_at Mehama,~E36,No Santiam_at Mehama,No Santiam_at Mehama to Stayton Div_IN,North_Santiam_River,134490.90,0.4306
+37,GreensBridge_nr Jefferson,~E37,GreensBridge_nr Jefferson,GreensBridge_nr Jefferson to No Santiam+So Santiam,North_Santiam_River,17405.83,0.0557
+38,No Santiam+So Santiam,~E38,No Santiam+So Santiam,No Santiam+So Santiam to Santiam_at Jefferson,Santiam_River,65078.89,1.0000
+39,Santiam_at Jefferson,~E39,Santiam_at Jefferson,Santiam_at Jefferson to Willamette+Santiam,Santiam_River,54034.11,0.8303
+42,Willamette+Calapooia,~E42,Willamette+Calapooia,Willamette+Calapooia to Willamette_at Albany,Willamette_River,632665.25,0.6425
+43,Willamette+Marys,~E43,Willamette+Marys,Willamette+Marys to Willamette+Calapooia,Willamette_River,695439.35,0.7062
+44,Long Tom_at Monroe,~E44,Long Tom_at Monroe,Long Tom_at Monroe to Willamette+Long Tom,Long_Tom_River,39959.12,0.1722
+45,Willamette+Long Tom,~E45,Willamette+Long Tom,Willamette+Long Tom to Willamette+Marys,Willamette_River,785310.86,0.7975
+46,Willamette_at Harrisburg,~E46,Willamette_at Harrisburg,Willamette_at Harrisburg to Willamette+Long Tom,Willamette_River,853060.98,0.8663
+47,McKenzie+SF McKenzie,~E47,McKenzie+SF McKenzie,McKenzie+SF McKenzie to McKenzie+Blue,South_Fork_McKenzie_River,14746.86,0.1461
+48,McKenzie+Blue,~E48,McKenzie+Blue,McKenzie+Blue to McKenzie_at Vida,McKenzie_River,278673.97,1.0000
+49,McKenzie_at Vida,~E49,McKenzie_at Vida,McKenzie_at Vida to Below Leaburg Dam,McKenzie_River,229965.40,0.8252
+50,Mkenzie_nr Walterville,~E50,Mkenzie_nr Walterville,Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield,McKenzie_River,126326.62,0.4533
+51,Willamette+McKenzie,~E51,Willamette+McKenzie,Willamette+McKenzie to Willamette_at Harrisburg,Willamette_River,924145.23,0.9385
+52,Willamette_at Eugene,~E52,Willamette_at Eugene,Willamette_at Eugene to Willamette+McKenzie,Willamette_River,960959.29,0.9759
+53,CF Willamette+Row,~E53,CF Willamette+Row,CF Willamette+Row to CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,106644.23,0.5074
+54,CF WIllamette_nr Goshen,~E54,CF WIllamette_nr Goshen,CF WIllamette_nr Goshen to MF Willamette+CF Willamette,Cost_Fork_Willamette_River,30663.04,0.1459
+55,MF Willamette+CF Willamette,~E55,MF Willamette+CF Willamette,MF Willamette+CF Willamette to Willamette_at Eugene,Willamette_River,984730.78,1.0000
+56,MF Willamette_at Jasper,~E56,MF Willamette_at Jasper,MF Willamette_at Jasper to MF Willamette+CF Willamette,Middle_Fork_Willamette_River,43257.94,0.1452
+57,MF Willamette+Fall,~E57,MF Willamette+Fall,MF Willamette+Fall to MF Willamette_at Jasper,Middle_Fork_Willamette_River,58728.14,0.1972
+58,MF Willamette NR Oakridge,~E58,MF Willamette NR Oakridge,MF Willamette NR Oakridge to Lookout Point_IN,Middle_Fork_Willamette_River,178453.81,0.5991
+60,Lebanon Div_IN,~E60,Lebanon Div_IN,Lebanon Div_IN to So Santiam+Crabtree Cr,South_Santiam_River,104033.55,0.3535
+61,Stayton Div_IN,~E61,Stayton Div_IN,Stayton Div_IN to GreensBridge_nr Jefferson,North_Santiam_River,88422.77,0.2831
+62,Big Cliff_OUT,~E62,Big Cliff_OUT,Big Cliff_OUT to No Santiam_at Niagara,North_Santiam_River,242875.31,0.7775
+64,Detroit_OUT,~E64,Detroit_OUT,Detroit_OUT to Big Cliff_IN,North_Santiam_River,257748.58,0.8252
+66,Foster_OUT,~E66,Foster_OUT,Foster_OUT to So Santiam+McDowell Cr,South_Santiam_River,195078.61,0.6628
+68,Green Peter_OUT,~E68,Green Peter_OUT,Green Peter_OUT to Foster_IN,Middle_Santiam_River,30233.93,0.3500
+70,Fern Ridge_OUT,~E70,Fern Ridge_OUT,Fern Ridge_OUT to Long Tom_nr Alvadore,Long_Tom_River,128877.77,0.5554
+72,Blue River_OUT,~E72,Blue River_OUT,Blue River_OUT to Blue_at Blue River,Blue_River,8499.59,0.1353
+74,Cougar_OUT,~E74,Cougar_OUT,Cougar_OUT to SF MkKenzie_nr Rainbow,South_Fork_McKenzie_River,38912.46,0.3856
+76,Cottage Grove_OUT,~E76,Cottage Grove_OUT,Cottage Grove_OUT to CF Willamette+Row,Cost_Fork_Willamette_River,153635.99,0.7310
+78,Dorena_OUT,~E78,Dorena_OUT,Dorena_OUT to CF Willamette+Row,Row_River,39935.81,0.4384
+80,Fall Creek_OUT,~E80,Fall Creek_OUT,Fall Creek_OUT to MF Willamette+Fall,Fall_Creek,38554.19,0.3956
+82,Dexter_OUT,~E82,Dexter_OUT,Dexter_OUT to MF Willamette_nr Dexter,Middle_Fork_Willamette_River,89387.66,0.3001
+84,Lookout Point_OUT,~E84,Lookout Point_OUT,Lookout Point_OUT to Dexter_IN,Middle_Fork_Willamette_River,105955.97,0.3557
+86,Hills Creek_OUT,~E86,Hills Creek_OUT,Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge,Middle_Fork_Willamette_River,239769.35,0.8049
+88,Big Cliff_IN,~E63,Big Cliff_IN,Big Cliff-Pool,North_Santiam_River,252730.54,0.8091
+89,Big Cliff-Dam Tailwater,~E91,Big Cliff-Dam Tailwater,Big Cliff_OUT,North_Santiam_River,242875.31,0.7775
+90,Big Cliff-Dam L&O IN,~E92~IN,Big Cliff-Pool,Big Cliff-Dam L&O,<not on stream>, , 
+91,Big Cliff-Dam L&O,~E92,Big Cliff-Dam L&O,Big Cliff-Dam Tailwater,<not on stream>, , 
+92,Detroit_IN,~E65,Detroit_IN,Detroit-Pool,North_Santiam_River,306606.85,0.9816
+93,Detroit-Dam Tailwater,~E96,Detroit-Dam Tailwater,Detroit_OUT,North_Santiam_River,257748.58,0.8252
+94,Detroit-Dam L&O IN,~E97~IN,Detroit-Pool,Detroit-Dam L&O,<not on stream>, , 
+95,Detroit-Dam L&O,~E97,Detroit-Dam L&O,Detroit-Dam Tailwater,<not on stream>, , 
+96,Foster_IN,~E67,Foster_IN,Foster-Pool,South_Santiam_River,202990.08,0.6897
+97,Foster-Dam Tailwater,~E101,Foster-Dam Tailwater,Foster_OUT,South_Santiam_River,195078.61,0.6628
+98,Foster-Dam L&O IN,~E102~IN,Foster-Pool,Foster-Dam L&O,<not on stream>, , 
+99,Foster-Dam L&O,~E102,Foster-Dam L&O,Foster-Dam Tailwater,<not on stream>, , 
+100,Green Peter_IN,~E69,Green Peter_IN,Green Peter-Pool,Middle_Santiam_River,79920.75,0.9253
+101,Green Peter-Dam Tailwater,~E106,Green Peter-Dam Tailwater,Green Peter_OUT,Middle_Santiam_River,30233.93,0.3500
+102,Green Peter-Dam L&O IN,~E107~IN,Green Peter-Pool,Green Peter-Dam L&O,<not on stream>, , 
+103,Green Peter-Dam L&O,~E107,Green Peter-Dam L&O,Green Peter-Dam Tailwater,<not on stream>, , 
+104,Fern Ridge_IN,~E71,Fern Ridge_IN,Fern Ridge-Pool,Long_Tom_River,151326.88,0.6521
+105,Fern Ridge-Dam Tailwater,~E111,Fern Ridge-Dam Tailwater,Fern Ridge_OUT,Long_Tom_River,128877.77,0.5554
+106,Fern Ridge-Dam L&O IN,~E112~IN,Fern Ridge-Pool,Fern Ridge-Dam L&O,<not on stream>, , 
+107,Fern Ridge-Dam L&O,~E112,Fern Ridge-Dam L&O,Fern Ridge-Dam Tailwater,<not on stream>, , 
+108,Blue River_IN,~E73,Blue River_IN,Blue River-Pool,Blue_River,36770.35,0.5855
+109,Blue River-Dam Tailwater,~E116,Blue River-Dam Tailwater,Blue River_OUT,Blue_River,8499.59,0.1353
+110,Blue River-Dam L&O IN,~E117~IN,Blue River-Pool,Blue River-Dam L&O,<not on stream>, , 
+111,Blue River-Dam L&O,~E117,Blue River-Dam L&O,Blue River-Dam Tailwater,<not on stream>, , 
+112,Cougar_IN,~E75,Cougar_IN,Cougar-Pool,South_Fork_McKenzie_River,67349.59,0.6674
+113,Cougar-Dam Tailwater,~E121,Cougar-Dam Tailwater,Cougar_OUT,South_Fork_McKenzie_River,38912.46,0.3856
+114,Cougar-Dam L&O IN,~E122~IN,Cougar-Pool,Cougar-Dam L&O,<not on stream>, , 
+115,Cougar-Dam L&O,~E122,Cougar-Dam L&O,Cougar-Dam Tailwater,<not on stream>, , 
+116,Cottage Grove_IN,~E77,Cottage Grove_IN,Cottage Grove-Pool,Cost_Fork_Willamette_River,173856.03,0.8273
+117,Cottage Grove-Dam Tailwater,~E126,Cottage Grove-Dam Tailwater,Cottage Grove_OUT,Cost_Fork_Willamette_River,153635.99,0.7310
+118,Cottage Grove-Dam L&O IN,~E127~IN,Cottage Grove-Pool,Cottage Grove-Dam L&O,<not on stream>, , 
+119,Cottage Grove-Dam L&O,~E127,Cottage Grove-Dam L&O,Cottage Grove-Dam Tailwater,<not on stream>, , 
+120,Dorena_IN,~E79,Dorena_IN,Dorena-Pool,Row_River,60966.11,0.6693
+121,Dorena-Dam Tailwater,~E131,Dorena-Dam Tailwater,Dorena_OUT,Row_River,39935.81,0.4384
+122,Dorena-Dam L&O IN,~E132~IN,Dorena-Pool,Dorena-Dam L&O,<not on stream>, , 
+123,Dorena-Dam L&O,~E132,Dorena-Dam L&O,Dorena-Dam Tailwater,<not on stream>, , 
+124,Fall Creek_IN,~E81,Fall Creek_IN,Fall Creek-Pool,Fall_Creek,68662.65,0.7045
+125,Fall Creek-Dam Tailwater,~E136,Fall Creek-Dam Tailwater,Fall Creek_OUT,Fall_Creek,38554.19,0.3956
+126,Fall Creek-Dam L&O IN,~E137~IN,Fall Creek-Pool,Fall Creek-Dam L&O,<not on stream>, , 
+127,Fall Creek-Dam L&O,~E137,Fall Creek-Dam L&O,Fall Creek-Dam Tailwater,<not on stream>, , 
+128,Dexter_IN,~E83,Dexter_IN,Dexter-Pool,Middle_Fork_Willamette_River,105483.88,0.3541
+129,Dexter-Dam Tailwater,~E141,Dexter-Dam Tailwater,Dexter_OUT,Middle_Fork_Willamette_River,89387.66,0.3001
+130,Dexter-Dam L&O IN,~E142~IN,Dexter-Pool,Dexter-Dam L&O,<not on stream>, , 
+131,Dexter-Dam L&O,~E142,Dexter-Dam L&O,Dexter-Dam Tailwater,<not on stream>, , 
+132,Lookout Point_IN,~E85,Lookout Point_IN,Lookout Point-Pool,Middle_Fork_Willamette_River,174037.44,0.5843
+133,Lookout Point-Dam Tailwater,~E146,Lookout Point-Dam Tailwater,Lookout Point_OUT,Middle_Fork_Willamette_River,105955.97,0.3557
+134,Lookout Point-Dam L&O IN,~E147~IN,Lookout Point-Pool,Lookout Point-Dam L&O,<not on stream>, , 
+135,Lookout Point-Dam L&O,~E147,Lookout Point-Dam L&O,Lookout Point-Dam Tailwater,<not on stream>, , 
+136,Hills Creek_IN,~E87,Hills Creek_IN,Hills Creek-Pool,Middle_Fork_Willamette_River,281265.07,0.9442
+137,Hills Creek-Dam Tailwater,~E151,Hills Creek-Dam Tailwater,Hills Creek_OUT,Middle_Fork_Willamette_River,239769.35,0.8049
+138,Hills Creek-Dam L&O IN,~E152~IN,Hills Creek-Pool,Hills Creek-Dam L&O,<not on stream>, , 
+139,Hills Creek-Dam L&O,~E152,Hills Creek-Dam L&O,Hills Creek-Dam Tailwater,<not on stream>, , 
+143,Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge,~E156,Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge,MF Willamette_abv Salt Cr nr Oakridge,Middle_Fork_Willamette_River,233647.75,0.7844
+144,MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr,~E157,MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr,MF Willamette+Salt Cr,Middle_Fork_Willamette_River,231760.49,0.7780
+145,MF Willamette+Salt Cr to MF Willamette+Salmon Cr,~E158,MF Willamette+Salt Cr to MF Willamette+Salmon Cr,MF Willamette+Salmon Cr,Middle_Fork_Willamette_River,222654.78,0.7475
+146,MF Willamette+Salmon Cr to MF Willamette+NF Willamette,~E159,MF Willamette+Salmon Cr to MF Willamette+NF Willamette,MF Willamette+NF Willamette,Middle_Fork_Willamette_River,199192.89,0.6687
+147,MF Willamette+NF Willamette to MF Willamette NR Oakridge,~E160,MF Willamette+NF Willamette to MF Willamette NR Oakridge,MF Willamette NR Oakridge,Middle_Fork_Willamette_River,178453.81,0.5991
+148,MF Willamette NR Oakridge to Lookout Point_IN,~E161,MF Willamette NR Oakridge to Lookout Point_IN,Lookout Point_IN,Middle_Fork_Willamette_River,174037.44,0.5843
+149,Cottage Grove_OUT to CF Willamette+Row,~E162,Cottage Grove_OUT to CF Willamette+Row,CF Willamette+Row,Cost_Fork_Willamette_River,106644.23,0.5074
+150,Dorena_OUT to CF Willamette+Row,~E163,Dorena_OUT to CF Willamette+Row,CF Willamette+Row,Row_River,0.00,0.0000
+151,CF Willamette+Row to CF WIllamette_nr Goshen,~E164,CF Willamette+Row to CF WIllamette_nr Goshen,CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,30663.04,0.1459
+152,CF WIllamette_nr Goshen to MF Willamette+CF Willamette,~E165,CF WIllamette_nr Goshen to MF Willamette+CF Willamette,MF Willamette+CF Willamette,Cost_Fork_Willamette_River,0.00,0.0000
+153,Fall Creek_OUT to MF Willamette+Fall,~E166,Fall Creek_OUT to MF Willamette+Fall,MF Willamette+Fall,Fall_Creek,0.00,0.0000
+154,Dexter_OUT to MF Willamette_nr Dexter,~E167,Dexter_OUT to MF Willamette_nr Dexter,MF Willamette_nr Dexter,Middle_Fork_Willamette_River,70471.60,0.2366
+155,MF Willamette_nr Dexter to MF Willamette+Fall,~E168,MF Willamette_nr Dexter to MF Willamette+Fall,MF Willamette+Fall,Middle_Fork_Willamette_River,58728.14,0.1972
+156,MF Willamette+Fall to MF Willamette_at Jasper,~E169,MF Willamette+Fall to MF Willamette_at Jasper,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+157,MF Willamette_at Jasper to MF Willamette+CF Willamette,~E170,MF Willamette_at Jasper to MF Willamette+CF Willamette,MF Willamette+CF Willamette,Middle_Fork_Willamette_River,0.00,0.0000
+158,MF Willamette+CF Willamette to Willamette_at Eugene,~E171,MF Willamette+CF Willamette to Willamette_at Eugene,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+159,Willamette_at Eugene to Willamette+McKenzie,~E172,Willamette_at Eugene to Willamette+McKenzie,Willamette+McKenzie,Willamette_River,924145.23,0.9385
+160,Cougar_OUT to SF MkKenzie_nr Rainbow,~E173,Cougar_OUT to SF MkKenzie_nr Rainbow,SF MkKenzie_nr Rainbow,South_Fork_McKenzie_River,34944.96,0.3463
+161,SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie,~E174,SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie,McKenzie+SF McKenzie,South_Fork_McKenzie_River,14746.86,0.1461
+162,TRBO McKenzie_nr Trail Bridge Dam,~E175,TRBO McKenzie_nr Trail Bridge Dam,McKenzie HW to McKenzie+SF McKenzie,Upper McKenzie,162191.65,0.9652
+163,McKenzie HW to McKenzie+SF McKenzie,~E176,McKenzie HW to McKenzie+SF McKenzie,McKenzie+SF McKenzie,Upper McKenzie,0.00,0.0000
+164,Blue River_OUT to Blue_at Blue River,~E177,Blue River_OUT to Blue_at Blue River,Blue_at Blue River,Blue_River,4617.61,0.0735
+165,McKenzie+SF McKenzie to McKenzie+Blue,~E178,McKenzie+SF McKenzie to McKenzie+Blue,McKenzie+Blue,South_Fork_McKenzie_River,0.00,0.0000
+166,Blue_at Blue River to McKenzie+Blue,~E179,Blue_at Blue River to McKenzie+Blue,McKenzie+Blue,Blue_River,0.00,0.0000
+167,McKenzie+Blue to McKenzie_at Vida,~E180,McKenzie+Blue to McKenzie_at Vida,McKenzie_at Vida,McKenzie_River,229965.40,0.8252
+168,McKenzie_at Vida to Below Leaburg Dam,~E181,McKenzie_at Vida to Below Leaburg Dam,Below Leaburg Dam,McKenzie_River,174508.45,0.6262
+169,Below Leaburg Dam to Mkenzie_nr Walterville,~E182,Below Leaburg Dam to Mkenzie_nr Walterville,Mkenzie_nr Walterville,McKenzie_River,126326.62,0.4533
+170,Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield,~E183,Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield,Abv Hayden Bridge_at Springfield,McKenzie_River,57652.37,0.2069
+171,Abv Hayden Bridge_at Springfield to McKenzie+Mohawk,~E184,Abv Hayden Bridge_at Springfield to McKenzie+Mohawk,McKenzie+Mohawk,McKenzie_River,51165.70,0.1836
+172,McKenzie+Mohawk to McKenzie_nr Coburg,~E185,McKenzie+Mohawk to McKenzie_nr Coburg,McKenzie_nr Coburg,McKenzie_River,16970.07,0.0609
+173,McKenzie_nr Coburg to Willamette+McKenzie,~E186,McKenzie_nr Coburg to Willamette+McKenzie,Willamette+McKenzie,McKenzie_River,0.00,0.0000
+174,Willamette+McKenzie to Willamette_at Harrisburg,~E187,Willamette+McKenzie to Willamette_at Harrisburg,Willamette_at Harrisburg,Willamette_River,853060.98,0.8663
+175,Fern Ridge_OUT to Long Tom_nr Alvadore,~E188,Fern Ridge_OUT to Long Tom_nr Alvadore,Long Tom_nr Alvadore,Long_Tom_River,127580.12,0.5498
+176,Long Tom_nr Alvadore to Long Tom+Amazon Cr,~E189,Long Tom_nr Alvadore to Long Tom+Amazon Cr,Long Tom+Amazon Cr,Long_Tom_River,79350.18,0.3420
+177,Long Tom+Amazon Cr to Long Tom_at Monroe,~E190,Long Tom+Amazon Cr to Long Tom_at Monroe,Long Tom_at Monroe,Long_Tom_River,39959.12,0.1722
+178,Long Tom_at Monroe to Willamette+Long Tom,~E191,Long Tom_at Monroe to Willamette+Long Tom,Willamette+Long Tom,Long_Tom_River,0.00,0.0000
+179,Willamette_at Harrisburg to Willamette+Long Tom,~E192,Willamette_at Harrisburg to Willamette+Long Tom,Willamette+Long Tom,Willamette_River,785310.86,0.7975
+180,Willamette+Long Tom to Willamette+Marys,~E193,Willamette+Long Tom to Willamette+Marys,Willamette+Marys,Willamette_River,695439.35,0.7062
+181,Green Peter_OUT to Foster_IN,~E194,Green Peter_OUT to Foster_IN,Foster_IN,Middle_Santiam_River,0.00,0.0000
+182,Foster_OUT to So Santiam+McDowell Cr,~E195,Foster_OUT to So Santiam+McDowell Cr,So Santiam+McDowell Cr,South_Santiam_River,141219.66,0.4798
+183,So Santiam+McDowell Cr to So Santiam_at Waterloo,~E196,So Santiam+McDowell Cr to So Santiam_at Waterloo,So Santiam_at Waterloo,South_Santiam_River,118148.35,0.4014
+184,So Santiam_at Waterloo to Lebanon Div_IN,~E197,So Santiam_at Waterloo to Lebanon Div_IN,Lebanon Div_IN,South_Santiam_River,104033.55,0.3535
+186,Willamette+Marys to Willamette+Calapooia,~E199,Willamette+Marys to Willamette+Calapooia,Willamette+Calapooia,Willamette_River,632665.25,0.6425
+187,Willamette+Calapooia to Willamette_at Albany,~E200,Willamette+Calapooia to Willamette_at Albany,Willamette_at Albany,Willamette_River,631495.56,0.6413
+189,Lookout Point_OUT to Dexter_IN,~E202,Lookout Point_OUT to Dexter_IN,Dexter_IN,Middle_Fork_Willamette_River,105483.88,0.3541
+192,Lebanon Div_IN to So Santiam+Crabtree Cr,~E205,Lebanon Div_IN to So Santiam+Crabtree Cr,So Santiam+Crabtree Cr,South_Santiam_River,17714.84,0.0602
+193,So Santiam+Crabtree Cr to So Santiam+Thomas Cr,~E206,So Santiam+Crabtree Cr to So Santiam+Thomas Cr,So Santiam+Thomas Cr,South_Santiam_River,14412.36,0.0490
+194,So Santiam+Thomas Cr to No Santiam+So Santiam,~E207,So Santiam+Thomas Cr to No Santiam+So Santiam,No Santiam+So Santiam,South_Santiam_River,0.00,0.0000
+195,Detroit_OUT to Big Cliff_IN,~E208,Detroit_OUT to Big Cliff_IN,Big Cliff_IN,North_Santiam_River,252730.54,0.8091
+201,No Santiam+So Santiam to Santiam_at Jefferson,~E214,No Santiam+So Santiam to Santiam_at Jefferson,Santiam_at Jefferson,Santiam_River,54034.11,0.8303
+204,Willamette+Ash Cr to Willamette+Rickreall,~E217,Willamette+Ash Cr to Willamette+Rickreall,Willamette+Rickreall,Willamette_River,465233.47,0.4724
+205,Willamette+Rickreall to Willamette_at Salem,~E218,Willamette+Rickreall to Willamette_at Salem,Willamette_at Salem,Willamette_River,444332.99,0.4512
+206,Willamette_at Salem to Willamette+Mill,~E219,Willamette_at Salem to Willamette+Mill,Willamette+Mill,Willamette_River,441434.91,0.4483
+207,Willamette+Mill to Willamette+Yamhill,~E220,Willamette+Mill to Willamette+Yamhill,Willamette+Yamhill,Willamette_River,289209.51,0.2937
+209,Willamette+Yamhill to Willamette_at Newberg,~E222,Willamette+Yamhill to Willamette_at Newberg,Willamette_at Newberg,Willamette_River,263314.84,0.2674
+210,Willamette_at Newberg to Willamette_at Wilsonville,~E223,Willamette_at Newberg to Willamette_at Wilsonville,Willamette_at Wilsonville,Willamette_River,201970.74,0.2051
+213,Willamette_at Wilsonville to Willamette+Molalla,~E226,Willamette_at Wilsonville to Willamette+Molalla,Willamette+Molalla,Willamette_River,187037.45,0.1899
+214,Molalla+Pudding to Willamette+Molalla,~E227,Molalla+Pudding to Willamette+Molalla,Willamette+Molalla,Molalla,-30.04,0.0000
+215,Willamette+Molalla to Willamette+Tualatin,~E228,Willamette+Molalla to Willamette+Tualatin,Willamette+Tualatin,Willamette_River,149015.95,0.1513
+217,Willamette+Tualatin to Willamette_abv Falls at Oregon City,~E230,Willamette+Tualatin to Willamette_abv Falls at Oregon City,Willamette_abv Falls at Oregon City,Willamette_River,140484.07,0.1427
+218,Willamette_abv Falls at Oregon City to Willamette Falls,~E231,Willamette_abv Falls at Oregon City to Willamette Falls,Willamette Falls,Willamette_River,135866.53,0.1380
+224,So Santiam+Thomas Cr TRSO_Thomas Creek nr Scio,~E9~TRSO_Thomas Creek nr Scio, ,So Santiam+Thomas Cr,South_Santiam_River,14412.36,0.0490
+225,Coburg_HMSsub_McKenzieRv_S10,Coburg_HMSsub_McKenzieRv_S10, ,McKenzie_nr Coburg,McKenzie_River,16970.07,0.0609
+226,MF Willamette+NF Willamette HMSsub_NFMFWillametteRv_S10,~E24~HMSsub_NFMFWillametteRv_S10, ,MF Willamette+NF Willamette,Middle_Fork_Willamette_River,199192.89,0.6687
+227,MF Willamette+NF Willamette HMSsub_MFWillametteRv_S40,~E24~HMSsub_MFWillametteRv_S40, ,MF Willamette+NF Willamette,Middle_Fork_Willamette_River,199192.89,0.6687
+228,ALBO_ Albany_HMSsub_WillametteRv_S60,ALBO_ Albany_HMSsub_WillametteRv_S60, ,Willamette_at Albany,Willamette_River,631495.56,0.6413
+229,Willamette_abv Falls at Oregon City OCUO_Oregon City_HMSsub_WillametteRv_S30,~E27~OCUO_Oregon City_HMSsub_WillametteRv_S30, ,Willamette_abv Falls at Oregon City,Willamette_River,140484.07,0.1427
+233,Willamette_at Wilsonville,Willamette_at Wilsonville, ,Willamette_at Wilsonville,Willamette_River,201970.74,0.2051
+234,NBGO_Newberg_HMSsub_WillametteRv_S40,NBGO_Newberg_HMSsub_WillametteRv_S40, ,Willamette_at Newberg,Willamette_River,263314.84,0.2674
+236,SLMO_Salem_HMSsub_WillametteRv_S50,SLMO_Salem_HMSsub_WillametteRv_S50, ,Willamette_at Salem,Willamette_River,444332.99,0.4512
+237,WTLO_Waterloo_HMSsub_SSantiamRv_S15,WTLO_Waterloo_HMSsub_SSantiamRv_S15, ,So Santiam_at Waterloo,South_Santiam_River,118148.35,0.4014
+238,MEHO_Mehama_HMSsub_NSantiamRv_S10,MEHO_Mehama_HMSsub_NSantiamRv_S10, ,No Santiam_at Mehama,North_Santiam_River,134490.90,0.4306
+239,LSMO_Little North Santiam at Mehama,LSMO_Little North Santiam at Mehama, ,No Santiam_at Mehama,North_Santiam_River,134490.90,0.4306
+240,GreensBridge_nr Jefferson NSJO_Greens Bridge_HMSsub_NSantiamRv_S05,~E37~NSJO_Greens Bridge_HMSsub_NSantiamRv_S05, ,GreensBridge_nr Jefferson,North_Santiam_River,17405.83,0.0557
+241,No Santiam+So Santiam_Local_NSR_S07,No Santiam+So Santiam_Local_NSR_S07, ,No Santiam+So Santiam,Santiam_River,65078.89,1.0000
+242,No Santiam+So Santiam_Local_SSR_S08,No Santiam+So Santiam_Local_SSR_S08, ,No Santiam+So Santiam,Santiam_River,65078.89,1.0000
+243,JFFO Santiam_at Jefferson loc,JFFO Santiam_at Jefferson loc, ,Santiam_at Jefferson,Santiam_River,54034.11,0.8303
+247,MNRO_Monroe_HMSsub_LongTomRv_S10,MNRO_Monroe_HMSsub_LongTomRv_S10, ,Long Tom_at Monroe,Long_Tom_River,39959.12,0.1722
+248,HARO_Harrisburg_HMSsub_WillametteRv_S80,HARO_Harrisburg_HMSsub_WillametteRv_S80, ,Willamette_at Harrisburg,Willamette_River,853060.98,0.8663
+249,McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20,McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20, ,McKenzie+SF McKenzie,South_Fork_McKenzie_River,14746.86,0.1461
+251,VIDO_Vida_HMSsub_McKenzieRv_S18,VIDO_Vida_HMSsub_McKenzieRv_S18, ,McKenzie_at Vida,McKenzie_River,229965.40,0.8252
+252,MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15,MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15, ,Mkenzie_nr Walterville,McKenzie_River,126326.62,0.4533
+253,EUGO_Willamette at Eugene,EUGO_Willamette at Eugene, ,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+254,GOSO_Goshen_HMSsub_CFWillametteRv_S10,GOSO_Goshen_HMSsub_CFWillametteRv_S10, ,CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,30663.04,0.1459
+255,JASO_Jasper_HMSsub_MFWillametteRv_S10,JASO_Jasper_HMSsub_MFWillametteRv_S10, ,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+256,Big Cliff_IN Big Cliff Local Inflow_HMSsub_NSantiamRv_S15,~E63~Big Cliff Local Inflow_HMSsub_NSantiamRv_S15, ,Big Cliff_IN,North_Santiam_River,252730.54,0.8091
+257,Detroit_IN Detroit Inflow,~E65~Detroit Inflow, ,Detroit_IN,North_Santiam_River,306606.85,0.9816
+258,Foster Local Inflow_HMSsub_SSantiamRv_S20,Foster Local Inflow_HMSsub_SSantiamRv_S20, ,Foster_IN,South_Santiam_River,202990.08,0.6897
+259,Green Peter_IN Green Peter Inflow_HMSsub_SSantiamRv_S30,~E69~Green Peter Inflow_HMSsub_SSantiamRv_S30, ,Green Peter_IN,Middle_Santiam_River,79920.75,0.9253
+260,Fern Ridge_IN Fern Ridge Inflow_HMSsub_LongTomRv_S20,~E71~Fern Ridge Inflow_HMSsub_LongTomRv_S20, ,Fern Ridge_IN,Long_Tom_River,151326.88,0.6521
+261,Blue River_IN Blue River Inflow_HMSsub_BlueRv_S10,~E73~Blue River Inflow_HMSsub_BlueRv_S10, ,Blue River_IN,Blue_River,36770.35,0.5855
+262,Cougar_IN Cougar Inflow_HMSsub_SFMcKenzieRv_S10,~E75~Cougar Inflow_HMSsub_SFMcKenzieRv_S10, ,Cougar_IN,South_Fork_McKenzie_River,67349.59,0.6674
+263,Cottage Grove_IN Cottage Grove Inflow_HMSsub_CFWillametteRV_S20,~E77~Cottage Grove Inflow_HMSsub_CFWillametteRV_S20, ,Cottage Grove_IN,Cost_Fork_Willamette_River,173856.03,0.8273
+264,Dorena_IN Dorena Inflow_HMSsub_RowRv_S10,~E79~Dorena Inflow_HMSsub_RowRv_S10, ,Dorena_IN,Row_River,60966.11,0.6693
+265,Fall Creek_IN Fall Creek Inflow_HMSsub_FallCk_S10,~E81~Fall Creek Inflow_HMSsub_FallCk_S10, ,Fall Creek_IN,Fall_Creek,68662.65,0.7045
+266,Dexter_IN Dexter Local Inflow_HMSsub_MFWillametteRVS20,~E83~Dexter Local Inflow_HMSsub_MFWillametteRVS20, ,Dexter_IN,Middle_Fork_Willamette_River,105483.88,0.3541
+267,Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60,Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60, ,Lookout Point_IN,Middle_Fork_Willamette_River,174037.44,0.5843
+268,Hills Creek_IN Hills Creek Inflow_HMSsub_ MFWillametteRv_S60,~E87~Hills Creek Inflow_HMSsub_ MFWillametteRv_S60, ,Hills Creek_IN,Middle_Fork_Willamette_River,281265.07,0.9442
+269,Dorena-Regulating Outlet IN,~E236~IN,Dorena-Pool,Dorena-Regulating Outlet,<not on stream>, , 
+270,Dorena-Regulating Outlet,~E236,Dorena-Regulating Outlet,Dorena-Dam Tailwater,<not on stream>, , 
+273,Dexter-Spillway IN,~E238~IN,Dexter-Pool,Dexter-Spillway,<not on stream>, , 
+274,Dexter-Spillway,~E238,Dexter-Spillway,Dexter-Dam Tailwater,<not on stream>, , 
+277,Cottage Grove-Regulating Outlet IN,~E240~IN,Cottage Grove-Pool,Cottage Grove-Regulating Outlet,<not on stream>, , 
+278,Cottage Grove-Regulating Outlet,~E240,Cottage Grove-Regulating Outlet,Cottage Grove-Dam Tailwater,<not on stream>, , 
+281,Detroit-Spillway IN,~E242~IN,Detroit-Pool,Detroit-Spillway,<not on stream>, , 
+282,Detroit-Spillway,~E242,Detroit-Spillway,Detroit-Dam Tailwater,<not on stream>, , 
+283,Detroit-Regulating Outlet Upper IN,~E243~IN,Detroit-Pool,Detroit-Regulating Outlet Upper,<not on stream>, , 
+284,Detroit-Regulating Outlet Upper,~E243,Detroit-Regulating Outlet Upper,Detroit-Dam Tailwater,<not on stream>, , 
+285,Detroit-Regulating Outlet Lower IN,~E244~IN,Detroit-Pool,Detroit-Regulating Outlet Lower,<not on stream>, , 
+286,Detroit-Regulating Outlet Lower,~E244,Detroit-Regulating Outlet Lower,Detroit-Dam Tailwater,<not on stream>, , 
+289,Green Peter-Regulating Outlet IN,~E246~IN,Green Peter-Pool,Green Peter-Regulating Outlet,<not on stream>, , 
+290,Green Peter-Regulating Outlet,~E246,Green Peter-Regulating Outlet,Green Peter-Dam Tailwater,<not on stream>, , 
+291,Green Peter-Spillway IN,~E247~IN,Green Peter-Pool,Green Peter-Spillway,<not on stream>, , 
+292,Green Peter-Spillway,~E247,Green Peter-Spillway,Green Peter-Dam Tailwater,<not on stream>, , 
+295,Foster-Spillway IN,~E249~IN,Foster-Pool,Foster-Spillway,<not on stream>, , 
+296,Foster-Spillway,~E249,Foster-Spillway,Foster-Dam Tailwater,<not on stream>, , 
+299,Big Cliff-Spillway IN,~E251~IN,Big Cliff-Pool,Big Cliff-Spillway,<not on stream>, , 
+300,Big Cliff-Spillway,~E251,Big Cliff-Spillway,Big Cliff-Dam Tailwater,<not on stream>, , 
+303,Blue River-Spillway IN,~E253~IN,Blue River-Pool,Blue River-Spillway,<not on stream>, , 
+304,Blue River-Spillway,~E253,Blue River-Spillway,Blue River-Dam Tailwater,<not on stream>, , 
+305,Blue River-Regulating Outlet IN,~E254~IN,Blue River-Pool,Blue River-Regulating Outlet,<not on stream>, , 
+306,Blue River-Regulating Outlet,~E254,Blue River-Regulating Outlet,Blue River-Dam Tailwater,<not on stream>, , 
+307,Fern Ridge-Regulating Outlet IN,~E255~IN,Fern Ridge-Pool,Fern Ridge-Regulating Outlet,<not on stream>, , 
+308,Fern Ridge-Regulating Outlet,~E255,Fern Ridge-Regulating Outlet,Fern Ridge-Dam Tailwater,<not on stream>, , 
+309,Fern Ridge-Spillway IN,~E256~IN,Fern Ridge-Pool,Fern Ridge-Spillway,<not on stream>, , 
+310,Fern Ridge-Spillway,~E256,Fern Ridge-Spillway,Fern Ridge-Dam Tailwater,<not on stream>, , 
+311,Fern Ridge-SluiceGate IN,~E257~IN,Fern Ridge-Pool,Fern Ridge-SluiceGate,<not on stream>, , 
+312,Fern Ridge-SluiceGate,~E257,Fern Ridge-SluiceGate,Fern Ridge-Dam Tailwater,<not on stream>, , 
+313,Hills Creek-Spillway IN,~E258~IN,Hills Creek-Pool,Hills Creek-Spillway,<not on stream>, , 
+314,Hills Creek-Spillway,~E258,Hills Creek-Spillway,Hills Creek-Dam Tailwater,<not on stream>, , 
+315,Hills Creek-Regulating Outlet IN,~E259~IN,Hills Creek-Pool,Hills Creek-Regulating Outlet,<not on stream>, , 
+316,Hills Creek-Regulating Outlet,~E259,Hills Creek-Regulating Outlet,Hills Creek-Dam Tailwater,<not on stream>, , 
+319,Lookout Point-Spillway IN,~E261~IN,Lookout Point-Pool,Lookout Point-Spillway,<not on stream>, , 
+320,Lookout Point-Spillway,~E261,Lookout Point-Spillway,Lookout Point-Dam Tailwater,<not on stream>, , 
+321,Lookout Point-Regulated Outlet IN,~E262~IN,Lookout Point-Pool,Lookout Point-Regulated Outlet,<not on stream>, , 
+322,Lookout Point-Regulated Outlet,~E262,Lookout Point-Regulated Outlet,Lookout Point-Dam Tailwater,<not on stream>, , 
+325,Cougar-Spillway IN,~E264~IN,Cougar-Pool,Cougar-Spillway,<not on stream>, , 
+326,Cougar-Spillway,~E264,Cougar-Spillway,Cougar-Dam Tailwater,<not on stream>, , 
+327,Cougar-Regulating Outlet IN,~E265~IN,Cougar-Pool,Cougar-Regulating Outlet,<not on stream>, , 
+328,Cougar-Regulating Outlet,~E265,Cougar-Regulating Outlet,Cougar-Dam Tailwater,<not on stream>, , 
+331,Fall Creek-Regulating Outlet IN,~E267~IN,Fall Creek-Pool,Fall Creek-Regulating Outlet,<not on stream>, , 
+332,Fall Creek-Regulating Outlet,~E267,Fall Creek-Regulating Outlet,Fall Creek-Dam Tailwater,<not on stream>, , 
+333,Fall Creek-Spillway IN,~E268~IN,Fall Creek-Pool,Fall Creek-Spillway,<not on stream>, , 
+334,Fall Creek-Spillway,~E268,Fall Creek-Spillway,Fall Creek-Dam Tailwater,<not on stream>, , 
+335,TRBO_Trail Bridge Inflow,TRBO_Trail Bridge Inflow, ,TRBO McKenzie_nr Trail Bridge Dam,Upper McKenzie,162191.65,0.9652
+336,CANO_Molalla River at Canby_Local_JMolaR_S06,CANO_Molalla River at Canby_Local_JMolaR_S06, ,CANO Molalla_nr Canby,Molalla,33513.05,0.1218
+337,SUVO_Suver_HMSsub_LuckiamuteRv_S10,SUVO_Suver_HMSsub_LuckiamuteRv_S10, ,SUVO Luckiamute_nr Suver,Luckiamute,73843.73,0.2253
+338,AURO_Pudding River nr Aurora,AURO_Pudding River nr Aurora, ,AURO Pudding_at Aurora,Pudding,40660.25,0.1203
+339,MCMO_McMinnville_Local_JYamhR_S01,MCMO_McMinnville_Local_JYamhR_S01, ,MCMO South Yamill_at McMinnville,Yamhill,86723.26,0.9773
+340,WSLO_West Linn_HMSsub_TualatinRv_S10,WSLO_West Linn_HMSsub_TualatinRv_S10, ,Tualitan+Scoggins,Tualatin_River,322436.93,0.7555
+343,MCMO South Yamill_at McMinnville to Willamette+Yamhill,~E270,MCMO South Yamill_at McMinnville to Willamette+Yamhill,Willamette+Yamhill,Yamhill,0.00,0.0000
+344,AURO Pudding_at Aurora to Molalla+Pudding,~E271,AURO Pudding_at Aurora to Molalla+Pudding,Molalla+Pudding,Pudding,0.00,0.0000
+345,CANO Molalla_nr Canby to Molalla+Pudding,~E272,CANO Molalla_nr Canby to Molalla+Pudding,Molalla+Pudding,Molalla,8534.61,0.0311
+348,Tualitan+Scoggins to Willamette+Tualatin,~E275,Tualitan+Scoggins to Willamette+Tualatin,Willamette+Tualatin,Tualatin_River,0.00,0.0000
+350,Willamette+Luckiamute,~E276,Willamette+Luckiamute,Willamette+Luckiamute to Willamette+Ash Cr,Willamette_River,568690.07,0.5775
+351,Willamette+Santiam,~E277,Willamette+Santiam,Willamette+Santiam to Willamette+Luckiamute,Willamette_River,570403.68,0.5792
+352,Santiam_at Jefferson to Willamette+Santiam,~E278,Santiam_at Jefferson to Willamette+Santiam,Willamette+Santiam,Santiam_River,0.00,0.0000
+353,Willamette+Santiam to Willamette+Luckiamute,~E279,Willamette+Santiam to Willamette+Luckiamute,Willamette+Luckiamute,Willamette_River,568690.07,0.5775
+354,SUVO Luckiamute_nr Suver to Willamette+Luckiamute,~E280,SUVO Luckiamute_nr Suver to Willamette+Luckiamute,Willamette+Luckiamute,Luckiamute,0.00,0.0000
+355,Willamette_at Albany to Willamette+Santiam,~E281,Willamette_at Albany to Willamette+Santiam,Willamette+Santiam,Willamette_River,570403.68,0.5792
+356,Willamette+Luckiamute to Willamette+Ash Cr,~E282,Willamette+Luckiamute to Willamette+Ash Cr,Willamette+Ash Cr,Willamette_River,505262.48,0.5131
+357,Big Cliff_OUT to No Santiam_at Niagara,~E283,Big Cliff_OUT to No Santiam_at Niagara,No Santiam_at Niagara,North_Santiam_River,238514.33,0.7636
+358,No Santiam_at Niagara to No Santiam_at Mehama,~E284,No Santiam_at Niagara to No Santiam_at Mehama,No Santiam_at Mehama,North_Santiam_River,134490.90,0.4306
+359,No Santiam_at Mehama to Stayton Div_IN,~E285,No Santiam_at Mehama to Stayton Div_IN,Stayton Div_IN,North_Santiam_River,88422.77,0.2831
+360,Stayton Div_IN to GreensBridge_nr Jefferson,~E286,Stayton Div_IN to GreensBridge_nr Jefferson,GreensBridge_nr Jefferson,North_Santiam_River,17405.83,0.0557
+361,GreensBridge_nr Jefferson to No Santiam+So Santiam,~E287,GreensBridge_nr Jefferson to No Santiam+So Santiam,No Santiam+So Santiam,North_Santiam_River,0.00,0.0000
+362,Detroit-Power Plant IN,~E288~IN,Detroit-Pool,Detroit-Power Plant,<not on stream>, , 
+363,Detroit-Power Plant,~E288,Detroit-Power Plant,Detroit-Dam Tailwater,<not on stream>, , 
+364,Foster-Power Plant IN,~E289~IN,Foster-Pool,Foster-Power Plant,<not on stream>, , 
+365,Foster-Power Plant,~E289,Foster-Power Plant,Foster-Dam Tailwater,<not on stream>, , 
+366,Green Peter-Power Plant IN,~E290~IN,Green Peter-Pool,Green Peter-Power Plant,<not on stream>, , 
+367,Green Peter-Power Plant,~E290,Green Peter-Power Plant,Green Peter-Dam Tailwater,<not on stream>, , 
+368,Cougar-Power Plant IN,~E291~IN,Cougar-Pool,Cougar-Power Plant,<not on stream>, , 
+369,Cougar-Power Plant,~E291,Cougar-Power Plant,Cougar-Dam Tailwater,<not on stream>, , 
+370,Lookout Point-Power Plant IN,~E292~IN,Lookout Point-Pool,Lookout Point-Power Plant,<not on stream>, , 
+371,Lookout Point-Power Plant,~E292,Lookout Point-Power Plant,Lookout Point-Dam Tailwater,<not on stream>, , 
+372,Dexter-Power Plant IN,~E293~IN,Dexter-Pool,Dexter-Power Plant,<not on stream>, , 
+373,Dexter-Power Plant,~E293,Dexter-Power Plant,Dexter-Dam Tailwater,<not on stream>, , 
+374,Big Cliff-Power Plant IN,~E294~IN,Big Cliff-Pool,Big Cliff-Power Plant,<not on stream>, , 
+375,Big Cliff-Power Plant,~E294,Big Cliff-Power Plant,Big Cliff-Dam Tailwater,<not on stream>, , 
+376,Hills Creek-Power Plant IN,~E295~IN,Hills Creek-Pool,Hills Creek-Power Plant,<not on stream>, , 
+377,Hills Creek-Power Plant,~E295,Hills Creek-Power Plant,Hills Creek-Dam Tailwater,<not on stream>, , 
+378,Cougar-Diversion Tunnel IN,~E296~IN,Cougar-Pool,Cougar-Diversion Tunnel,<not on stream>, , 
+379,Cougar-Diversion Tunnel,~E296,Cougar-Diversion Tunnel,Cougar-Dam Tailwater,<not on stream>, , 
+380,Dorena-Spillway IN,~E297~IN,Dorena-Pool,Dorena-Spillway,<not on stream>, , 
+381,Dorena-Spillway,~E297,Dorena-Spillway,Dorena-Dam Tailwater,<not on stream>, , 
+382,Cottage Grove-Spillway IN,~E298~IN,Cottage Grove-Pool,Cottage Grove-Spillway,<not on stream>, , 
+383,Cottage Grove-Spillway,~E298,Cottage Grove-Spillway,Cottage Grove-Dam Tailwater,<not on stream>, , 
+397,Return 6-Cntrl,~E310,Return 6-Cntrl,Long Tom_at Monroe,Long_Tom_River,39959.12,0.1722
+398,Return 6-Cntrl,~E310,Return 6-Cntrl, ,<not on stream>, , 
+399,Return 7-Cntrl,~E312,Return 7-Cntrl,Willamette_at Harrisburg,Willamette_River,853060.98,0.8663
+400,Return 7-Cntrl,~E312,Return 7-Cntrl, ,<not on stream>, , 
+401,Diversion 15-Cntrl,~E314,Diversion 15-Cntrl,Cottage Grove_OUT,Cost_Fork_Willamette_River,153635.99,0.7310
+402,Diversion 15-Cntrl,~E314,Diversion 15-Cntrl, ,<not on stream>, , 
+407,Diversion 14-Cntrl,~E320,Diversion 14-Cntrl,Dorena_OUT,Row_River,39935.81,0.4384
+408,Diversion 14-Cntrl,~E320,Diversion 14-Cntrl, ,<not on stream>, , 
+409,Diversion 12-Cntrl,~E322,Diversion 12-Cntrl,Fall Creek_OUT,Fall_Creek,38554.19,0.3956
+410,Diversion 12-Cntrl,~E322,Diversion 12-Cntrl, ,<not on stream>, , 
+417,Diversion 10-Cntrl,~E330,Diversion 10-Cntrl,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+418,Diversion 10-Cntrl,~E330,Diversion 10-Cntrl, ,<not on stream>, , 
+419,Diversion 13-Cntrl,~E332,Diversion 13-Cntrl,CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,30663.04,0.1459
+420,Diversion 13-Cntrl,~E332,Diversion 13-Cntrl, ,<not on stream>, , 
+427,Return 9-Cntrl,~E340,Return 9-Cntrl,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+428,Return 9-Cntrl,~E340,Return 9-Cntrl, ,<not on stream>, , 
+433,Diversion 4-Cntrl,~E346,Diversion 4-Cntrl,So Santiam_at Waterloo,South_Santiam_River,118148.35,0.4014
+434,Diversion 4-Cntrl,~E346,Diversion 4-Cntrl, ,<not on stream>, , 
+437,Diversion 2-Cntrl,~E350,Diversion 2-Cntrl,Santiam_at Jefferson,Santiam_River,54034.11,0.8303
+438,Diversion 2-Cntrl,~E350,Diversion 2-Cntrl, ,<not on stream>, , 
+447,Return 3-Cntrl,~E360,Return 3-Cntrl,No Santiam_at Mehama,North_Santiam_River,134490.90,0.4306
+448,Return 3-Cntrl,~E360,Return 3-Cntrl, ,<not on stream>, , 
+453,Return 1 down-Cntrl,~E366,Return 1 down-Cntrl,Willamette_at Wilsonville,Willamette_River,201970.74,0.2051
+454,Return 1 down-Cntrl,~E366,Return 1 down-Cntrl, ,<not on stream>, , 
+458,Return 15-Cntrl,~E370,Return 15-Cntrl,CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,30663.04,0.1459
+459,Return 15-Cntrl,~E370,Return 15-Cntrl, ,<not on stream>, , 
+460,Return 14-Cntrl,~E372,Return 14-Cntrl,CF WIllamette_nr Goshen,Cost_Fork_Willamette_River,30663.04,0.1459
+461,Return 14-Cntrl,~E372,Return 14-Cntrl, ,<not on stream>, , 
+462,Diversion 11-Cntrl,~E374,Diversion 11-Cntrl,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+463,Diversion 11-Cntrl,~E374,Diversion 11-Cntrl, ,<not on stream>, , 
+464,Return 11-Cntrl,~E376,Return 11-Cntrl,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+465,Return 11-Cntrl,~E376,Return 11-Cntrl, ,<not on stream>, , 
+466,Return 12-Cntrl,~E378,Return 12-Cntrl,MF Willamette_at Jasper,Middle_Fork_Willamette_River,43257.94,0.1452
+467,Return 12-Cntrl,~E378,Return 12-Cntrl, ,<not on stream>, , 
+468,Return 10-Cntrl,~E380,Return 10-Cntrl,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+469,Return 10-Cntrl,~E380,Return 10-Cntrl, ,<not on stream>, , 
+470,Return 13-Cntrl,~E382,Return 13-Cntrl,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+471,Return 13-Cntrl,~E382,Return 13-Cntrl, ,<not on stream>, , 
+472,Return 8-Cntrl,~E384,Return 8-Cntrl,McKenzie_nr Coburg,McKenzie_River,16970.07,0.0609
+473,Return 8-Cntrl,~E384,Return 8-Cntrl, ,<not on stream>, , 
+474,Diversion 8-Cntrl,~E386,Diversion 8-Cntrl,Mkenzie_nr Walterville,McKenzie_River,126326.62,0.4533
+475,Diversion 8-Cntrl,~E386,Diversion 8-Cntrl, ,<not on stream>, , 
+476,Diversion 9-Cntrl,~E388,Diversion 9-Cntrl,Willamette_at Eugene,Willamette_River,960959.29,0.9759
+477,Diversion 9-Cntrl,~E388,Diversion 9-Cntrl, ,<not on stream>, , 
+478,Diversion 7-Cntrl,~E390,Diversion 7-Cntrl,Willamette_at Harrisburg,Willamette_River,853060.98,0.8663
+479,Diversion 7-Cntrl,~E390,Diversion 7-Cntrl, ,<not on stream>, , 
+480,Diversion 6-Cntrl,~E392,Diversion 6-Cntrl,Fern Ridge_OUT,Long_Tom_River,128877.77,0.5554
+481,Diversion 6-Cntrl,~E392,Diversion 6-Cntrl, ,<not on stream>, , 
+482,Return 4-Cntrl,~E394,Return 4-Cntrl,So Santiam+Thomas Cr,South_Santiam_River,14412.36,0.0490
+483,Return 4-Cntrl,~E394,Return 4-Cntrl, ,<not on stream>, , 
+488,Diversion 3-Cntrl,~E400,Diversion 3-Cntrl,Detroit_OUT,North_Santiam_River,257748.58,0.8252
+489,Diversion 3-Cntrl,~E400,Diversion 3-Cntrl, ,<not on stream>, , 
+490,Return 2-Cntrl,~E402,Return 2-Cntrl,Willamette_at Salem,Willamette_River,444332.99,0.4512
+491,Return 2-Cntrl,~E402,Return 2-Cntrl, ,<not on stream>, , 
+492,Return 5-Cntrl,~E404,Return 5-Cntrl,Willamette_at Salem,Willamette_River,444332.99,0.4512
+493,Return 5-Cntrl,~E404,Return 5-Cntrl, ,<not on stream>, , 
+494,Diversion 1 up-Cntrl,~E406,Diversion 1 up-Cntrl,Willamette_at Salem,Willamette_River,444332.99,0.4512
+495,Diversion 1 up-Cntrl,~E406,Diversion 1 up-Cntrl, ,<not on stream>, , 
+498,Return 1 up-Cntrl,~E410,Return 1 up-Cntrl,Willamette_at Wilsonville,Willamette_River,201970.74,0.2051
+499,Return 1 up-Cntrl,~E410,Return 1 up-Cntrl, ,<not on stream>, , 
+500,Diversion 1 down-Cntrl,~E412,Diversion 1 down-Cntrl,Willamette_at Wilsonville,Willamette_River,201970.74,0.2051
+501,Diversion 1 down-Cntrl,~E412,Diversion 1 down-Cntrl, ,<not on stream>, , 
+504,Diversion 5-Cntrl,~E416,Diversion 5-Cntrl,Willamette+Marys,Willamette_River,695439.35,0.7062
+505,Diversion 5-Cntrl,~E416,Diversion 5-Cntrl, ,<not on stream>, , 
+506,Willamette+Marys CORO_Corvallis_HMSsub_WillametteRv_S70,~E43~CORO_Corvallis_HMSsub_WillametteRv_S70, ,Willamette+Marys,Willamette_River,695439.35,0.7062
+507,Willamette+Marys PHIO_ Philomath_HMSsub_MarysRV_S70,~E43~PHIO_ Philomath_HMSsub_MarysRV_S70, ,Willamette+Marys,Willamette_River,695439.35,0.7062
