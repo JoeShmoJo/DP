@@ -1,0 +1,16 @@
+#This file contains the names of all reservoirs, even those that shouldn't receive any damages prevented credit. A separate spreadsheet will weed out which projects should and should not be counted. Running all reservoirs allows us to see how much flow reduction comes from each reservoir in reality.
+Hills Creek
+Lookout Point
+Dexter
+Fall Creek
+Dorena
+Cottage Grove
+Cougar
+Blue River
+Fern Ridge
+Green Peter
+Foster
+Detroit
+Big Cliff
+
+

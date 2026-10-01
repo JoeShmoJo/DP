@@ -1,0 +1,26 @@
+===== Wed 02/25/2026 11:38:55.17 =====
+BAT_DIR=C:\Projects\CWMS_RESSIM_ONLY\NWP_Willamette_Master_2025-12-11-FOS_NoOvertop\scripts\ExternalPython\
+ENV_NAME=hydro39
+PY_SCRIPT=MinFlowSalemAlbany_ExternalPython.py
+
+Found CONDA_ROOT=C:\Users\g2encjer\AppData\Local\miniconda3
+Using PYTHON_EXE=C:\Users\g2encjer\AppData\Local\miniconda3\envs\hydro39\python.exe
+ERROR: Script not found: C:\Projects\CWMS_RESSIM_ONLY\NWP_Willamette_Master_2025-12-11-FOS_NoOvertop\scripts\ExternalPython\MinFlowSalemAlbany_ExternalPython.py
+APE_Plotter.py
+APE_Plotter_3.py
+bat_log.txt
+CONFIG.py
+CWMS_Downloader_Module.py
+DSS_Donlwoader_Module.py
+Dummy_0_and_WY_Abundant_Module.py
+Ensemble_Plots.py
+Extract.bat
+ExtractXXX.py
+logs
+MainstemAugmentation.bat
+MainstemAugmentation.py
+ManuallyAddToResSimScriptEditor
+median_remaining_by_day.pkl
+raw_rfc_csv
+RFC_Downloader_Module.py
+__pycache__

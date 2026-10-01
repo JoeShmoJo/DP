@@ -1,0 +1,94 @@
+#Chart80Input.csv,,,,,,,,,,,,
+#Generated October 2015 by Ryan Cahill,,,,,,,,,,,,
+#This file contains input necessary to run the simulations required to generate Chart 80,,,,,,,,,,,,
+#Chart 80 shows a time series of the flow reduction at The Dalles for specified groups of projects,,,,,,,,,,,,
+"#In the Chart 80 approach, groups of projects are incrementally added to the unreg run to determine the flow reduction to the project groups",,,,,,,,,,,,
+"#While this might not be the very best approach, it is what has historically been done, so we want to be consistent",,,,,,,,,,,,
+#This same method can be used for other applications aside from Chart 80--this process is generalized to be able to run any group of projects desired.,,,,,,,,,,,,
+"#The first column contains the names of the junctions at which to save output from the simulations (typically just ""The Dalles_OUT"")",,,,,,,,,,,,
+#Each subsequent column represents a separate simulation,,,,,,,,,,,,
+#   The first row is the name of the simulation that the results will be saved as (f-part),,,,,,,,,,,,
+"#   The list of projects below each column are the projects to include in the simulation. They will be operated to the ""observed"" operation",,,,,,,,,,,,
+"#   All projects not in the list will operate as they did in the unregulated simulation (typically pass inflow, but if a natural lake, then natural lake operations will be modeled)",,,,,,,,,,,,
+#   The projects can be reservoir names or diversion names (separating the influence of the Upper Snake Diversions is often desired),,,,,,,,,,,,
+#All names must match the ResSim model exactly,,,,,,,,,,,,
+#The order of projects is consistent with what had been done in the SSARR model originally (in the May 2014 SOP documentation),,,,,,,,,,,,
+"#Inconsistencies abound in which projects are included in each incremental run, but this is how it's been done historically",,,,,,,,,,,,
+,,,,,,,,,,,,
+Output Junctions:,MCDB,LIB,DCDB,ARDB,PENDO,GCL,CHLYAK,USNKSTOR,USNKDIV,BRN,DWR,ROR
+The Dalles_OUT,Mica,Mica,Mica,Mica,Mica,Mica,Mica,Mica,Mica,Mica,Mica,Mica
+,,Libby,Libby,Libby,Libby,Libby,Libby,Libby,Libby,Libby,Libby,Libby
+,,,Duncan,Duncan,Duncan,Duncan,Duncan,Duncan,Duncan,Duncan,Duncan,Duncan
+,,,,Revelstoke,Revelstoke,Revelstoke,Revelstoke,Revelstoke,Revelstoke,Revelstoke,Revelstoke,Revelstoke
+,,,,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes,Arrow Lakes
+,,,,Corra Linn,Corra Linn,Corra Linn,Corra Linn,Corra Linn,Corra Linn,Corra Linn,Corra Linn,Corra Linn
+,,,,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington,Upper Bonnington
+,,,,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington,Lower Bonnington
+,,,,Slocan,Slocan,Slocan,Slocan,Slocan,Slocan,Slocan,Slocan,Slocan
+,,,,Brilliant,Brilliant,Brilliant,Brilliant,Brilliant,Brilliant,Brilliant,Brilliant,Brilliant
+,,,,,Hungry Horse,Hungry Horse,Hungry Horse,Hungry Horse,Hungry Horse,Hungry Horse,Hungry Horse,Hungry Horse
+,,,,,Kerr,Kerr,Kerr,Kerr,Kerr,Kerr,Kerr,Kerr
+,,,,,Thompson Falls,Thompson Falls,Thompson Falls,Thompson Falls,Thompson Falls,Thompson Falls,Thompson Falls,Thompson Falls
+,,,,,Noxon Rapids,Noxon Rapids,Noxon Rapids,Noxon Rapids,Noxon Rapids,Noxon Rapids,Noxon Rapids,Noxon Rapids
+,,,,,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge,Cabinet Gorge
+,,,,,Priest Lake,Priest Lake,Priest Lake,Priest Lake,Priest Lake,Priest Lake,Priest Lake,Priest Lake
+,,,,,Albeni Falls,Albeni Falls,Albeni Falls,Albeni Falls,Albeni Falls,Albeni Falls,Albeni Falls,Albeni Falls
+,,,,,Box Canyon,Box Canyon,Box Canyon,Box Canyon,Box Canyon,Box Canyon,Box Canyon,Box Canyon
+,,,,,Boundary,Boundary,Boundary,Boundary,Boundary,Boundary,Boundary,Boundary
+,,,,,Seven Mile,Seven Mile,Seven Mile,Seven Mile,Seven Mile,Seven Mile,Seven Mile,Seven Mile
+,,,,,Waneta,Waneta,Waneta,Waneta,Waneta,Waneta,Waneta,Waneta
+,,,,,Post Falls,Post Falls,Post Falls,Post Falls,Post Falls,Post Falls,Post Falls,Post Falls
+,,,,,Upper Falls,Upper Falls,Upper Falls,Upper Falls,Upper Falls,Upper Falls,Upper Falls,Upper Falls
+,,,,,Monroe Street,Monroe Street,Monroe Street,Monroe Street,Monroe Street,Monroe Street,Monroe Street,Monroe Street
+,,,,,Nine Mile,Nine Mile,Nine Mile,Nine Mile,Nine Mile,Nine Mile,Nine Mile,Nine Mile
+,,,,,Long Lake,Long Lake,Long Lake,Long Lake,Long Lake,Long Lake,Long Lake,Long Lake
+,,,,,Little Falls,Little Falls,Little Falls,Little Falls,Little Falls,Little Falls,Little Falls,Little Falls
+,,,,,,Grand Coulee,Grand Coulee,Grand Coulee,Grand Coulee,Grand Coulee,Grand Coulee,Grand Coulee
+,,,,,,Banks Lake Diversion,Banks Lake Diversion,Banks Lake Diversion,Banks Lake Diversion,Banks Lake Diversion,Banks Lake Diversion,Banks Lake Diversion
+,,,,,,,Chelan,Chelan,Chelan,Chelan,Chelan,Chelan
+,,,,,,,Keechelus,Keechelus,Keechelus,Keechelus,Keechelus,Keechelus
+,,,,,,,Kachess,Kachess,Kachess,Kachess,Kachess,Kachess
+,,,,,,,Cle Elum,Cle Elum,Cle Elum,Cle Elum,Cle Elum,Cle Elum
+,,,,,,,Bumping Lake,Bumping Lake,Bumping Lake,Bumping Lake,Bumping Lake,Bumping Lake
+,,,,,,,Tieton,Tieton,Tieton,Tieton,Tieton,Tieton
+,,,,,,,Kittitas Canal Diversion,Kittitas Canal Diversion,Kittitas Canal Diversion,Kittitas Canal Diversion,Kittitas Canal Diversion,Kittitas Canal Diversion
+,,,,,,,Naches-Selah Canal Diversion,Naches-Selah Canal Diversion,Naches-Selah Canal Diversion,Naches-Selah Canal Diversion,Naches-Selah Canal Diversion,Naches-Selah Canal Diversion
+,,,,,,,Wapatox Canal Diversion,Wapatox Canal Diversion,Wapatox Canal Diversion,Wapatox Canal Diversion,Wapatox Canal Diversion,Wapatox Canal Diversion
+,,,,,,,Tieton Canal Diversion,Tieton Canal Diversion,Tieton Canal Diversion,Tieton Canal Diversion,Tieton Canal Diversion,Tieton Canal Diversion
+,,,,,,,Roza Canal Diversion,Roza Canal Diversion,Roza Canal Diversion,Roza Canal Diversion,Roza Canal Diversion,Roza Canal Diversion
+,,,,,,,Sunnyside Canal Diversion,Sunnyside Canal Diversion,Sunnyside Canal Diversion,Sunnyside Canal Diversion,Sunnyside Canal Diversion,Sunnyside Canal Diversion
+,,,,,,,New Reservation Canal Diversion,New Reservation Canal Diversion,New Reservation Canal Diversion,New Reservation Canal Diversion,New Reservation Canal Diversion,New Reservation Canal Diversion
+,,,,,,,Chandler Canal Diversion,Chandler Canal Diversion,Chandler Canal Diversion,Chandler Canal Diversion,Chandler Canal Diversion,Chandler Canal Diversion
+,,,,,,,,Jackson Lake,Jackson Lake,Jackson Lake,Jackson Lake,Jackson Lake
+,,,,,,,,Palisades,Palisades,Palisades,Palisades,Palisades
+,,,,,,,,American Falls,American Falls,American Falls,American Falls,American Falls
+,,,,,,,,Owyhee,Owyhee,Owyhee,Owyhee,Owyhee
+,,,,,,,,Anderson Ranch,Anderson Ranch,Anderson Ranch,Anderson Ranch,Anderson Ranch
+,,,,,,,,Arrowrock,Arrowrock,Arrowrock,Arrowrock,Arrowrock
+,,,,,,,,Lucky Peak,Lucky Peak,Lucky Peak,Lucky Peak,Lucky Peak
+,,,,,,,,Deadwood,Deadwood,Deadwood,Deadwood,Deadwood
+,,,,,,,,Cascade,Cascade,Cascade,Cascade,Cascade
+,,,,,,,,,Dry Bed Irrigation Diversion,Dry Bed Irrigation Diversion,Dry Bed Irrigation Diversion,Dry Bed Irrigation Diversion
+,,,,,,,,,Irrigation Diversion (N & S Canals),Irrigation Diversion (N & S Canals),Irrigation Diversion (N & S Canals),Irrigation Diversion (N & S Canals)
+,,,,,,,,,NY Canal Irrigation Diversion,NY Canal Irrigation Diversion,NY Canal Irrigation Diversion,NY Canal Irrigation Diversion
+,,,,,,,,,Div between Glenwood-Parma,Div between Glenwood-Parma,Div between Glenwood-Parma,Div between Glenwood-Parma
+,,,,,,,,,,Brownlee,Brownlee,Brownlee
+,,,,,,,,,,,Dworshak,Dworshak
+,,,,,,,,,,,,Chief Joseph
+,,,,,,,,,,,,Wells
+,,,,,,,,,,,,Rocky Reach
+,,,,,,,,,,,,Rock Island
+,,,,,,,,,,,,Wanapum
+,,,,,,,,,,,,Priest Rapids
+,,,,,,,,,,,,Oxbow
+,,,,,,,,,,,,Hells Canyon
+,,,,,,,,,,,,Lower Granite
+,,,,,,,,,,,,Little Goose
+,,,,,,,,,,,,Lower Monumental
+,,,,,,,,,,,,Ice Harbor
+,,,,,,,,,,,,McNary
+,,,,,,,,,,,,John Day
+,,,,,,,,,,,,Round Butte
+,,,,,,,,,,,,Pelton
+,,,,,,,,,,,,Pelton ReReg
+,,,,,,,,,,,,The Dalles

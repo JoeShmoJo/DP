@@ -1,0 +1,37 @@
+#ExtractList_USGS.txt				
+#This file contains USGS gages to be extracted from the USGS website				
+#Meant to be used as an input to a Jython script				
+#The calling script will specify the output dss file, time window, time step, etc.				
+#The USGS gages should appear below in the following format (semi-colon delimited):				
+#  Field 1: The USGS code (14123500)				
+#  Field 2: The parameter to retrieve (Flow, Stage, Elev, Elev2, Elev29)				
+#           If Flow or Stage is selected, the raw USGS data will be retrieved				
+#           Flow   param code = 00060				
+#           Stage  param code = 00065				
+#           Elev   param code = 00065 (add gage zero elev to stage readings, e.g. Lake CDA)				
+#           Elev2  param code = 00062 (resv elev, e.g. KER)				
+#           Elev29 param code = 72020 (elev NGVD29, e.g. HGH)				
+#           If Elev is selected, the gage elevation (from the USGS database)				
+#            will be added to the stage readings, and the vertical datum will be 				
+#            appended to the C-part of the output DSS record (e.g. -NGVD29)   				
+#  Field 3: The corresponding CBT code for this site (e.g. WHBI)
+#  Field 4: The USGS site description (e.g. Klickitat R near Pitt WA)
+#  Field 5: Any comments about the site (use a # sign)			
+#e.g.
+#12304500	Flow	TRYM	Yaak River near Troy MT                          	#Test				
+#The # character can be used to denote a comment line				
+				
+#USGSID 	#Parm	#CBT	#Description	#Comments
+				
+				
+##COLUMBIA				
+14328000	Flow	XXX	Rogue River above prospect, oreg.
+14330000	Flow	xxx	Rogue river below prospect, or
+14332000	Flow	xxx	south fork rogue river near prospect, or
+#14105700	Flow	TDA	Columbia River at The Dalles, OR                    	
+#14105700	Elev	TDA	Columbia River at The Dalles, OR                    	
+#14113000	Flow	PITW	Klickitat River near Pitt, WA                       	
+#14328000	Flow	JNKS	rogue river above prospect, oreg.                     	
+#14330000	Flow	ADKL	rogue river below prospect, or	
+#14332000	Flow	SKDL	south fork rogue river near prospect, or                    	#has stage POR from 2013-03-15 to present
+#14123500	Flow	SKWW	White Salmon River near Underwood, WA               	

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diag xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.wldelft.nl/fews/PI" xsi:schemaLocation="http://www.wldelft.nl/fews/PI http://fews.wldelft.nl/schemas/version1.0/pi-schemas/pi_diag.xsd" version="1.2">
+    <line level="4" description="args[0] (diagnosticFile) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/diagnostics.xml"/>
+    <line level="4" description="args[1] (resSimLogDir) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO"/>
+    <line level="4" description="args[2] (forecastTime) = 200906301200"/>
+    <line level="4" description="args[3] (timeZoneOffsetSeconds) = 0"/>
+    <line level="4" description="args[4] (importDir) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/input"/>
+    <line level="4" description="args[5] (watershedWkspFile) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/YubaFeatherFCO.wksp"/>
+    <line level="4" description="args[6] (simulationName) = yubafeather_rs"/>
+    <line level="4" description="args[7] (alternativeName) = AltA"/>
+    <line level="4" description="args[8] (templatePythonScriptFile) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/template/template.py"/>
+    <line level="4" description="args[9] (newPythonScriptFile) = /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/script.py"/>
+    <line level="4" description="args[10] (overridesDir) = [missing]"/>
+    <line level="4" description="delete /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/ResSim.log"/>
+    <line level="4" description="delete /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/base/YubaFeatherFCO/rss/yubafeather_rs"/>
+    <line level="4" description="read pi file from /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/input"/>
+    <line level="4" description="13 time series read from pi file"/>
+    <line level="4" description="write dss files specified in fits files"/>
+    <line level="4" description="no overrides dir specified"/>
+    <line level="4" description="create python script /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/YubaFeatherFCO/script.py based on /u/werner/fews_nws/chps/cnrfc_cn/Models/hec/ressim/template/template.py"/>
+</Diag>

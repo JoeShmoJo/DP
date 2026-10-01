@@ -1,0 +1,18 @@
+Mon Mar 08 15:17:40 GMT 2010:Scheduler started
+Mon Mar 08 15:17:40 GMT 2010:init: failed to get RMIScheduler from RmiApp
+Mon Mar 08 15:17:40 GMT 2010:init: system TimeZone offset is 0 hours
+Mon Mar 08 15:17:40 GMT 2010:readJobs: reading from /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Mon Mar 08 15:17:41 GMT 2010:readJobs: read in 0 jobs
+Mon Mar 08 15:18:17 GMT 2010:writeJobs: saving to /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Mon Mar 08 15:18:25 GMT 2010:Scheduler started
+Mon Mar 08 15:18:25 GMT 2010:init: failed to get RMIScheduler from RmiApp
+Mon Mar 08 15:18:25 GMT 2010:init: system TimeZone offset is 0 hours
+Mon Mar 08 15:18:25 GMT 2010:readJobs: reading from /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Mon Mar 08 15:18:25 GMT 2010:readJobs: read in 0 jobs
+Mon Mar 08 15:19:00 GMT 2010:writeJobs: saving to /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Mon Mar 08 15:19:07 GMT 2010:Scheduler started
+Mon Mar 08 15:19:07 GMT 2010:init: failed to get RMIScheduler from RmiApp
+Mon Mar 08 15:19:07 GMT 2010:init: system TimeZone offset is 0 hours
+Mon Mar 08 15:19:07 GMT 2010:readJobs: reading from /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Mon Mar 08 15:19:07 GMT 2010:readJobs: read in 0 jobs
+Mon Mar 08 15:19:42 GMT 2010:writeJobs: saving to /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries

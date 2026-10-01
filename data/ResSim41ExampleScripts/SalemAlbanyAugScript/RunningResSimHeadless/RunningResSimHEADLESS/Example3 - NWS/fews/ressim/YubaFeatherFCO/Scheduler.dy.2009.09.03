@@ -1,0 +1,6 @@
+Thu Sep 03 10:44:35 GMT 2009:Scheduler started
+Thu Sep 03 10:44:35 GMT 2009:init: failed to get RMIScheduler from RmiApp
+Thu Sep 03 10:44:35 GMT 2009:init: system TimeZone offset is 0 hours
+Thu Sep 03 10:44:35 GMT 2009:readJobs: reading from /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries
+Thu Sep 03 10:44:35 GMT 2009:readJobs: read in 0 jobs
+Thu Sep 03 10:44:59 GMT 2009:writeJobs: saving to /u/werner/hec/HEC-ResSim/3.1Alpha-II/dated/scheduler/wernerScheduler.entries

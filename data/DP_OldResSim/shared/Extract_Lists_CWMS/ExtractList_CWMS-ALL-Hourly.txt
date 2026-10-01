@@ -1,0 +1,99 @@
+#ExtractList_CWMS.txt
+#This file contains CWMS pathnames to be extracted from the CWMS database
+#Meant to be used as an input to a Jython script
+#The calling script will specify the output dss file, time window, time step, etc.
+#To locate CWMS pathnames, DBQuery can be browsed:
+#http://nwp-wmlocal2.nwp.usace.army.mil/common/dbquery/www/index.html
+#The CWMS pathnames should appear below exactly as they appear in DBQuery
+#e.g. "BLU.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV"
+#The "#" character can be used to denote a comment line
+
+###############################################################################
+#NWP
+###############################################################################
+
+##MIDDLE FORK WILLAMETTE
+HCR.Elev-Forebay.Inst.0.0.MIXED-REV
+HCR.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+HCR.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+LOP.Elev-Forebay.Inst.0.0.MIXED-REV
+LOP.Flow-In.Ave.15Minutes.6Hours.CBT-COMPUTED-REV
+LOP.Flow-Out.Ave.1Hour.1Hour.CBT-REV
+DEX.Elev-Forebay.Inst.0.0.MIXED-REV
+DEX.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+DEX.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+FAL.Elev-Forebay.Inst.0.0.MIXED-REV
+FAL.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+FAL.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+JASO.Flow.Inst.0.0.USGS-REV
+
+##COAST FORK WILLAMETTE
+COT.Elev-Forebay.Inst.0.0.MIXED-REV
+COT.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+COT.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+DOR.Elev-Forebay.Inst.0.0.MIXED-REV
+DOR.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+DOR.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+GOSO.Flow.Inst.0.0.USGS-REV
+
+##WILLAMETTE
+EUGO.Flow.Inst.0.0.MIXED-COMPUTED-REV
+
+##MCKENZIE
+BLU.Elev-Forebay.Inst.0.0.MIXED-REV
+BLU.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+BLU.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+CGR.Elev-Forebay.Inst.0.0.MIXED-REV
+CGR.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+CGR.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+VIDO.Flow.Inst.0.0.USGS-REV
+
+##WILLAMETTE
+HARO.Flow.Inst.0.0.USGS-REV
+
+##LONG TOM
+FRN.Elev-Forebay.Inst.0.0.MIXED-REV
+FRN.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+FRN.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+MNRO.Flow.Inst.0.0.USGS-REV
+
+##WILLAMETTE
+ALBO.Flow.Inst.0.0.USGS-REV
+
+##SANTIAM
+GPR.Elev-Forebay.Inst.0.0.MIXED-REV
+GPR.Flow-In.Ave.15Minutes.6Hours.CBT-COMPUTED-REV
+GPR.Flow-Out.Ave.1Hour.1Hour.CBT-REV
+FOS.Elev-Forebay.Inst.0.0.MIXED-REV
+FOS.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+FOS.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+WTLO.Flow.Inst.0.0.USGS-REV
+DET.Elev-Forebay.Inst.0.0.MIXED-REV
+DET.Flow-In.Ave.15Minutes.6Hours.CBT-COMPUTED-REV
+DET.Flow-Out.Ave.1Hour.1Hour.CBT-REV
+BCL.Elev-Forebay.Inst.0.0.MIXED-REV
+BCL.Flow-In.Ave.15Minutes.6Hours.MIXED-COMPUTED-REV
+BCL.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+MEHO.Flow.Inst.0.0.USGS-REV
+JFFO.Flow.Inst.0.0.USGS-REV
+
+##WILLAMETTE
+SUVO.Flow.Inst.0.0.USGS-REV
+SLMO.Flow.Inst.0.0.USGS-REV
+MCMO.Flow.Inst.0.0.USGS-REV
+NBGO.Flow.Inst.0.0.USGS-REV                         #Newberg pool flow
+CANO.Flow.Inst.0.0.USGS-REV                         #Molalla R near Canby
+#PUWO.Flow.Inst.0.0.USGS-REV                         #Pudding R near Woodburn
+AURO.Flow.Inst.0.0.USGS-REV                         #Pudding R at Aurora
+
+##TUALATIN
+SCO.Elev-Forebay.Inst.0.0.USBR-REV
+#No inflow pathname
+SCO.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV
+DLLO.Flow.Inst.0.0.USGS-REV
+FRMO.Flow.Inst.0.0.MIXED-REV
+WSLO.Flow.Inst.0.0.USGS-REV                         #Tualatin R at West Linn
+
+##COLUMBIA
+VANW.Stage.Inst.15Minutes.0.USGS-REV
+ASTO-Sensor2.Elev-Tide.Inst.6Minutes.0.RFC-NOS-RAW  #stage data

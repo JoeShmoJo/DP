@@ -1,0 +1,31 @@
+############################
+# FIRO_SPACE scripted rule
+#
+# Paste this into the ResSim scripted rule editor at each reservoir that should
+# follow the FIRO_SPACE curve. Name the rule FIRO_SPACE.
+#
+# All the real code lives in scripts/externalRules/FIRO_SPACE.py so that it
+# exists in exactly one place instead of being copied into every reservoir.
+#
+# The reload() below is the important part. ResSim keeps imported Jython modules
+# alive for the whole session, so without it, edits to FIRO_SPACE.py are not
+# picked up until ResSim is closed and reopened. Same pattern as
+# scripts/Willamette/StateVars/PctFull_LOP_Init.py
+#
+# (Edits to the CSV *values* are handled separately, inside FIRO_SPACE.py, which
+# re-reads the config file whenever it changes on disk.)
+############################
+import sys
+
+def initRuleScript(currentRule, network):
+    #Make sure the scripts folder is importable, then load the external module
+    modulePath = network.makeAbsolutePathFromWatershed("scripts")
+    if not modulePath in sys.path:
+        sys.path.append(modulePath)
+    from externalRules import FIRO_SPACE
+    reload(FIRO_SPACE)
+    return FIRO_SPACE.initRuleScript(currentRule, network)
+
+def runRuleScript(currentRule, network, currentRuntimestep):
+    from externalRules import FIRO_SPACE
+    return FIRO_SPACE.runRuleScript(currentRule, network, currentRuntimestep)

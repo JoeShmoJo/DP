@@ -1,0 +1,36 @@
+##########################
+#Plots-Junctions.list
+#This file contains all ResSim junctions to create plots for
+#Most inflow and outflow points are taken care of in the reservoir text file
+##########################
+Bonners Ferry
+Brilliant_OUT
+Birchbank
+Columbia Falls
+Priest Lake_OUT
+Waneta_OUT
+Little Falls_OUT
+Chelan_OUT
+Yakima_Modified
+Orofino
+Spalding
+MF Willamette_at Jasper 
+CF Willamette_nr Goshen 
+Willamette_at Eugene
+McKenzie_at Vida
+Willamette_at Harrisburg
+Long Tom_at Monroe
+Willamette_at Albany
+No Santiam_at Mehama
+So Santiam_at Waterloo
+Santiam_at Jefferson
+Willamette_at Salem
+Willamette_at Newberg
+Tualatin_at West Linn
+Willamette_abv Falls at Oregon City
+Willamette Falls
+River Mill
+Columbia+Willamette
+Merwin
+Cowlitz_at Castle Rock
+Columbia River Mouth

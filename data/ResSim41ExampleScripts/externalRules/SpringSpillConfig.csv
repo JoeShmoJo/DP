@@ -1,0 +1,8 @@
+#First 5 lines are comments,,,,,,,,
+#This config is for a script that sets a drawdown period and max duration. ,,,,,,,,
+#Blank,,,,,,,,
+#Blank,,,,,,,,
+#ResSim reservoir name,Start trying to drawdown on this month,and this day,Stop trying to drawdown no matter what in this month,and this day,"Once drawdown is successful for this many total days, stop trying to drawdown.",Drawdown target elevation,Acive in alternative or not,Additional Notes
+RESERVOIR,START_MONTH,START_DAY,END_MONTH,END_DAY,DURATION_DAYS,TARGET_ELEV,ACTIVE,NOTES
+Lookout Point,3,15,4,30,30,890,TRUE,Spring spill starts when RC would reach spillway and continues for 30 days or until drawdown.
+Cougar,2,1,5,1,90,1520,TRUE,"CGR appears to begin spring drawdown on 01 Mar until mid to late April. For ease of modeling, I'm starting the drawdown 01Feb until 01May. Could make the script have a drawdown based on a timeseires and have it step on 01Mar, but not sure that is necesarry. Will check with ResReg. Could set drawdown duration to 30 days, but I think the refill date is more about the water year than anything else. Could concievably make refill slightly dependant on system storage, but not right now. If this date is set late, Salem augmentation should be low or off."

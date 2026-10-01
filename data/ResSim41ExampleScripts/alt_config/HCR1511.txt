@@ -1,0 +1,3 @@
+# this is the HCR IRRM 1511 alt_config file.
+
+irrmTargetElevs: {"Detroit":1558.5, "Hills Creek":1511, "Lookout Point":921, "Cougar":1685}

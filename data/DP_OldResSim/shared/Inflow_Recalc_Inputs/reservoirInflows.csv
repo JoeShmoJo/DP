@@ -1,0 +1,14 @@
+"#This file contains instructions for the script to recalculate reservoir inflows based on known outflow, elevation, and the stor-elev table in ResSim",
+#It is assumed that the user has mapped in an observed outflow to the outflow Junction of the Reservoir,
+"#It is also assumed that the user has mapped in ""Observed Data"" in ResSim Alternative Editor for the following items:",
+#,Outflow data mapped in at outflow Junction
+#,Elevation data mapped in at Reservoir
+#The stor-elev table for the reservoir will be pulled from the ResSim model directly,
+#It is formulated as a CSV file so that it can be easily viewed/edited in Excel,
+#The output dss file; output fPart; and timestep should be defined by the subroutine that uses this file,
+#The headers are briefly explained here:,
+#,"Reservoir Name: The name of the reservoir to recalculate inflow for. The name must match the ResSim name exactly, and is case-sensitive"
+#,"Minimum Flow: If specified, the calculated inflow will be forced to be at least this number, in cfs (e.g. 1 cfs). Leave blank if there are no limits."
+#Reservoir Name,Minimum Flow
+Scoggins,1
+#Cougar,

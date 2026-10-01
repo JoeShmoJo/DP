@@ -1,0 +1,22 @@
+##########################
+#Plots-Junctions.list
+#This file contains all ResSim junctions to create plots for
+#Most inflow and outflow points are taken care of in the reservoir text file
+##########################
+DD_Boise nr Parma
+Glenwood Bridge
+Heise
+Horseshoe Bend
+Kimberly
+King Hill
+Lorenzo
+Milner
+Minidoka
+Moose
+Nyssa
+Payette
+Shelley
+Snake DS Flat_Ck
+Snake_RM178.27
+Snake+Grande Ronde
+Spalding

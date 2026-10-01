@@ -1,0 +1,3063 @@
+HEC-ResSim Java API, for the classes these scripts use.
+
+GENERATED from data/javaDocs by scripts/_reference/build_api_reference.py
+Do not edit by hand.
+
+Look a class up with:
+    grep -A40 "CLASS hec.rss.model.OpValue" scripts/_reference/ressim_api.txt
+Find which class has a method with:
+    grep -B60 "getReservoirElement" scripts/_reference/ressim_api.txt | grep CLASS | tail -1
+
+Package names are shortened in signatures: java.lang.String reads as String.
+
+No javadoc page for: hec.client.ClientApp, hec.client.ManagerChooser, hec.clientapp.client.ClientApp, hec.clientapp.client.ManagerChooser, hec.dssgui.HecDssVue, hec.heclib.dss.HecDataManager, hec.heclib.dss.HecDss, hec.hecmath, hec.model.LocalTSRecordImpl, hec.rss.script.ClientAppWrapper, hec.rss.script.ResSim, hec.script, hec.script.ClientAppWrapper, hec.script.ResSim, java.lang, java.lang.Math, java.lang.String, java.lang.System, java.lang.UnsupportedOperationException, java.util.GregorianCalendar, java.util.TimeZone, org.python.core.PyTuple
+
+======================================================================
+CLASS hec.heclib.util.HecTime
+  public class HecTime extends Object implements Serializable, Comparable, Cloneable
+  HecTime holds a date and a time value, and performs various functions with those values, such as incrementing a date/time or returning a date/time in a formatted string in a specific style. The date component is stored as the number of days since the base date. The default base date is 31Dec1899 at 
+  FIELDS
+    protected int  _baseGranularity
+    protected int  _defaultDateStyle
+    protected int  _julian
+    protected int  _secondsSinceMidnight
+    protected boolean _showBeginning
+    int            DAY_GRANULARITY
+    int            DAY_INCREMENT
+    protected DecimalFormat dfmt2
+    protected DecimalFormat dfmt4
+    int            HOUR_GRANULARITY
+    int            HOUR_INCREMENT
+    int            MINUTE_GRANULARITY
+    int            MINUTE_INCREMENT
+    int            SECOND_GRANULARITY
+    int            SECOND_INCREMENT
+    int            UNDEFINED_VALUE
+  METHODS
+    void           add(int time)
+    void           add(HecTime time)
+    int            addCentury(int intYear)
+    void           addDays(int days)
+    void           addHours(int hours)
+    void           addMinutes(int minutes)
+    void           addSeconds(int seconds)
+    void           adjustToIntervalOffset(int intervalMinutes, int offset)
+    void           cleanTime()
+    protected void cleanTime(int[] times)
+    Object         clone()
+    int            compareTimes(HecTime time)
+    int            compareTo(Object o)
+    int            computeNumberIntervals(int startTimeMins, int endTimeMins, int intervalInMins)
+    int            computeNumberIntervals(HecTime otherTime, int intervalInMins)
+    int            computeNumberIntervalsSecs(HecTime otherTime, int intervalInSecs)
+    void           convertTimeZone(HecTime hecTime, TimeZone fromTimeZone, TimeZone toTimeZone)
+    void           convertTimeZone(HecTime hecTime, TimeZone fromTimeZone, TimeZone toTimeZone, boolean respectDST)
+    HecTime        convertToTimeZone(int minsSince1900, TimeZone fromTimeZone, TimeZone toTimeZone)
+    HecTime        convertToTimeZone(HecTime hecTime, TimeZone fromTimeZone, TimeZone toTimeZone)
+    void           curtim(int[] julian, int[] minutes)
+    void           datcln(int julianIn, int timeIn, int[] julianOut, int[] timeOut)
+    String         date()
+    String         date(int style)
+    String         dateAndTime()
+    String         dateAndTime(int style)
+    int            datjul(String charDate, int[] julian)
+    void           datjul(String charDate, intContainer julian, intContainer errorCode)
+    int            datymd(String charDate, int[] ymd)
+    void           datymd(String charDate, intContainer year, intContainer month, intContainer day, intContainer errorCode)
+    int            day()
+    int            dayOfWeek()
+    String         dayOfWeekName()
+    int            dayOfYear()
+    boolean        equalTo(HecTime time)
+    HecTime        fromInstant(Instant instant, ZoneId zoneId)
+    HecTime        fromZonedDateTime(ZonedDateTime zonedDateTime)
+    int            getDefaultDateStyle()
+    void           getime(String line, int[] juls, int[] istime, int[] jule, int[] ietime, int[] status)
+    void           getime(String line, int[] juls, int[] istime, int[] jule, int[] ietime, String tzId, int[] status)
+    Instant        getInstant(ZoneId zoneId)
+    int            getIntervalOffset(int intervalMinutes)
+    Date           getJavaDate(int minutesTimezoneOffset)
+    LocalDateTime  getLocalDateTime()
+    long           getMinutes()
+    long           getMinutes(int minutesTimezoneOffset)
+    boolean        getShowsTimeAsBeginningOfDay()
+    String         getTime(boolean withColons)
+    int            getTimeGranularity()
+    int            getTimeGranularityInSeconds()
+    int            getTimeIncrement()
+    long           getTimeInMillis()
+    long           getTimeInMillis(int minutesTimezoneOffset)
+    long           getTimeInMillis(Calendar cal)
+    int            getTimeWindow(String userLine, HecTime startTime, HecTime endTime)
+    String         getXMLDateTime(int minutesTimezoneOffset)
+    boolean        greaterThan(HecTime time)
+    boolean        greaterThanEqualTo(HecTime time)
+    int            hour()
+    String         hourMinutes()
+    int            hoursMinutesSeconds(intContainer hiHours, intContainer hiMinutes, intContainer hiSeconds)
+    int            idaywk(int jul)
+    int            ihm2m(String time)
+    int            ihm2m_2(String hourMinutes)
+    void           increment(int numberPeriods, int minutesInPeriod)
+    void           incrementSecs(int numberPeriods, int secondsInPeriod)
+    void           inctim(int interval, int numPeriods, int startJulian, int startTime, int[] endJulian, int[] endTime)
+    int            inctim(int interval, int unitFlag, int numPeriods, int startJulian, int startTime, intContainer endJulian, intContainer endTime)
+    boolean        isAlwaysShowTimeAsBeginningOfDay()
+    boolean        isDateDefined()
+    boolean        isDefined()
+    boolean        isLeap(int year)
+    int            isoDate()
+    int            isoTime()
+    boolean        isTimeDefined()
+    int            iymdjl(int intYear, int intMonth, int intDay)
+    int            jliymd(int jul, int[] ymd)
+    int            jliymd(int jul, intContainer year, intContainer month, intContainer day)
+    String         juldat(int julian, int style)
+    int            julian()
+    int            julianToYearMonthDay(int julian, intContainer year, intContainer month, intContainer day)
+    boolean        lessThan(HecTime time)
+    boolean        lessThanEqualTo(HecTime time)
+    int            m2ihm(int minutes, stringContainer hourMinutes)
+    void           main(String[] args)
+    int            maxDay(int year, int month)
+    int            minute()
+    int            minutesSinceMidnight()
+    int            month()
+    int            nopers(int interval, int startJulian, int startTime, int endJulian, int endTime)
+    int            nopers(int interval, int unitFlag, int startJulian, int startTime, int endJulian, int endTime)
+    int            normalizeDateStyle(int style)
+    boolean        notEqualTo(HecTime time)
+    int            second()
+    int            secondsSinceMidnight()
+    void           set(int value)
+    void           set(int value, int julianBaseDate)
+    void           set(int value, int valueGranularitySeconds, int julianBaseDate)
+    void           set(HecTime hecTime)
+    int            set(String dateAndTime)
+    int            set(String date, String time)
+    void           set(Calendar cal)
+    void           set(Date javaDate, int minutesTimezoneOffset)
+    void           setAlwaysShowTimeAsBeginningOfDay(boolean alwaysShowBeginningOfDay)
+    void           setCurrent()
+    int            setDate(String date)
+    void           setDefaultDateStyle(int defaultDateStyle)
+    void           setJulian(int julian)
+    void           setJulian(int julian, int minutesSinceMidnight)
+    void           setJulian(int julian, int minutesSinceMidnight, int secondsSinceMinute)
+    void           setMinutes(double minutes)
+    void           setMinutes(long minutes)
+    void           setMinutes(long minutes, int minutesTimezoneOffset)
+    void           setSeconds(long value)
+    int            setTime(String time)
+    void           setTimeGranularity(int baseGranularity)
+    void           setTimeGranularityInSeconds(int timeGranularityInSeconds)
+    void           setTimeIncrement(int baseGranularity)
+    void           setTimeInMillis(long milliseconds)
+    void           setTimeInMillis(long milliseconds, int minutesTimezoneOffset)
+    void           setUndefined()
+    int            setXML(String dateTime)
+    void           setYearMonthDay(int year, int month, int day)
+    void           setYearMonthDay(int year, int month, int day, int minutesSinceMidnight)
+    void           showTimeAsBeginningOfDay(boolean showBeginning)
+    void           subtract(int time)
+    void           subtract(HecTime time)
+    void           subtractDays(int days)
+    void           subtractHours(int hours)
+    void           subtractMinutes(int minutes)
+    void           subtractSeconds(int seconds)
+    void           systim(int[] julian, int[] seconds)
+    void           systim(int[] julian, int[] time, boolean useMinutes, String tzId)
+    String         time()
+    int            timeGranularity()
+    int            timeIncrement()
+    String         toString()
+    String         toString(int dateStyle)
+    int            value()
+    int            year()
+    int            yearMonthDay(intContainer hiYear, intContainer hiMonth, intContainer hiDay)
+    int            yearMonthDayToJulian(int year, int month, int day)
+    String         ymddat(int[] ymd, int style, int[] err)
+    void           zofset(int[] julian, int[] iTime, int interval, int iFlag, int[] iOffset)
+
+CLASS hec.heclib.util.Heclib
+  public class Heclib extends Object implements Serializable
+  Provides Java interface to native (C/Fortran) HEC-DSS library routines. The following methods all use 4-character parameters to set or retrieve global settings or current-file settings. None of the methods supports the entire parameter list, and sometimes multiple methods use the same parameter to m
+  FIELDS
+    int            DSS_FUNCTION_internalUtility_ID
+    int            DSS_FUNCTION_javaNativeInterface_ID
+    int            DSS_FUNCTION_other_ID
+    int            DSS_FUNCTION_zaliasAdd_ID
+    int            DSS_FUNCTION_zaliasRemove_ID
+    int            DSS_FUNCTION_zaliasUtil_ID
+    int            DSS_FUNCTION_zarrayRetrieve_ID
+    int            DSS_FUNCTION_zarrayStore_ID
+    int            DSS_FUNCTION_zbinaryRetrieve_ID
+    int            DSS_FUNCTION_zbinaryStore_ID
+    int            DSS_FUNCTION_zbinNew_ID
+    int            DSS_FUNCTION_zbinUpdate_ID
+    int            DSS_FUNCTION_zcatalog_ID
+    int            DSS_FUNCTION_zcheck_ID
+    int            DSS_FUNCTION_zcheckHashTable_ID
+    int            DSS_FUNCTION_zcheckInfo_ID
+    int            DSS_FUNCTION_zcheckKeys_ID
+    int            DSS_FUNCTION_zcheckLinks_ID
+    int            DSS_FUNCTION_zcheckMultiUser_ID
+    int            DSS_FUNCTION_zcheckPathnameBins_ID
+    int            DSS_FUNCTION_zcheckPathnames_ID
+    int            DSS_FUNCTION_zclose_ID
+    int            DSS_FUNCTION_zcopyFile_ID
+    int            DSS_FUNCTION_zcopyRecord_ID
+    int            DSS_FUNCTION_zdelete_ID
+    int            DSS_FUNCTION_zduplicateRecord_ID
+    int            DSS_FUNCTION_zflushToDisk_ID
+    int            DSS_FUNCTION_zget_ID
+    int            DSS_FUNCTION_zgetBuff_ID
+    int            DSS_FUNCTION_zgetFileSpace_ID
+    int            DSS_FUNCTION_zhash_ID
+    int            DSS_FUNCTION_zinit_ID
+    int            DSS_FUNCTION_zinitIfltab_ID
+    int            DSS_FUNCTION_zinquire_ID
+    int            DSS_FUNCTION_zlocationRetrieve_ID
+    int            DSS_FUNCTION_zlocationStore_ID
+    int            DSS_FUNCTION_zlocking_ID
+    int            DSS_FUNCTION_zmemoryFree_ID
+    int            DSS_FUNCTION_zmemoryGet_ID
+    int            DSS_FUNCTION_znewFileSize_ID
+    int            DSS_FUNCTION_zopen_ID
+    int            DSS_FUNCTION_zpdRetrieve_ID
+    int            DSS_FUNCTION_zpdStore_ID
+    int            DSS_FUNCTION_zpermCreate_ID
+    int            DSS_FUNCTION_zpermRead_ID
+    int            DSS_FUNCTION_zpermWrite_ID
+    int            DSS_FUNCTION_zput_ID
+    int            DSS_FUNCTION_zputBuff_ID
+    int            DSS_FUNCTION_zquery_ID
+    int            DSS_FUNCTION_zread_ID
+    int            DSS_FUNCTION_zreadDisk_ID
+    int            DSS_FUNCTION_zreadInfo_ID
+    int            DSS_FUNCTION_zreadInternal_ID
+    int            DSS_FUNCTION_zrename_ID
+    int            DSS_FUNCTION_zset_ID
+    int            DSS_FUNCTION_zsetFile_ID
+    int            DSS_FUNCTION_zspatialGridRetrieve_ID
+    int            DSS_FUNCTION_zspatialGridStore_ID
+    int            DSS_FUNCTION_zspatialTinRetrieve_ID
+    int            DSS_FUNCTION_zspatialTinStore_ID
+    int            DSS_FUNCTION_zsqueeze_ID
+    int            DSS_FUNCTION_ztextRetrieve_ID
+    int            DSS_FUNCTION_ztextStore_ID
+    int            DSS_FUNCTION_ztsAggregate_ID
+    int            DSS_FUNCTION_ztsDisaggregate_ID
+    int            DSS_FUNCTION_ztsIrregMergeBlocks_ID
+    int            DSS_FUNCTION_ztsIrregReadBlock_ID
+    int            DSS_FUNCTION_ztsIrregStoreBlock_ID
+    int            DSS_FUNCTION_ztsProcessTimes_ID
+    int            DSS_FUNCTION_ztsRegReadBlock_ID
+    int            DSS_FUNCTION_ztsRegStoreBlock_ID
+    int            DSS_FUNCTION_ztsRetrieve_ID
+    int            DSS_FUNCTION_ztsRetrieveIrreg_ID
+    int            DSS_FUNCTION_ztsRetrieveReg_ID
+    int            DSS_FUNCTION_ztsStore_ID
+    int            DSS_FUNCTION_ztsStoreIrreg_ID
+    int            DSS_FUNCTION_ztsStoreReg_ID
+    int            DSS_FUNCTION_ztsTrim_ID
+    int            DSS_FUNCTION_ztsWriteBlock_ID
+    int            DSS_FUNCTION_zundelete_ID
+    int            DSS_FUNCTION_zwrite_ID
+    int            DSS_FUNCTION_zwriteDisk_ID
+    int            DSS_FUNCTION_zwriteEOF_ID
+    int            DSS_FUNCTION_zwriteExisting_ID
+    int            DSS_FUNCTION_zwriteInternal_ID
+    int            DSS_FUNCTION_zwriteNew_ID
+    int            MESS_LEVEL_CRITICAL
+    int            MESS_LEVEL_GENERAL
+    int            MESS_LEVEL_INTERNAL_DIAG_1
+    int            MESS_LEVEL_INTERNAL_DIAG_2
+    int            MESS_LEVEL_NONE
+    int            MESS_LEVEL_TERSE
+    int            MESS_LEVEL_USER_DIAG
+    int            MESS_METHOD_ALIAS_ID
+    int            MESS_METHOD_CATALOG_ID
+    int            MESS_METHOD_CHECK_ID
+    int            MESS_METHOD_COPY_ID
+    int            MESS_METHOD_FILE_CHECK_ID
+    int            MESS_METHOD_GENERAL_ID
+    int            MESS_METHOD_GET_ID
+    int            MESS_METHOD_GLOBAL_ID
+    int            MESS_METHOD_JNI_ID
+    int            MESS_METHOD_LOCKING_ID
+    int            MESS_METHOD_OPEN_ID
+    int            MESS_METHOD_PERM_ID
+    int            MESS_METHOD_PUT_ID
+    int            MESS_METHOD_READ_ID
+    int            MESS_METHOD_TS_READ_ID
+    int            MESS_METHOD_TS_WRITE_ID
+    int            MESS_METHOD_UNDEFINED_ID
+    int            MESS_METHOD_UTILITY_ID
+    int            MESS_METHOD_WRITE_ID
+    boolean        onWindows
+    String         sysTimeZoneName
+    double         UNDEFINED_DOUBLE
+    float          UNDEFINED_FLOAT
+    int            UNDEFINED_INT
+    int            UNDEFINED_SHORT
+  METHODS
+    void           closescratchdsscatalog(int[] catalogUnit)
+    String         decodeHollerith(int[] ints)
+    void           encodeHollerith(String s, int[] ints)
+    int            fortranClose(int unit)
+    int            fortranFlush(int unit)
+    int            fortranOpen(String filename, int unit)
+    int            fortranWrite(String string, int unit)
+    String         getDSSEPartFromInterval(int interval, int[] status)
+    String         getDssErrorName(int dssError)
+    String         getEPartFromInterval(int interval, int[] status)
+    String         getErrorInfo(int errorCode)
+    String         getFunctionFromId(int functionId)
+    int            getLibraryMajorVersion()
+    int            getLibraryMinorVersion()
+    int            getLibrarySubVersion()
+    int            getLibraryVersion()
+    String         getLibraryVersionString()
+    int            getMessageGroupForFunction(int functionID)
+    String         getMessageLevelFromId(int messageLevel)
+    String         getProcessName(int processID)
+    void           Hec_zsrtsc(int[] ifltab, String pathname, String startDate, String startTime, int number, int storeDouble, float[] floatValues, double[] doubleValues, int[] flags, int storeFlags, String units, String type, double[] coordinates, int numberCoordinates, int[] coordinateDescription, int numbCoordDescription, String supplementaryInfo, int timezoneOffset, String timezoneName, int plan, int compression, float baseValue, int baseValueSet, int highDelta, int deltaPrecision, int[] status)
+    String         holString(float[] hol, int length)
+    String         holString(int[] hol, int length)
+    float[]        ints2floats(int[] intArray)
+    void           makedsscatalog(String dssFileName, int[] ifltab, String catalogInstructions, int[] numberFound, int[] catalogUnit)
+    int            min(int... vals)
+    int            squeezeDSS(String dssFileName)
+    void           StringHol(String str, int length, float[] hol)
+    void           StringHol(String str, int length, int[] hol)
+    int            zaliasAdd(int[] ifltab, String primaryPathname, String aliasPathname)
+    int            zaliasGetPrimary(int[] ifltab, String aliasPathname, stringContainer primaryPathname)
+    int            zaliasList(int[] ifltab, String aliasPathname, StringArrayContainer pathnameList)
+    int            zaliasRemove(int[] ifltab, String pathname, boolean removeAll)
+    int            zarrayRetrieve(int[] ifltab, ArrayContainer arrayContainer)
+    int            zarrayStore(int[] ifltab, ArrayContainer arrayContainer)
+    void           zbegdt(int julian, int interval, int[] year, int[] month, int[] day, int[] block, int DSSVersion)
+    int            zcatalog(int[] ifltab, HecDssCatalog catalog)
+    int            zcatalogFile(int[] ifltab, String catalogName, boolean sorted, String pathWithWildChars)
+    void           zcheck(int[] ifltab, String pathname, int[] numberHeader, int[] numberData, int[] exists)
+    int            zcheckAccessReset(int[] ifltab, boolean forceReopen, int quiescentTimeMills)
+    int            zcheckFile(int[] ifltab)
+    void           zcklnk(int[] ifltab, int[] nerror)
+    void           zckmul(int[] ifltab)
+    void           zckpat(int[] ifltab, int[] nerror)
+    void           zckpnb(int[] ifltab, int[] nerror)
+    void           zclose(int[] ifltab)
+    int            zcofil(int[] ifltabFrom, int[] ifltabTo, int[] buffer1, int buffer1Size, int[] buffer2, int buffer2Size)
+    String         zcolist(int[] ifltab, int[] filePos, String seedPathname)
+    int            zconvertVersion(String nameFrom, String nameTo)
+    int            zcopyFile(int[] ifltabFrom, int[] ifltabTo)
+    int            zcopyRecord(int[] ifltabFrom, int[] ifltabTo, String pathnameFrom, String pathnameTo)
+    int            zcorec(int[] ifltabFrom, int[] ifltabTo, String pathnameFrom, String pathnameTo, int[] buffer1, int buffer1Size, int[] buffer2, int buffer2Size)
+    void           zdbmod(int[] ifltab, long address, long value, String characterValue, int useCharacterValue)
+    int            zdelet(int[] ifltab, String pathname)
+    void           zdtype(int[] ifltab, String pathname, int[] checkedNumber, int[] exists, stringContainer type, int[] dataType)
+    int            zerrorCheck()
+    int            zerrorClear()
+    int            zerrorCode(int[] ifltab)
+    int            zerrorDecode(int errorCode, int[] highFunction, int[] lowFunction, int[] dssError, int[] status)
+    int            zerrorGet(DSSErrorMessage errorMessage)
+    int            zfileAccessInfo(int[] ifltab, int[] accessMode, int[] numberAccesses, int[] numberWriting, int[] pidsArray, int[] modesArray, int arraySize, int[] numberPids)
+    void           zfilst(int[] ifltab)
+    void           zflush(int[] ifltab, int forceFlush)
+    void           zget(int[] ifltab, long address, int numberArray, long[] array)
+    int            zgetCatalogSortAddresses(int[] ifltab, long[] sortAddresses, int sortAddressesLen)
+    int            zgetDssFileVersion(int[] ifltab)
+    int            zgetDssVersion(int[] ifltab)
+    int            zgetFileVersion(String dssFileName)
+    void           zgetInterval(int[] interval, stringContainer ePart, int[] nvals, int[] status)
+    int            zgetMessageLevel(int functionGroupID)
+    int            zgetRecordBasics(int[] ifltab, HecDSSRecordBasics recordBasics)
+    void           zgintl(int[] interval, String ePart, int[] nvals, int[] status)
+    int            zgridRetrieve(int[] ifltab, GridStructContainer gridStruct, boolean retrieveData)
+    int            zgridRetrieveVersion(int[] ifltab, String path, int[] gridStructVersion)
+    int            zgridStore(int[] ifltab, GridStructContainer gridStruct)
+    void           zgtrec(int[] ifltab, long address, int numberWords, int[] array)
+    void           zincbk(int[] block, int[] julian, int[] year, int[] month, int[] day)
+    void           zinqir(int[] ifltab, String param, stringContainer alpha, int[] number)
+    long           zinquire(int[] ifltab, String parameter)
+    void           zirbeg(int[] ifltab, int julian, String ePart, int[] year, int[] month, int[] day, int[] block, int[] minutesInBlock, int[] incrementBlock)
+    long           zlastWriteTime(int[] ifltab, String pathname)
+    long           zlastWriteTimeFile(int[] ifltab)
+    int            zlocationRetrieve(int[] ifltab, DataContainer dataContainer)
+    int            zlocationStore(int[] ifltab, DataContainer dataContainer)
+    void           zmaxpart(int[] ifltab, int[] maxpart)
+    void           zmessage(int[] ifltab, String message)
+    int            zndata(int[] ifltab, long startTime, Vector<String> pathnames, Vector<Long> updateTimes, Vector<Integer> recordTypes)
+    void           zofset(int[] julian, int[] minutes, int interval, int flag, int[] offset)
+    void           zopen(int[] ifltab, String name, int[] status)
+    String         zpath(String aPart, String bPart, String cPart, String dPart, String ePart, String fPart)
+    int            zpathnameListJava(int[] ifltab, String[] pathnames, int statusWanted, int typeWantedStart, int typeWantedEnd, int[] startDates, int[] endDates, int pathnameLen)
+    int            zpdRetrieve(int[] ifltab, PairedDataContainer pdc)
+    int            zpdStore(int[] ifltab, PairedDataContainer pdc)
+    int            zplist(int[] ifltab, String instructions, int[] filePos, stringContainer pathname)
+    void           zquery(String param, stringContainer alpha, int[] number)
+    boolean        zrdpat(int[] catalogUnit, int[] position, int[] referenceNumber, stringContainer tag, stringContainer pathname)
+    void           zreadx(int[] ifltab, String pathname, int[] intheader, int kintheader, int[] nintheader, int[] compheader, int kcompheader, int[] ncompheader, int[] userheader, int kuserheader, int[] nuserheader, short[] data, int kdata, int[] ndata, int plan, int[] found)
+    void           zreadxBytes(int[] ifltab, String pathname, int[] intheader, int kintheader, int[] nintheader, int[] compheader, int kcompheader, int[] ncompheader, int[] userheader, int kuserheader, int[] nuserheader, byte[] data, int kdata, int[] ndata, int plan, int[] found)
+    int            zrecadd(int[] ifltab, String path, long[] internals)
+    int            zrecInfo(int[] ifltab, HecDSSRecordInfo recordInfo, String startDate, String startTime, String endDate, String endTime)
+    int            zrenam(int[] ifltab, String pathname, String newPathname)
+    void           zrinfo(int[] ifltab, String pathname, int[] lexists, int[] recordType, stringContainer recordTypeDescription, int[] ldoubles, int[] lquality, int[] precision, stringContainer recordTag, stringContainer lastWrittenDate, stringContainer lastWrittenTime, stringContainer programName, int[] version, int[] numberData, int[] spaceAllocated, int[] timeSeriesCompression, int[] lpasswordProtected)
+    void           zritsc(int[] ifltab, String pathname, int startJulian, int startMinutes, int endJulian, int endMinutes, int getDoubles, int[] doublesRead, int[] timeBuffer, float[] floatValues, double[] doubleValues, int maxValues, int[] numberRead, int[] beginJulian, int[] flags, int readFlags, int[] flagsRead, stringContainer units, stringContainer type, stringContainer supplementalInfo, int[] timezoneOffset, stringContainer timezoneName, double[] coordinates, int[] coordinateDescription, int[] coordinatesUsed, int inflag, int[] status)
+    void           zritsx(int[] ifltab, String pathname, int startJulian, int startMinutes, int endJulian, int endMinutes, int[] timeBuffer, float[] data, int dataSize, int[] numberRead, int[] beginJulian, int[] flags, int readFlags, int[] flagsRead, stringContainer units, stringContainer type, int[] userHead, int maxUserHead, int[] numberHeadRead, int inflag, int[] status)
+    void           zritsxd(int[] ifltab, String pathname, int startJulian, int startMinutes, int endJulian, int endMinutes, int[] timeBuffer, double[] data, int dataSize, int[] numberRead, int[] beginJulian, int[] flags, int readFlags, int[] flagsRead, stringContainer units, stringContainer type, int[] userHead, int maxUserHead, int[] numberHeadRead, int inflag, int[] status)
+    void           zrpd(int[] ifltab, String cpath, int[] nord, int[] numberOfCurves, int[] ihoriz, stringContainer cunitsX, stringContainer ctypeX, stringContainer cunitsY, stringContainer ctypeY, float[] values, int kvals, int[] numberOfValues, String[] clabel, int klabel, booleanContainer labelsExist, int[] headu, int kheadu, int[] nheadu, int[] istat)
+    void           zrpdd(int[] ifltab, String cpath, int[] nord, int[] numberOfCurves, int[] ihoriz, stringContainer cunitsX, stringContainer ctypeX, stringContainer cunitsY, stringContainer ctypeY, double[] values, int kvals, int[] numberOfValues, String[] clabel, int klabel, booleanContainer labelsExist, float[] headu, int kheadu, int[] nheadu, int[] istat)
+    void           zrrts(int[] ifltab, String pathname, String startDate, String startTime, int number, float[] data, stringContainer units, stringContainer type, int[] offset, int[] status)
+    void           zrrtsc(int[] ifltab, String pathname, String startDate, String startTime, int maxNumber, int[] numberRead, int getDoubles, int[] doublesRead, float[] floatValues, double[] doubleValues, int[] flags, int readFlags, int[] flagsRead, stringContainer units, stringContainer type, stringContainer supplementalInfo, int[] offset, int[] compression, int[] timezoneOffset, stringContainer timezoneName, double[] coordinates, int[] coordinateDescription, int[] coordinatesUsed, int[] status)
+    void           zrrtsx(int[] ifltab, String pathname, String startDate, String startTime, int number, float[] data, int[] flags, int readFlags, int[] flagsRead, stringContainer units, stringContainer type, int[] userHead, int maxUserHead, int[] numberHeadRead, int[] offset, int[] compression, int[] status)
+    void           zset(String parameter, String alpha, int number)
+    int            zsetCatalogSortAddresses(int[] ifltab, long[] sortAddresses, int sortAddressesLen)
+    void           zsetfi(int[] ifltab, String parameter, String alpha, int number, int[] status)
+    void           zsetInterrupt()
+    void           zsetInterrupt(int handle)
+    void           zsetMessageLevel(int functionGroupID, int levelID)
+    void           zsitsc(int[] ifltab, String pathname, int[] times, float[] floatValues, double[] doubleValues, int storeDouble, int numberVals, int startDate, int[] flags, int storeFlags, String unitsX, String typeX, double[] coordinates, int numberCoordinates, int[] coordinateDescription, int numbCoordDescription, String supplementaryInfo, int timezoneOffset, String timezoneName, int inFlag, int[] status)
+    void           zspd(int[] ifltab, String cpath, int nord, int ncurve, int ihoriz, String cunitsX, String ctypeX, String cunitsY, String ctypeY, float[] values, String[] clabel, boolean label, float[] headu, int nheadu, int iplan, int[] istat)
+    void           zspdd(int[] ifltab, String cpath, int nord, int ncurve, int ihoriz, String cunitsX, String ctypeX, String cunitsY, String ctypeY, double[] values, String[] clabel, boolean label, float[] headu, int nheadu, int iplan, int[] istat)
+    void           zsrtsc(int[] ifltab, String pathname, String startDate, String startTime, int number, int storeDouble, float[] floatValues, double[] doubleValues, int[] flags, int storeFlags, String units, String type, double[] coordinates, int numberCoordinates, int[] coordinateDescription, int numbCoordDescription, String supplementaryInfo, int timezoneOffset, String timezoneName, int plan, int compression, float baseValue, int baseValueSet, int highDelta, int deltaPrecision, int[] status)
+    void           zstfh(String[] clabel, String[] citems, int numberItems, float[] header, int headerMax, int[] headerNumber, int[] istat)
+    void           zstfh(String[] clabel, String[] citems, int numberItems, int[] header, int headerMax, int[] headerNumber, int[] istat)
+    int            ztextRetrieve(int[] ifltab, TextContainer textContainer)
+    int            ztextStore(int[] ifltab, TextContainer textContainer)
+    int            ztinRetrieve(int[] ifltab, TinContainer tinContainer, boolean retrieveData)
+    int            ztinStore(int[] ifltab, TinContainer tinContainer)
+    void           ztsends(int[] ifltab, String pathname, int searchOption, int[] startJulian, int[] startMinutes, int[] endJulian, int[] endMinutes, int[] lfound)
+    void           ztsinfo(int[] ifltab, String pathname, int[] startJulian, int[] startMinutes, int[] endJulian, int[] endMinutes, stringContainer units, stringContainer type, int[] lflags, int[] ldouble, int[] lfound)
+    void           ztsrange(int[] ifltab, String pathname, int searchOption, stringContainer firstPath, stringContainer lastPath, int[] numberFound)
+    int            ztsRetrieve(int[] ifltab, TimeSeriesContainer tsc, String startDate, String startTime, String endDate, String endTime, int retrieveFlag)
+    int            ztsStore(int[] ifltab, TimeSeriesContainer tsc, int storageFlag)
+    int            zundel(int[] ifltab, String pathname)
+    void           zustfh(String[] clabel, String[] citems, int numberItems, int[] position, float[] header, int headerNumber, int[] istat)
+    void           zustfh(String[] clabel, String[] citems, int numberItems, int[] position, int[] header, int headerNumber, int[] istat)
+    int            zwhatChanged(int[] ifltab, HecDssCatalog catalog)
+    int            zwhatChangedCompare(int[] ifltab, HecDssCatalog dssCatalogBefore, HecDssCatalog dssCatalogChanged, String pathWithWild, boolean boolUseCRC)
+    int            zwhatChangedSetStart(int[] ifltab, HecDssCatalog dssCatalog, String pathnameWithWild, boolean useCRC)
+    void           zwritx(int[] ifltab, String pathname, int nPathname, int[] intheader, int nintheader, int[] compheader, int ncompheader, int[] userheader, int nuserheader, short[] data, int ndata, int type, int plan, int[] status, int[] found)
+    void           zwritxBytes(int[] ifltab, String pathname, int nPathname, int[] intheader, int nintheader, int[] compheader, int ncompheader, int[] userheader, int nuserheader, byte[] data, int ndata, int type, int plan, int[] status, int[] found)
+
+CLASS hec.hecmath.DSS
+  public class DSS extends Object
+  open the DSS file specified by filename with no time window set
+  METHODS
+    DSSFile        open(String filename)
+    DSSFile        open(String filename, boolean isRemote)
+    DSSFile        open(String filename, int dssVersion)
+    DSSFile        open(String filename, String timeWindow)
+    DSSFile        open(String filename, String startTime, String endTime)
+
+CLASS hec.hecmath.DSSFile
+  public class DSSFile extends Object
+  The DSS data manager
+  FIELDS
+    protected DssDataManager _dataManager
+    protected String _endTime
+    protected String _filename
+    protected int  _irregularStoreMethod
+    protected int  _regularStoreMethod
+    protected String _startTime
+    protected boolean _trimMissing
+  METHODS
+    void           close()
+    int            copyRecordsFrom(String toDSSFilename, String[] pathnameList)
+    int            copyRecordsFrom(String toDSSFilename, Vector pathnameList)
+    int            copyRecordsInto(String fromDSSFilename, String[] pathnameList)
+    int            copyRecordsInto(String fromDSSFilename, Vector pathnameList)
+    int            delete(String[] pathnameList)
+    int            delete(Vector pathnameList)
+    void           done()
+    int            duplicateRecords(String[] pathnameList, String[] newPathnameList)
+    int            duplicateRecords(Vector pathnameList, Vector newPathnameList)
+    void           forceMultiUserAccess()
+    Vector         getCatalogedPathnames()
+    Vector         getCatalogedPathnames(boolean forceNew)
+    Vector         getCatalogedPathnames(String scanString)
+    Vector         getCatalogedPathnames(String scanString, boolean forceNew)
+    DssDataManager getDataManager()
+    String         getEndTime()
+    String         getFilename()
+    int            getIrregularStoreMethod()
+    int            getRegularStoreMethod()
+    String         getStartTime()
+    boolean        getTrimMissing()
+    boolean        isRemote()
+    HecMath        read(String pathname)
+    HecMath        read(String pathname, String timeWindow)
+    HecMath        read(String pathname, String startTime, String endTime)
+    HecMath        read(String pathname, String startTime, String endTime, boolean trimMissing)
+    boolean        recordExists(String pathname)
+    Vector<String> recordsUpdated(long startTime)
+    int            recordsUpdated(long startTime, Vector<String> pathnames, Vector<Long> updateTimes, Vector<Integer> recordTypes)
+    Vector<String> recordsUpdated(HecTime startTime)
+    int            recordsUpdated(HecTime startTime, Vector<String> pathnames, Vector<Long> updateTimes, Vector<Integer> recordTypes)
+    Vector<String> recordsUpdated(String startTime)
+    int            recordsUpdated(String startTime, Vector<String> pathnames, Vector<Long> updateTimes, Vector<Integer> recordTypes)
+    int            renameRecords(String[] pathnameList, String[] newPathnameList)
+    int            renameRecords(Vector pathnameList, Vector newPathnameList)
+    Vector         searchPathnames(String scanString)
+    void           setFilename(String filename)
+    void           setIrregularStoreMethod(int method)
+    void           setRegularStoreMethod(int method)
+    void           setTimeWindow(String timeWindow)
+    void           setTimeWindow(String startTime, String endTime)
+    void           setTrimMissing(boolean trimMissing)
+    int            write(HecMath mathGuy)
+    int            write(TimeSeriesMath mathGuy, String storeMethod)
+    int            write(DataContainer dataContainer)
+    int            write(DataContainerTransformer rating)
+
+CLASS hec.hecmath.DSSFileException
+  public class DSSFileException extends RuntimeException
+  (no members listed -- probably an interface alias or a package)
+
+CLASS hec.hecmath.DisplayUtilities
+  public class DisplayUtilities extends Object
+  Creates a valid G2dObject suitable for plotting or null if there was an error;
+  METHODS
+    DataContainer  createDisplayObject(HecMath dataSet)
+    G2dLine        getCurve(G2dDialog gfxDlg, HecMath dataSet)
+    G2dLine        getCurve(G2dDialog gfxDlg, String dssPath)
+    Viewport       getViewport(G2dDialog gfxDlg, HecMath dataSet)
+    Viewport       getViewport(G2dDialog gfxDlg, String dataSetPath)
+
+CLASS hec.hecmath.HecMath
+  public abstract class HecMath extends Object implements Constants
+  The HecMath class together with the TimeSeriesMath and PairedDataMath subclasses provide the user with a method to manipulate an entire time series or paired data set with simple function calls. For example, each value in a time series may be scaled by the value 3.0 using: ts.multiply( 3.0 ) where t
+  FIELDS
+    protected int  _curveNumber
+    protected DataContainer _dc
+    protected DSSPathname _dssPath
+    protected int  ABS
+    protected int  ADD
+    protected int  COS
+    protected int  DIVIDE
+    protected int  EXPONENTIATION
+    protected int  INVERSE
+    protected int  LOG
+    protected int  LOG10
+    protected int  MULTIPLY
+    protected int  ROUND
+    protected int  SIN
+    protected int  SQRT
+    protected int  SUBTRACT
+    protected int  TAN
+    protected int  TRUNCATE
+  METHODS
+    HecMath        abs()
+    HecMath        accumulation()
+    HecMath        add(double constant)
+    HecMath        add(HecMath math)
+    HecMath        applyMultipleLinearRegression(String startTimeString, String endTimeString, HecMath[] tsMathArray, double minimumLimit, double maximumLimit)
+    protected int  bisearch(double[] xarray, double x, int n)
+    protected int  bisearch(int[] xarray, int x, int n)
+    abstract boolean canDetermineUnitSystem()
+    HecMath        centeredMovingAverage(int numberToAverageOver, boolean onlyValidValues, boolean useReduced)
+    boolean        checkContainer(DataContainer dc)
+    HecMath        conicInterpolation(HecMath tsMath, String inputType, String outputType, double storageScaleFactor)
+    abstract HecMath convertToEnglishUnits()
+    HecMath        convertToIrregular(String timeIntervalString)
+    abstract HecMath convertToMetricUnits()
+    abstract HecMath copy()
+    LinearRegressionStatistics correlationCoefficients(HecMath tsMath)
+    HecMath        cos()
+    HecMath        createInstance(DataContainer dc)
+    HecMath        createInstance(TSRecord tsRecord)
+    HecMath[]      cyclicAnalysis()
+    HecMath        decayingBasinWetnessParameter(HecMath math, double decayRate)
+    HecMath        divide(double constant)
+    HecMath        divide(HecMath math)
+    HecMath[]      durationAnalysis(DurationPeriod[] durationPeriods)
+    HecMath[]      durationAnalysis(DurationPeriod[] durationPeriods, String plotScaleType, String plottingPointsType, int numberOfIntervals)
+    HecMath[]      durationAnalysis(String durationPeriodType)
+    HecMath[]      durationAnalysis(String durationPeriodType, String plotScaleType, String plottingPointsType, int numberOfIntervals)
+    HecMath        estimateForMissingPrecipValues(int maxMissingAllowed)
+    HecMath        estimateForMissingValues(int maxMissingAllowed)
+    HecMath        exponentiation(double constant)
+    HecMath        extractTimeSeriesDataForTimeSpecification(String timeLevelString, String rangeString, boolean isInclusive, int intervalWindow, boolean setAsIrregular)
+    HecMath        flowAccumulatorGageProcessor(HecMath math)
+    HecMath        forwardMovingAverage(int numberToAverageOver)
+    HecMath        generateDataPairs(HecMath math, boolean sort)
+    HecMath        generateDataPairs(HecMath math, double buffer)
+    PairedDataMath generatePairedData(HecMath tsMath, boolean sort)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, int timeIntervalMinutes, int timeOffsetMinutes, double initialValue)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, String timeIntervalString, double initialValue)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, String timeIntervalString, String timeOffsetString, double initialValue)
+    abstract DataContainer getData()
+    abstract void  getData(DataContainer container)
+    protected String getFunctionName(int functionType)
+    String         getPath()
+    int            getSelectedCurve()
+    String         getStandardUnits()
+    String         getUnits()
+    protected int  hunt(double[] xarray, double x, int istart)
+    HecMath        interpolateDataAtRegularInterval(String timeIntervalString, String timeOffsetString)
+    HecMath        inverse()
+    abstract boolean isEnglish()
+    abstract boolean isMetric()
+    boolean        isMissing(double value)
+    boolean        isValid(byte[] bytes)
+    boolean        isValid(int index)
+    double         kurtosisCoefficient()
+    int            lastValidDate()
+    double         lastValidValue()
+    HecMath        log()
+    HecMath        log10()
+    double         max()
+    int            maxDate()
+    double         mean()
+    double         med()
+    HecMath        mergePairedDataSets(HecMath math)
+    HecMath        mergeTimeSeries(HecMath math)
+    double         min()
+    int            minDate()
+    double         mode()
+    HecMath        modifiedPulsRouting(HecMath math, int numberSubreaches, double muskingumX)
+    HecMath        multipleLinearRegression(HecMath[] tsMathArray, double minimumLimit, double maximumLimit)
+    HecMath        multipleRegression(HecMath[] tsMathArray, double minimumLimit, double maximumLimit)
+    HecMath        multiply(double constant)
+    HecMath        multiply(HecMath math)
+    HecMath        muskingumRouting(int numberSubreaches, double muskingumK, double muskingumX)
+    int            numberMissingValues()
+    int            numberValidValues()
+    HecMath        olympicSmoothing(int numberToAverageOver, boolean onlyValidValues, boolean useReduced)
+    double         p1()
+    double         p10()
+    double         p2()
+    double         p20()
+    double         p25()
+    double         p5()
+    double         p75()
+    double         p80()
+    double         p90()
+    double         p95()
+    double         p98()
+    double         p99()
+    HecMath        periodConstants(HecMath math)
+    HecMath        polynomialTransformation(HecMath tsMath)
+    HecMath        polynomialTransformationWithIntegral(HecMath tsMath)
+    HecMath        ratingTableInterpolation(HecMath tsMath)
+    HecMath        replaceSpecificValues(HecDouble from, HecDouble to)
+    HecMath        replaceValuesInRange(HecDouble min, HecDouble max, HecDouble to)
+    HecMath        reverseRatingTableInterpolation(HecMath tsMath)
+    HecMath        round()
+    HecMath        roundOff(int digitsPrecision, int powerOfTensPlace)
+    double         roundOffValue(double dvalue, int desiredPrecision, int powerOfTensPlace)
+    HecMath        screenWithForwardMovingAverage(int numberToAverageOver, double changeLimit, boolean setInvalidToMissingValue, String qualityFlagForInvalidValue)
+    HecMath        screenWithMaxMin(double minValueLimit, double maxValueLimit, double changeLimit, boolean setInvalidToreplacementValue, double replacementValue, String qualityFlagForInvalidValue)
+    HecMath        screenWithMaxMin(double minValueLimit, double maxValueLimit, double changeLimit, boolean setInvalidToMissingValue, String qualityFlagForInvalidValue)
+    void           setCurve(int curveNumber)
+    void           setCurve(String curveName)
+    abstract void  setData(DataContainer container)
+    void           setDPart(String dPart)
+    void           setEPart(String ePart)
+    void           setLocation(String location)
+    void           setParameterPart(String paramString)
+    void           setPathname(String pathname)
+    void           setTimeInterval(String timeInterval)
+    abstract void  setUnits(String unitsString)
+    void           setVersion(String version)
+    void           setWatershed(String watershed)
+    HecMath        shiftAdjustment(HecMath math)
+    HecMath        shiftInTime(String timeShiftString)
+    HecMath        sin()
+    double         skewCoefficient()
+    HecMath        snapToRegularInterval(String timeIntervalString, String timeOffsetString, String timeBackwardString, String timeForwardString)
+    HecMath        sqrt()
+    double         standardDeviation()
+    HecMath        standardNormalDeviate()
+    HecMath        straddleStaggerRouting(int numberToAverage, int numberToLag, int numberSubreaches)
+    HecMath        subtract(double constant)
+    HecMath        subtract(HecMath math)
+    HecMath        successiveDifferences()
+    double         sum()
+    HecMath        tan()
+    HecMath        timeDerivative()
+    HecMath        transformTimeSeries(HecMath math, String functionTypeString)
+    HecMath        transformTimeSeries(HecMath math, String functionTypeString, boolean toIrregular)
+    HecMath        transformTimeSeries(String timeIntervalString, String timeOffsetString, String functionTypeString)
+    HecMath        transformTimeSeries(String timeIntervalString, String timeOffsetString, String functionTypeString, boolean toIrregular)
+    HecMath        transformWithFunction(ScalarOperable transformer)
+    HecMath        truncate()
+    HecMath        twoVariableRatingTableInterpolation(HecMath tsMathX, HecMath tsMathZ)
+
+CLASS hec.hecmath.HecMathException
+  public class HecMathException extends Exception implements Serializable
+  HecMathException is used to communicate errors occuring in the use of functions associated with the HecMath, TimeSeriesMath, and PairedDataMath classes. Specifically if the user passes parameters to the math functions in HecMath or the subclasses which would result in an illegal operation ( for exam
+  (no members listed -- probably an interface alias or a package)
+
+CLASS hec.hecmath.TextMath
+  public class TextMath extends HecMath
+  Copy the current DataContainer data in the HecMath object into container.
+  METHODS
+    boolean        canDetermineUnitSystem()
+    HecMath        convertToEnglishUnits()
+    HecMath        convertToMetricUnits()
+    HecMath        copy()
+    TextContainer  getContainer()
+    DataContainer  getData()
+    void           getData(DataContainer container)
+    String         getText()
+    boolean        isEnglish()
+    boolean        isMetric()
+    void           setData(DataContainer container)
+    void           setText(String text)
+    void           setUnits(String unitsString)
+    String         toString()
+
+CLASS hec.hecmath.TimeSeriesMath
+  public class TimeSeriesMath extends HecMath implements IVerticalDatumOperations<TimeSeriesMath,HecMathException>
+  The TimeSeriesMath class wraps around a hec.io.TimeSeriesContainer (time series data) and provides the user the capability to perform arithmetic and other operations on a time series. For example, each value in a time series may be scaled by the value 3.0 using: ts.multiply( 3.0 ) where ts is aTimeS
+  FIELDS
+    int            ACCUMULATE
+    int            AVERAGE
+    int            COUNT_VALID
+    int            INST
+    int            INST_CUM
+    int            INST_VAL
+    int            INTEGRATE
+    int            INTERPOLATE
+    String         LEVEL_DAYMONTH_STRING
+    String         LEVEL_DAYWEEK_STRING
+    String         LEVEL_MONTH_STRING
+    String         LEVEL_TIME_STRING
+    String         LEVEL_YEAR_STRING
+    int            MAX
+    int            MIN
+    int            PER_AVER
+    int            PER_CUM
+    int            TYPE_UNDEFINED
+    int            VOLUME
+  METHODS
+    HecMath        abs()
+    HecMath        accumulation()
+    HecMath        acos()
+    HecMath        add(double constant)
+    HecMath        add(HecMath tsMath)
+    HecMath        asin()
+    HecMath        atan()
+    boolean        canDetermineUnitSystem()
+    HecMath        ceil()
+    HecMath        centeredMovingAverage(int numberToAverageOver, boolean onlyValidValues, boolean useReduced)
+    boolean        checkTimeSeries(TimeSeriesContainer tsc)
+    boolean        checkTimeSeriesMatch(TimeSeriesContainer tsc)
+    boolean        checkTimeSeriesMath(HecMath math, String methodName)
+    TimeSeriesMath collapseVerticalDatum()
+    protected PairedDataMath[] computeDurationAnalysis(boolean standardMethod, String durationPeriodType, DurationPeriod[] durationPeriods, int binDistribution, int numberBins, double[] binLimits, int iplottingPointsMethod, double[] userDefinedPoints, int horizontalScale, int verticalScale)
+    Vector         computeSimpleFrequency()
+    HecMath        convertToEnglishUnits()
+    HecMath        convertToIrregular(String blockSize)
+    HecMath        convertToIrregular(String blockSize, boolean removeMissing)
+    HecMath        convertToMetricUnits()
+    HecMath        copy()
+    protected void copyHeaderInfo(TimeSeriesContainer fromTsc, TimeSeriesContainer toTsc)
+    LinearRegressionStatistics correlationCoefficients(HecMath tsMath)
+    HecMath        cos()
+    HecMath[]      cyclicAnalysis()
+    HecMath[]      cyclicAnalysis(String startYear)
+    HecMath        decayingBasinWetnessParameter(HecMath tsMath, double decayRate)
+    HecMath        divide(double constant)
+    HecMath        divide(HecMath tsMath)
+    PairedDataMath[] durationAnalysisBin(String periodType, DurationPeriod[] durationPeriods, int binDistribution, int numberBins, double[] binLimits, int iplottingPointsMethod, double[] userDefinedPoints, int horizontalScale, int verticalScale)
+    PairedDataMath[] durationAnalysisStandard(String periodType, DurationPeriod[] durationPeriods, int iplottingPointsMethod, double[] userDefinedPoints, int horizontalScale, int verticalScale)
+    HecMath        estimateForMissingPrecipValues(int maxMissingAllowed)
+    HecMath        estimateForMissingValues(int maxMissingAllowed)
+    HecMath        exp()
+    TimeSeriesMath expandVerticalDatum()
+    HecMath        exponentiation(double constant)
+    HecMath        exponentiation(HecMath tsMath)
+    HecMath        extractTimeSeriesDataForTimeSpecification(String timeLevelString, String rangeString, boolean isInclusive, int intervalWindow, boolean setAsIrregular)
+    protected int  findInterval(int[] times, int time, int lastIndex)
+    protected int  findValidValue(TimeSeriesContainer tsc, int index, boolean lookAfter)
+    int            firstValidDate()
+    double         firstValidValue()
+    HecMath        floor()
+    HecMath        flowAccumulatorGageProcessor(HecMath tsMath)
+    HecMath        fmod(double constant)
+    HecMath        fmod(HecMath tsMath)
+    HecMath        forwardMovingAverage(int numberToAverageOver)
+    HecMath        forwardMovingAverage(int numberToAverageOver, boolean onlyValidValues, boolean useReduced)
+    PairedDataMath generateDataPairs(HecMath tsMath, boolean sort)
+    PairedDataMath generateDataPairs(HecMath tsMath, double buffer)
+    PairedDataMath generatePairedData(HecMath tsMath, boolean sort)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, int timeIntervalMinutes, int timeOffsetMinutes, double initialValue)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, String timeIntervalString, double initialValue)
+    HecMath        generateRegularIntervalTimeSeries(String startTimeString, String endTimeString, String timeIntervalString, String timeOffsetString, double initialValue)
+    TimeSeriesContainer getContainer()
+    DataContainer  getData()
+    void           getData(DataContainer container)
+    protected int  getFunctionType(String functionTypeString)
+    double[]       getSortedPeaks()
+    String         getStandardUnits()
+    String         getType()
+    String         getUnits()
+    HecMath        gmean(HecMath[] tsMathArray)
+    HecMath        hmean(HecMath[] tsMathArray)
+    HecMath        integer_divide(double constant)
+    HecMath        integer_divide(HecMath tsMath)
+    HecMath        integerDivide(double constant)
+    HecMath        integerDivide(HecMath tsMath)
+    HecMath        interpolateDataAtRegularInterval(String timeIntervalString, String timeOffsetString)
+    HecMath        inverse()
+    boolean        isEnglish()
+    boolean        isMetric()
+    String         isMuskingumRoutingStable(int numberSubreaches, double muskingumK, double muskingumX)
+    boolean        isValid(int index)
+    protected boolean isValid(DataContainer container, int index)
+    double         kurtosisCoefficient()
+    int            lastValidDate()
+    double         lastValidValue()
+    HecMath        log()
+    HecMath        log10()
+    double         max()
+    HecMath        max(HecMath[] tsMathArray)
+    int            maxDate()
+    double         mean()
+    HecMath        mean(HecMath[] tsMathArray)
+    double         med()
+    HecMath        med(HecMath[] tsMathArray)
+    HecMath        mergeTimeSeries(HecMath tsMath)
+    double         min()
+    HecMath        min(HecMath[] tsMathArray)
+    int            minDate()
+    double         mode()
+    HecMath        modulo(double constant)
+    HecMath        modulo(HecMath tsMath)
+    PairedDataMath multipleRegression(HecMath[] tsMathArray, double minimumLimit, double maximumLimit)
+    HecMath        multiply(double constant)
+    HecMath        multiply(HecMath tsMath)
+    HecMath        muskingumRouting(int numberSubreaches, double muskingumK, double muskingumX)
+    HecMath        neg()
+    HecMath        negative()
+    int            numberInvalidValues()
+    int            numberMissingValues()
+    int            numberQuestionedValues()
+    int            numberRejectedValues()
+    int            numberValidValues()
+    HecMath        olympicSmoothing(int numberToAverageOver, boolean onlyValidValues, boolean useReduced)
+    double         p1()
+    HecMath        p1(HecMath[] tsMathArray)
+    double         p10()
+    HecMath        p10(HecMath[] tsMathArray)
+    double         p2()
+    HecMath        p2(HecMath[] tsMathArray)
+    double         p20()
+    HecMath        p20(HecMath[] tsMathArray)
+    double         p25()
+    HecMath        p25(HecMath[] tsMathArray)
+    double         p5()
+    HecMath        p5(HecMath[] tsMathArray)
+    double         p75()
+    HecMath        p75(HecMath[] tsMathArray)
+    double         p80()
+    HecMath        p80(HecMath[] tsMathArray)
+    double         p90()
+    HecMath        p90(HecMath[] tsMathArray)
+    double         p95()
+    HecMath        p95(HecMath[] tsMathArray)
+    double         p98()
+    HecMath        p98(HecMath[] tsMathArray)
+    double         p99()
+    HecMath        p99(HecMath[] tsMathArray)
+    protected List<ValueContainer> params(Object... args)
+    HecMath        periodConstants(HecMath math)
+    HecMath        product(HecMath[] tsMathArray)
+    HecMath        replaceSpecificValues(HecDouble from, HecDouble to)
+    HecMath        replaceValuesInRange(HecDouble min, HecDouble max, HecDouble to)
+    TimeSeriesMath resample(Interval interval)
+    HecMath        rms(HecMath[] tsMathArray)
+    HecMath        round()
+    HecMath        roundOff(int digitsPrecision, int powerOfTensPlace)
+    HecMath        screenWithConstantValue(String durationStr, double rejectTolerance, double questionTolerance, double minThreshold, int maxMissing)
+    HecMath        screenWithDurationMagnitude(String durationStr, double minRejectLimit, double minQuestionLimit, double maxQuestionLimit, double maxRejectLimit)
+    HecMath        screenWithForwardMovingAverage(int numberToAverageOver, double changeLimit)
+    HecMath        screenWithForwardMovingAverage(int numberToAverageOver, double changeLimit, boolean setInvalidToUndefined, String qualityFlagForInvalidValue)
+    HecMath        screenWithMaxMin(double minValueLimit, double maxValueLimit, double changeLimit)
+    HecMath        screenWithMaxMin(double minValueLimit, double maxValueLimit, double changeLimit, boolean setInvalidToSpecified, double invalidValueReplacement, String qualityFlagForInvalidValue)
+    HecMath        screenWithMaxMin(double minValueLimit, double maxValueLimit, double changeLimit, boolean setInvalidToUndefined, String qualityFlagForInvalidValue)
+    HecMath        screenWithMaxMin(double minRejectLimit, double minQuestionLimit, double maxQuestionLimit, double maxRejectLimit)
+    HecMath        screenWithRateOfChange(double minRejectLimit, double minQuestionLimit, double maxQuestionLimit, double maxRejectLimit)
+    void           setData(DataContainer container)
+    void           setParameterPart(String paramString)
+    void           setType(String typeString)
+    void           setUnits(String unitsString)
+    HecMath        shiftAdjustment(HecMath tsMath)
+    HecMath        shiftInTime(int timeShiftMinutes)
+    HecMath        shiftInTime(int timeShiftMinutes, int timeInterval, int numberIntervals)
+    HecMath        shiftInTime(HecTime timeToShift)
+    HecMath        shiftInTime(String timeShiftString)
+    HecMath        sign()
+    HecMath        sin()
+    double         skewCoefficient()
+    HecMath        snapToRegularInterval(String timeIntervalString, String timeOffsetString, String timeBackwardString, String timeForwardString)
+    HecMath        sqrt()
+    double         standardDeviation()
+    HecMath        standardDeviation(HecMath[] tsMathArray)
+    HecMath        stddev(HecMath[] tsMathArray)
+    HecMath        straddleStaggerRouting(int numberToAverage, int numberToLag, int numberSubreaches)
+    HecMath        subtract(double constant)
+    HecMath        subtract(HecMath tsMath)
+    HecMath        successiveDifferences()
+    double         sum()
+    HecMath        sum(HecMath[] tsMathArray)
+    HecMath        tan()
+    HecMath        timeDerivative()
+    HecMath        transformTimeSeries(HecMath tsMath, String functionTypeString)
+    HecMath        transformTimeSeries(HecMath tsMath, String functionTypeString, boolean toIrregular)
+    HecMath        transformTimeSeries(HecMath tsMath, String functionTypeString, boolean toIrregular, double missingAllowed)
+    HecMath        transformTimeSeries(String timeIntervalString, String timeOffsetString, String functionTypeString)
+    HecMath        transformTimeSeries(String timeIntervalString, String timeOffsetString, String functionTypeString, boolean toIrregular)
+    HecMath        transformWithFunction(ScalarOperable transformer)
+    HecMath        truncate()
+    HecMath        var(HecMath[] tsMathArray)
+    HecMath        variance(HecMath[] tsMathArray)
+
+CLASS hec.io.PairedDataContainer
+  public class PairedDataContainer extends DataContainer implements Cloneable, Serializable, IVerticalDatumOperations<PairedDataContainer,VerticalDatumException>
+  This is a simple generic container class that holds paired data, and some related information The purpose of this class is to pass paired data to plot and tabulate functions. The class does not know where the data came from (or is going). It does not contain any reference or connection to any databa
+  FIELDS
+    int            ALLOCATE
+    int            CURVE_WRITE
+    boolean[]      curveVisible
+    String         date
+    double         datum
+    int            endingCurve
+    int            endingOrdinate
+    String[]       labels
+    boolean        labelsUsed
+    int            NORMAL_WRITE
+    int            numberCurves
+    int            numberOrdinates
+    double         offset
+    String         other
+    String[]       parameters
+    int[]          precisions
+    double         shift
+    int            startingCurve
+    int            startingOrdinate
+    boolean        switchXyAxis
+    int            transformType
+    String[]       types
+    String[]       units
+    int            writeMethod
+    double[]       xOrdinates
+    String         xparameter
+    int            xprecision
+    String         xtype
+    String         xunits
+    double[][]     yOrdinates
+    String         yparameter
+    int            yprecision
+    String         ytype
+    String         yunits
+  METHODS
+    void           allocateSpace(double[] xOrdinates, int numberCurves)
+    Object         clone()
+    void           clone(PairedDataContainer pdc)
+    PairedDataContainer collapseVerticalDatum()
+    void           copyCurve(PairedDataContainer pdcFrom, int fromIndex, PairedDataContainer pdcTo, int toIndex)
+    void           copyCurves(PairedDataContainer pdcFrom, PairedDataContainer pdcTo)
+    void           copyLabels(PairedDataContainer pdcFrom, PairedDataContainer pdcTo)
+    void           copyXOrdinates(PairedDataContainer pdcFrom, PairedDataContainer pdcTo)
+    boolean        curveExists(PairedDataContainer pdcFrom, int fromIndex)
+    void           enlargeCurve(PairedDataContainer pdc, int curveIndex, int minimumCapacity)
+    void           enlargeXOrds(PairedDataContainer pdc, int minimumCapacity)
+    void           ensureCurveCapacity(PairedDataContainer pdc, int curveIndex, int minimumCapacity)
+    void           ensureCurveExists(PairedDataContainer pdc, int curveIndex)
+    void           ensureCurvesCapacity(PairedDataContainer pdc, int minimumCapacity)
+    void           ensureLabelsCapacity(PairedDataContainer pdc, int curveIndex)
+    void           ensureXOrdCapacity(PairedDataContainer pdc, int minimumCapacity)
+    PairedDataContainer expandVerticalDatum()
+    String         getAsString()
+    String         getAsXML()
+    int            getCurveCapacity(PairedDataContainer pdc, int curveIndex)
+    int            getEndingCurve()
+    int            getEndingOrdinate()
+    String[]       getLabels()
+    int            getNumberCurves()
+    int            getNumberOrdinates()
+    int            getStartingCurve()
+    int            getStartingOrdinate()
+    int            getXOrdCapacity(PairedDataContainer pdc)
+    double[]       getXOridnates()
+    String         getXType()
+    String         getXUnits()
+    double[][]     getYOridnates()
+    String         getYType()
+    String         getYUnits()
+    String         guessLabelTemplate(PairedDataContainer pdc, int curveIndex)
+    void           printToConsole()
+    void           setLabels(String[] labels)
+    void           setNumberCurves(int numberCurves)
+    void           setNumberOrdinates(int numberOrdinates)
+    void           setStartingEndingCurve(int startingCurve, int endingCurve)
+    void           setStartingEndingOrdinage(int startingOrdinate, int endingOrdinate)
+    void           setValues(double[] xOrdinates, double[][] yOrdinates)
+    void           setXOrdinates(double[] xOrdinates)
+    void           setXType(String Xtype)
+    void           setXUnits(String Xunits)
+    void           setYOrdinates(double[][] yOrdinates)
+    void           setYType(String Ytype)
+    void           setYUnits(String Yunits)
+
+CLASS hec.io.TextContainer
+  public class TextContainer extends DataContainer implements Cloneable, Serializable
+  FIELDS
+    String[]       labels
+    String         text
+    String[][]     textTable
+  METHODS
+    Object         clone()
+    void           clone(TextContainer tc)
+    String[]       getLabels()
+    String         getText()
+    String[][]     getTextTable()
+    boolean        hasText()
+    boolean        hasTextTable()
+    void           setLabels(String[] labels)
+    void           setText(String text)
+    void           setTextTable(String[][] textTable)
+
+CLASS hec.io.TimeSeriesContainer
+  public class TimeSeriesContainer extends DataContainer implements Cloneable, Serializable, IVerticalDatumOperations<TimeSeriesContainer,VerticalDatumException>
+  This is a simple generic container class that holds time series data, and some related information The purpose of this class is to pass time series data to plot and tabulate functions. The class does not know where the data came from (or is going). It does not contain any reference or connection to 
+  FIELDS
+    String[]       cnotes
+    HecTime        endHecTime
+    int            endTime
+    int[][]        inotes
+    int            interval
+    int            julianBaseDate
+    int            numberDepths
+    int            numberValues
+    String         parameter
+    int            precision
+    double[]       profileDepths
+    String         profileLabel
+    double[][]     profileValues
+    int[]          quality
+    int[][]        quality7
+    boolean        retrieveAllTimes
+    int            sizeEachNote
+    int            sizeEachQuality7
+    HecTime        startHecTime
+    int            startTime
+    String         subLocation
+    String         subParameter
+    int            timeGranularitySeconds
+    int[]          times
+    String         timeZoneID
+    int            timeZoneRawOffset
+    String         type
+    String         units
+    String         unitsProfileDepths
+    String         unitsProfileValues
+    double[]       values
+  METHODS
+    boolean        allMissing()
+    Object         clone()
+    void           clone(TimeSeriesContainer tsc)
+    TimeSeriesContainer collapseVerticalDatum()
+    boolean        compressData()
+    boolean        convertTimeZone(String toTimezoneID, boolean observeDST)
+    void           convertTimeZone(TimeZone toTimezone)
+    TimeSeriesContainer expandVerticalDatum()
+    String         getAsString()
+    String         getAsXML()
+    String[]       getCharacterNotes()
+    boolean        getDataSetStats(TsDataSetStats dataStats)
+    HecTime        getEndTime()
+    String         getFullVersionedName()
+    HecTime        getHecTime(int index)
+    int            getJulianBaseDate()
+    int[]          getJulianDateAndTimeGranularity(HecTimeArray hecTimes, int dataValuesLength)
+    String         getLocationName()
+    int[]          getMinutes()
+    long[]         getMinutesLong()
+    long           getMinutesLong(int index)
+    int            getNumberValues()
+    String         getParameterName()
+    double[]       getProfileDepths()
+    String         getProfileDepthsUnits()
+    String         getProfileLabel()
+    int            getProfileNumberDepths()
+    double[][]     getProfileValues()
+    String         getProfileValuesUnits()
+    int[]          getQuality()
+    int[][]        getQuality7()
+    int            getQualitySize()
+    String         getShortName()
+    HecTime        getStartTime()
+    int            getTimeGranularitySeconds()
+    int            getTimeInterval()
+    int            getTimeIntervalSeconds()
+    HecTimeArray   getTimes()
+    String         getTimeZoneID()
+    String         getType()
+    String         getUnits()
+    double         getValue(int index)
+    double         getValue(HecTime time)
+    double[]       getValues()
+    VersionDate    getVersionDate()
+    String         getVersionName()
+    Optional<VerticalDatum> getVerticalDatumMetadata()
+    boolean        hasValidProfileData()
+    void           makeAscending()
+    double         maximumValue()
+    double         maxmimumValue()
+    double         mean()
+    double         minimumValue()
+    void           printToConsole()
+    void           printToConsole(int maxNumberToPrint)
+    int            removeAllMissing()
+    int            set(double[] dataValues, long[] minutes)
+    int            set(double[] dataValues, HecTimeArray hecTimes)
+    int            set(double[] dataValues, HecTimeArray hecTimes, int julBaseDate, int timeGranularityInSeconds)
+    int            set(HecTimeArray hecTimes, int julBaseDate, int timeGranularityInSeconds)
+    void           setCharacterNotes(String[] characterNotes)
+    void           setCompressData(boolean compress)
+    void           setEndTime(HecTime end)
+    void           setJulianBaseDate(int julBaseDate)
+    int            setProfile(double[] profileDepths, double[][] profileValues)
+    void           setProfileDepthsUnits(String unitsProfileDepths)
+    void           setProfileLabel(String profileLabel)
+    void           setProfileValuesUnits(String unitsProfileValues)
+    int            setQuality(int[] qualityIn)
+    int            setQuality7(int[][] qualityIn)
+    void           setStartTime(HecTime start)
+    void           setTimeGranularitySeconds(int timeGranularityInSeconds)
+    int            setTimes(HecTimeArray hecTimes)
+    void           setTimeZoneID(String timeZoneIdentifier)
+    void           setType(String dataType)
+    void           setUnits(String dataUnits)
+    int            setValues(double[] dataValues)
+    void           setVersionDate(VersionDate versionDate)
+    boolean        trimToTime(HecTime newStartTime, HecTime newEndTime)
+    boolean        trimToTime(HecTime newStartTime, HecTime newEndTime, boolean bShrinkOnly)
+    boolean        usesExtendedDates()
+
+CLASS hec.lang.DSSPathString
+  public class DSSPathString extends Object implements Serializable
+  Represents a DSS pathname string. It is not connected directly to any data the way of hec.heclib.dss.HecDSSPathname.
+  FIELDS
+    int            APART
+    int            BPART
+    int            CPART
+    String         DELIM
+    int            DPART
+    int            EPART
+    int            FPART
+    int            MAX_PART_LEN
+    int            MAX_PATH_LEN
+  METHODS
+    void           cleanPathParts()
+    void           cleanPathParts(String[] parts)
+    String         getAPart()
+    String         getBPart()
+    String         getCPart()
+    String         getDPart()
+    String         getEPart()
+    String         getFPart()
+    String         getPart(int p)
+    String         getPathname()
+    String         getPathname(String[] parts)
+    boolean        isValid()
+    boolean        isValid(String pathname)
+    String[]       parsePathname(String pathname)
+    int            parsePathname(String pathname, int[] slashPositions)
+    void           setAPart(String s)
+    void           setBPart(String s)
+    void           setCPart(String s)
+    void           setDPart(String s)
+    void           setEPart(String s)
+    void           setFPart(String s)
+    void           setPart(String s, int p)
+    void           setPathname(String pathname)
+    void           setPathname(String[] sa)
+    void           setPathname(String a, String b, String c, String d, String e, String f)
+    String         toString()
+
+CLASS hec.model.PairedValuesExt
+  public class PairedValuesExt extends Object implements AsciiSerializable, Cloneable
+  Represents an array of paired values with multiple Y data. Parsing functions are provided to read from and write data to strings. Functions are provided to interpolate data between intervals.
+  FIELDS
+    String         INTERP_CUBIC
+    int            INTERP_CUBIC_ID
+    String         INTERP_LINEAR
+    int            INTERP_LINEAR_ID
+    String         INTERP_STEP
+    int            INTERP_STEP_ID
+    String[]       INTERP_STRINGS
+  METHODS
+    void           addPair(double xval, double yval)
+    void           addPair(double xval, double[] yval)
+    boolean        canInterpX()
+    void           clearValues()
+    PairedValuesExt clone()
+    String         debugString()
+    int            findInterval(double xval)
+    int            findInterval(double[] array, double val)
+    PairedValues   getCurve(int icurve)
+    String[]       getCurveLabels()
+    double[]       getCurveLabelValues()
+    String         getData()
+    Vector<ValueSet> getDataVector()
+    DSSIdentifier  getDssIdentifier()
+    Object         getFieldObject(Field fld)
+    int            getInterpolationType()
+    double         getLargestValue()
+    int            getNumberCurves()
+    int            getNumY()
+    PairedDataContainer getPairedDataContainer()
+    int            getParametersId(int icol)
+    int[]          getParametersIds()
+    int            getParamXId()
+    String         getParamXString()
+    String         getParamXUnitsString()
+    int            getParamYId()
+    String         getParamYString()
+    String         getParamYUnitsString()
+    int            getParamZId()
+    String         getParamZString()
+    String         getParamZUnitsString()
+    int            getUnitSystem()
+    double[]       getXArray()
+    double         getXValue(double yval)
+    double         getXValue(int i)
+    void           getXValue(int i, ParamDouble pd)
+    double[]       getYArray()
+    double[]       getYArray(int iset)
+    double[][]     getYData()
+    double         getYValue(double xval)
+    double         getYValue(double xval, int iset)
+    double         getYValue(int i)
+    double         getYValue(int i, int iset)
+    void           getYValue(int i, int iset, ParamDouble pd)
+    void           getYValue(int i, ParamDouble pd)
+    boolean        hasCurveLabels()
+    void           init()
+    void           insertCurve(int index, double value)
+    double         interpolate(double xval)
+    double         interpolate(double xvalue, double zvalue)
+    double         interpolate(double xval, int iset)
+    double         interpolateStepValue(double xval)
+    double         interpolateStepValue(double xval, int iset)
+    double         interpolateValue(double xval)
+    double         interpolateValue(double xval, int iset)
+    double         interpolateValueCubicSpline(double xval)
+    double         interpolateValueCubicSpline(double xval, int iset)
+    double         interpolateY(double yval)
+    double         interpolateY(double yvalue, double zvalue)
+    double         interpolateY(double yval, int iset)
+    boolean        isXValueOutOfRange(double xval)
+    boolean        isZValueOutOfRange(double zval)
+    void           removeCurve(int index)
+    void           removePair(int i)
+    void           setArrays(double[][] values)
+    void           setArrays(double[] xarray, double[] yarray)
+    void           setArrays(double[] xarray, double[][] yarray)
+    void           setCurveLabels(String[] curveLabels)
+    boolean        setData(PairedDataContainer pdc)
+    int            setData(String values)
+    void           setDssIdentifier(DSSIdentifier dssId)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setInterpolationType(int type)
+    void           setNumY(int n)
+    void           setParamXId(int paramId)
+    void           setParamYId(int paramId)
+    void           setParamZId(int paramId)
+    void           setUnitSystem(int us)
+    int            size()
+    String         toString()
+    String         toTableForm(int precision)
+
+CLASS hec.model.RunTimeStep
+  public class RunTimeStep extends Object
+  Represents the active time step within a RunTimeWindow
+  FIELDS
+    int            flag
+    int            nstep
+    RunTimeWindow  rtw
+    int            step
+  METHODS
+    String         dateTimeString()
+    String         dateTimeString(int theStep)
+    int            getDayOfWeek()
+    int            getDayOfWeek(HecTime htime)
+    HecTime        getHecTime()
+    int            getPrevStep()
+    RunTimeWindow  getRunTimeWindow()
+    int            getStep()
+    int            getTimeStepMinutes()
+    int            getTimeStepSeconds()
+    int            getTotalNumSteps()
+    int            hecJulian()
+    int            hecMinutes()
+    void           increment()
+    void           init(RunTimeStep rts)
+    boolean        isPerAvgTimeStep()
+    int            month()
+    void           setStep(int i)
+    int            valueMinutes()
+
+CLASS hec.model.RunTimeWindow
+  public class RunTimeWindow extends Object implements Serializable, AsciiSerializable, Cloneable
+  Contains data that defines the time window for model execution. This object is passed to model alternatives when there compute method is called.
+  FIELDS
+    String[]       _incrementString
+    int            INCR_DAY
+    int            INCR_HOUR
+    int            INCR_MIN
+    int            INCR_SEC
+  METHODS
+    RunTimeWindow  clone()
+    boolean        computeSteps()
+    boolean        equals(Object obj)
+    String         getEndDateString()
+    String         getEndHrMinString()
+    HecTime        getEndTime()
+    String         getEndTimeString()
+    HecTime        getExtractStartTime()
+    Object         getFieldObject(Field fld)
+    int            getForecastSteps()
+    String         getLookbackDateString()
+    String         getLookbackHrMinString()
+    HecTime        getLookbackTime()
+    String         getLookbackTimeString()
+    int            getNumberOfYears()
+    double         getNumberOfYearsWithFraction()
+    int            getNumLookbackSteps()
+    int            getNumRoutingSteps()
+    int            getNumSteps()
+    RunTimeStep    getRunTimeStepAtTime(HecTime time)
+    String         getStartDateString()
+    String         getStartHrMinString()
+    HecTime        getStartTime()
+    String         getStartTimeString()
+    int            getStepAtTime(HecTime time)
+    HecTime        getTimeAtStep(int i)
+    int            getTimeBlockIndex()
+    int            getTimeIncrement()
+    String         getTimeIncrementString()
+    int            getTimeStep()
+    int[]          getTimeStep(String str)
+    int            getTimeStepMinutes()
+    int            getTimeStepSeconds()
+    int            getTimeStepSeconds(int timeStep, int timeStepIncrement)
+    String         getTimeStepString(int format)
+    String         getTimeStepString(int timeStep, int timeIncrement)
+    String         getTimeStringAtStep(int timeStep)
+    String         getTimeWindowString()
+    int            hashCode()
+    boolean        isPerAvgTimeStep()
+    boolean        isValid()
+    void           main(String[] args)
+    void           set(String times)
+    void           setEndTime(HecTime end)
+    void           setEndTime(String timestr)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setLookbackTime(HecTime lookback)
+    void           setLookbackTime(String timestr)
+    void           setNumLookbackSteps(int numSteps)
+    void           setNumRoutingSteps(int numSteps)
+    void           setPeriodAvgTimeStep(boolean b)
+    void           setShowTimeAsBeginningOfDay(boolean b)
+    void           setStartTime(HecTime start)
+    void           setStartTime(String timestr)
+    void           setTimeBlockIndex(int index)
+    void           setTimeStep(int dt, int inc)
+    void           setTimeStep(String str)
+    String         toString()
+
+CLASS hec.model.SeasonalValue
+  public class SeasonalValue extends Object implements AsciiSerializable
+  Contains a set of date-values pairs representing seasonal variation of a value. Methods include string I/O and interpolation functions.
+  METHODS
+    void           addValue(String datestr, double val)
+    void           clearData()
+    Object         getFieldObject(Field fld)
+    double         interpolateStepValue(RunTime runtime)
+    double         interpolateStepValue(RunTimeStep rts)
+    double         interpolateValue(RunTime runtime)
+    double         interpolateValue(RunTimeStep rts)
+    int            parseString(String param)
+    boolean        setFieldObject(Field fld, Object fobj)
+    int            size()
+    String         toString()
+
+CLASS hec.model.TSRecord
+  public interface TSRecord
+  Maps a time series location to a DSS record.
+  FIELDS
+    int            DEFAULT_INPUT
+    int            OBS_INPUT
+    int            SUMMARY_AVG
+    int            SUMMARY_CNT
+    int            SUMMARY_MAX
+    int            SUMMARY_MIN
+    int            SUMMARY_NUMID
+  METHODS
+    double         average(int step, int period)
+    boolean        checkTSData()
+    int            getBeginDate()
+    int            getBeginTime()
+    double         getCumulativeTotal(int step, int period)
+    double         getCumulativeTotal(RunTimeStep rts, int period)
+    double         getCurrentValue(RunTimeStep rts)
+    double[]       getDataArrayFor(int step, int period)
+    String         getDSSFilename()
+    String         getDSSPathname()
+    default double getFactor()
+    int            getIndex()
+    int            getInputDataPos()
+    double[]       getInterpolatedTSArray(HecTime startTime, HecTime endTime, int intervalTime)
+    String         getInterpUnitsType()
+    double         getLaggedValue(RunTimeStep rts, int lagAmount)
+    String         getName()
+    int            getNumSteps()
+    String         getParamName()
+    double         getPeriodAverage(int step, int period)
+    double         getPeriodAverage(RunTimeStep rts, int period)
+    double         getPreviousValue(RunTimeStep rts)
+    double[]       getSummaryArray()
+    int[]          getTimeArray()
+    TimeSeriesContainer getTimeSeriesContainer()
+    TimeSeriesContainer getTimeSeriesContainerFor(int step, int period)
+    int            getTimeStepMinutes()
+    String         getTimeWindowString()
+    double[]       getTSArray()
+    doubleArrayContainer getTSContainer()
+    double         getTSValueAt(HecTime time)
+    String         getUnits()
+    String         getUnitsType()
+    double         getValue(int step)
+    double         getValue(HecTime time)
+    int            getVariableId()
+    boolean        initialize(int beginDate, int beginTime, int timeStepMin, int numSteps, String timeWindow)
+    boolean        initialize(RunTimeWindow rtw)
+    boolean        isDefaultData()
+    default boolean isInput()
+    boolean        isObservedData()
+    boolean        isValidValue()
+    boolean        loadRawTSData()
+    boolean        loadTSData()
+    boolean        loadTSData(HecTime startTime, HecTime endTime)
+    double         max(int step, int period)
+    double         min(int step, int period)
+    boolean        readData(BufferedReader input)
+    boolean        readDataFromRas(BufferedReader input)
+    boolean        reinitialize(RunTimeWindow rtw)
+    void           reset()
+    void           setCompressData(boolean compress)
+    void           setCurrentValue(int step, double value)
+    void           setCurrentValue(RunTimeStep rts, double value)
+    void           setDSSFilename(String fileName)
+    void           setDSSPathname(String pathname)
+    void           setDSSPathname(String[] parts)
+    void           setIndex(int idx)
+    default void   setInput(boolean isinput)
+    void           setInputDataPos(int inputPos)
+    void           setInterpUnitsType(String type)
+    void           setName(String name)
+    void           setParamName(String name)
+    void           setTimeWindow(HecTime start, HecTime end)
+    void           setTimeWindowString(String timestr)
+    void           setUnits(String units)
+    void           setUnitsType(String units)
+    void           setVariableId(int varid)
+    void           shiftLeft(HecTime startTime)
+    void           shiftLeft(RunTimeWindow rtw)
+    double         standardDeviation(int step, int period)
+    double         sum(int step, int period)
+    boolean        writeData(BufferedWriter out)
+    boolean        writeDataToRas(BufferedWriter out)
+    boolean        writeTSData()
+    boolean        writeTSDataAs(String pathname, String interpUnitType)
+
+CLASS hec.rss.model.ConstantRelease
+  public class ConstantRelease extends Rule
+  Deprecated.
+  METHODS
+    double         getReleaseValue()
+    void           getReleaseValue(ParamDouble pd)
+    double         getValue(AdjustableParameter adjparam, RunTimeStep runtime, double val)
+    boolean        readData(BufferedReader input)
+    void           setReleaseValue(double value)
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.ControlStructure
+  public abstract class ControlStructure extends Function
+  clone method
+  METHODS
+    Object         clone()
+    void           copyInto(ControlStructure cs)
+    AdjustableParameter getAdjustableParameter()
+    double         getEstimatedFlow(RunTimeStep rts, int iteration)
+    double         getEstimatedROD(RunTimeStep rts, int iteration)
+    double         getEstimatedROI(RunTimeStep rts, int iteration)
+    Object         getFieldObject(Field fld)
+    IntakeGeometry getIntakeGeometry()
+    double         getRelease(double elev)
+    int            initForecastOperations(RunTimeWindow rtw)
+    double         periodAverageFlow(double[] xt, double[] et, int tcnt)
+    double         periodAverageFlow(double elev0, double elev1, double dt)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setIntakeGeometry(IntakeGeometry geometry)
+
+CLASS hec.rss.model.Dam
+  public class Dam extends ControlStructure implements AltInputReportInfc
+  clone method
+  METHODS
+    Object         clone()
+    int            computeForecastStep(RunTimeStep runtime)
+    int            computeForecastStep(RunTimeStep runtime, double[] xt, double[] et, int tcnt)
+    int            computeHindcastStep(RunTimeStep runtime)
+    double         computeStepFlow(RunTimeStep rts)
+    double         computeSubStepFlow(RunTimeStep rts, double xt, double et)
+    boolean        getComputesLeakage()
+    double         getEstimatedFlow(RunTimeStep rts, double elev0, double elev1)
+    double         getEstimatedFlow(RunTimeStep rts, int iteration)
+    double         getEstimatedROD(RunTimeStep rts, int iteration)
+    double         getEstimatedROI(RunTimeStep rts, int iteration)
+    Object         getFieldObject(Field fld)
+    double         getHindcastFlow(RunTimeStep rts)
+    PairedValues   getLeakageValues()
+    double         getRelease(double elev)
+    double         getTopOfDam()
+    void           getTopOfDam(ParamDouble pd)
+    double         getWeirCoef()
+    double         getWidthOfDam()
+    void           getWidthOfDam(ParamDouble pd)
+    boolean        hasLeakageValues()
+    boolean        initialize()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           setComputesLeakage(boolean b)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setLeakageValues(PairedValues lv)
+    void           setTopOfDam(double dbl)
+    void           setTopOfDam(ParamDouble pd)
+    void           setupForSerialization()
+    void           setWeirCoef(double dbl)
+    void           setWidthOfDam(double dbl)
+    void           setWidthOfDam(ParamDouble pd)
+    void           updateTSProxyList()
+
+CLASS hec.rss.model.DiversionElement
+  public class DiversionElement extends Element implements SeepageConstants, ReleaseElement, AltInputReportInfc, OperationsElement
+  adds a node to this element
+  FIELDS
+    String         CONTROL_STR
+    String         KNOWN_DIVERSION
+  METHODS
+    void           addNode(RssNode n, int idir)
+    double         calcSeepageFlow(double flow)
+    Object         clone()
+    int            computeForecast(RunTimeWindow rtw, int computeFlag)
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeHindcast(RunTimeWindow rtw, int computeFlag)
+    int            computeHindcastStep(RunTimeStep rts)
+    void           convertRoutingElement()
+    void           disconnectDownstream(double eoff, double noff)
+    Vector         getActiveTSProxies(Vector vec, int iotype)
+    PairedValuesExt getCompositeRelease()
+    Vector         getComputedTSRecordProxies()
+    boolean        getComputeDuringUnReg()
+    List<ConditionalBlockRef> getConditionalBlockRefs(int opid, List<ConditionalBlockRef> condList)
+    double         getConstSeepage()
+    void           getConstSeepage(ParamDouble pd)
+    ControlStructure getControlElement()
+    Controller     getController()
+    String         getControllerName()
+    Vector         getDefaultModelVariables()
+    RssNode        getDiversionNode()
+    DiversionOp    getDiversionOps()
+    long           getDiversionProjectId()
+    double         getDiversionVolume(RunTimeStep rts)
+    String         getDivOpName()
+    RssNode        getDownstreamNode()
+    ElementOp      getElementOp()
+    ElementOp      getElementOp(boolean init)
+    Object         getFieldObject(Field fld)
+    String         getFillColorName()
+    int            getInflowType()
+    WorldLine      getLine()
+    Color          getLineColor()
+    List<Element>  getLinkedElementList(int direction)
+    Vector         getModelVariables(Vector variableList)
+    Element        getReachElement()
+    void           getReferencedStateVariables(List svlist)
+    WorldPt        getReferencePt()
+    Vector         getRequiredTSRecordProxies()
+    double         getReturnRatio()
+    List           getRuleConnectivityRefs()
+    void           getRules(int opid, List rulevec)
+    int            getSeepageType()
+    PairedValues   getSeepageValues()
+    Element        getSourceElement()
+    Storage        getStorageFunction()
+    Vector         getTSRecords(ModelVariable plotVariable, Vector proxyList)
+    RssNode        getUpstreamNode()
+    VerticalDatumSettings getVerticalDatumSettings()
+    boolean        hasReach()
+    boolean        importFrom(RuleResolution rr)
+    int            initForecastOperations(RunTimeWindow rtw)
+    boolean        initialize(RunTimeWindow rtw)
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           removeNode(RssNode node)
+    void           setActive(boolean active)
+    void           setComputeDuringUnReg(boolean b)
+    void           setConstSeepage(double s)
+    void           setConstSeepage(ParamDouble pd)
+    void           setDiversionProjectId(long id)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setFillColorName(String fillColorName)
+    void           setFlowHindcastCondition(int hindcastCondition)
+    void           setInflowType(int inFlowType)
+    void           setLine(WorldLine reg)
+    void           setReferencePt(WorldPt pt)
+    void           setReturnRatio(double s)
+    boolean        setSeepageType(int cond)
+    void           setSeepageValues(PairedValues e)
+    void           setupForSerialization()
+    void           setVeriticalDatumSettings(VerticalDatumSettings vSettings)
+    void           updateDecisions(RunTimeStep rts, int iteration)
+    int            updateOperations(RunTimeStep rts, int iteration, boolean evalDownstream)
+    void           updateOperations(RssSystem rssSystem)
+    void           updateTSProxyList()
+
+CLASS hec.rss.model.DiversionRule
+  public class DiversionRule extends Rule
+  Provides a more flexible diversion flow rule, similar the the ReleaseFunctionOpRule for reservoir releases. Uses the IndependentVariable. The DiversionRule is edited in the DiversionRulePanel.
+  FIELDS
+    String         FLOW
+    int            NONE
+  METHODS
+    Object         clone()
+    Vector         getActiveTSRecordProxies(Vector vec, int iotype)
+    void           getElementDependencies(List elemList)
+    Object         getFieldObject(Field fld)
+    String         getFlowLocation()
+    int            getFlowLocationIndex()
+    SeasonalPairedValues getFunctionRelease()
+    IndependentVariable getIndependentVariable()
+    double         getLimitValue(RunTimeStep rts)
+    void           getReferencedStateVariables(List svlist)
+    SeasonalPairedValues getSeasonalFlowValues()
+    SeasonalRecord getSeasonalRecord()
+    double         getValue(AdjustableParameter adjparam, RunTimeStep runtime, double val)
+    boolean        hasSeasonalVariation()
+    boolean        initialize()
+    boolean        initializeCompute()
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setFlowLocation(String flowName)
+    void           setFlowLocationIndex(int id)
+    void           setFunctionRelease(PairedValues pv)
+    void           setFunctionRelease(SeasonalPairedValues spv)
+    void           setHasSeasonalVariation(boolean tf)
+    void           setIndependentVariable(IndependentVariable independentVariable)
+    void           setSeasonalFlowValues(SeasonalPairedValues spv)
+    void           setSeasonalRecord(SeasonalRecord sr)
+    void           updateTSProxyList()
+
+CLASS hec.rss.model.DivertedOutletElement
+  public class DivertedOutletElement extends ReservoirOutletElement implements SeepageConstants, TailElevContainer, AltInputReportInfc
+  override Element method to handle connectivity
+  FIELDS
+    int            REACH_CHILD_ID
+    int            TAILWATER_CHILD_ID
+  METHODS
+    void           addChildElement(Element child)
+    void           addNode(RssNode n, int idir)
+    double         calcSeepageFlow(double flow)
+    Object         clone()
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeHindcastStep(RunTimeStep rts)
+    void           convertRoutingElement()
+    void           disconnectDownstream(double eoff, double noff)
+    PairedValuesExt getCompositeRelease()
+    double         getConstSeepage()
+    void           getConstSeepage(ParamDouble pd)
+    Vector         getDefaultModelVariables()
+    long           getDiversionProjectId()
+    RssNode        getDownstreamNode()
+    List           getDownstreamNodes(List vec)
+    Object         getFieldObject(Field fld)
+    int            getInflowType()
+    WorldLine      getLine()
+    Color          getLineColor()
+    Vector         getModelVariables(Vector variableList)
+    Element        getReachElement()
+    RssNode        getReachNode()
+    WorldPt        getReferencePt()
+    double         getReturnRatio()
+    int            getSeepageType()
+    PairedValues   getSeepageValues()
+    RssNode        getTailNode()
+    Element        getTailwaterElement()
+    TailwaterElevation getTailwaterElevation()
+    Vector         getTSRecords(ModelVariable plotVariable, Vector proxyList)
+    RssNode        getUpstreamNode()
+    boolean        hasOutlets()
+    boolean        hasPowerPlant()
+    boolean        hasReach()
+    boolean        hasTailElev()
+    boolean        initialize(RunTimeWindow rtw)
+    boolean        isConnected()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           removeNode(RssNode node)
+    void           setActive(boolean active)
+    void           setActive(boolean active, boolean recurse)
+    void           setConstSeepage(double s)
+    void           setConstSeepage(ParamDouble pd)
+    void           setDiversionProjectId(long id)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setHasTailElev(boolean b)
+    void           setInflowType(int inFlowType)
+    void           setLine(WorldLine reg)
+    void           setParentElement(Element e)
+    void           setReferencePt(WorldPt pt)
+    void           setReturnRatio(double s)
+    boolean        setSeepageType(int cond)
+    void           setSeepageValues(PairedValues e)
+    void           setupForSerialization()
+
+CLASS hec.rss.model.Element
+  public class Element extends NamedType implements RssTSLocation, RssReturnStatusConstants, PlottableObject, PlotVariableConstants, RssModelVariableConstants
+  adds a node to this element
+  FIELDS
+    int            DIVERSION_ELEMENT_ID
+    int            DIVERTEDOUTLET_ELEMENT_ID
+    int            INFLOW
+    int            JUNCTION_ELEMENT_ID
+    int            OUTFLOW
+    int            REACH_ELEMENT_ID
+    int            RESERVIOR_ELEMENT_ID
+  METHODS
+    void           addChildElement(Element child)
+    void           addChildElementAt(Element child, int idx)
+    void           addNode(RssNode node, int idir)
+    void           addNode(RssNode node, int idir, boolean makeTS)
+    void           applyHindcastData(HindcastData hd)
+    double         calcSeepageFlow(double flow)
+    Enumeration    children()
+    void           cleanupFromDeSerialization()
+    void           cleanVectors()
+    void           clearTSProxyList()
+    Object         clone()
+    int            computeForecast(RunTimeWindow rtw, int computeType)
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeForecastStep(RunTimeStep rts, double[] xt, double[] et, int tcount)
+    int            computeHindcast(RunTimeWindow rtw, int computeType)
+    int            computeHindcastStep(RunTimeStep rts)
+    double         computeSubStepFlow(RunTimeStep rts, double xt, double et)
+    void           copyInto(Element re)
+    protected ElementHotstartState createHotstartState()
+    void           dispose()
+    void           dispose(boolean disposeAllNodes)
+    boolean        downStreamFrom(Element element)
+    AdjustableParameter findAdjParam(String fname, String param)
+    AdjustableParameter findAdjParam(String elemName, String function, String param)
+    Element        findElement(String name)
+    List           getActiveStateVariables(List svlist)
+    Vector         getActiveTSProxies(Vector vec, int iotype)
+    Element        getChildElementAt(int i)
+    int            getChildElementCount()
+    Vector         getComputedTSRecordProxies()
+    Vector         getComputedTSRecordProxies_old()
+    Vector         getDefaultModelVariables()
+    String         getDisplayName()
+    Vector<Element> getDownstreamElements(Vector<Element> vec)
+    RssNode        getDownstreamNode()
+    List           getDownstreamNodes(List vec)
+    double         getEffectiveElev(RunTimeStep rts)
+    Element        getElement(int idx)
+    Element        getElementByName(String name)
+    Vector         getElementsByClass(Class eclass, Vector vec)
+    String         getElementType()
+    int            getElementTypeId()
+    Vector         getElementVector()
+    Object         getFieldObject(Field fld)
+    Vector         getFlowContolTSRecordProxies()
+    ForebayHeadLoss getForebayHeadLoss()
+    boolean        getForecastEquation(RunTime runtime)
+    String         getFullName()
+    Function       getFunction()
+    void           getHindcastDataList(Vector hvec)
+    boolean        getHindcastEquation(RunTime runtime)
+    String         getKeyStringForObject(Object obj)
+    List<Element>  getLinkedElementList(int direction)
+    Vector         getModelVariables(Vector variableList)
+    RssNode        getNode(int idx)
+    int            getNodeCount()
+    int            getNodeDir(int idx)
+    Vector         getNodeDirVector()
+    Vector         getNodeVector()
+    Object         getObjectForKeyString(String keystr)
+    int            getObjectTypeId(ModelVariable mv)
+    Vector         getObsDataVector()
+    Vector         getOutletElementList()
+    void           getOutletElementList(Vector vec)
+    protected String getOutputBPart()
+    Element        getParent()
+    String         getPlotTypeDirectory()
+    BufferedReader getPlotTypeFile(String name)
+    Vector         getPlotTypeNames()
+    Vector         getPlotTypes()
+    double         getPrevEffectiveElev(RunTimeStep rts)
+    WorldPt        getReferencePt()
+    List           getReleaseElements(List vec)
+    Vector         getRequiredTSRecordProxies()
+    List           getRuleConnectivityRefs()
+    RssSystem      getSystem()
+    List           getTailwaterElevationObjects(List list)
+    Element        getTopParent()
+    String         getTopParentName()
+    TSDataSet      getTSDataSet(boolean isInput)
+    Vector         getTSRecordProxies()
+    TSRecordProxy  getTSRecordProxy(int varid)
+    TSRecordProxy  getTSRecordProxy(String param)
+    Vector         getTSRecords(ModelVariable modelVariable, Vector vec)
+    Vector         getTSRecords(ModelVariable modelVariable, Vector vec, Vector runs)
+    int            getUnitSystem()
+    RssNode        getUpstreamNode()
+    List<RssNode>  getUpstreamNodes(List<RssNode> vec)
+    WaterControlDevice getWaterControlDevice()
+    boolean        hasElementsOfClass(Class eclass)
+    boolean        hasForebayHeadLoss()
+    boolean        hasWaterControlDevice()
+    protected void importObservedData(Element fromElem, StringBuffer results)
+    boolean        initForecastLoop(RunTimeWindow rtw)
+    boolean        initForPostProcessing(RunTimeWindow rtw)
+    boolean        initHindcastLoop(RunTimeWindow rtw)
+    boolean        initialize(RunTimeWindow rtw)
+    protected void initTSVals(int istep)
+    boolean        isActive()
+    boolean        isDirty()
+    boolean        isDisposed()
+    boolean        isNodeComputed(RssNode nd)
+    boolean        readData(BufferedReader input)
+    void           removeAllChildElements()
+    void           removeChild(Element child)
+    void           removeNode(RssNode node)
+    void           resetParentElement()
+    void           restoreElementState(int stateid)
+    boolean        restoreHotstartState(HotstartState parentState)
+    void           saveElementState(int stateid)
+    void           saveHotstartState(HotstartState parentState, int stateId)
+    void           setActive(boolean active)
+    void           setActive(boolean active, boolean recurse)
+    void           setDirty(boolean dirty)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setFunction(Function f)
+    void           setHasForebayHeadLoss(boolean b)
+    void           setName(String name)
+    void           setObsDataVector(Vector obsDataList)
+    void           setParentElement(Element e)
+    void           setupForSerialization()
+    void           setWaterControlDevice(WaterControlDevice waterControlDevice)
+    String         toString()
+    void           updateTSProxyList()
+    void           updateWQTSProxyList(List<ModelVariable> conList)
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.JunctionElement
+  public class JunctionElement extends Element implements AltInputReportInfc
+  add nodes from given junction and then dispose of it
+  FIELDS
+    protected int  _cpIndex
+    protected boolean _hasKnownOutflow
+  METHODS
+    void           addJunction(JunctionElement j)
+    void           finalize()
+    List           getActiveStateVariables(List svlist)
+    long           getComputationPointId()
+    Vector         getConnectedElements()
+    int            getCPIndex()
+    void           getData(JunctionElementData jed)
+    Vector         getDefaultModelVariables()
+    Vector         getDiversions(Vector divVec)
+    Object         getFieldObject(Field fld)
+    String         getFillColorName()
+    int            getLabelPosition()
+    List<TSRecord> getLocalFlowTimeSeries()
+    TSRecord       getLocalFlowTimeSeries(String localFlowName)
+    Vector         getLocalFlowVector()
+    Vector         getModelVariables(Vector variableList)
+    Vector         getRequiredTSRecordProxies()
+    StreamElement  getStream()
+    int            getStreamJunctionId()
+    double         getStreamStation()
+    String[]       getTribNameArray()
+    Vector         getTSRecords(ModelVariable plotVariable, Vector proxyList)
+    boolean        hasConnectedElements()
+    boolean        hasRatingCurve()
+    boolean        importFrom(RuleResolution rr)
+    boolean        isConfluence()
+    boolean        isDownstreamControlLocation()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    boolean        readData(BufferedReader input)
+    void           resetStream()
+    void           setComputationPoint(ComputationPoint cp)
+    void           setCPIndex(int cpIndex)
+    void           setData(JunctionElementData jed)
+    void           setData(JunctionElementData jed, boolean setInfoData)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setFillColorName(String name)
+    void           setLabelPosition(int p)
+    void           setLocalFlowVector(Vector vect)
+    void           setStreamJunctionId(int juncId)
+    boolean        setStreamStation(StreamElement stream, double station)
+    String         toString()
+    void           updateTSProxyList()
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.LocalTSRecordImpl
+  public class LocalTSRecordImpl extends TSRecordImpl implements LocalTSRecord
+  Load raw ts data.
+  METHODS
+    boolean        loadRawTSData(DSSManager dssManager)
+    boolean        loadRawTSData(RemoteWrapper dssManagerWrapper)
+    boolean        loadTSData(DSSManager dssManager)
+    boolean        loadTSData(DSSManager dssManager, HecTime startTime, HecTime endTime)
+    boolean        loadTSData(RemoteWrapper dssManagerWrapper)
+    boolean        loadTSData(RemoteWrapper dssManagerWrapper, HecTime startTime, HecTime endTime)
+    boolean        readData(BufferedReader input)
+    boolean        readDataFromRas(BufferedReader input)
+    boolean        writeData(BufferedWriter out)
+    boolean        writeDataToRas(BufferedWriter out)
+
+CLASS hec.rss.model.MonthlyRelease
+  public class MonthlyRelease extends Rule
+  Deprecated.
+  METHODS
+    MonthlyRelease clone()
+    Object         getFieldObject(Field fld)
+    double[]       getMonthlyValues()
+    double         getValue(AdjustableParameter adjparam, RunTimeStep runtime, double val)
+    boolean        readData(BufferedReader input)
+    boolean        setFieldObject(Field fld, Object fobj)
+    boolean        setValues(double[] values)
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.MuskingumRouting
+  public class MuskingumRouting extends Routing
+  clone method
+  METHODS
+    Object         clone()
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeRouting(RunTimeStep rts)
+    int            computeRouting(RunTimeStep rts, double[] inputTS, double[] outputTS, Object[] routingDataTS, double[] routed)
+    double         computeRoutingStep(double deltaT, double q0, double q1, MuskingumRouting.SubReachData initSubOutflow, MuskingumRouting.SubReachData finSubOutflow)
+    double         computeRoutingStepStandalone(int rtsMinutes, double q0, double q1, double reachOutflow, double[] initSubOutflow, double[] finSubOutflow)
+    Object         getFieldObject(Field fld)
+    double[]       getmuskingumK()
+    double[]       getmuskingumX()
+    int            getnumberReaches()
+    int            getNumberSubreaches()
+    double[]       getSubreachFlowArray(double flowIn, double flowOut, int iStep)
+    boolean        hasDefaultParameters()
+    boolean        initialize()
+    boolean        initializeStandalone()
+    void           main(String[] args)
+    Object         newRouteData()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           restoreFunctionState(int stateid)
+    boolean        restoreHotstartState(HotstartState parentState)
+    void           saveFunctionState(int stateid)
+    void           saveHotstartState(HotstartState parentHotstartState, int stateId)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setmuskingumK(double[] muskingumK)
+    void           setmuskingumX(double[] muskingumX)
+    void           setnumberReaches(int numberReaches)
+
+CLASS hec.rss.model.NullRouting
+  public class NullRouting extends Routing
+  clone method
+  METHODS
+    Object         clone()
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeRouting(RunTimeStep rts)
+    double         computeRoutingStepStandalone(int rtsMinutes, double q0, double q1, double reachOutflow, double[] initSubOutflow, double[] finSubOutflow)
+    Object         getFieldObject(Field fld)
+    boolean        initialize()
+    boolean        setFieldObject(Field fld, Object fobj)
+
+CLASS hec.rss.model.OpRule
+  public class OpRule extends RssTSLocationObject implements AltInputReportInfc
+  Operating rule utilized by OpController objects.
+  FIELDS
+    protected int  _avgPeriod
+    protected boolean _enableRiseFallCond
+    protected DayOfWeekMultiplier _multiplier
+    protected int  _parameterType
+    protected int  _riseFallCondition
+    protected double _riseFallTolerance
+    protected RssSystem _system
+    protected TimeOfDayMultiplier _timeOfDayMultiplier
+    protected boolean _useDayOfWeekMultiplier
+    protected boolean _usePeriodAverageLimit
+    protected boolean _useTimeOfDayMultiplier
+    int            FALLING
+    int            FALLING_OR_CONST
+    int            INFLOW
+    int            NONE
+    int            POOL_ELEVATION
+    int            RISING
+    int            RISING_OR_CONST
+    int            RULETYPE_DEMAND
+    int            RULETYPE_FREE
+    int            RULETYPE_MAX
+    int            RULETYPE_MIN
+    int            RULETYPE_SPEC
+  METHODS
+    void           applyHindcastData(HindcastData hd)
+    boolean        checkRisingFallingCondition(RunTimeStep rts)
+    Object         clone()
+    double         computeStepLimit(RunTimeStep rts)
+    void           evaluateLimits(RunTimeStep rts, int iteration)
+    OpValue        evaluateRule(RunTimeStep rts, double initialValue)
+    OpValue        evaluateRule(RunTimeStep rts, double initialValue, int iteration)
+    OpValue        evaluateRule(RunTimeStep rts, double initialValue, int iteration, boolean evalDownstream)
+    void           evaulatePerformance(RunTimeWindow rtw)
+    Vector         getActiveTSRecordProxies(Vector vec, int iotype)
+    int            getAveragingPeriod()
+    OpController   getController()
+    double         getDayOfWeekFactor(RunTimeStep rts)
+    double         getDemandScale()
+    void           getElementDependencies(List elemList)
+    boolean        getEnableRiseFallCondition()
+    Object         getFieldObject(Field fld)
+    int            getGmtOffset()
+    String         getKeyStringForObject(Object obj)
+    double         getLargestDayOfWeekFactor()
+    double         getLargestTimeOfDayFactor()
+    DayOfWeekMultiplier getMultiplier()
+    RssSystem      getNetwork()
+    Object         getObjectForKeyString(String keystr)
+    OperationsElement getOperationsElement()
+    OpValue        getOpValue(RunTimeStep rts)
+    int            getParameterType()
+    OpValue        getPowerOpValue(RunTimeStep rts)
+    double         getPriority(RunTimeStep rts)
+    void           getReferencedStateVariables(List svlist)
+    Vector         getRequiredTSRecordProxies(Vector v)
+    OperationsElement getReservoirElement()
+    int            getRiseFallCondition()
+    double         getRiseFallTolerance()
+    RssSystem      getRssSystem()
+    int            getRuleLimitType()
+    RssSystem      getSystem()
+    TSRecordProxy  getTargetTSRecordProxy()
+    double         getTimeOfDayFactor(RunTimeStep rts)
+    TimeOfDayMultiplier getTimeOfDayMultiplier()
+    String         getTSProxyName()
+    int            getUnitSystem()
+    boolean        initForPostProcessing()
+    boolean        initializeCompute()
+    int            initOperationStep(RunTimeStep rts, int iteration)
+    boolean        isActive(RunTimeStep rts)
+    boolean        isDnstrmRule()
+    boolean        isLocalRule()
+    boolean        isPerAvgRule()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           resetChildOwnership()
+    void           restoreFunctionState(int stateid)
+    void           restoreHotstartState(OpControllerHotstartState opControllerHotstartState)
+    boolean        riseFallConditionIsValid()
+    void           saveFunctionState(int stateid)
+    void           saveHotstartState(HotstartState parentState, int stateId)
+    void           setAveragingPeriod(int seconds)
+    void           setController(OpController controller)
+    void           setDemandScale(double scl)
+    void           setEnableRiseFallCondition(boolean tf)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setMultiplier(DayOfWeekMultiplier mult)
+    void           setParameterType(int type)
+    void           setPeriodAverageLimit(boolean tf)
+    void           setPriority(RunTimeStep rts, double p)
+    void           setRiseFallCondition(int type)
+    void           setRiseFallTolerance(double tol)
+    void           setSystem(RssSystem sys)
+    void           setTimeOfDayMultiplier(TimeOfDayMultiplier mult)
+    void           setUseDayOfWeekMultiplier(boolean tf)
+    void           setUseDemandScale(boolean b)
+    void           setUsePeriodAverageLimit(boolean tf)
+    void           setUseTimeOfDayMultiplier(boolean tf)
+    String         toString()
+    void           updateByDemandScale(double scl)
+    void           updateTSProxyList()
+    boolean        useDayOfWeekMultiplier()
+    boolean        useDemandScale()
+    boolean        usePeriodAverageLimit()
+    boolean        useTimeOfDayMultiplier()
+
+CLASS hec.rss.model.OpValue
+  public class OpValue extends Object implements Comparable, AsciiSerializable
+  A simple class that holds a rule type (max, min, spec), rule value, and rule priority. The OpValue objects are stored in the OpValueSet vector.
+  FIELDS
+    Hashtable      childFractionTable
+    int            constraintid
+    float          priority
+    int            ruleid
+    int            type
+    double         value
+  METHODS
+    int            compareTo(Object o)
+    void           constrainBy(OpValue ov)
+    boolean        equals(Object obj)
+    Object         getFieldObject(Field fld)
+    void           init()
+    void           init(int newType, double newValue)
+    void           init(int t, double v, float p, int rid, int cid)
+    void           init(OpValue ov)
+    boolean        setFieldObject(Field fld, Object fobj)
+    String         toString()
+
+CLASS hec.rss.model.PulsChannelRoutingWithLosses
+  public class PulsChannelRoutingWithLosses extends Routing
+  Modified Puls Channel Routing (with losses) and Working Rinvalid input: '&D' Routing
+  METHODS
+    void           addPulsRecord(PulsRecord cr)
+    Object         clone()
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeRouting(RunTimeStep runtime)
+    int            computeRouting(RunTimeStep rts, double[] inputTS, double[] outputTS, Object[] routingDataTS, double[] routed)
+    void           convertToWatershedUnits()
+    void           copyDataFromPulChannelRouting(PulsChannelRouting oldRoutingFunction)
+    void           emptyPulsVector()
+    Object         getFieldObject(Field fld)
+    boolean        getHasChannelLosses()
+    void           getinvertElevation(ParamDouble pd)
+    double         getMuskingumX()
+    int            getnumberReaches()
+    int            getNumberSubreaches()
+    void           getpercolationRate(ParamDouble pd)
+    Vector         getPulsVector()
+    double[]       getSubreachFlowArray(double flowIn, double flowOut, int iStep)
+    boolean        initialize()
+    boolean        initializeStandalone()
+    Object         newRouteData()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           restoreFunctionState(int stateid)
+    boolean        restoreHotstartState(HotstartState parentState)
+    void           saveFunctionState(int stateid)
+    void           saveHotstartState(HotstartState parentHotstartState, int stateId)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setHasChannelLosses(boolean tf)
+    void           setinvertElevation(ParamDouble pd)
+    void           setIsSI(boolean isSI)
+    void           setMuskingumX(double x)
+    void           setnumberReaches(int numberReaches)
+    void           setpercolationRate(ParamDouble pd)
+    void           setPulsVector(Vector vec)
+
+CLASS hec.rss.model.ReachElement
+  public class ReachElement extends TimeStepRoutingElement implements SeepageConstants, AltInputReportInfc, ITimeStepRoutingElement
+  clone does a deep copy of child objects
+  METHODS
+    double         calcLag()
+    double         calcSeepageFlow(double flow)
+    Object         clone()
+    int            computeForecast(RunTimeWindow rtw, int computeType)
+    int            computeHindcast(RunTimeWindow rtw, int computeType)
+    double         getConstSeepage()
+    void           getConstSeepage(ParamDouble pd)
+    Vector         getDefaultModelVariables()
+    RssNode        getDownstreamNode()
+    Object         getFieldObject(Field fld)
+    String         getFillColorName()
+    WorldLine      getLine()
+    Vector         getModelVariables(Vector variableList)
+    Vector         getPlotTypes()
+    WorldPt        getReferencePt()
+    double         getReturnRatio()
+    int            getSeepageType()
+    PairedValues   getSeepageValues()
+    Vector         getTSRecords(ModelVariable plotVariable, Vector proxyList)
+    RssNode        getUpstreamNode()
+    boolean        importFrom(RuleResolution rr)
+    boolean        initialize(RunTimeWindow rtw)
+    boolean        initializeRoutingForWQ(RunTimeWindow rtw)
+    void           outputReport(AlternativeInputReport report, Element elem)
+    boolean        readData(BufferedReader input)
+    void           setConstSeepage(double s)
+    void           setConstSeepage(ParamDouble pd)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setFillColorName(String color)
+    void           setLine(WorldLine reg)
+    void           setReferencePt(WorldPt pt)
+    void           setReturnRatio(double s)
+    boolean        setSeepageType(int cond)
+    void           setSeepageValues(PairedValues e)
+    void           setupForSerialization()
+    String         toString()
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.ReservoirDamElement
+  public class ReservoirDamElement extends ReservoirOutletElement implements TailElevContainer, AltInputReportInfc
+  override Element method to handle connectivity
+  FIELDS
+    int            DAM_CHILD_ID
+    int            TAILWATER_CHILD_ID
+  METHODS
+    void           addChildElement(Element child)
+    void           addNode(RssNode n, int idir)
+    void           buildDefaultElements()
+    PairedValuesExt getCompositeRelease()
+    boolean        getComputesLeakage()
+    Element        getDamElement()
+    Dam            getDamFunction()
+    Object         getFieldObject(Field fld)
+    Element        getTailwaterElement()
+    TailwaterElevation getTailwaterElevation()
+    Junction       getTailwaterFunction()
+    boolean        hasPowerPlant()
+    boolean        hasTailElev()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           setComputesLeakage(boolean b)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setHasTailElev(boolean b)
+
+CLASS hec.rss.model.ReservoirElement
+  public class ReservoirElement extends Element implements Cloneable, ReleaseElement, AltInputReportInfc, OperationsElement
+  Composite element that represents a simple reservoir.
+  FIELDS
+    int            DAM_ID
+    int            DNSTRM_ID
+    String         ELEVATION
+    String         EVAPORATION
+    String         KNOWN_ELEVATION
+    String         KNOWN_EVAPORATION
+    String         KNOWN_RELEASE
+    String         KNOWN_SPILL
+    String         KNOWN_STORAGE
+    int            OUTLET_ID
+    String         SPILL
+    int            SPILL_ID
+    String         STORAGE
+    int            STORAGE_ID
+    int            TAILWATER_ID
+  METHODS
+    void           addNode(RssNode n, int idir)
+    void           calcPeriodRelAndGenLimits(RunTimeStep rts, int istep, int periodSteps, ReservoirLimitSet limitSet, OpRule callingRule)
+    double         calcPumpbackVolCap(RunTimeStep rts, int istep, int periodSteps)
+    double         calcPumpbackVolMin(RunTimeStep rts, int istep, int periodSteps)
+    void           clearTSProxyList()
+    Object         clone()
+    int            computeForecast(RunTimeWindow rtw, int computeFlag)
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeHindcast(RunTimeWindow rtw, int computeFlag)
+    int            computeHindcastStep(RunTimeStep rts)
+    int            computePumpbackStep(RunTimeStep rts)
+    void           copyInto(ReservoirElement re)
+    DivertedOutletElement createDivertedOutlet(RssNode node0, RssNode node1, Vector ptVec, double tol)
+    protected ElementHotstartState createHotstartState()
+    List<OpRuleRef> findRuleRefsFor(Element elem)
+    List<OpRule>   findRulesFor(Element elem)
+    Vector         getActiveTSProxies(Vector vec, int iotype)
+    PairedValuesExt getCompositeRelease()
+    List<ConditionalBlockRef> getConditionalBlockRefs(int opid, List<ConditionalBlockRef> condList)
+    Vector         getDefaultModelVariables()
+    WaterAccount   getDefaultWaterAccount()
+    Vector         getDivertedOutlets()
+    List           getDownstreamNodes(List vec)
+    Hashtable      getDownstreamRuleNodes(int opid)
+    void           getDownstreamRules(int opid, List rulevec)
+    double         getEffectiveElev(RunTimeStep rts)
+    ElementOp      getElementOp()
+    ElementOp      getElementOp(boolean init)
+    double         getExpectedNetInflowVol(RunTimeStep rts, int steps, OpRule rule)
+    Object         getFieldObject(Field fld)
+    Vector         getFlowContolTSRecordProxies()
+    AdjustableFlow getGatedFlowFunction()
+    double         getGuideCurveStorage(RunTimeStep rts)
+    int            getLabelPosition()
+    Vector         getModelVariables(Vector variableList)
+    String         getNextChildName(String classname, String basename)
+    String         getNextControlledOutletName()
+    String         getNextDivertedOutletName()
+    String         getNextOutletGroupName()
+    String         getNextPowerPlantName()
+    String         getNextPumpName()
+    String         getNextReversiblePumpName()
+    String         getNextUncontrolledOutletName()
+    String         getNextWaterControlDeviceName()
+    PowerPlant[]   getPowerPlants()
+    double         getPrevEffectiveElev(RunTimeStep rts)
+    Pump[]         getPumps()
+    WorldPt        getReferencePt()
+    WorldRegion    getRegion()
+    Vector         getRequiredTSRecordProxies()
+    ReservoirOp    getReservoirOp()
+    protected boolean getReservoirOpFromDbf()
+    List           getReservoirOutletElements(List list)
+    long           getReservoirProjectId()
+    ReservoirSysOp getReservoirSysOp()
+    protected boolean getReservoirSysOpFromDbf()
+    String         getResOpName()
+    List           getRuleConnectivityRefs()
+    void           getRules(int opid, List rulevec)
+    Element        getStorageElement()
+    Storage        getStorageFunction()
+    StorageZone    getStorageZone(int opid, int zoneid)
+    void           getStorageZones(int opid, List<StorageZone> zoneList)
+    Vector<StreamSegment> getStreamSegmentVector()
+    protected double getSystemEnergyGeneration(RunTimeStep rts)
+    protected double getSystemGenerationLimits(RunTimeStep rts, SystemHydropowerRule rule, double[] max, double[] min, int n, int nsteps)
+    double         getSystemGenerationLimits2(RunTimeStep rts, OpRule rule, double[] max, double[] min, int istep, int periodSteps)
+    void           getSystemHydropowerOpRules(int opid, ArrayList ruleList)
+    double         getTotalCompositeRelease(double elev)
+    Vector         getTSRecordProxies()
+    Vector         getTSRecords(ModelVariable plotVariable, Vector proxyList, Vector runs)
+    VerticalDatumSettings getVerticalDatumSettings()
+    List<WaterControlDevice> getWaterControlDevicesOnRes()
+    boolean        hasDownstreamGoals(int opid)
+    boolean        hasPowerPlant()
+    boolean        hasPump()
+    boolean        hasWaterControlDeviceOnRes()
+    boolean        importFrom(ReservoirImport ri, StringBuffer results)
+    int            initForecastOperations(RunTimeWindow rtw)
+    boolean        initForPostProcessing(RunTimeWindow rtw)
+    boolean        initialize(RunTimeWindow rtw)
+    int            initPumpbackStep(RunTimeStep rts)
+    protected void initTSVals(int istep)
+    void           outputReport(AlternativeInputReport report, Element elem)
+    boolean        prepCumLocFlowCompute()
+    boolean        prepHoldoutCompute()
+    boolean        prepPulseRoutingCompute(int outletId)
+    boolean        prepRegulatedFlowCompute()
+    boolean        prepUnregulatedFlowCompute(boolean disableDivertedOutlets)
+    void           reconnectDivertedOutlet(RssNode node1)
+    void           resetOpsIds()
+    void           restoreElementState(int stateid)
+    void           saveElementState(int stateid)
+    void           setDefaultWaterAccount(WaterAccount wa)
+    void           setEvaporationTS(boolean useTS)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setLabelPosition(int p)
+    void           setName()
+    void           setReferencePt(WorldPt wpt)
+    void           setRegion(WorldRegion reg)
+    void           setReservoirOp(ReservoirOp resOp)
+    void           setReservoirProjectId(long id)
+    void           setReservoirSysOp(ReservoirSysOp resSysOp)
+    void           setStorageFunction(Storage storage)
+    void           setStreamSegmentVector(Vector<StreamSegment> segvec)
+    void           setupForSerialization()
+    void           setUseOverridesForThisReservoir(boolean set)
+    void           setVerticalDatumSettings(VerticalDatumSettings vds)
+    String         toString()
+    void           updateDecisions(RunTimeStep rts, int iteration)
+    void           updateSegments()
+    void           updateTSProxyList()
+    boolean        useOverridesForThisReservoir()
+
+CLASS hec.rss.model.ReservoirOutletElement
+  public class ReservoirOutletElement extends Element
+  Element that connects a reservoir storage element to a downstream junction. Base class for Dam and Diverted outlets
+  METHODS
+    Object         getFieldObject(Field fld)
+    PowerPlant[]   getPowerPlants()
+    double         getPulseFlow()
+    void           getPulseFlow(ParamDouble pd)
+    List           getRuleConnectivityRefs()
+    boolean        getUseDefaultPulseFlow()
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setpulseFlow(double pulseFlow)
+    void           setPulseFlow(ParamDouble pd)
+    void           setUseDefaultPulseFlow(boolean tf)
+
+CLASS hec.rss.model.RssModelVariableConstants
+  public interface RssModelVariableConstants
+  FIELDS
+    int            CUMLOC_OUTPUT_DATA
+    int            GRPID_DIVERSION
+    int            GRPID_JUNCTION
+    int            GRPID_REACH
+    int            GRPID_RESERVOIR
+    int[]          HINDCAST_IDS
+    int            HOLDOUT_OUTPUT_DATA
+    int            INPUT_DATA
+    int            OUTPUT_DATA
+    int            PULSE_OUTPUT_DATA
+    int            UNREG_OUTPUT_DATA
+    int            VID_ADJPARAM_FLOW
+    int            VID_CAPACITY_FACTOR
+    int            VID_CTRLOUT_HINDFLW
+    int            VID_CTRLOUT_RELEASE
+    int            VID_DAM_LEAK
+    int            VID_DAM_RELEASE
+    int            VID_DIV_FLOW
+    int            VID_DIV_FLOW_ROUTED
+    int            VID_DIV_HINDFLW
+    int            VID_DIV_RELEASE
+    int            VID_DIVOUT_FLOW
+    int            VID_DIVOUT_FLOW_ROUTED
+    int            VID_ENERGYREQUIRED_TSINPUT
+    int            VID_FIRST
+    int            VID_FOREBAY_ELEV
+    int            VID_FOREBAY_HEADLOSS
+    int            VID_GATE_OPENING
+    int            VID_GATE_PERCENTOPEN
+    int            VID_JUNC_ELEV
+    int            VID_JUNC_FLOW_CUMLOC
+    int            VID_JUNC_FLOW_DIV
+    int            VID_JUNC_FLOW_HOLD
+    int            VID_JUNC_FLOW_IN
+    int            VID_JUNC_FLOW_LIMIT
+    int            VID_JUNC_FLOW_LOCAL
+    int            VID_JUNC_FLOW_PULSE
+    int            VID_JUNC_FLOW_REG
+    int            VID_JUNC_FLOW_UNREG
+    int            VID_JUNC_FLOW_VIOL
+    int            VID_JUNC_HINDFLOW
+    int            VID_JUNC_INFLOW
+    int            VID_JUNC_INFLOW_LOCAL_TOTAL
+    int            VID_JUNC_STAGE
+    int            VID_JUNC_STAGE_LIMIT
+    int            VID_JUNC_STAGE_REG
+    int            VID_JUNC_STAGE_UNREG
+    int            VID_JUNC_STAGE_VIOL
+    int            VID_LAST
+    int            VID_NODE_FLOW
+    int            VID_NODE_HINDFLW
+    int            VID_NODE_HINDSTG
+    int            VID_NODE_KNOWNFLOW
+    int            VID_NODE_STAGE
+    int            VID_OPCTRL_CONSTRAINTID
+    int            VID_OPCTRL_DECISION
+    int            VID_OPCTRL_MAXLIMIT
+    int            VID_OPCTRL_MINLIMIT
+    int            VID_OPCTRL_RULEID
+    int            VID_OPCTRL_ZONEID
+    int            VID_OPRULE_FLOW_SPACE
+    int            VID_OPRULE_MAX
+    int            VID_OPRULE_MAX_STAGE
+    int            VID_OPRULE_MIN
+    int            VID_OPRULE_MIN_STAGE
+    int            VID_OPRULE_PRIORITY
+    int            VID_OPRULE_ROUTE_LAG
+    int            VID_OPRULE_ROUTE_MAXOFFSET
+    int            VID_OPRULE_ROUTE_MINOFFSET
+    int            VID_OPRULE_SPEC
+    int            VID_OPRULE_STOR_BAL
+    int            VID_OPRULE_STOR_BAL_INDEX
+    int            VID_OPRULE_VIOL_ELEV
+    int            VID_OPRULE_VIOL_FLOW
+    int            VID_OPRULE_VIOL_STAGE
+    int            VID_OPRULE_VIOL_STOR
+    int            VID_OPRULE_WQCD_ELEV
+    int            VID_OPRULEFL_CUMLOC
+    int            VID_OPRULETS_TSINPUT
+    int            VID_OPSET_ACTIVEZONE
+    int            VID_OPSET_GC_ELEV
+    int            VID_OPSET_GC_STOR
+    int            VID_OPSET_KNOWNZONEELEV
+    int            VID_OPSET_PROJECTEDELEV
+    int            VID_OPSET_ZONEELEV
+    int            VID_OPSET_ZONESTOR
+    int            VID_OUTGRP_RELEASE
+    int            VID_POOL_AREA
+    int            VID_POOL_ELEV
+    int            VID_POOL_ELEV_EST
+    int            VID_POOL_ELEVROC
+    int            VID_POOL_EVAP
+    int            VID_POOL_FLOWINTOSTOR
+    int            VID_POOL_HINDELEV
+    int            VID_POOL_HINDSTOR
+    int            VID_POOL_HOLDOUT
+    int            VID_POOL_INFLOW
+    int            VID_POOL_INPUTEVAP
+    int            VID_POOL_NETINFLOW
+    int            VID_POOL_OUTFLOW
+    int            VID_POOL_OUTFLOW_EST
+    int            VID_POOL_SEEP
+    int            VID_POOL_STOR
+    int            VID_PULSE_BACKQ
+    int            VID_PULSE_PULSEQ
+    int            VID_PUMP_FLOWAVG
+    int            VID_PUMP_VOL
+    int            VID_PUMPRULE_FLOWAVG
+    int            VID_PUMPRULE_FLOWAVG_CAP
+    int            VID_PUMPRULE_FLOWINST
+    int            VID_PUMPRULE_FLOWINST_CAP
+    int            VID_PUMPRULE_HOURS
+    int            VID_PUMPRULE_HOURS_CAP
+    int            VID_PUMPRULE_NUMPUMP
+    int            VID_PUMPRULE_NUMPUMP_CAP
+    int            VID_PUMPRULE_UNITHOURS
+    int            VID_PUMPRULE_UNITHOURS_CAP
+    int            VID_PUMPRULE_VOL
+    int            VID_PUMPRULE_VOL_CAP
+    int            VID_PWR_CAPABILITY
+    int            VID_PWR_EFF
+    int            VID_PWR_ENGYGEN
+    int            VID_PWR_ENGYPATTERN
+    int            VID_PWR_ENGYPERGEN
+    int            VID_PWR_ENGYPERREQD
+    int            VID_PWR_ENGYREQD
+    int            VID_PWR_ENGYVIOL
+    int            VID_PWR_FLWPWR
+    int            VID_PWR_HDPWR
+    int            VID_PWR_HYDLSS
+    int            VID_PWR_MAXCAPACITY
+    int            VID_PWR_PER_BALGEN
+    int            VID_PWR_PER_GCGEN
+    int            VID_PWR_PER_MINPUMPGEN
+    int            VID_PWR_PER_MINRELGEN
+    int            VID_PWR_PER_POWGEN
+    int            VID_PWR_PER_PUMPGEN
+    int            VID_PWR_PLNTFAC
+    int            VID_PWR_PWRCAP
+    int            VID_PWR_REQUIRED
+    int            VID_PWR_SPILL
+    int            VID_PWR_VIOL
+    int            VID_RCH_SEEP
+    int            VID_REACH_FLOW_CUMLOC
+    int            VID_REACH_FLOW_IN
+    int            VID_REACH_FLOW_REG
+    int            VID_REACH_FLOW_UNREG
+    int            VID_RES_GCRELEASE
+    int            VID_RES_HOLDOUT
+    int            VID_RES_RELEASE
+    int            VID_SPILL_FLOW
+    int            VID_SPILL_HINDFLOW
+    int            VID_STATE_VAR
+    int            VID_STATE_VAR_HIND
+    int            VID_TAIL_ELEV
+    int            VID_UNCTOUT_FLOW
+    int            VID_UNCTOUT_HINDFLW
+    int            VID_WA_ACCOUNT_DEMAND
+    int            VID_WA_ACCOUNT_INFLOW
+    int            VID_WA_CHARGES
+    int            VID_WA_CREDIT
+    int            VID_WA_CURRENT_MAX_VOLUME
+    int            VID_WA_CURRENT_VOLUME
+    int            VID_WA_HINDSTOR
+    int            VID_WA_LOSSES
+    int            VID_WA_PUMPBACK
+    int            VID_WA_RULE_DEMAND
+    int            VID_WA_SURPLUS
+    int            VID_WA_TRANSFERS
+    int            WQID_OFFSET
+  METHODS
+    boolean        isWQId(int vid)
+
+CLASS hec.rss.model.RssSystem
+  public class RssSystem extends Manager implements MapObjectInterface, TSManager, RssReturnStatusConstants, ComputeCanceledCallback
+  Represents the physical elements of a river-reservoir system. It maintains a list of nodes and elements that make up the discretization of the prototype system. The RssSystem object also organizes the hindcast and forecast compute procedure within each time step of the simulation.
+  FIELDS
+    int            COMPUTE_ENGINE_3X
+    int            COMPUTE_ENGINE_4A
+    int            COMPUTE_ENGINE_4B
+    boolean        DEBUG_CONV
+    double         DEFAULT_PULSE_FLOW_ENGLISH
+    double         DEFAULT_PULSE_FLOW_SI
+    int            DIVERSION
+    String         DIVERSION_STR
+    String         GLOBAL_VARIABLE_TABLES_DSS
+    int            HINDCAST_ELEM_STATE
+    int            INNER_TIME_ELEM_STATE
+    int            JUNCTION
+    String         JUNCTION_STR
+    String         KEYDELIM
+    String         KEYMARK
+    int            NUM_ELEM_STATES
+    int            OUTER_TIME_ELEM_STATE
+    int            PRE_COMPUTE_ELEM_STATE
+    int            REACH
+    String         REACH_STR
+    int            RESERVOIR
+    String         RESERVOIR_STR
+    int            SPILLWAY
+    int            TIME_BLOCK_ELEM_STATE
+    int            TIME_BLOCK_ELEM_STATE2
+    int            TRIAL_ELEM_STATE
+    int            VERSION
+  METHODS
+    void           addInputTSData(String name)
+    void           addReservoir(ReservoirElement resElem)
+    void           addReservoirSysOp(ReservoirSysOp resSysOp)
+    void           addWaterAccountSet(WaterAccountSet set)
+    List<ModelVariable> addWQModelVariables(Collection<Constituent> conlist)
+    void           applyHindcastData(Vector hdvec)
+    boolean        backupFile(String backupDir)
+    void           breakReach(ReachElement oldreach, WorldPt wpt, JunctionElement newjunc)
+    ElementGraph   buildElementGraph(int computeType, boolean considerRules)
+    ElementGraph   buildElementGraph(int computeType, boolean considerRules, boolean returnOnlyIfSuccess)
+    List<OpRule>   buildSysRuleStack(RunTimeStep rts, List<Element> decisionElemVec, double[] delemElev, List<OpRule>[] resRuleList)
+    void           cleanupFromDeSerialization()
+    void           cleanVectors()
+    void           clearStreamAlignment()
+    void           clearTSProxyList()
+    int            compute(RunTimeWindow rtw, RssRun run, int computeType, boolean runHindcastCompute)
+    int            compute_DevOld(RunTimeWindow rtw, RssRun run, int computeType, boolean runHindcastCompute)
+    int            compute3x(RunTimeWindow rtw, RssRun run, int computeType, boolean runHindcastCompute)
+    int            computeEventQueue(RunTimeWindow rtw, RssRun run, int computeType, boolean runHindcastCompute)
+    int            computeRS4(RunTimeWindow rtw, RssRun run, int computeType, boolean runHindcastCompute)
+    void           copyGlobalVariableTables(RssSystem otherSys)
+    DiversionElement createDiversion(RssNode node0, RssNode node1, Vector ptVec, double tol)
+    Element        createDiversion(Diversion divproj, Reservoir resproj)
+    ReservoirSysOp createNewReservoirSysOp(String name, String description)
+    RssNode        createNode(WorldPt pt)
+    RssNode        createNode(Node n)
+    RssNode        createNode(ComputationPoint cp)
+    ReachElement   createReach(JunctionElement upstreamJunc, JunctionElement downstreamJunc, RssNode inflowNode, RssNode outflowNode, String reachName)
+    ReachElement   createReach(RssNode node0, RssNode node1, double tol)
+    ReservoirElement createReservoir(WorldRegion reg)
+    ReservoirElement createReservoir(WorldRegion reg, Vector nodeVec, Vector ndirVec, double tol, String name, String descrip)
+    ReservoirElement createReservoir(Reservoir resProject)
+    String         createReservoirSysOpName(String name)
+    SystemHydropowerRule createSystemHydropowerRule()
+    TandemOpParent createTandemOpParent(TandemSysOpRule tandemSysRule)
+    boolean        deleteDiversion(String name)
+    void           deleteDownstreamOp(int nodeIndex)
+    void           deleteDownstreamOpRule(int dindex, int rindex)
+    boolean        deleteGlobalVariable(GlobalVariable gv)
+    void           deleteInputTSData(String name)
+    boolean        deleteJunction(String name)
+    void           deleteNode(RssNode node)
+    boolean        deleteReach(String name)
+    boolean        deleteReservoir(String name)
+    protected void deleteReservoirOps(IntVector resOpIds)
+    void           deleteReservoirSysOp(ReservoirSysOp sysOp)
+    protected void deleteReservoirSysOps(IntVector resSysOpIds)
+    boolean        deleteStateVariable(StateVariable sv)
+    void           deleteSystemHydropowerRule(int rindex)
+    void           deleteTandemOpParent(int id)
+    void           deleteWaterAccountSet(WaterAccountSet set)
+    void           deleting()
+    boolean        deserializeString(AsciiSerializable obj, String data)
+    boolean        didConversionOccur()
+    int            evalStateVariables(RunTimeStep rts, List svlist)
+    void           finalize()
+    void           finalizeCompute()
+    AdjustableParameter findAdjParam(String elemName, String function, String param)
+    DiversionElement findDiversion(WorldPt wpt, double tol)
+    DiversionElement findDiversion(String name)
+    DivertedOutletElement findDivertedOutlet(WorldPt wpt, double tol)
+    DivertedOutletElement findDivertedOutlet(String name)
+    RssNode        findDownstreamNode(int streamIndex, double coord)
+    Element        findElement(int idx)
+    Element        findElement(String name)
+    ScalarGlobalVariable findGlobalScalar(String name)
+    List<ScalarGlobalVariable> findGlobalScalars()
+    StringGlobalVariable findGlobalString(String name)
+    List<StringGlobalVariable> findGlobalStrings()
+    TableGlobalVariable findGlobalTable(String name)
+    List<TableGlobalVariable> findGlobalTables()
+    List<TimeSeriesGlobalVariable> findGlobalTimeSeries()
+    TimeSeriesGlobalVariable findGlobalTimeSeries(String name)
+    List<ScalarGlobalVariable> findGloblScalars(ScalarDataType type)
+    List<GlobalVariable> findInputGlobals()
+    JunctionElement findJunction(WorldPt wpt, double tol)
+    JunctionElement findJunction(ComputationPoint cp)
+    JunctionElement findJunction(String name)
+    List<JunctionElement> findJunctions(Predicate<WorldPt> predicate)
+    RssNode        findNode(String name)
+    List<GlobalVariable> findOutputGlobals()
+    ReachElement   findReach(int streamIndex, double coord)
+    ReachElement   findReach(WorldPt wpt, double tol)
+    ReachElement   findReach(String name)
+    List<ReachElement> findReaches(Predicate<WorldLine> predicate)
+    ReservoirElement findReservoir(int id)
+    ReservoirElement findReservoir(int streamIndex, double coord)
+    ReservoirElement findReservoir(WorldPt wpt)
+    ReservoirElement findReservoir(String name)
+    List<ReservoirElement> findReservoirs(Predicate<Object> predicate)
+    double[]       findTSArray(String locType, String locName, String param)
+    RssNode        findUpstreamNode(int streamIndex, double coord)
+    String         generateUniquePathPart(List nameElements, String delimeter)
+    Vector         getActiveTSProxies(Vector vec, int iotype)
+    Vector         getActiveTSProxies(Vector vec, int iotype, int computeType)
+    List<TSRecordProxy> getActiveWaterQualityTSProxies(WQRun wqRun)
+    StreamAlignment getAlignment()
+    RssAlt         getAlternative()
+    String         getBaseDirectory()
+    int            getComputeDecisionElemCounter()
+    int            getComputeElemBlockCounter()
+    int            getComputePassCounter()
+    int            getComputeRoutingStepCounter()
+    int            getComputeTimeStepCounter()
+    int            getComputeType()
+    Condition      getConfiguration()
+    long           getConfigurationId()
+    RssNode        getConnectionNode(WorldPt pt, double tol, int idir)
+    CoordinateReferenceSystem getCoordinateReferenceSystem()
+    protected DbfFile getDbfFile(String path)
+    DownstreamOptions getDefaultDownstreamOptions()
+    double         getDefaultPulseFlow()
+    void           getDefaultPulseFlow(ParamDouble pd)
+    Vector         getDivContolTSRecordProxies()
+    String[]       getDiversionNames()
+    Vector         getDownstreamElements(Element startingElem)
+    Vector         getDownstreamElements(Element startingElem, boolean sort)
+    boolean        getDownstreamNodeList(Element startingElem, List<RssNode> nodeList)
+    boolean        getDownstreamNodeList(Element startingElem, List<RssNode> nodeList, Predicate<RssNode> query)
+    DownstreamOp   getDownstreamOp(int nodeIndex)
+    DownstreamOp   getDownstreamOp(int nodeIndex, boolean createIfNull)
+    DownstreamOpRule getDownstreamOpRule(String name)
+    Vector         getDownstreamOpRulesBlwElement(ReservoirElement res, Vector vec)
+    String         getDssPairedDataFilePath()
+    Element        getElement(int idx)
+    Element        getElementByOrder(int iorder)
+    int            getElementCount()
+    int            getElementCount(String classname)
+    int            getElementCountByFunction(String classname)
+    String[]       getElementNames(String classname)
+    Vector         getElementNameVector(String classname)
+    Vector         getElementNameVectorByFunction(String classname)
+    int[]          getElementOrder()
+    Vector         getElementVector()
+    <T> Vector<T>  getElementVectorByClass(Class<T> c)
+    Vector         getElementVectorByClass(String classname)
+    WorldRect      getExtent()
+    Object         getFieldObject(Field fld)
+    Vector         getFlowContolTSRecordProxies()
+    GlobalVariable getGlobalVariable(int id)
+    GlobalVariable getGlobalVariable(String name)
+    List<GlobalVariable> getGlobalVariableList()
+    List<GlobalVariable> getGlobalVariables(GlobalVariableType gvType)
+    String         getGlobalVariableTablesFile()
+    List<JunctionElement> getHeadwaterJunctions()
+    Vector         getHindcastDataList()
+    List<GlobalVariable> getInputGlobalVariables()
+    List<GlobalVariable> getInputGlobalVariables(GlobalVariableType gvType)
+    GVDataSet      getInputGvDataSet()
+    Vector         getInputTSDataList()
+    TSDataSet      getInputTSDataSet()
+    List<IterationBlock> getIterationBlockList()
+    String[]       getJunctionNames()
+    String         getKeyStringForObject(Object obj)
+    String         getLastSavedInResSimVersion()
+    MapIdentifier  getMapIdentifier()
+    String         getNameForKeyString(String key)
+    String         getNextDefaultName(int type)
+    int            getNextResOpId()
+    int            getNextResSysOpId()
+    RssNode        getNode(int idx)
+    String[]       getNodeNames(String type)
+    Vector         getNodeVector()
+    NamedType      getObjectForKeyString(String keystr)
+    Vector         getObservedDataTSProxies(Vector vec)
+    String         getOriginalNetworkName()
+    List<GlobalVariable> getOutputGlobalVariables()
+    GVDataSet      getOutputGVDataSet()
+    TSDataSet      getOutputTSDataSet()
+    String[]       getReachNames()
+    String[]       getReservoirNames()
+    CommonDataList getReservoirOpDataList()
+    ReservoirSysOp getReservoirSysOp(String name)
+    CommonDataList getReservoirSysOpDataList()
+    ReservoirSysOp[] getReservoirSysOps()
+    DbfFile        getResOpDbfFile()
+    protected String getResOpDbfFileName()
+    DbfFile        getResSysOpDbfFile()
+    protected String getResSysOpDbfFileName()
+    RssRun         getRssRun()
+    List           getScriptableMethodNames()
+    RunTimeStep    getStateRts()
+    StateVariable  getStateVariable(int id)
+    StateVariable  getStateVariable(String name)
+    List<StateVariable> getStateVariableList()
+    SystemHydropowerRule getSystemHydropowerRule(int ruleIndex)
+    SystemHydropowerRule getSystemHydropowerRule(String ruleName)
+    List           getSystemHydropowerRules()
+    List<OpRule>   getSystemRules()
+    TandemOp       getTandemOp()
+    TandemOpParent getTandemOpParent(int id)
+    List           getTandemOps()
+    TSRecord       getTimeSeries(int elementType, String elementName, int vid)
+    TSRecord       getTimeSeries(int computeType, String elementType, String elementName, int varId)
+    TSRecord       getTimeSeries(int computeType, String elementType, String elementName, String childElementName, String tsRecordParam)
+    TSRecord       getTimeSeries(String elementType, String elementName, String childElementName, String tsRecordParam)
+    TSRecord       getTimeSeries(String elementType, String elementName, String childElementName, String tsRecordParam, boolean wantsInputRecord)
+    TSRecord       getTimeSeries(String elementType, String elementName, String childElementName, String tsRecordParam, String computeType)
+    RssTSLocation  getTimeSeriesLocation(int elementType, String elementName)
+    RssTSLocation  getTimeSeriesLocation(String elementType, String elementName)
+    Vector         getTSRecordProxies()
+    Vector         getTSRecordProxies(boolean isInput)
+    TSRecordProxy  getTSRecordProxy(String name, int varid)
+    TSRecordProxy  getTSRecordProxy(String elementType, String elementName, String childElementName, String tsRecordParam, boolean wantsInputRecord)
+    Vector         getUpstreamElements(Element startingElem)
+    int            getVersion()
+    WaterAccount   getWaterAccount(int id)
+    WaterAccountSet getWaterAccountSet(int index)
+    WaterAccountSet getWaterAccountSet(String name)
+    List<WaterAccountSet> getWaterAccountSetList()
+    WQRun          getWQRun()
+    boolean        globalVariableExists(int index, GlobalVariableType type)
+    boolean        hasDownstreamGoals()
+    void           init()
+    int            initDownstreamPulse()
+    boolean        initForPostProcessing(TSDataSet inputTS, TSDataSet outputTS, int computeType, RunTimeWindow rtw)
+    void           initHotstart(RunTimeWindow rtw)
+    boolean        initialize(TSDataSet inputTS, TSDataSet outputTS, GVDataSet inputGvDataSet, GVDataSet outputGvDataSet, int computeType, RunTimeWindow rtw)
+    boolean        initialize(Operations op, TSDataSet inputTS, TSDataSet outputTS, GVDataSet inputGvDataSet, GVDataSet outputGvDataSet)
+    boolean        initializeGlobalVariables()
+    boolean        initializeStateVariables(int computeType)
+    void           initTandemOpForecastStep(RunTimeStep rts)
+    void           initZBruleArray(IterationBlock iterblk, RunTimeWindow rtw)
+    boolean        isComputeCanceled()
+    boolean        isKeyString(String str)
+    void           load()
+    void           loadReservoirSysOps(boolean force)
+    boolean        modifiyForSaveAs()
+    DiversionElement newDiversionElement()
+    DiversionElement newDiversionElement(String name)
+    Element        newElement(boolean addtolist)
+    GlobalVariable newGlobalVariable(String name, GlobalVariable gv)
+    GlobalVariable newGlobalVariable(String name, GlobalVariableType type)
+    JunctionElement newJunctionElement()
+    JunctionElement newJunctionElement(ComputationPoint cp)
+    JunctionElement newJunctionElement(String name)
+    RssNode        newNode()
+    ReachElement   newReachElement()
+    ReachElement   newReachElement(String name)
+    StateVariable  newStateVariable(String name)
+    StateVariable  newStateVariable(String name, StateVariable sv)
+    TandemOpParent newTandemOpParent(String name)
+    TimeStepRoutingElement newTimeStepRoutingElement(boolean addToList)
+    int            nextElementIndex()
+    int            nextWaterAccountSetIndex()
+    boolean        orderElementsForCompute(int computeType)
+    boolean        prepCumLocFlowCompute()
+    boolean        prepHoldoutCompute(String resname)
+    boolean        prepPulseRoutingCompute(ReservoirElement res, int opid, int outletId)
+    boolean        prepRegulatedFlowCompute()
+    boolean        prepUnregulatedFlowCompute()
+    void           printGlobalScalarsToComputeLog(int detailLevel)
+    void           printGlobalStringsToComputeLog(int detailLevel)
+    void           printGlobalTablesToComputeLog(int detailLevel)
+    void           printGlobalTimeSeriesToComputeLog(int detailLevel)
+    boolean        readFile(Identifier id)
+    boolean        refreshData(Manager otherMgr)
+    void           renamed(Identifier id)
+    void           renameDamElementChildren()
+    void           renameInputTSData(String old, String newr)
+    void           renameResChildrenUpNodes()
+    void           renameReservoirSysOp(String oldName, String newName)
+    void           renameWaterAccountSet(String currentName, String newName)
+    void           resetAndSaveOperations()
+    void           resetParentElement()
+    boolean        runStateVariableInitScripts(int computeType)
+    Manager        saveManagerAs(String directory, String filePrefix, ManagerProxyListContainer container)
+    Manager        saveManagerAs(String directory, String filePrefix, ManagerProxyListContainer container, Identifier destId, RssSystem copy)
+    StringBuffer   serializeObjectToString(AsciiSerializable obj)
+    void           setAlternative(RssAlt alt)
+    void           setComputeCanceled(boolean canceled)
+    void           setConfiguration(Study study, Condition config)
+    void           setConfigurationForImport(Condition config)
+    void           setDefaultDownstreamOptions(DownstreamOptions dOps)
+    void           setDefaultPulseFlow(double basePulseFlow)
+    void           setDefaultPulseFlow(ParamDouble pd)
+    void           setExtent(WorldRect rc)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setInputTSDataSet(TSDataSet tsData)
+    void           setMapIdentifier(MapIdentifier id)
+    void           setOperations(Operations op)
+    void           setOutputTSDataSet(TSDataSet tsData)
+    void           setRssRun(RssRun run)
+    void           setupForSerialization()
+    void           setWaterAccountSetList(List<WaterAccountSet> waterAccountSetList)
+    boolean        shouldSaveHotstartAtTimeStep(int step, int computeType)
+    int            simulateForecast(RunTimeWindow rtw, int computeType, IterationBlock iterblk, boolean runHindcastCompute)
+    int            simulateForecastStep(RunTimeStep rts, int computeType, IterationBlock iterblk, boolean computeall, boolean runHindcastCompute, List pumpResList, int iteration, int elemStart, boolean lastTSEval, List pumpRuleList)
+    int            simulateForecastWithLocalDecisions(RunTimeWindow rtw, int computeType, IterationBlock iterblk, boolean runHindcastCompute, int maxtrial)
+    int            simulateHindcast(RunTimeWindow rtw, int computeType)
+    int            simulatePumpbackStep32(RunTimeStep rts, List pumpResList, int iteration)
+    void           unload()
+    void           unloading()
+    void           updateConfiguration()
+    void           updateDiversionAndDivertedOutletElementsToTimeStep()
+    void           updateGlobalVariable(int id, GlobalVariable updatedGV)
+    void           updateTSProxyList()
+    boolean        writeFile(Identifier id)
+    void           writeHotstartStates(RunTimeWindow rtw)
+
+CLASS hec.rss.model.ScriptOpRule
+  public class ScriptOpRule extends OpRule
+  Title: General CWMS Framework Description: Copyright: Copyright (c) 2002 Company: RMA Inc.
+  METHODS
+    void           evaluateLimits(RunTimeStep rts, int iteration)
+    OpValue        evaluateRule(RunTimeStep rts, double initialValue, int iteration, boolean evalDownstream)
+    int            getComputeIteration()
+    void           getElementDependencies(List elemList)
+    boolean        getEvalRule()
+    Object         getFieldObject(Field fld)
+    String         getFuncDefinition()
+    String         getJavaClassPath()
+    int            getMaxScriptLength()
+    OpValue        getOpValue(RunTimeStep rts)
+    int            getRuleLimitType()
+    String         getScriptText()
+    long           getTotalComputeInitMs()
+    long           getTotalComputeMs()
+    boolean        initializeCompute()
+    int            localTimeSeriesClear()
+    boolean        localTimeSeriesExists(String varName)
+    TSRecord       localTimeSeriesGet(String varName)
+    List<TSRecord> localTimeSeriesList()
+    List<String>   localTimeSeriesListKeys()
+    TSRecord       localTimeSeriesNew(String varName)
+    TSRecord       localTimeSeriesNew(String varName, double initialValue)
+    TSRecord       localTimeSeriesNew(String varName, TimeSeriesContainer tsc)
+    int            localTimeSeriesSize()
+    protected void nameChanged()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    void           setEvalRule(boolean evalRule)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setJavaClassPath(String path)
+    void           setScriptText(String scriptText)
+    void           setUseJavaClass(boolean set)
+    boolean        useJavaClass()
+    void           useTextFileReferences()
+    boolean        varExists(String varName)
+    Object         varGet(String varName)
+    void           varPut(String varName, Object usrVar)
+    Object         varRemove(String varName)
+    int            varsClear()
+    List<Object>   varsList()
+    List<String>   varsListKeys()
+    int            varsSize()
+
+CLASS hec.rss.model.SpecifiedRelease
+  public class SpecifiedRelease extends Rule
+  Deprecated.
+  METHODS
+    Object         getFieldObject(Field fld)
+    String         getReleaseValues()
+    double         getValue(AdjustableParameter adjparam, RunTimeStep runtime, double val)
+    boolean        readData(BufferedReader input)
+    void           removeAllReleaseValues()
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setReleaseValues(String rv)
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.SsarrRouting
+  public class SsarrRouting extends Routing
+  clone method
+  METHODS
+    Object         clone()
+    int            computeForecastStep(RunTimeStep rts)
+    int            computeRouting(RunTimeStep runtime)
+    protected double computeRoutingStep(double deltaT, double q0, double q1)
+    double         computeRoutingStepStandalone(int rtsMinutes, double q0, double q1, double reachOutflow, double[] initSubOutflow, double[] finSubOutflow)
+    void           convertToWatershedUnits()
+    Object         getFieldObject(Field fld)
+    double         getKTS()
+    double         getNCoefficient()
+    int            getNumberReaches()
+    int            getNumberSubreaches()
+    PairedValues   getOutflowTimeOfStorageTable()
+    double[]       getSubreachFlowArray(double flowIn, double flowOut, int iStep)
+    boolean        initialize()
+    boolean        initializeStandalone()
+    void           outputReport(AlternativeInputReport report, Element elem)
+    boolean        readData(BufferedReader input)
+    void           restoreFunctionState(int stateid)
+    boolean        restoreHotstartState(HotstartState parentState)
+    void           saveFunctionState(int stateid)
+    void           saveHotstartState(HotstartState parentHotstartState, int stateId)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           setIsSI(boolean isSI)
+    void           setKTS(double kts)
+    void           setNCoefficient(double ncoef)
+    void           setNumberReaches(int numberReaches)
+    void           setOutflowTimeOfStorageTable(PairedValues pv)
+    void           setupForSerialization()
+    void           setUseTable(boolean tf)
+    boolean        useTable()
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.rss.model.TimeSeries
+  public class TimeSeries extends Rule implements TSLocation
+  Deprecated.
+  FIELDS
+    String         FORECAST_DIV
+  METHODS
+    TSRecordProxy  addTSRecord(String name, String param, boolean isinput)
+    TSRecordProxy  addTSRecordProxy(String name, int varId)
+    Vector         getActiveTSRecordProxies(Vector vec, int iotype)
+    Object         getFieldObject(Field fld)
+    doubleArrayContainer getTSContainer(int vid)
+    TSDataSet      getTSDataSet(boolean isInput)
+    Vector         getTSRecordProxies()
+    TSRecordProxy  getTSRecordProxy(String name, int varId)
+    double         getValue(AdjustableParameter adjparam, RunTimeStep runtime, double val)
+    boolean        initialize()
+    boolean        readData(BufferedReader input)
+    void           removeTSRecord(String name, String param, boolean isinput)
+    void           setDiversionName(String name)
+    boolean        setFieldObject(Field fld, Object fobj)
+    void           updateTSProxyList()
+    boolean        writeData(BufferedWriter out)
+
+CLASS hec.script.Constants
+  public interface Constants
+  Enumerate useful constants for scripting
+  FIELDS
+    int            FALSE
+    int            ITS_DELETE_INSERT
+    int            ITS_MERGE
+    int            RTS_REPLACE_ALL
+    int            RTS_REPLACE_ALL_CREATE
+    int            RTS_REPLACE_ALL_DELETE
+    int            RTS_REPLACE_MISSING_VALUES_ONLY
+    int            RTS_REPLACE_WITH_NON_MISSING
+    int            TRUE
+    double         UNDEFINED
+    double         UNDEFINED_DOUBLE
+    float          UNDEFINED_FLOAT
+    int            UNDEFINED_INT
+    long           UNDEFINED_LONG
+    long           UNDEFINED_TIME
+
+CLASS hec.script.MessageBox
+  public class MessageBox extends Object
+  show an Error dialog to the user
+  METHODS
+    String         showConfirm(String msg, String title, int type)
+    void           showError(String msg, String title)
+    void           showInformation(String msg, String title)
+    void           showMessageBox(String msg, String title, int type)
+    String         showOkCancel(String msg, String title)
+    void           showPlain(String msg, String title)
+    void           showWarning(String msg, String title)
+    String         showYesNo(String msg, String title)
+    String         showYesNoCancel(String msg, String title)
+
+CLASS hec.script.Plot
+  public class Plot extends Object
+  wrapper class for the G2dDialog plots for scripting.
+  FIELDS
+    protected Vector _colorVec
+    protected Color _currentColor
+    protected Vector _dataSetList
+    protected G2dDialog _dialog
+    protected int  _height
+    protected String _timeWindow
+    protected String _title
+    protected int  _width
+    protected int  _x
+    protected int  _y
+  METHODS
+    void           close()
+    void           getData(String source, String path)
+    G2dDialog      getWindow()
+    void           hide()
+    G2dDialog      newPlot()
+    G2dDialog      newPlot(String title)
+    PlotLayout     newPlotLayout()
+    void           setLineColor(String color)
+    void           setLocation(int x, int y)
+    void           setSize(int width, int height)
+    protected void setSizeAndLoc()
+    void           setTimeWindow(String startTime, String endTime)
+    void           setTitle(String title)
+    void           show()

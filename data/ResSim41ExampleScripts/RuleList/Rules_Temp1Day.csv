@@ -1,0 +1,259 @@
+Reservoir,Rule,Zones,Description
+Big Cliff,[DUMMY] IMPORT MODULES,TOD,
+Big Cliff,[DUMMY] Initialize ControllerExternalSV,TOD,
+Detroit,No Draft,Rule Curve,
+Detroit,Upper RO use 1400 to 1542 ft,"TOD, Rule Curve",
+Detroit,No Lower RO Flow,"TOD, Rule Curve","The lower RO has physical properties listed, but there should be no flow at all through them. This is a max rule saying zero flow through the lower RO."
+Detroit,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Detroit,Max Evacuation Release,"TOD, Rule Curve","WCM  pg 45 defines max post flood evacuation rate of 17,000 cfs, which also happens to be bankfull at Mehama. The tapering of releases below elev 1563 are developed as calibration flows, not documented constraints. SOP lists normal maximum release as 10000 cfs. A maximum drawdown limit of 5000 is recommended by ResReg, but may need to change."
+Detroit,Secondary Flood Draft Limit,"TOD, Rule Curve",
+Detroit,Mehama Winter Ops Max,"TOD, Rule Curve","Max flow target transitions from 17000 cfs (bankfull, per 2022 SOP) to 30500 cfs (flood stage, per 2022 SOP) as elevations rise. This rule attempts to mimic real time operations, where bankfull is targeted at low elevations but the target rises as the pool does."
+Detroit,Jefferson Winter Ops Max,"TOD, Rule Curve","Max flow target transitions from 43000 cfs (bankfull, per 2022 SOP) to 55900 cfs (flood stage, per 2022 SOP) as elevations rise. This rule attempts to mimic real time operations, where bankfull is targeted at low elevations but the target rises as the pool does."
+Detroit,Spawning Max,Rule Curve,"3,000 cfs maximum during spawning season as prescribed by the 2018 WFOP.  5,000 cfs is a conservation season calibration maximum"
+Detroit,Deep Drawdown,"TOD, Rule Curve",
+Detroit,Min for BCL,"TOD, Rule Curve","DET release below 1050 cfs could cause cavitation at BCL. This rule is considered always active, even if BCL is not generating. 1000 cfs min From ResReg High Flow Period Minimum, 1050 is pretty close even if BCL not generating."
+Detroit,IRRM,"TOD, Rule Curve",
+Detroit,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",Absolute min is 1050 to prevent cavitation at BCL
+Detroit,MainstemFlowAug,"TOD, Rule Curve",
+Detroit,Draft to RC,TOD,
+Foster,Waterloo Flood Simple,"TOD, Rule Curve",
+Green Peter,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Green Peter,Max Evacuation Release,TOD,Calibration at lowest elevations - RO capacity at upper elevations
+Green Peter,Secondary Flood Draft Limit,"TOD, Rule Curve",
+Green Peter,Flood Min,"TOD, Rule Curve","From WCM:Since peaking for power generation will be a regular procedure at Green Peter, the minimum release from Green Peter will not be less than 50 cfs. Also biologicial min for channel between Foster and Green PEter.
+From 2022 SOP: Min flow out of Green Peter during floods is 50 cfs."
+Green Peter,Waterloo Flood Max,"TOD, Rule Curve","19000 cfs bankfull, 25700 cfs from 2022 SOP. Gradually taper from bankfull to flood stage at higher elevations, which really helps Green Peter evacuate stored waters after an event."
+Green Peter,Jefferson Flood Stage Simplified Max,"TOD, Rule Curve","The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Jefferson.
+Typical low cumloc value during the recession limb is taken as 20000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = Not used in operations
+Regulation Goal = 43,000 cfs, Willamette SOP (2020), equal to NWS Action Stage of 13.0 feet. 
+Flood Stage = 55,900 cfs, Willamette SOP (2020), equal to NWS Action Stage of 15.0 feet. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average).
+It also included an allowance of 15kcfs reduction from Foster, leading to a flow in the rule of 70 kcfs."
+Green Peter,BiOp Max Flow Winter GPR FOS,TOD,
+Green Peter,Deep Drawdown,"TOD, Rule Curve",
+Green Peter,BiOp MinTrib and Withdrawal by WY for FOS,"TOD, Rule Curve",
+Green Peter,BiOp Min for FOS,"TOD, Rule Curve",
+Green Peter,MainstemFlowAug,"TOD, Rule Curve",
+Green Peter,Draft to RC,TOD,
+Green Peter,No Draft,Rule Curve,
+Green Peter,Con Max,Rule Curve,For Calibration - Also covers max BiOp flows
+Fern Ridge,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Fern Ridge,Max Evacuation Release,"TOD, Rule Curve","Max release adjusted during calibration. SOP has Max Evacuation Rate = 3000cfs and normal evacuation rate of 4650 cfs at Monroe. The max flow rule for Monroe will often override this rule, which is just a function of reservoir elevation. Higher releases than 3000 cfs observed in 1996/1997 floods."
+Fern Ridge,Flood Min,"TOD, Rule Curve",From ResReg High Flow Period Minimum
+Fern Ridge,Monroe Regulation Goal Max,"TOD, Rule Curve","Transition from regulation goal of 4650 cfs (Willamette SOP 2020) to 5700 (bankfull) to 6780 (flood stage) as the pool elevation is higher. This rule attempts to mimic realtime operations, but these specific elevations are not explicitly defined in guidance."
+Fern Ridge,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",
+Fern Ridge,MainstemFlowAug,"TOD, Rule Curve",
+Fern Ridge,Draft to RC,TOD,
+Blue River,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Blue River,Max Evacuation Release,"TOD, Rule Curve","Adjusted during Calibration. SOP had Normal evacuation rate of 3000 fs, and Max Evacuation Rate = 3700cfs. Released 4000 cfs during January 2012 event."
+Blue River,Flood Min,"TOD, Rule Curve","WCM specifies MinFlow Release as: 
+01Feb - 30Nov -> 50cfs; 
+16Nov - 31Jan -> Pass inflow except in case of flood. 
+During this 01Dec - 31Jan period, this rule was set as 50cfs."
+Blue River,Vida Flood Max,"TOD, Rule Curve","2022 SOP: Regulation goal is 14,500, BF is 22,200, FS is 35,000. Transition gradually from regulation goal to bankfull as Cougar's pool rises."
+Blue River,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",
+Blue River,MainstemFlowAug,"TOD, Rule Curve",
+Blue River,Draft to RC,TOD,
+Cougar,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Cougar,IRRM,"TOD, Rule Curve",
+Cougar,Max Evacuation Release,"TOD, Rule Curve","Normal evacuation rate = 5000 cfs, Max Evacuation Rate = 6500cfs in SOP. Flows at lower elevations capped at 3000 cfs based on observations during spring drawdown. Release of ~3000 cfs is also capacity of diversion tunnel."
+Cougar,Flood Min,"TOD, Rule Curve","WCM specifies MinFlow Release as: 
+01Feb - 30Nov -> 300cfs; 
+01Dec - 31Jan -> Pass inflow except in case of flood. 
+During this 01Dec - 31Jan period, this rule was set as 300cfs year round."
+Cougar,Vida Flood Max,"TOD, Rule Curve","2022 SOP: Regulation goal is 14,500, BF is 22,200, FS is 35,000. Transition gradually from regulation goal to bankfull as Cougar's pool rises."
+Cougar,Deep Drawdown,"TOD, Rule Curve",
+Cougar,Spring Spill,"TOD, Rule Curve",
+Cougar,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",
+Cougar,MainstemFlowAug,"TOD, Rule Curve",
+Cougar,Draft to RC,TOD,
+Cougar,No Draft,Rule Curve,
+Cottage Grove,Uncontrolled Spill,"TOD, Rule Curve","The spillway here is ungated. But in the physical tab, it is input as a controlled outlet so that we can still do Annual Flood Damages Prevented work for unregulated simulations. This rule forces the spillway to act as it should--an uncontrolled release."
+Cottage Grove,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves
+
+Edited on 4/9/2026 by Ryan Cahill
+The original curve started at 782 feet, which was causing special curves to kick in much too often in the late spring when the project was close to full and inflows were just a little high. This caused oscillations. Changed the envelope curve to be the upper line in Plate 19 of the 2017 WCM, dated 1953."
+Cottage Grove,Max Evacuation Release,"TOD, Rule Curve",Adjusted during calibration to match modeled annual peaks to observed annual peaks. SOP says Normal evacuation is 2500 cfs and max evacuation rate is 3000cfs.
+Cottage Grove,Flood Min,"TOD, Rule Curve",From ResReg Min Releases During High Flow Periods
+Cottage Grove,Goshen Bankfull Max,"TOD, Rule Curve",2022 SOP
+Cottage Grove,Harrisburg Regulation Goal Simplified,TOD,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Cottage Grove,MainstemFlowAug,"TOD, Rule Curve",
+Cottage Grove,Draft to RC,TOD,
+Cottage Grove,Harrisburg Bankfull Simplified Max,Rule Curve,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Cottage Grove,BiOp MinTrib and Withdrawals by WY,Rule Curve,
+Dorena,Uncontrolled Spill,"TOD, Rule Curve","The spillway here is ungated. But in the physical tab, it is input as a controlled outlet so that we can still do Annual Flood Damages Prevented work for unregulated simulations. This rule forces the spillway to act as it should--an uncontrolled release."
+Dorena,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves
+
+
+Edited on 4/9/2026 by Ryan Cahill
+The original curve started at 820 feet, which was causing special curves to kick in much too often in the late spring when the project was close to full and inflows were just a little high. This caused oscillations. Changed the envelope curve to be the upper line in Plate 19 of the 2017 WCM, dated 1953."
+Dorena,Max Evacuation Release,"TOD, Rule Curve","Calibration of modeled annual max to observed annual max.  Max Evacuation Rate = 5000cfs in SOP, but SOP also states coordination can be done to take releases up to 6,500 cfs. This was done in November 1998 and did not cause any problems, insofar as Goshen was kept below bankfull. Also in January 2012"
+Dorena,Flood Min,"TOD, Rule Curve",From ResReg High Flow Period Minimum
+Dorena,Goshen Bankfull Max,"TOD, Rule Curve",2022 SOP
+Dorena,Harrisburg Regulation Goal Simplified,TOD,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Dorena,MainstemFlowAug,"TOD, Rule Curve",
+Dorena,Draft to RC,TOD,
+Dorena,Harrisburg Bankfull Simplified Max,Rule Curve,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Dorena,BiOp MinTrib and Withdrawals by WY,Rule Curve,
+Fall Creek,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Fall Creek,Max Evacuation Release,"TOD, Rule Curve","Adjusted during calibration. Per Willamette SOP and WillametteReservoirStatistics.xlsx, normal max releas is 3800 cfs and max release is 4500 cfs. 2000 cfs max flow during fall deep drawdown, based on operations in 2017 and 2020. Not a hard and fast rule, but rule needed to prevent Fall Creek from dumping 4500 cfs"
+Fall Creek,Flood Min,"TOD, Rule Curve",ResReg SOP-specified Min for high flow periods
+Fall Creek,Harrisburg Regulation Goal Simplified Max,TOD,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Fall Creek,Medium Fish Horn Min,"TOD, Rule Curve",
+Fall Creek,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",
+Fall Creek,Drawdown Max,"TOD, Rule Curve",
+Fall Creek,MainstemFlowAug,"TOD, Rule Curve",
+Fall Creek,Deep Drawdown,"TOD, Rule Curve",
+Fall Creek,Draft to RC,"TOD, Rule Curve",
+Fall Creek,Harrisburg Bankfull Simplified Max,Rule Curve,"The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average)."
+Lookout Point,NoDraft,Rule Curve,Set a flow below which the reservoir will not draft and will instead only pass inflow
+Lookout Point,ROC Down,Rule Curve,
+Lookout Point,ROC Up,Rule Curve,
+Lookout Point,No RO use above 900 ft,"TOD, Rule Curve",
+Lookout Point,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Lookout Point,Secondary Flood Draft Limit,"TOD, Rule Curve",
+Lookout Point,Flood Min,"TOD, Rule Curve",From ResReg min release during high flow periods for DEX
+Lookout Point,Jasper Bankfull Max,"TOD, Rule Curve",2022 SOP
+Lookout Point,Harrisburg Regulation Goal Simplified,"TOD, Rule Curve","The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average).
+
+Added 8/29/2025 by Ryan Cahill
+The implementation previous to this time had native ResSim DS control rules for both Harrisburg and Jasper (same ones as LOP).
+But this was causing very weird behavior at Lookout Point, where the Jasper rule was preventing it from evacuating well after the event.
+This behavior was solved by removing the rules at Hills Creek and just keeping Jasper at LOP as a native DS control rule.
+In reality, Hills Creek also operates for Jasper, but this is handled indirectly by the Harrisburg rule and any balancing ops with LOP."
+Lookout Point,Min for DEX,Rule Curve,
+Lookout Point,IRRM,Rule Curve,
+Lookout Point,Deep Drawdown,"TOD, Rule Curve",
+Lookout Point,Spring Spill,Rule Curve,
+Lookout Point,BiOp MinTrib and Withdrawals by WY,Rule Curve,1350 CFS is requried to prevent cavitation at Dexter and is greater than BiOp + consumptive withdrawals
+Lookout Point,MainstemFlowAug,"TOD, Rule Curve",
+Lookout Point,Draft to RC,"TOD, Rule Curve",
+Lookout Point,Max Evacuation Release,TOD,Adjusted during calibration to make simulated annual max be closer to observed annual max data. 2022 SOP has Normal evacuation rate = 12000 cfs and Max Evacuation Rate = 15000 cfs for DEX. Released 16000 cfs in Dec 1995 and Nov1996-Jan1997. Lower evacuation rates are from calibration.
+Hills Creek,[DUMMY] Compute Block with LOP,TOD,Dummy rule to make sure that Hills Creek and Lookout Point are in the same compute block so that scripts at Hills Creek can know what the Lookout Point pool elevation/release was on the previous timestep. Needed since there are no native DS control rules at Hills Creek.
+Hills Creek,Special Curves,"TOD, Rule Curve","Special curves parameters reproduce the ESRD curves provided in project water control manuals (WCM) above the spillway and additionally extend below the spillway. Maximum evacuation release must be defined at a lower priority than Special Curves.
+
+Inflow check period for rising pool conditions consistent with WCM. Falling pool check period is 2x rising pool check. Falling pool transition elevation is the maximum conservation season elevation.  All reservoirs release average inflow of rising pool check period during falling pool operations except Detroit, Dorena, and Cottage Grove. Detroit maintains the maximum gate opening release while Dorena and Cottage Grove maintain the peak release.
+
+Define additional releases on envelope curve (maintain ascending max pool elevation) to display curves on plot.
+
+See Willamette Flow Frequency Report, Appendix E, or memo here: ..\Tasks\3.1_ResSim_Development\SpecialCurves"
+Hills Creek,Max Evacuation Rate,"TOD, Rule Curve","Per 2022 SOP, Normal Evacuation Rate=6000cfs and max evacuation rate=8000 cfs. On average, the max flows used in calibration are ~ 2,000 less than the max RO capacity at elevations between 1475 and 1530."
+Hills Creek,Flood Min,"TOD, Rule Curve",From ResReg min flow during high flow periods (this higher flow set to prevent cavitation)
+Hills Creek,Harrisburg Regulation Goal Simplified,"TOD, Rule Curve","The native DS Control rule in ResSim caused many oscillations when used at multiple upstream reservoirs.
+This rule is a simpler version of the downstream control rule based on cumulative local flow at Harrisburg.
+Typical low cumloc value during the recession limb is taken as 15000 cfs.
+Linear interpolation from max release at the typical low cumloc value to 0 release at the downstream target.
+Bankfull flow = 39,700 cfs, from NWRFC action stage at 10.8 feet, as of 2021.
+Regulation Goal = 52,000 cfs, from 2020 Willamette SOP. 
+The rule includes an allowance for routing time (the difference between the rule Offset and rule Period Average).
+
+Added 8/29/2025 by Ryan Cahill
+The implementation previous to this time had native ResSim DS control rules for both Harrisburg and Jasper (same ones as LOP).
+But this was causing very weird behavior at Lookout Point, where the Jasper rule was preventing it from evacuating well after the event.
+This behavior was solved by removing the rules at Hills Creek and just keeping Jasper at LOP as a native DS control rule.
+In reality, Hills Creek also operates for Jasper, but this is handled indirectly by the Harrisburg rule and any balancing ops with LOP."
+Hills Creek,IRRM,"TOD, Rule Curve",
+Hills Creek,BiOp MinTrib and Withdrawals by WY,"TOD, Rule Curve",
+Hills Creek,Fill_LOP_First_Script,"TOD, Rule Curve",
+Hills Creek,HCR_LOP_Balance,"TOD, Rule Curve",
+Hills Creek,Draft to RC,TOD,
+Hills Creek,No Draft,Rule Curve,

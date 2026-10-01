@@ -1,0 +1,107 @@
+#This file contains all junctions necessary to calculate flow reductions distributed amongst upstream reservoirs for AFDRR purposes, since all of these points have damages aggreggated to them in the FIA models.
+Arrow Lakes_IN
+Arrow Lakes_OUT
+Birchbank
+Kootenai+Fisher
+Kootenai+Yaak
+Kootenai+Moyie
+Bonners Ferry
+Flathead+SF
+Columbia Falls
+Flathead+Stillwater
+Flathead @ Flathead Lake
+Kerr_IN
+Flathead+Mission+Jocko
+Clark Fork+Flathead
+Thompson Falls_IN
+Thompson Falls_OUT
+Noxon Rapids_IN
+Noxon Rapids_OUT
+Cabinet Gorge_IN
+Cabinet Gorge_OUT
+Clark Fork+Lightning Ck
+Pend Oreille+Clark Fork
+Pend Oreille+LakePendOreille_IF
+Pend Oreille+Priest
+Albeni Falls_IN
+Albeni Falls_OUT
+Pend Oreille+Calispel Ck
+Box Canyon_IN
+Box Canyon_OUT
+Pend Oreille+Sullivan
+Boundary_IN
+Columbia at Border
+Columbia+Kettle
+Columbia+Spokane
+Grand Coulee_IN
+Grand Coulee_OUT
+Chief Joseph_IN
+Chief Joseph_OUT
+Columbia+Methow
+Columbia+Okanogan
+Wells_IN
+Wells_OUT
+Columbia+Chelan
+Rocky Reach_IN
+Rocky Reach_OUT
+Columbia+Wenatchee
+Rock Island_IN
+Rock Island_OUT
+Wanapum_IN
+Wanapum_OUT
+Priest Rapids_IN
+Priest Rapids_OUT
+Columbia+Yakima
+Snake+Grande Ronde
+Snake+Asotin Ck
+Orofino
+Clearwater NF+SF
+Clearwater+Potlach
+Clearwater nr Arrow
+Spalding
+Snake+Clearwater
+Lower Granite_IN
+Lower Granite_OUT
+Little Goose_IN
+Little Goose_OUT
+Snake+Tuccanon
+Snake+Palouse
+Lower Monumental_IN
+Lower Monumental_OUT
+Ice Harbor_IN
+Columbia+Snake
+McNary_IN
+McNary_OUT
+Columbia+Umatilla
+Columbia+Alder CK
+Columbia nr Willow Ck
+John Day_IN
+John Day_OUT
+Columbia+Deschutes
+The Dalles_IN
+The Dalles_OUT
+Columbia+Klickitat
+Columbia+Hood+Salmon
+Bonneville_IN
+Bonneville_OUT
+Columbia+Washougal
+Willamette+Clackamas
+Columbia+Willamette
+Columbia+Lewis
+Columbia+Kalama
+Columbia+Cowlitz
+####################Willamette
+MF Willamette_at Jasper 
+CF Willamette_nr Goshen 
+Willamette_at Eugene
+Mckenzie_at Vida
+Willamette_at Harrisburg
+Long Tom_at Monroe
+Willamette_at Albany
+No Santiam_at Mehama
+So Santiam_at Waterloo
+Santiam_at Jefferson
+Willamette_at Salem
+Willamette_at Newberg
+Willamette_abv Falls at Oregon City
+

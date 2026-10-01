@@ -1,0 +1,10 @@
+==================================================== 
+Start: Tue 02/17/2026 11:02:32.48
+runDirectory=C:\CWMS\watershed\Willamette2026\scripts\SalemAlbanyAugScript\RunningResSimHeadless\
+resSimDirectory=C:\Mobile_Programs\cwms-cavi-install-package-3.5.0\CWMS-3.5.0\HEC-ResSim\3.5.1
+Script=C:\CWMS\watershed\Willamette2026\scripts\SalemAlbanyAugScript\RunningResSimHeadless\CWMS_Headless.py
+Args: "C:\CWMS\watershed\Willamette2026" "Willamette2026" "Willamette2026.wksp" "13Feb2026" "Temp1Day" 
+====================================================
+#Version @(#)src/javaStarter.h Version: 1.4.1 RMA Compiled: Aug  8 2019 at 20:00:37
+#Command line=
+java\bin\javaw -mx4000M -DMapPanel.NoVolatileImage=true -Dsun.java2d.d3d=false -Dlogfile.directory=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5/logs -DLOGFILE=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5/logs/HEC-ResSim.log -DDSSLOGFILE=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5/logs/HEC-ResSim_DSS.log -DCACHE_DIR=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5/cache -Dpython.path=jar\sys\jython-standalone-2.7.2.jar;jar\sys\jythonutils.jar -Dpython.home=C:/Users/g2encjer/AppData/Local/Temp/1 -DDataSetValidParameterListFile=config\parameters_units.def -DUNIT_FILE=config\unitConversions.def -DAsciiSerializer.formatFile=true -Dlogin.properties.path=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5/properties/login.properties -Dproperties.path=config -DCWMS_HOME=C:/Users/g2encjer/AppData/Roaming/HEC/HEC-ResSim/3.5 -DCWMS_EXE=. -Djava.security.policy=config\java.policy -DstatePlane.directory=config -Djava.library.path=lib -DNO_PREDEFINED_WKSP=true  -Djava.util.logging.config.file=config\logging.properties -DUseDefaultSecurityManager=true --upgrade-module-path=jar/sys/module -DCOLLECTION -classpath "jar\sys64/*;jar\sys/*;jar/*;jar\ext/*;java\lib\jfxrt.jar" hec.rss.client.RSS "C:\CWMS\watershed\Willamette2026\scripts\SalemAlbanyAugScript\RunningResSimHeadless\CWMS_Headless.py" "C:\CWMS\watershed\Willamette2026" "Willamette2026" "Willamette2026.wksp" "13Feb2026" "Temp1Day" 

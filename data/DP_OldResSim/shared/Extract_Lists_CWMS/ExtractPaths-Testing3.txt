@@ -1,0 +1,3 @@
+DWR.Elev-Forebay.Ave.~1Day.1Day.CBT-REV
+DWR.Flow-In.Ave.~1Day.1Day.CBT-REV
+DWR.Flow-Out.Ave.~1Day.1Day.CBT-REV

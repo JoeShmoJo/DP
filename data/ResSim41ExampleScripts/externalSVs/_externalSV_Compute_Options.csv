@@ -1,0 +1,20 @@
+# This file defines the compute options of the external state variables,,
+# Commented lines and blank lines are ignored,,
+#,,
+# The order in which variables are computed is defined by their ,,
+"#   in this file, where the first defined SV is computed first.",,
+#,,
+# There are three compute options specifiable in this files:,,
+"#   computeIterOption  (optional) computed each timestep, defaults to first iteration if undefined",,
+#   computeDateOption  defines which date(s) to compute state variable,,
+"#   computePassOption  (optional) multiple passes for each simulation, defaults to first pass if undefined",,
+#,,
+"# The ""computeIterOption"" dictates which compute iteration the state variable is evaluated.  ",,
+#  There can be multiple compute iterations within each time step and ,,
+#  it may not be necessary to compute each state variable multiple times for ,,
+#  each time step.,,
+"#  ""ignore"" will skip computing the state variable altogether",,
+,,
+#computeIterOption,computePassOption,svName
+,,Alternative_Setup
+,,MainstemFlowAugSV

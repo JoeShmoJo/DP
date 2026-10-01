@@ -1,0 +1,69 @@
+{ 
+    "basename": "ResSim",
+    "version": 1,
+    "disable_existing_loggers": true,
+    "incremental": false,
+    
+    "formatters": {
+        "standard": {
+            "format": "[%(levelname)s: %(name)s] %(message)s"
+        }
+    },
+
+    "handlers": { 
+        "ressimlog": {
+            "class": "logging.StreamHandler",
+            "level": "NOTSET",
+            "formatter": "standard",
+            "stream": "ext://sys.stdout"
+        }
+    },
+
+    "loggers": {
+        "ResSim":{
+            "level": "DEBUG",
+            "propagate": true
+        },
+        "ResSim.Config": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.SysFloodOps": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.RefillVarQ": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.PowerOps": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.WinterFRMOps": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.EcoOps": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.kNN": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.DGM": {
+            "level": "NOTSET",
+            "propagate": true
+        },
+        "ResSim.ExternalSV": {
+            "level": "NOTSET",
+            "propagate": true
+        }
+    },
+
+    "root": {
+        "level": "WARNING",
+        "handlers": ["ressimlog"]
+    } 
+}

@@ -1,0 +1,33 @@
+##########################
+#RAS-Junctions.list
+#This file contains all ResSim reservoirs to be exported to DSS
+#for use by a subsequent RAS model
+#Forebay elevation and outflow will be written out
+#For reservoirs where forebay elevation isn't necessary for RAS
+# (e.g. Hungry Horse), the outflow junction is included
+# in the junction.list file instead of in this file
+##########################
+Corra Linn
+Kerr
+Thompson Falls
+Noxon Rapids
+Cabinet Gorge
+Albeni Falls
+Box Canyon
+Boundary
+Grand Coulee
+Chief Joseph
+Wells
+Rocky Reach
+Rock Island
+Wanapum
+Priest Rapids
+Hells Canyon
+Lower Granite
+Little Goose
+Lower Monumental
+Ice Harbor
+McNary
+John Day
+The Dalles
+Bonneville

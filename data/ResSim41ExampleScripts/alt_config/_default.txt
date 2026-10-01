@@ -1,0 +1,101 @@
+# this is the default alt_config file for all alternatives.
+# All the variables defined here will be used for the alternatives
+# Unless they are defined in the alternative-specific file, 
+#in which case they will be overwritten
+
+##########################################
+# Code diagnostics
+# Run a check and print out whether scripts in the model match the external .py files in the "scripts" directory
+DEVEL_CHECK_SCRIPTS: OFF
+
+##########################################
+#Deep drawdown (fall) configuration
+
+DeepDrawdownConfigCSV: "scripts/externalRules/DeepDrawdownConfig.csv"
+
+
+##########################################
+#Spring spill configuration
+
+SpringSpillConfigCSV: "scripts/externalRules/SpringSpillConfig.csv"
+
+###########################################
+#Secondary flood control draft limit
+
+secondaryDraftConfigCSV: "scripts/externalRules/SecondaryFloodDraftLimitConfig.csv"
+
+###########################################
+#NoDraft
+
+NoDraftConfigCSV: "scripts/externalRules/NoDraftConfig.csv"
+
+###########################################
+#FIRO_SPACE rule curve
+#Generic-year daily elevation curve read by scripts/externalRules/FIRO_SPACE.py
+
+firoSpaceConfigCSV: "scripts/externalRules/FIRO_SPACEConfig.csv"
+
+###########################################
+#MinFlowPlusWithdrawal
+#Two generic-year daily flow schedules read by
+#scripts/externalRules/MinFlowPlusWithdrawal.py. The rule adds the two together
+#and sets the total as the minimum release.
+
+minFlowConfigCSV: "scripts/externalRules/MinFlowConfig.csv"
+withdrawalConfigCSV: "scripts/externalRules/WithdrawalConfig.csv"
+
+###########################################
+#DiversionFromCSV
+#One generic-year daily schedule read by
+#scripts/externalRules/DiversionFromCSV.py. Every diversion and return in the
+#network runs the same script and reads its own column by element name.
+#Point an alternative at a different file to swap BASE for ALT.
+
+diversionConfigCSV: "scripts/externalRules/DiversionConfig_ALT.csv"
+
+###########################################
+#Salem/Albany mainstem flow augmentation
+
+#Method options:
+#  NoFlowAug: No flow augmentation at all
+#  ReadExternalFlowAugTS: The flow-aug rule for each reservoir will read an external pre-computed time series present in simulation.dss.
+#  AutoDetect: If there is no external flow aug time series, will do "NoFlowAug". 
+#              If there is an external TS, will use it.
+#  AllocationBasedOnConservationStorage: A one-step method that allocates flow-aug volume to each reservoir based only on conservation storage volume
+#              This doesn't use any actual simulated reservoir elevation information at all, same for every year.
+#  AllocationManual: Uses a manually-defined allocation scheme as a one-step method. 
+#              A default for all years is provided, and specific year allocation overrides can also be included.
+#              This one doesn't work yet, but would be easy enough to set up
+
+#A typical usage for a two-step flow-aug analysis:
+#-Have the method as "AutoDetect"
+#-Run the model once to have no flow-aug.
+#-Then compute flow-aug time series for each reservoir with an external script.
+#-Then rerun the alternative to use the external TS (or create a trial and run it so you can look at with and without flow-aug as separate alternatives).
+
+mainstemFlowAugMethod: AutoDetect
+omitTrialsFromFlowAug: "0,2,3"
+
+#Template DSS pathname for any flow-aug external pre-computed timeseries. This pathname will be present in simulation.dss
+#The arguments signified by $ character will get replaced at run-time
+flowAugRuleTSPathTemplate: "//%RESV_NAME%/FLOW-MIN-EXTERNALFLOWAUG//%TIMESTEP%/%FPART%/"
+
+#OLD WAY OF DOING IT (one-step). Still works. 
+#Config file with reservoirs to perform flow-aug, reservoir-specific limits
+mainstemFlowAugReservoirConfigCSV: "scripts/externalSVs/MinFlowSalemAlbanyConfig.csv"
+#Min flow targets:
+minFlowTargetCSV_Salem: "scripts/externalSVs/MinFlowSalem_2008BiOp.csv"
+minFlowTargetCSV_Albany: "scripts/externalSVs/MinFlowAlbany_2008BiOp.csv"
+
+###########################################
+#IRRM
+# IRRM Elevations taken from Teacups 03Sep2025
+irrmTargetElevs: {"Detroit":1558.5, "Hills Creek":1531, "Lookout Point":921, "Cougar":1685}
+irrmActive: {"Detroit":true, "Hills Creek":true, "Lookout Point":true, "Cougar":true}
+
+###########################################
+#Draft to RC
+# true or false: turns the Draft to RC rule on or off wherever it is attached.
+# For some reservoirs only, give one true/false each instead, e.g.
+#   draftToRCActive: {"Detroit":false, "Cougar":true}
+draftToRCActive: true
