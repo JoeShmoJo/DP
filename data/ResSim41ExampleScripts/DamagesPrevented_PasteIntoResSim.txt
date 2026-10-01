@@ -1,0 +1,36 @@
+# Damages Prevented launcher - paste ALL of this text into the ResSim script
+# editor (Simulation module, Script > Edit, the "DamagesPrevented" script), save,
+# and run it from there.
+#
+# ResSim 4.1 keeps its own copy of a Scripts-pane script and runs it from
+# AppData/Roaming/HEC/HEC-ResSim/4.1/CWMS/<watershed>/scripts/Modules/Simulation.
+# This launcher only finds the watershed's scripts folder and runs
+# scripts/DP_Menu.py from there, so updates to DP_Menu.py and the
+# DamagesPrevented folder take effect without pasting anything again.
+try:
+    from hec.rss.script import ResSim                  #ResSim 4.1
+except ImportError:
+    from hec.script import ResSim                      #ResSim 3.5
+import os, imp
+
+print "\nDamages Prevented launcher (pasted script, Oct 2026)"
+module = ResSim.getCurrentModule()
+if module.getName() != "Simulation":
+    raise AssertionError("Damages Prevented runs from the Simulation module. ResSim is in the %s module." %module.getName())
+simulation = module.getSimulation()
+if not simulation:
+    raise AssertionError("Open the simulation holding the Observed and Unregulated alternatives, then run Damages Prevented again.")
+menuFile = None
+for run in simulation.getSimulationRuns():
+    menuFile = str(run.getRssSystem().makeAbsolutePathFromWatershed("scripts/DP_Menu.py"))
+    break
+if menuFile is None:
+    raise AssertionError("The open simulation has no alternatives.")
+if not os.path.isfile(menuFile):
+    raise AssertionError("Could not find %s\nCopy DP_Menu.py into the watershed's scripts folder." %menuFile)
+print "Running %s" %menuFile
+handle = open(menuFile, "r")
+try:
+    imp.load_source("DP_Menu", menuFile, handle)
+finally:
+    handle.close()
