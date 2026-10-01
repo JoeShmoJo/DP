@@ -11,7 +11,7 @@ whole process moves with it.
 
 ```
 DamagesPrevented/
-  DP_Menu entry point is scripts/DP_Menu.py (one level up)
+  DP_Menu entry point is scripts/DP_Menu.py (one level up); paste scripts/DamagesPrevented_PasteIntoResSim.txt into the Scripts-pane entry
   DPMenu.py, DPSettings.py, cTransform.py, cWaterBalance.py, cMiniSims.py   ResSim side (Jython)
   config/          ControlPoints.txt, Reservoirs.txt, TransformedLocals.csv
   DPdata/          DPcalc.dss, MiniSimulations.dss, Results/*.csv, logs/   (written by the menu)

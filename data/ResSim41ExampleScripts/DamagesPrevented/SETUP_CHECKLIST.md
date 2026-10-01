@@ -132,11 +132,13 @@ Dexter, Lookout Point, Hills Creek).
 ## F. Run
 
 - [ ] Open the Simulation module with the simulation from D1.
-- [ ] Scripts pane -> run `DP_Menu.py`. Pick the Observed and Unregulated alternatives.
-      ResSim 4.1 runs a **copy** of a Scripts-pane script saved under
-      `AppData/Roaming/HEC/HEC-ResSim/4.1/CWMS/<watershed>/scripts/Modules/Simulation/`.
-      Replacing `scripts/DP_Menu.py` doesn't update that copy: paste the new file's text into
-      the script editor and save. The menu prints `Scripts folder: ...` when it starts.
+- [ ] **Scripts pane entry (once):** ResSim 4.1 keeps its own copy of a Scripts-pane script and
+      runs that copy from `AppData/.../CWMS/<watershed>/scripts/Modules/Simulation/`, so copying
+      files into `scripts/` never changes it. Open the "DamagesPrevented" script in the script
+      editor, replace **all** its text with `scripts/DamagesPrevented_PasteIntoResSim.txt`, save.
+      That launcher runs `scripts/DP_Menu.py` from the watershed every time, so later updates
+      need no re-paste. It prints `Running .../scripts/DP_Menu.py`, then `Scripts folder: ...`.
+- [ ] Run it. Pick the Observed and Unregulated alternatives.
 - [ ] **1. Transform gage data** -> writes `WILLAMETTE FALLS` to `DPdata/DPcalc.dss`.
 - [ ] **2. Compute water-balance locals** -> writes the 14 locals to `DPdata/DPcalc.dss`.
       Warnings about short records are OK unless the step stops.
