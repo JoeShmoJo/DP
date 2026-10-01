@@ -198,10 +198,10 @@ Clackamas_nr Oregon City FLOW-IN,Known Flow,shared/obsData.dss,"CLACKAMAS RIVER 
 Willamette_at Portland FLOW-LOC,Known Flow,shared/Locals-Transformed.dss, ,Willamette_at Portland,FLOW-LOC,1HOUR,COMPUTED
 Lewis+EF Lewis FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Cowlitz+Coweeman FLOW-LOC,Known Flow,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
-John Day-Pool,Lookback Elevation, , , , , , 
+John Day-Pool,Lookback Elevation,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 John Day-Power Plant,Lookback Release,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 John Day Specified Release,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
-The Dalles-Pool,Lookback Elevation, , , , , , 
+The Dalles-Pool,Lookback Elevation,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 The Dalles-Power Plant,Lookback Release,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 The Dalles Specified Release,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Banks Lake Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
@@ -252,10 +252,10 @@ Hills Creek (HCR) Specified Release,Input Time Series,shared/obsData.dss,"MF WIL
 Scoggins-Pool,Lookback Elevation,shared/obsData.dss, ,SCO,ELEV-FOREBAY,1HOUR,CWMS
 Scoggins-Controlled Outlet,Lookback Release,shared/obsData.dss, ,SCO,FLOW-OUT,1HOUR,CWMS
 Scoggins Specified Release,Input Time Series,shared/obsData.dss, ,SCO,FLOW-OUT,1HOUR,CWMS
-Mossyrock-Pool,Lookback Elevation, , , , , , 
+Mossyrock-Pool,Lookback Elevation,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Mossyrock-Generic Outlet,Lookback Release,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Mossyrock Specified Release,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
-Mayfield-Pool,Lookback Elevation, , , , , , 
+Mayfield-Pool,Lookback Elevation,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Mayfield-Generic Outlet,Lookback Release,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Mayfield Specified Release,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
 Kittitas Canal Diversion,Input Time Series,shared/Locals-Dummy.dss, ,0 CFS,FLOW,1DAY, 
