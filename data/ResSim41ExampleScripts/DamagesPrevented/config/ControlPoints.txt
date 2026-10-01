@@ -23,10 +23,10 @@ Dorena_OUT
 Big Cliff_OUT
 Fall Creek_OUT
 Foster_OUT
-#From the old Willamette list - not confirmed in the new network yet
+#From the old Willamette list, renamed to the new network (node list, Oct 2026)
 Willamette_abv Falls at Oregon City
-Willamette+Clackamas
 Willamette+Marys
-McKenzie R. NR Walterville
-MF Willamette_blw NFork nr Oakridge
+Mkenzie_nr Walterville                 #old: McKenzie R. NR Walterville (network spells it Mkenzie)
+MF Willamette NR Oakridge              #old: MF Willamette_blw NFork nr Oakridge (USGS 14145500, below the NF confluence)
 McKenzie_nr Coburg
+#Willamette+Clackamas dropped: the new network ends at Willamette Falls and has no Clackamas

@@ -51,8 +51,11 @@ Observed and Unregulated alternatives:
 | `WILLAMETTE FALLS` FLOW-LOC (OCUO_Oregon City), now on `Locals-Transformed.dss` | `scripts/DamagesPrevented/DPdata/DPcalc.dss` |
 | The 14 water-balance locals now on `Locals-FinalWaterBalance.dss` (Albany, Newberg, Salem, Waterloo, Mehama, Jefferson, Monroe, Harrisburg, Vida, Eugene, Goshen, Jasper, Foster_IN, Lookout Point_IN) | `scripts/DamagesPrevented/DPdata/DPcalc.dss` |
 
-The zero-flow rows can stay on `shared/DamagesPrevented/Zero Flow record.dss`,
-or move that file into `DPdata/` too and repoint them.
+The zero-flow rows point to `DPdata/Zero_Flow_record.dss`; copy
+`shared/DamagesPrevented/Zero Flow record.dss` there under that name.
+
+The repointed tables are in `DP_REPO/data/NewResSimPaths/*_DP.csv`, ready to
+paste. `DP_Download/RepointAlternativeTables.py` makes them from a fresh export.
 
 Step 2 writes each local to the pathname it is mapped to. If a local is still
 mapped to another file, it is written to `DPcalc.dss` anyway and the log says
@@ -75,8 +78,7 @@ which row to repoint.
 
 The mini-simulations check every name in `ControlPoints.txt` and
 `Reservoirs.txt` against the network before computing and list any that don't
-exist. Six control points from the old Willamette list are marked unconfirmed
-in that file.
+exist. All names in both files match the new network's node list.
 
 ## Method
 
