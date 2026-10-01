@@ -1,0 +1,84 @@
+﻿TRSO_Thomas Creek nr Scio,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Coburg_HMSsub_McKenzieRv_S10,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+HMSsub_NFMFWillametteRv_S10,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+HMSsub_MFWillametteRv_S40,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+ALBO_ Albany_HMSsub_WillametteRv_S60,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Willamette_at Albany,FLOW-LOC,1HOUR,NWP
+OCUO_Oregon City_HMSsub_WillametteRv_S30,Known Flow,shared/DamagesPrevented/Locals-Transformed.dss, ,WILLAMETTE FALLS,FLOW-LOC,1HOUR,COMPUTED
+Willamette_at Wilsonville,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+NBGO_Newberg_HMSsub_WillametteRv_S40,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Willamette_at Newberg,FLOW-LOC,1HOUR,NWP
+SLMO_Salem_HMSsub_WillametteRv_S50,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Willamette_at Salem,FLOW-LOC,1HOUR,NWP
+WTLO_Waterloo_HMSsub_SSantiamRv_S15,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,So Santiam_at Waterloo,FLOW-LOC,1HOUR,NWP
+MEHO_Mehama_HMSsub_NSantiamRv_S10,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,No Santiam_at Mehama,FLOW-LOC,1HOUR,NWP
+LSMO_Little North Santiam at Mehama,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+NSJO_Greens Bridge_HMSsub_NSantiamRv_S05,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+No Santiam+So Santiam_Local_NSR_S07,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+No Santiam+So Santiam_Local_SSR_S08,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+JFFO Santiam_at Jefferson loc,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Santiam_at Jefferson,FLOW-LOC,1HOUR,NWP
+MNRO_Monroe_HMSsub_LongTomRv_S10,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Long Tom_at Monroe,FLOW-LOC,1HOUR,NWP
+HARO_Harrisburg_HMSsub_WillametteRv_S80,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Willamette_at Harrisburg,FLOW-LOC,1HOUR,NWP
+McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+VIDO_Vida_HMSsub_McKenzieRv_S18,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Mckenzie_at Vida,FLOW-LOC,1HOUR,NWP
+MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+EUGO_Willamette at Eugene,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Willamette_at Eugene,FLOW-LOC,1HOUR,NWP
+GOSO_Goshen_HMSsub_CFWillametteRv_S10,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,CF Willamette_at Goshen,FLOW-LOC,1HOUR,NWP
+JASO_Jasper_HMSsub_MFWillametteRv_S10,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,MF Willamette_at Jasper,FLOW-LOC,1HOUR,NWP
+Big Cliff Local Inflow_HMSsub_NSantiamRv_S15,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Detroit Inflow,Known Flow,shared/DamagesPrevented/obsData.dss, ,DET,FLOW-IN,1HOUR,CWMS
+Foster Local Inflow_HMSsub_SSantiamRv_S20,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Foster_IN,FLOW-LOC,1HOUR,NWP
+Green Peter Inflow_HMSsub_SSantiamRv_S30,Known Flow,shared/DamagesPrevented/obsData.dss, ,GPR,FLOW-IN,1HOUR,CWMS
+Fern Ridge Inflow_HMSsub_LongTomRv_S20,Known Flow,shared/DamagesPrevented/obsData.dss, ,FRN,FLOW-IN,1HOUR,CWMS
+Blue River Inflow_HMSsub_BlueRv_S10,Known Flow,shared/DamagesPrevented/obsData.dss, ,BLU,FLOW-IN,1HOUR,CWMS
+Cougar Inflow_HMSsub_SFMcKenzieRv_S10,Known Flow,shared/DamagesPrevented/obsData.dss, ,CGR,FLOW-IN,1HOUR,CWMS
+Cottage Grove Inflow_HMSsub_CFWillametteRV_S20,Known Flow,shared/DamagesPrevented/obsData.dss, ,COT,FLOW-IN,1HOUR,CWMS
+Dorena Inflow_HMSsub_RowRv_S10,Known Flow,shared/DamagesPrevented/obsData.dss, ,DOR,FLOW-IN,1HOUR,CWMS
+Fall Creek Inflow_HMSsub_FallCk_S10,Known Flow,shared/DamagesPrevented/obsData.dss, ,FAL,FLOW-IN,1HOUR,CWMS
+Dexter Local Inflow_HMSsub_MFWillametteRVS20,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60,Known Flow,shared/DamagesPrevented/Locals-FinalWaterBalance.dss, ,Lookout Point_IN,FLOW-LOC,1HOUR,NWP
+Hills Creek Inflow_HMSsub_ MFWillametteRv_S60,Known Flow,shared/DamagesPrevented/obsData.dss, ,HCR,FLOW-IN,1HOUR,CWMS
+TRBO_Trail Bridge Inflow,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+CANO_Molalla River at Canby_Local_JMolaR_S06,Known Flow,shared/DamagesPrevented/obsData.dss,"MOLALLA RIVER NEAR CANBY, OR",14200000,FLOW,1HOUR,USGS
+SUVO_Suver_HMSsub_LuckiamuteRv_S10,Known Flow,shared/DamagesPrevented/obsData.dss,"LUCKIAMUTE RIVER NEAR SUVER, OR",14190500,FLOW,1HOUR,USGS
+AURO_Pudding River nr Aurora,Known Flow,shared/DamagesPrevented/obsData.dss,"PUDDING RIVER AT AURORA, OR",14202000,FLOW,1HOUR,USGS
+MCMO_McMinnville_Local_JYamhR_S01,Known Flow,shared/DamagesPrevented/obsData.dss,"SOUTH YAMHILL RIVER AT MCMINNVILLE, OR",14194150,FLOW,1HOUR,USGS
+WSLO_West Linn_HMSsub_TualatinRv_S10,Known Flow,shared/DamagesPrevented/obsData.dss,"TUALATIN RIVER AT WEST LINN, OR",14207500,FLOW,1HOUR,USGS
+CORO_Corvallis_HMSsub_WillametteRv_S70,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+PHIO_ Philomath_HMSsub_MarysRV_S70,Known Flow,shared/DamagesPrevented/Zero Flow record.dss,ZERO,ZERO,FLOW,1DAY,DUMMY
+Big Cliff-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"BIG CLIFF LAKE NEAR NIAGARA, OR",14181400,ELEV-FOREBAY,1HOUR,USGS
+Big Cliff-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss,"NORTH SANTIAM RIVER AT NIAGARA, OR",14181500,FLOW,1HOUR,USGS
+Big Cliff (BCL) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"NORTH SANTIAM RIVER AT NIAGARA, OR",14181500,FLOW,1HOUR,USGS
+Detroit-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"DETROIT LAKE NEAR DETROIT, OR",14180500,ELEV-FOREBAY,1HOUR,USGS
+Detroit-Regulating Outlet Upper,Lookback Release,shared/DamagesPrevented/obsData.dss, ,DET,FLOW-OUT,1HOUR,CWMS
+Detroit (DET) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss, ,DET,FLOW-OUT,1HOUR,CWMS
+Foster-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"FOSTER LAKE AT FOSTER, OR",14186600,ELEV-FOREBAY,1HOUR,USGS
+Foster-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss, ,FOS,FLOW-OUT,1HOUR,CWMS
+Foster (FOS) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss, ,FOS,FLOW-OUT,1HOUR,CWMS
+Green Peter-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"GREEN PETER LAKE NEAR FOSTER, OR",14186100,ELEV-FOREBAY,1HOUR,USGS
+Green Peter-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss, ,GPR,FLOW-OUT,1HOUR,CWMS
+Green Peter (GPR) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss, ,GPR,FLOW-OUT,1HOUR,CWMS
+Fern Ridge-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"FERN RIDGE LAKE NEAR ELMIRA, OR",14168000,ELEV-FOREBAY,1HOUR,USGS
+Fern Ridge-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"LONG TOM RIVER NEAR ALVADORE, OR",14169000,FLOW,1HOUR,USGS
+Fern Ridge (FRN) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"LONG TOM RIVER NEAR ALVADORE, OR",14169000,FLOW,1HOUR,USGS
+Blue River-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"BLUE RIVER LAKE NEAR BLUE RIVER, OR",14162100,ELEV-FOREBAY,1HOUR,USGS
+Blue River-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"BLUE RIVER AT BLUE RIVER, OR",14162200,FLOW,1HOUR,USGS
+Blue River (BLU) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"BLUE RIVER AT BLUE RIVER, OR",14162200,FLOW,1HOUR,USGS
+Cougar-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"COUGAR LAKE NEAR RAINBOW, OR",14159400,ELEV-FOREBAY,1HOUR,USGS
+Cougar-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR",14159500,FLOW,1HOUR,USGS
+Cougar (CGR) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR",14159500,FLOW,1HOUR,USGS
+Cottage Grove-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"COTTAGE GROVE LAKE NR COTTAGE GROVE, OR",14153000,ELEV-FOREBAY,1HOUR,USGS
+Cottage Grove-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR",14153500,FLOW,1HOUR,USGS
+Cottage Grove (COT) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR",14153500,FLOW,1HOUR,USGS
+Dorena-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"DORENA LAKE NEAR COTTAGE GROVE, OR",14155000,ELEV-FOREBAY,1HOUR,USGS
+Dorena-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"ROW RIVER NEAR COTTAGE GROVE, OR",14155500,FLOW,1HOUR,USGS
+Dorena (DOR) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"ROW RIVER NEAR COTTAGE GROVE, OR",14155500,FLOW,1HOUR,USGS
+Fall Creek-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"FALL CREEK LAKE NEAR LOWELL, OR",14150900,ELEV-FOREBAY,1HOUR,USGS
+Fall Creek-Regulating Outlet,Lookback Release,shared/DamagesPrevented/obsData.dss,"FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR",14151000,FLOW,1HOUR,USGS
+Fall Creek (FAL) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR",14151000,FLOW,1HOUR,USGS
+Dexter-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"DEXTER LAKE AT DEXTER, OR",14149500,ELEV-FOREBAY,1HOUR,USGS
+Dexter-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss,"MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR",14150000,FLOW,1HOUR,USGS
+Dexter (DEX) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR",14150000,FLOW,1HOUR,USGS
+Lookout Point-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"LOOKOUT POINT LAKE NEAR LOWELL, OR",14149000,ELEV-FOREBAY,1HOUR,USGS
+Lookout Point-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss, ,LOP,FLOW-OUT,1HOUR,CWMS
+Lookout Point (LOP) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss, ,LOP,FLOW-OUT,1HOUR,CWMS
+Hills Creek-Pool,Lookback Elevation,shared/DamagesPrevented/obsData.dss,"HILLS CREEK LAKE NEAR OAKRIDGE, OR",14145100,ELEV-FOREBAY,1HOUR,USGS
+Hills Creek-Power Plant,Lookback Release,shared/DamagesPrevented/obsData.dss,"MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR",14145500,FLOW,1HOUR,USGS
+Hills Creek (HCR) Specified Release,Input Time Series,shared/DamagesPrevented/obsData.dss,"MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR",14145500,FLOW,1HOUR,USGS
