@@ -14,15 +14,34 @@ total damages prevented, with every peak within one 100-cfs rounding step.
 ## The process at a glance
 
 ```
- config.ini                set the water year (once per year)
+ config/config.ini              set the water year (once per year)
      |
- 1_download_data.py        STEP 1  download USGS + CWMS data -> data/obsData.dss
-     |                             data checks               -> QAQC/
+ src/1_download_data.py         STEP 1  download USGS + CWMS data and check it
+     |                                  -> output/WY2026/1_download_for_data_management_review/
+     |                                  -> output/WY2026/2_edited_data/obsData.dss (a copy, first time only)
      |
- (you)                     review QAQC/, clean data/obsData.dss in DSSVue
+ (you)                          send the review folder to data management,
+     |                          clean 2_edited_data/obsData.dss in DSSVue
      |
- 2_run_damages_prevented.py STEP 2 flow reductions, dollars, plots
-                                   -> output/<date_time>_<water year>/
+ src/2_run_damages_prevented.py STEP 2  flow reductions, dollars, plots
+                                        -> output/WY2026/3_damages_prevented/ (replaced each run)
+     ^                                  -> output/WY2026/run_history.csv (a line per run)
+     |__________________________ edit and rerun until the data is clean
+```
+
+Each water year has its own folder:
+
+```
+output/WY2026/
+  1_download_for_data_management_review/   the data as downloaded, and its checks. Never edited.
+      FOR DATA MANAGEMENT REVIEW.txt
+      obsData_raw.dss
+      Combined_Summary_Stats.csv
+      QAQC/  (tables, and plots/)
+  2_edited_data/
+      obsData.dss                           the copy you clean; step 2 reads it
+  3_damages_prevented/                      the latest step 2 results
+  run_history.csv                           total damages and filled hours for every step 2 run
 ```
 
 ---
@@ -36,7 +55,7 @@ total damages prevented, with every peak within one 100-cfs rounding step.
 
 2. **USGS API key** (for step 1). Request one at
    <https://api.waterdata.usgs.gov/signup/> and put it, alone on one line, in
-   `download/config/usgs_api_key.txt`. That file is never committed.
+   `config/records/usgs_api_key.txt`. That file is never committed.
 
 3. **CWMS access** (for step 1): the CWMS data API must be reachable from
    your machine (USACE network). Corporate certificates are picked up from the
@@ -44,7 +63,7 @@ total damages prevented, with every peak within one 100-cfs rounding step.
 
 4. **DSSVue** for cleaning the data.
 
-The network (`network/network.json`) is already exported; see
+The network (`config/network/network.json`) is already exported; see
 [When the ResSim model changes](#when-the-ressim-model-changes).
 
 ---
@@ -53,29 +72,36 @@ The network (`network/network.json`) is already exported; see
 
 ### 1. Set the water year
 
-Edit `config.ini`:
+Edit `config/config.ini`:
 
 ```ini
-[period]
-start = 2025-10-01
-end = 2026-09-30
+[water_year]
+water_year = 2026
 ```
 
-Everything else in `config.ini` can usually stay as it is.
+Everything else in `config.ini` can usually stay as it is. (`start` and `end`
+there can narrow the period, and `[paths] obsdata_dss` can point step 2 at a
+different DSS file, but normally both are left blank.)
 
 ### 2. Download and check the data (step 1)
 
-    python 1_download_data.py
+    python src/1_download_data.py
+
+Everything goes in `output/WY<year>/1_download_for_data_management_review/`:
 
 - Downloads the hourly USGS gage and CWMS reservoir records listed in
-  `download/config/RequiredRecordsDictWIL.csv`, and writes them to
-  `data/obsData.dss`. If `data/obsData.dss` already exists, it is first moved
-  to `data/backup/` with a timestamp, so a cleaned file is never lost.
-- Each record is saved to `data/download/` as soon as it finishes downloading,
-  and records already downloaded for the same period are reused. So if the
-  download is interrupted or fails part way, just run it again: it picks up
-  where it stopped.
-- Runs the data checks and writes them to **`QAQC/`**:
+  `config/records/RequiredRecordsDictWIL.csv` into `obsData_raw.dss`.
+- Each record is saved as soon as it finishes downloading, and records already
+  downloaded for the same period are reused. So if the download is interrupted
+  or fails part way, just run it again: it picks up where it stopped.
+- The first time, it copies `obsData_raw.dss` to
+  **`2_edited_data/obsData.dss`**, the file you clean. A later download
+  replaces the raw file and the checks, but **never your edited copy**. To
+  start your edits over from a new download, delete the edited copy and run
+  step 1 again (it reuses what's already downloaded).
+- Runs the data checks and writes them to **`QAQC/`**, with a
+  `FOR DATA MANAGEMENT REVIEW.txt` note explaining the folder. That folder is
+  what to send to data management about problems in the source data.
 
 | File | What to look for |
 |---|---|
@@ -83,26 +109,32 @@ Everything else in `config.ini` can usually stay as it is.
 | `QAQC/Redundant_Pair_Events.csv`, `Redundant_Pair_Monthly.csv` | when and where they disagree |
 | `QAQC/Inflow_Spike_Summary.csv`, `Inflow_Spike_Flags.csv`, `plots/inflow_*.png` | spikes, one-hour jumps, negatives and flat lines in the CWMS reservoir inflows |
 | `QAQC/Inflow_Despiked.csv` | what the inflows look like with the flagged hours replaced |
-| `data/download/Combined_Summary_Stats.csv` | missing hours, longest gap and % complete for every record |
+| `Combined_Summary_Stats.csv` | missing hours, longest gap and % complete for every record |
 
-The check settings (tolerances, spike thresholds) are at the top of
-`download/dp_qaqc.py`. Which USGS/CWMS records are compared is in
-`download/config/RedundantPairs_WIL.csv`.
+(The `QAQC/` paths in the table are inside the review folder.) The check
+settings (tolerances, spike thresholds) are at the top of
+`modules/download/dp_qaqc.py`. Which USGS/CWMS records are compared is in
+`config/records/RedundantPairs_WIL.csv`.
 
 ### 3. Clean the data in DSSVue
 
-Open `data/obsData.dss` in DSSVue and fix what the checks found. Fill gaps,
-remove spikes, and check the reservoir inflows above all, because they drive
-the unregulated flows. Step 2 fills any gap still left with a straight line,
-lists those records in its log and shades the filled hours in its plots, but
-a final run should have none.
+Open `output/WY<year>/2_edited_data/obsData.dss` in DSSVue and fix what the
+checks found. Fill gaps, remove spikes, and check the reservoir inflows above
+all, because they drive the unregulated flows. Save, then run step 2. Repeat
+as often as you like: each run replaces the last one's results.
+
+Step 2 fills any gap still left with a straight line so it can run, but it
+lists those records in its log and in `obsData_records_used.csv`, and shades
+the filled hours in its plots. A final run should have none.
 
 ### 4. Run Damages Prevented (step 2)
 
-    python 2_run_damages_prevented.py
+    python src/2_run_damages_prevented.py
 
-It takes about a minute. Each run writes a new folder,
-`output/<date_time>_<start>_<end>/`:
+It takes about a minute. It reads `2_edited_data/obsData.dss` (the log shows
+the file and when it was last saved, so you can confirm it picked up your
+edits) and writes `output/WY<year>/3_damages_prevented/`, replacing the
+previous run. Close any of its files you have open first.
 
 | Folder / file | Contents |
 |---|---|
@@ -117,7 +149,12 @@ It takes about a minute. Each run writes a new folder,
 | | In every plot, **orange shading** marks hours where the plotted record itself (gage, release, pool elevation) was missing and filled by step 2; **grey shading** marks hours where a record the modeled flows are built from (upstream gages, reservoir inflows and releases, locals) was filled. The grey is not lagged for routing, and in the whole-year panels short gaps are drawn about a day wide so they show up. The legend gives the number of filled hours. |
 | `TimeSeries/ControlPoints/*.csv` | every hourly series behind the results, including each WITHOUT / WITH ONLY run |
 | `TimeSeries/Reservoirs/*.csv` | inflow, outflows and pool elevation |
+| `obsData_records_used.csv` | every record step 2 read from obsData.dss, and how many of its hours were filled |
 | `run_log.txt`, `config_used.ini` | what ran, with which settings |
+
+Every run also adds a line to `output/WY<year>/run_history.csv`: when it ran,
+when obsData.dss was last saved, the total damages prevented, and how many
+hours were filled. It shows how each round of edits changed the answer.
 
 ---
 
@@ -140,25 +177,27 @@ Step 2 does what the ResSim Damages Prevented menu does, then the dollars:
    (WITHOUT peak - observed peak), with peaks rounded to 100 cfs. Big Cliff
    runs with Detroit and Dexter with Lookout Point (re-regulating dams).
 5. **Damages.** Peak flows are converted to dollars with the damage curves
-   (`damages/regulated_damage_curves.pkl`). The reductions are grouped and
-   shared by flood storage, as in the original Calculate_DP method
-   (`damages/calculate_damages.py`).
+   (`config/damage_curves/regulated_damage_curves.pkl`). The reductions are
+   grouped and shared by flood storage, as in the original Calculate_DP method
+   (`modules/damages/calculate_damages.py`).
 
 Willamette+Clackamas is beyond the network. It is the Willamette above the
-Falls plus the Clackamas gage (`config/AddedFlowPoints.csv`). Diversions are
+Falls plus the Clackamas gage (`config/damage_points/AddedFlowPoints.csv`). Diversions are
 ignored.
 
 ### Settings
 
 | File | What |
 |---|---|
-| `config.ini` | water year, file locations, alternatives, output folder, plots on/off |
-| `config/ControlPoints.txt` | control points to report |
-| `config/Reservoirs.txt` | reservoirs to credit |
-| `config/TransformedLocals.csv` | locals computed from a gage x ratio |
-| `config/AddedFlowPoints.csv` | control points beyond the network (junction + gage) |
-| `download/config/RequiredRecordsDictWIL.csv` | records to download (and their DSS pathnames) |
-| `download/config/QAQC_RecordsWIL.csv`, `RedundantPairs_WIL.csv` | extra records and pairs for the checks |
+| `config/config.ini` | water year, alternatives, plots on/off (and optional path overrides) |
+| `config/damage_points/ControlPoints.txt` | control points to report |
+| `config/damage_points/Reservoirs.txt` | reservoirs to credit |
+| `config/damage_points/TransformedLocals.csv` | locals computed from a gage x ratio |
+| `config/damage_points/AddedFlowPoints.csv` | control points beyond the network (junction + gage) |
+| `config/records/RequiredRecordsDictWIL.csv` | records to download (and their DSS pathnames) |
+| `config/records/QAQC_RecordsWIL.csv`, `RedundantPairs_WIL.csv` | extra records and pairs for the checks |
+| `config/network/network.json` | the ResSim network and alternative mappings |
+| `config/damage_curves/regulated_damage_curves.pkl` | the damage curves |
 
 ---
 
@@ -166,32 +205,37 @@ ignored.
 
 Re-export the network only when the ResSim network, reach routing, or the
 Observed / Unregulated alternative mappings change. See
-[`network/README.md`](network/README.md).
+[`ressim/README.md`](ressim/README.md).
 
 ## Folder layout
 
 ```
 DP_Python/
-  README.md                     this file
-  config.ini                    the settings to edit
-  1_download_data.py            STEP 1
-  2_run_damages_prevented.py    STEP 2
-  environment/                  Python environment (environment.yml)
-  download/                     download + data-check code and their config
-  data/                         obsData.dss (+ download/ working files, backup/)
-  QAQC/                         data-check tables and plots (written by step 1)
-  network/                      network.json, ExportNetwork.py (ResSim), check_network.py
-  config/                       control points, reservoirs, transformed / added-flow points
-  dp/                           the Damages Prevented code
-  damages/                      the dollars calculation and damage curves
-  output/                       one timestamped folder per run of step 2
+  README.md                       this file
+  config/                         every setting and input that isn't data
+    config.ini                    the settings to edit (water year)
+    records/                      records to download, QA/QC pairs, USGS key
+    damage_points/                control points, reservoirs, transformed / added-flow points
+    network/network.json          the network exported from ResSim
+    damage_curves/                the damage curves
+  src/                            the scripts you run
+    1_download_data.py            STEP 1
+    2_run_damages_prevented.py    STEP 2
+    check_network.py              checks network.json after a re-export
+  modules/                        the code the scripts use
+    download/                     download and data checks
+    dp/                           Damages Prevented (routing, mini-simulations, plots)
+    damages/                      the dollars calculation
+  ressim/                         ExportNetwork.py (runs inside ResSim)
+  environment/                    Python environment (environment.yml)
+  output/                         one folder per water year (WY2025, WY2026, ...)
 ```
 
 ## Relationship to the ResSim process
 
-The ResSim 4.1 version of this process (`data/ResSim41ExampleScripts/DamagesPrevented`)
-still works and is unchanged. The Python version was validated against it on
-WY2025 (the `data/obsData.dss` in this folder):
+The ResSim 4.1 version of this process (`data/ResSim41ExampleScripts/DamagesPrevented`
+at the repo root) still works and is unchanged. The Python version was
+validated against it on WY2025 (`output/WY2025/2_edited_data/obsData.dss`):
 
 - reservoir peaks are identical;
 - every control point and per-project value is within one rounding step;
@@ -205,8 +249,10 @@ routing is a line-for-line port of the routing the ResSim scripts use
 
 | Message | Fix |
 |---|---|
-| `obsData.dss not found` | run step 1, or point `[paths] obsdata_dss` at your file |
+| `obsData.dss not found` | run step 1 (it makes `2_edited_data/obsData.dss`), or point `[paths] obsdata_dss` at your file |
+| `Could not replace ...3_damages_prevented` | a results file is open (Excel, an image viewer): close it and rerun |
+| my DSSVue edits don't show up | save in DSSVue, then check the "last saved" time and file name at the top of `run_log.txt` |
 | `... is not in obsData.dss` | a record the network maps is missing: check the download summary, or the pathname in `RequiredRecordsDictWIL.csv` |
 | `missing hours ... were filled` | gaps left in obsData.dss (shaded in the plots); clean them in DSSVue |
 | `Alternative ... is not in network.json` | the names in `config.ini [alternatives]` must match the export |
-| step 1 cannot reach CWMS / USGS | VPN/network access, the USGS key file, or certificates (see the notes at the top of `download/dp_download.py`) |
+| step 1 cannot reach CWMS / USGS | VPN/network access, the USGS key file, or certificates (see the notes at the top of `modules/download/dp_download.py`) |

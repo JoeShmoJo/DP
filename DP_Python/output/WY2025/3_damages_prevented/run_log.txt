@@ -1,0 +1,51 @@
+==============================================================================
+Damages Prevented  01Oct2024 - 30Sep2025
+==============================================================================
+Config:      /home/user/DP/DP_Python/config/config.ini
+obsData.dss: /home/user/DP/DP_Python/output/WY2025/2_edited_data/obsData.dss
+             last saved 02Oct2026 22:10
+Network:     /home/user/DP/DP_Python/config/network/network.json (exported 2026-10-02 11:31)
+Window:      30Sep2024 23:00 to 01Oct2025 00:00 (8762 hours)
+
+1. Transformed locals
+Transformed: //WILLAMETTE FALLS/FLOW-LOC//1Hour/COMPUTED/ = 14202000 x 1.5
+
+2. Water-balance locals
+Local flow at No Santiam_at Mehama (MEHO_Mehama_HMSsub_NSantiamRv_S10)
+Local flow at Foster_IN (Foster Local Inflow_HMSsub_SSantiamRv_S20)
+Local flow at So Santiam_at Waterloo (WTLO_Waterloo_HMSsub_SSantiamRv_S15)
+Local flow at Long Tom_at Monroe (MNRO_Monroe_HMSsub_LongTomRv_S10)
+Local flow at Lookout Point_IN (Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60)
+Local flow at Santiam_at Jefferson (JFFO Santiam_at Jefferson loc)
+Local flow at CF WIllamette_nr Goshen (GOSO_Goshen_HMSsub_CFWillametteRv_S10)
+Local flow at MF Willamette_at Jasper (JASO_Jasper_HMSsub_MFWillametteRv_S10)
+Local flow at Willamette_at Eugene (EUGO_Willamette at Eugene)
+Local flow at McKenzie_at Vida (VIDO_Vida_HMSsub_McKenzieRv_S18)
+Local flow at Willamette_at Harrisburg (HARO_Harrisburg_HMSsub_WillametteRv_S80)
+Local flow at Willamette_at Albany (ALBO_ Albany_HMSsub_WillametteRv_S60)
+Local flow at Willamette_at Salem (SLMO_Salem_HMSsub_WillametteRv_S50)
+Local flow at Willamette_at Newberg (NBGO_Newberg_HMSsub_WillametteRv_S40)
+   14 locals computed
+
+3. Observed and Unregulated runs
+   done
+
+4. Mini-simulations
+   11 reservoirs with/without at 23 control points
+   wrote Results/: Preliminary_per_project.csv, Mini-Simulations.csv, CP_Peaks.csv, Resv_Peaks.csv
+
+5. Damages prevented
+   Total damages prevented: $268,854,856
+   Wrote Damages/damages_prevented.csv
+   Wrote Damages/damages_prevented_ByProject.csv
+   55 records read from obsData.dss (obsData_records_used.csv)
+
+6. Time series and plots
+   wrote TimeSeries/
+   23 control point and 13 reservoir plots
+
+No missing hours in the records read from obsData.dss.
+
+Done in 62 s. Everything is in:
+   /home/user/DP/DP_Python/output/WY2025/3_damages_prevented
+Run history: /home/user/DP/DP_Python/output/WY2025/run_history.csv
