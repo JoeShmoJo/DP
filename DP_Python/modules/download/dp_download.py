@@ -1,0 +1,676 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Oct  2 13:00:45 2024
+# Change Log
+- 04Oct2024
+Removed Timestep as a variable and now resample to hourly or daily based on defined ResSim path in the process USGS and process CWMS functions 
+Added df = df.apply(pd.to_numeric,errors='coerce') to process CWMS function to catch odd format values downloading from CWMS 
+- 04May2026
+Removed SSL verify=False monkey-patch. Now uses pip-system-certs to pull certs from
+the Windows certificate store. Run: pip install pip-system-certs
+- 28Aug2026
+USGS is decommissioning the legacy WaterServices API (waterservices.usgs.gov) in
+Q1 2027 in favor of the modernized USGS Water Data API (api.waterdata.usgs.gov).
+The dataretrieval.nwis module (nwis.get_record) is now deprecated and talks to the
+legacy API that USGS is actively winding down, which is why downloads that worked
+in May stopped working. Rewrote NWIS_dl to use dataretrieval.waterdata.get_continuous
+/get_daily instead. This changes site IDs to the "USGS-#######" monitoring_location_id
+format and returns a 'value' column instead of a numeric-named column, so
+process_usgs_data was updated to read 'value' (with a fallback to the old numeric
+column heuristic for anyone still on the legacy nwis module).
+Requires dataretrieval>=1.3.0 (pip install -U dataretrieval).
+Fixed: waterdata.get_continuous() has no skip_geometry argument (it never
+returns geometry to begin with, unlike get_daily()) - removed it from the
+'iv' branch of NWIS_dl, which was raising a TypeError.
+Tried changing CWMS_Download's office_id from 'NWDP' to office.upper() to
+match Modules/cwms_io.py in the Cowlitz_FF repo - didn't fix it. Reverted:
+office_id='NWDP' back to match CAS_Unreg_FF/src/#DataDownload.py (the
+Cowlitz initial data download script) exactly, and brought over that
+script's SSL cert handling too. That script builds its own combined CA
+bundle (certifi + the Windows ROOT store) and points REQUESTS_CA_BUNDLE
+at it directly, instead of relying on pip-system-certs's global
+monkey-patch, which doesn't survive every environment/upgrade (e.g. it can
+get silently undone when certifi itself gets reinstalled/upgraded - which
+`pip install -U dataretrieval` does). That silent TLS failure is the more
+likely reason CWMS was still failing after the office_id change.
+- 01Oct2026
+Moved into the watershed's scripts/DamagesPrevented/DP_Download folder (was
+src/DP_DL_28Aug2026.py) so Damages Prevented is self-contained. Every path is
+now relative to this script's folder, not the working directory:
+config/ (records dictionaries, USGS API key), out/ (obsData.dss, hourly csv,
+summary stats), QAQC/ (DP_QAQC.py and its outputs). obsData.dss is written as
+DSS 7 for ResSim 4.1, and rewritten from scratch each run (the reused records
+are written again too) so no DSS 6 file or stale record is left behind.
+- 30Sep2026
+Pointed at RequiredRecordsDictWIL.csv (Willamette only, made from
+RequiredRecordsDictNWP.csv by PareDown_Willamette.py) and set the period to
+WY2026 (01Oct2025 - 30Sep2026). CWMS_Download now pulls through the end of
+EndDate instead of stopping at midnight. Hourly records are reindexed to the
+full requested period so gaps at either end are counted, and the summary stats
+gained 'Hours Expected', 'Hours Missing' and 'Pct Complete'. All hourly data
+is also written to out/Hourly_<startDate>_<endDate>.csv (long format:
+time_utc, Source, Download_Key, ResSimPath, value), which DP_QAQC.py reads.
+Reads a USGS Water Data API key from config/usgs_api_key.txt (git-ignored)
+and sets API_USGS_PAT, which dataretrieval sends with every request. Without
+a key the API's anonymous rate limit is easy to hit on a full year of
+instantaneous data for this many gages. Request a key at
+https://api.waterdata.usgs.gov/signup/
+Records already in the hourly csv from an earlier run (same period, index
+covering the whole period, and at least one value) are reused instead of
+downloaded again, so rerunning after a change only downloads what's new or
+missing (ReuseDownloaded). Their summary stats rows are carried over from the
+previous Combined_Summary_Stats.csv.
+Also downloads the extra records DP_QAQC.py needs to compare USGS and CWMS
+for every project (config/QAQC_RecordsWIL.csv - CWMS Elev-Forebay/Flow-Out and
+the Foster outflow gage). The first run builds that file by
+searching the CWMS catalog (CWMS_Catalog) and writes every candidate it found
+to out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
+and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
+out of the DSS file.
+
+- 03Oct2026
+Saves as it goes: each record is processed and appended to the hourly csv
+(and its row to Combined_Summary_Stats.csv) as soon as it finishes
+downloading, so an interrupted or failed run keeps what it already got and the
+next run only downloads the rest. At the end the csv and summary are rewritten
+complete as before. When a record appears more than once in the csv the
+newest copy is used.
+- 02Oct2026
+Moved into DP_Python/download (step 1 of the Python-only Damages Prevented
+process, run by DP_Python/1_download_data.py). The period and the obsData.dss
+path now come from DP_Python/config.ini ([period] start/end, [paths]
+obsdata_dss), so a new water year is set in one place. Working files (hourly
+csv, summary stats, CWMS candidates) go to DP_Python/data/download. An
+existing obsData.dss is moved to DP_Python/data/backup with a timestamp
+instead of deleted, so a cleaned file is never lost by re-running the download.
+- 04Oct2026
+Moved to DP_Python/modules/download (run by src/1_download_data.py). The records
+dictionaries and the USGS key are in DP_Python/config/records. Everything is
+written to output/WY<year>/1_download_for_data_management_review: the raw
+download is obsData_raw.dss (rewritten each run, never edited), with the hourly
+csv and summary stats beside it. The first download is also copied to
+output/WY<year>/2_edited_data/obsData.dss, the copy you edit and step 2 reads;
+a later download never replaces that copy.
+
+@author: g2encjer
+"""
+#%%
+
+import os
+import tempfile
+import shutil
+
+import pandas as pd
+from dataretrieval import waterdata
+import datetime
+import cwms
+from pydsstools.heclib.dss import HecDss
+from pydsstools.core import TimeSeriesContainer
+import numpy as np
+import time
+import pdb
+import requests
+
+import ssl
+import sys
+import certifi
+
+# Every path below comes from DP_Python/config/config.ini (see modules/dp/config.py),
+# so it runs the same from any working directory.
+try:
+    ScriptDir = os.path.dirname(os.path.abspath(__file__))
+except NameError:  # running cell-by-cell without __file__ - run from the modules/download folder
+    ScriptDir = os.getcwd()
+ModulesDir = os.path.dirname(ScriptDir)
+for d in (ScriptDir, ModulesDir):
+    if d not in sys.path:
+        sys.path.insert(0, d)
+from dp.config import Config, DEFAULT_CONFIG
+cfg = Config(os.environ.get('DP_CONFIG', DEFAULT_CONFIG))
+# Records dictionaries and the USGS API key: DP_Python/config/records
+ConfigDir = cfg.records_dir
+
+from willamette_projects import PROJECTS
+from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex, prune_qaqc_records
+
+# --- SSL Certificate Setup ---
+# Build a combined CA bundle (public CAs from certifi + the Windows ROOT
+# store) and point REQUESTS_CA_BUNDLE at it so requests/cwms/dataretrieval
+# trust USACE's internally-issued certs. This must run before any network
+# calls (CWMS_Download, NWIS_dl) below. On non-Windows platforms,
+# ssl.enum_certificates doesn't exist and this falls back to certifi alone.
+pem_path = os.path.join(tempfile.gettempdir(), "corp_plus_certifi.pem")
+
+
+def build_windows_ca_bundle(target_pem: str) -> str:
+    base_bundle = certifi.where()
+    with open(base_bundle, "rb") as src, open(target_pem, "wb") as dst:
+        dst.write(src.read())
+        try:
+            for cert_tuple in ssl.enum_certificates("ROOT"):
+                der_bytes = cert_tuple[0]
+                pem_str = ssl.DER_cert_to_PEM_cert(der_bytes)
+                dst.write(pem_str.encode("ascii"))
+        except AttributeError:
+            print("[WARNING] ssl.enum_certificates not available; using certifi only.")
+        except Exception as e:
+            print(f"[WARNING] Error reading Windows ROOT store: {e}")
+    return target_pem
+
+
+if not os.path.exists(pem_path):
+    try:
+        bundle_path = build_windows_ca_bundle(pem_path)
+        print(f"[INFO] Built combined CA bundle: {bundle_path}")
+    except Exception as e:
+        print(f"[WARNING] Failed to build combined CA bundle: {e}")
+        bundle_path = certifi.where()
+else:
+    bundle_path = pem_path
+
+os.environ["REQUESTS_CA_BUNDLE"] = bundle_path
+print(f"[INFO] Using CA bundle: {bundle_path}")
+# --- End SSL Setup ---
+
+# --- USGS API Key ---
+# dataretrieval sends API_USGS_PAT as the X-Api-Key header on Water Data API
+# requests. The key lives in a text file that is git-ignored - never commit it.
+UsgsApiKeyPath = os.path.join(ConfigDir, 'usgs_api_key.txt')
+if os.path.exists(UsgsApiKeyPath):
+    with open(UsgsApiKeyPath, encoding='utf-8-sig') as f:
+        usgs_api_key = f.read().strip()
+    if usgs_api_key:
+        os.environ['API_USGS_PAT'] = usgs_api_key
+        print(f"[INFO] USGS API key loaded from {UsgsApiKeyPath}")
+    else:
+        print(f"[WARNING] {UsgsApiKeyPath} is empty; USGS requests will be anonymous and rate limited.")
+elif os.environ.get('API_USGS_PAT'):
+    print("[INFO] Using USGS API key from the API_USGS_PAT environment variable.")
+else:
+    print(f"[WARNING] No USGS API key ({UsgsApiKeyPath} not found); USGS requests will be anonymous and rate limited.")
+# --- End USGS API Key ---
+
+
+RequiredRecordsDictPath = os.path.join(ConfigDir, 'RequiredRecordsDictWIL.csv')
+# Extra records downloaded only for QA/QC (built from the CWMS catalog if missing)
+QAQCRecordsPath = os.path.join(ConfigDir, 'QAQC_RecordsWIL.csv')
+
+# Start and end date (the water year), from config.ini [water_year]
+startDate = f'{cfg.start:%Y-%m-%d}'
+endDate = f'{cfg.end:%Y-%m-%d}'
+# Everything step 1 writes goes in output/WY<year>/1_download_for_data_management_review:
+# summary stats, hourly csv, CWMS candidates and the raw obsData_raw.dss (DSS 7)
+OutDir = cfg.download_dir
+os.makedirs(OutDir, exist_ok=True)
+ObsDataWrite = cfg.raw_dss
+# The copy you edit in DSSVue and step 2 reads (made from the raw file once, never overwritten)
+ObsDataEdited = cfg.edited_dss
+HourlyCsv = os.path.join(OutDir, f'Hourly_{startDate}_{endDate}.csv')
+print(f"[INFO] Period {startDate} to {endDate}; raw download: {ObsDataWrite}")
+# Records already in HourlyCsv (same period, with values) are reused instead of
+# downloaded again. Set False to re-download everything.
+ReuseDownloaded = True
+
+
+#Functions
+def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD, on_record=None):
+    """
+    Downloads USGS data via the modernized USGS Water Data API
+    (dataretrieval.waterdata), which replaces the legacy WaterServices API
+    formerly accessed through dataretrieval.nwis.get_record.
+
+    service: 'iv' for continuous/instantaneous values, 'dv' for daily values
+    (reported as the daily mean, statistic_id '00003').
+    on_record(key, path, data): called after each record downloads (saves it right away).
+    """
+    NWIS = {}
+    # ISO 8601 interval covering the full start/end days, as required by the
+    # 'time' parameter of the waterdata getters. Parse with pandas first so a
+    # loosely-formatted date (e.g. '2024-1-02') still produces a valid,
+    # zero-padded RFC3339 string instead of getting interpolated as-is.
+    start_dt = pd.to_datetime(startDate)
+    end_dt = pd.to_datetime(endDate) + pd.Timedelta(hours=23, minutes=59, seconds=59)
+    time_range = f"{start_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}/{end_dt.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+    for site, name in sites_dict.items():
+        # The new API keys sites as "USGS-#######" (agency-siteno) rather than
+        # the bare site number used by the old nwis module.
+        monitoring_location_id = site if str(site).upper().startswith('USGS-') else f"USGS-{site}"
+        try:
+            if service == 'iv':
+                # get_continuous has no skip_geometry kwarg - it never returns
+                # geometry to begin with.
+                data, _ = waterdata.get_continuous(
+                    monitoring_location_id=monitoring_location_id,
+                    parameter_code=parameterCD,
+                    time=time_range,
+                )
+            elif service == 'dv':
+                data, _ = waterdata.get_daily(
+                    monitoring_location_id=monitoring_location_id,
+                    parameter_code=parameterCD,
+                    statistic_id='00003',
+                    time=time_range,
+                    skip_geometry=True,
+                )
+            else:
+                raise ValueError(f"Unsupported service '{service}'. Use 'iv' or 'dv'.")
+            if data.empty:
+                print(f"Downloaded data for {site} is empty.")
+            else:
+                data['time'] = pd.to_datetime(data['time'])
+                data = data.set_index('time').sort_index()
+                NWIS[name] = data
+                if on_record is not None:
+                    on_record(site, name, data)
+        except Exception as e:
+            print(f"Failed to download data for {site}: {e}")
+    return NWIS
+
+def CWMS_Download(sites_dict, StartDate, EndDate, office='nws', on_record=None):
+    # Convert StartDate and EndDate to datetime objects. EndDate is pushed to
+    # the end of that day so the last day isn't dropped.
+    StartDate = pd.to_datetime(StartDate)
+    EndDate = pd.to_datetime(EndDate) + pd.Timedelta(hours=23, minutes=59, seconds=59)
+
+    # Initialize CWMS API session
+    apiRoot = "https://wm." + office + ".ds.usace.army.mil:8243/nwdp-data/"
+    api = cwms.api.init_session(api_root=apiRoot)
+
+    # Initialize empty dictionary to store data for each tsid
+    CWMS_data = {}
+    # Loop through each tsid
+    for site, name in sites_dict.items():
+        try:
+            # Try to download data and store the dataframe for the tsid
+            data = cwms.get_timeseries(site, office_id='NWDP', begin=StartDate, end=EndDate).df
+            # Check if the data is empty
+            if data.empty:
+                print(f"Downloaded data for {site} is empty.")
+            else:
+                CWMS_data[name] = data
+                if on_record is not None:
+                    on_record(site, name, data)
+        except Exception as e:
+            # Print the failed tsid and the error message
+            print(f"Failed to download data for {site}: {e}")
+    return CWMS_data
+
+def CWMS_Catalog(locations, office='nws'):
+    """Search the CWMS catalog for each location's Elev-Forebay and Flow-Out
+    tsids. Returns {location: [(tsid, latest_time), ...]}."""
+    apiRoot = "https://wm." + office + ".ds.usace.army.mil:8243/nwdp-data/"
+    api = cwms.api.init_session(api_root=apiRoot)
+    catalog = {}
+    for loc in locations:
+        try:
+            # timeseries_group_like=None: don't limit the search to the public
+            # 'DMZ Include List' group (the cwms-python default)
+            cat = cwms.get_timeseries_catalog(office_id='NWDP', like=catalog_regex(loc),
+                                              timeseries_group_like=None, include_extents=True).df
+            catalog[loc] = catalog_entries(cat)
+            print(f"{loc}: {len(catalog[loc])} catalog entries")
+        except Exception as e:
+            print(f"Failed catalog search for {loc}: {e}")
+            catalog[loc] = []
+    return catalog
+
+def full_period_resample(df, t, startDate, endDate):
+    """Resample to hourly/daily means and reindex to the whole requested
+    period so missing time at the start or end shows up as gaps."""
+    df = df.resample(t).mean()
+    tz = df.index.tz
+    start = pd.Timestamp(startDate)
+    end = pd.Timestamp(endDate) + pd.Timedelta(days=1) - pd.Timedelta(1, unit=t)
+    if tz is not None:
+        start, end = start.tz_localize(tz), end.tz_localize(tz)
+    return df.reindex(pd.date_range(start, end, freq=t, name=df.index.name))
+
+def completeness(df, t):
+    """Count expected/missing timesteps of a resampled (NaN-gapped) record."""
+    missing = int(df.isna().to_numpy().sum())
+    expected = int(df.shape[0])
+    label = 'Hours' if t == 'h' else 'Days'
+    return {f'{label} Expected': expected,
+            f'{label} Missing': missing,
+            'Pct Complete': round(100.0 * (expected - missing) / expected, 2) if expected else np.nan}
+
+def process_usgs_data(DataDict, startDate, endDate):
+    # Create an empty list to store the summary stats
+    results = []
+    for df_name, df in DataDict.items():
+        if not df.empty and df.shape[1] > 0:
+            # The modernized waterdata API returns the observation in a 'value'
+            # column. Fall back to the old numeric-named-column heuristic for
+            # anyone still downloading via the legacy dataretrieval.nwis module.
+            if 'value' in df.columns:
+                df = df['value'].copy()
+            else:
+                valid_columns = [col for col in df.columns if col.replace('_', '').isdigit()]
+                if len(valid_columns) == 1:
+                    df = df[valid_columns[0]].copy()
+                elif len(valid_columns) > 1:
+                    print(f"Warning: Multiple valid columns found in {df_name}. Using the first one: {valid_columns[0]}")
+                    df = df[valid_columns[0]].copy()
+                else:
+                    raise ValueError("No valid columns found that contain only numbers or underscores.")
+            df = pd.to_numeric(df, errors='coerce')
+            df[df < -9000] = np.nan
+            df[df==-902]=np.nan
+            df[df==-901]=np.nan
+            df = df.dropna()
+            #Create SummaryStats
+            first_timestamp = df.index.min().strftime('%Y-%m-%d %H:%M')
+            last_timestamp = df.index.max().strftime('%Y-%m-%d %H:%M')
+            # Calculate the maximum gap between consecutive timestamps
+            time_diffs = df.index.to_series().diff().dropna()
+            max_gap = time_diffs.max()
+            max_gap_hours=max_gap.total_seconds()/3600.0
+            # Resample to hourly (or daily) over the full period
+            if '1HOUR' in df_name:
+                t = 'h'
+            elif '1DAY' in df_name:
+                t = 'D'
+            else:
+                print('timestep of ResSim path not 1HOUR or 1DAY')
+            df = full_period_resample(df, t, startDate, endDate)
+            # Append the results for this dataframe to the list
+            results.append({
+                'DataFrame': df_name,
+                'First Timestamp': first_timestamp,
+                'Last Timestamp': last_timestamp,
+                'Max Gap': max_gap,
+                'Max Gap Hours': max_gap_hours,
+                **completeness(df, t)
+            })
+            # Replace nan with dss nan
+            df = df.fillna(-902)
+            DataDict[df_name] = df
+        else:
+            print(f"DataFrame {df_name} is either empty or does not have any columns.")
+    results_df = pd.DataFrame(results)
+    return results_df
+
+def process_cwms_data(DataDict, startDate, endDate):
+    # Create an empty list to store the summary stats
+    results = []
+    for df_name, df in DataDict.items():
+        # Set 'date-time' as index if it exists
+        if 'date-time' in df.columns:
+            df = df.set_index('date-time')
+            DataDict[df_name] = df
+        if not df.empty and df.shape[1] > 0:
+            # Keep only the first column and clean missing value standins
+            df = df.iloc[:, [0]].copy()
+            df = df.apply(pd.to_numeric,errors='coerce')
+            df[df < -9000] = np.nan
+            df[df==-902]=np.nan
+            df[df==-901]=np.nan
+            df = df.dropna()
+            #Create SummaryStats
+            first_timestamp = df.index.min().strftime('%Y-%m-%d %H:%M')
+            last_timestamp = df.index.max().strftime('%Y-%m-%d %H:%M')
+            # Calculate the maximum gap between consecutive timestamps
+            time_diffs = df.index.to_series().diff().dropna()
+            max_gap = time_diffs.max()
+            max_gap_hours = max_gap.total_seconds()/3600.0
+            # Resample to hourly (or daily) over the full period
+            if '1HOUR' in df_name:
+                t = 'h'
+            elif '1DAY' in df_name:
+                t = 'D'
+            else:
+                print('timestep of ResSim path not 1HOUR or 1DAY')
+            df = full_period_resample(df, t, startDate, endDate)
+            # Append the results for this dataframe to the list
+            results.append({
+                'DataFrame': df_name,
+                'First Timestamp': first_timestamp,
+                'Last Timestamp': last_timestamp,
+                'Max Gap': max_gap,
+                'Max Gap Hours': max_gap_hours,
+                **completeness(df, t)
+            })
+            # Replace nan with dss nan
+            df = df.fillna(-902)
+            DataDict[df_name] = df
+        else:
+            print(f"DataFrame {df_name} is either empty or does not have any columns.")
+    # Convert the list of results into a DataFrame
+    results_df = pd.DataFrame(results)
+    return results_df
+
+def load_downloaded(csv_file, startDate, endDate):
+    """Records in an earlier hourly csv that count as already downloaded: the
+    index covers startDate through endDate and there's at least one value.
+    Returns {(Source, Download_Key): hourly Series (UTC, NaN for missing)}."""
+    if not os.path.exists(csv_file):
+        return {}
+    hourly = pd.read_csv(csv_file, dtype={'Download_Key': str},
+                         usecols=['time_utc', 'Source', 'Download_Key', 'value'])
+    hourly['time_utc'] = pd.to_datetime(hourly['time_utc'], utc=True)
+    start = pd.Timestamp(startDate, tz='UTC')
+    end = pd.Timestamp(endDate, tz='UTC') + pd.Timedelta(hours=23)
+    period = pd.date_range(start, end, freq='h')
+    done = {}
+    for (source, key), g in hourly.groupby(['Source', 'Download_Key']):
+        s = g.set_index('time_utc')['value'].astype(float).sort_index()
+        s = s[~s.index.duplicated(keep='last')]   # a record saved twice: the newest copy wins
+        if s.index.min() <= start and s.index.max() >= end and s.notna().any():
+            done[(source, key)] = s.reindex(period)
+    return done
+
+def write_hourly_csv(csv_file, DataDicts):
+    """Write every processed record to one long-format csv (-902 -> blank).
+    DataDicts: {source: (DataDict, {ResSimPath: Download_Key})}"""
+    frames = []
+    for source, (DataDict, keys) in DataDicts.items():
+        for pathname, df in DataDict.items():
+            frames.append(hourly_frame(source, keys.get(pathname, ''), pathname, df))
+    if frames:
+        pd.concat(frames, ignore_index=True).to_csv(csv_file, index=False)
+        print(f"Wrote {csv_file}")
+
+def hourly_frame(source, key, pathname, df):
+    """One processed record as rows of the long-format hourly csv (-902 -> blank)"""
+    s = df.iloc[:, 0] if isinstance(df, pd.DataFrame) else df
+    s = s.replace(-902, np.nan)
+    idx = s.index.tz_convert('UTC') if s.index.tz is not None else s.index
+    return pd.DataFrame({
+        'time_utc': idx.strftime('%Y-%m-%d %H:%M'),
+        'Source': source,
+        'Download_Key': key,
+        'ResSimPath': pathname,
+        'value': s.to_numpy(),
+    })
+
+def save_record(source, key, pathname, raw):
+    """
+    Save one record as soon as it is downloaded: process it to hourly, append
+    it to HourlyCsv and put its row in Combined_Summary_Stats.csv. A run that
+    stops part way keeps these, and the next run reuses them (load_downloaded).
+    Never stops the download: a failure here is only reported.
+    """
+    try:
+        one = {pathname: raw.copy()}
+        if source == 'USGS':
+            stats = process_usgs_data(one, startDate, endDate)
+        else:
+            stats = process_cwms_data(one, startDate, endDate)
+        if stats.empty:
+            return
+        rows = hourly_frame(source, str(key), pathname, one[pathname])
+        rows.to_csv(HourlyCsv, mode='a', header=not os.path.exists(HourlyCsv), index=False)
+        summary_path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
+        if os.path.exists(summary_path):
+            summary = pd.read_csv(summary_path)
+            summary = summary[summary['DataFrame'] != pathname]
+            stats = pd.concat([summary, stats], ignore_index=True)
+        stats.to_csv(summary_path, index=None)
+        print(f"   saved {source} {key}")
+    except Exception as e:
+        print(f"[WARNING] Could not save {source} {key} as it downloaded ({e}); it is still kept for this run.")
+
+def write_to_dss(dss_file, DataDict):
+    for pathname, df in DataDict.items():
+        # Debugging statements
+        print(f"Processing pathname: {pathname}")
+        # Ensure df is a DataFrame
+        if isinstance(df, pd.Series):
+            df = df.to_frame()
+        # Create the time series container
+        tsc = TimeSeriesContainer()
+        tsc.pathname = pathname
+        tsc.startDateTime = str(df.index[0])
+        tsc.numberValues = df.shape[0]
+        # Check if df has the expected structure
+        if df.shape[1] > 0:
+            tsc.values = df.iloc[:, 0].copy().to_numpy()
+        else:
+            print(f"DataFrame {pathname} does not have any columns.")
+            continue
+        tsc.interval = 1  # Assuming this is the interval
+        # Set units based on the path
+        if "ELEV" in pathname:
+            tsc.units = "FEET"
+        elif "FLOW" in pathname:
+            tsc.units = "CFS"
+        else:
+            tsc.units = 'Unknown'
+            print('Not Flow or Elev!')
+        # Set the type
+        tsc.type = "INST-VAL"  # Assuming this is always the type
+        # Write the data to the DSS file to the out folder
+
+        with HecDss.Open(dss_file, version=7) as fid:
+            fid.put_ts(tsc)
+        
+#%%
+# Read in the CSV that maps required Damages Prevented inputs with download keys (USGS or CWMS).
+# Create this csv with the CreateRequiredRecordsDict.py script.
+RequiredRecordsDict = pd.read_csv(RequiredRecordsDictPath)
+
+# Create the required USGS and CWMS dictionaries. USGS needs one for Elev and one for Flow
+# because the parameterCD code for each is different.
+USGS_df = RequiredRecordsDict[RequiredRecordsDict['Source']=='USGS']
+
+USGS_Elev_df = USGS_df[USGS_df['ResSimPath'].str.contains('ELEV', na=False)]
+USGS_Elev_dict = dict(zip(USGS_Elev_df['Download_Key'],USGS_Elev_df['ResSimPath']))
+
+USGS_Flow_df = USGS_df[USGS_df['ResSimPath'].str.contains('FLOW', na=False)]
+USGS_Flow_dict = dict(zip(USGS_Flow_df['Download_Key'],USGS_Flow_df['ResSimPath']))
+
+CWMS_df = RequiredRecordsDict[RequiredRecordsDict['Source']=='CWMS']
+CWMS_dict = dict(zip(CWMS_df['Download_Key'],CWMS_df['ResSimPath']))
+
+#%%
+# QA/QC-only records. Built once from the CWMS catalog, then read from the csv
+# (edit it to change which tsids/gages are used, or delete it to rebuild).
+if not os.path.exists(QAQCRecordsPath):
+    catalog = CWMS_Catalog(PROJECTS.keys())
+    QAQC_Records, QAQC_Candidates = build_qaqc_records(RequiredRecordsDict, catalog, startDate)
+    QAQC_Records.to_csv(QAQCRecordsPath, index=False)
+    QAQC_Candidates.to_csv(os.path.join(OutDir, 'QAQC_CWMS_Candidates.csv'), index=False)
+    print(f"Wrote {QAQCRecordsPath} - review against {OutDir}/QAQC_CWMS_Candidates.csv")
+QAQC_Records = pd.read_csv(QAQCRecordsPath, dtype={'Download_Key': str})
+QAQC_Records, QAQC_Dropped = prune_qaqc_records(QAQC_Records)
+if len(QAQC_Dropped):
+    print("Removed QA/QC records no longer used (see willamette_projects.py):")
+    print(QAQC_Dropped[['Download_Key', 'ResSimPath']].to_string(index=False))
+    QAQC_Records.to_csv(QAQCRecordsPath, index=False)
+for source in ('USGS', 'CWMS'):
+    rows = QAQC_Records[QAQC_Records['Source'] == source]
+    for key, path in zip(rows['Download_Key'], rows['ResSimPath']):
+        if source == 'CWMS':
+            CWMS_dict[key] = path
+        elif 'ELEV' in path:
+            USGS_Elev_dict[key] = path
+        else:
+            USGS_Flow_dict[key] = path
+
+#%%
+# Records already downloaded in an earlier run (in HourlyCsv) are reused, not downloaded again
+Downloaded = load_downloaded(HourlyCsv, startDate, endDate) if ReuseDownloaded else {}
+def still_needed(sites_dict, source):
+    return {k: v for k, v in sites_dict.items() if (source, str(k)) not in Downloaded}
+n_all = len(USGS_Elev_dict) + len(USGS_Flow_dict) + len(CWMS_dict)
+n_need = len(still_needed(USGS_Elev_dict, 'USGS')) + len(still_needed(USGS_Flow_dict, 'USGS')) + len(still_needed(CWMS_dict, 'CWMS'))
+print(f"{n_all - n_need} of {n_all} records already downloaded in {HourlyCsv}; downloading {n_need}")
+
+# Download the data. All data is downloaded as instant. The processing later makes it hourly
+# or daily. You could also set the service to 'dv' for daily if you don't need hourly.
+
+# Each record is saved as soon as it downloads (save_record), so an interrupted run
+# keeps what it got and the next run only downloads the rest.
+save_usgs = lambda key, path, data: save_record('USGS', key, path, data)
+save_cwms = lambda key, path, data: save_record('CWMS', key, path, data)
+
+USGS_Elev_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Elev_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '62614', on_record = save_usgs)
+
+USGS_Flow_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Flow_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '00060', on_record = save_usgs)
+
+CWMS_Data_Dict = CWMS_Download(sites_dict=still_needed(CWMS_dict, 'CWMS'), StartDate = startDate, EndDate = endDate, on_record = save_cwms)
+
+#%%
+# Process Data and create summary stats - this process gets rid of all the metadata that comes
+# in with the data, and also creates summary stats that are written to a csv.
+CWMS_Summary_Stats = process_cwms_data(CWMS_Data_Dict, startDate, endDate)
+USGS_Flow_Summary_Stats = process_usgs_data(USGS_Flow_Data_Dict, startDate, endDate)
+USGS_Elev_Summary_Stats = process_usgs_data(USGS_Elev_Data_Dict, startDate, endDate)
+
+# Add the reused records (already hourly) back in, with -902 for missing like the processed ones
+Reused_Paths = []
+for sites_dict, source, DataDict in ((USGS_Elev_dict, 'USGS', USGS_Elev_Data_Dict),
+                                     (USGS_Flow_dict, 'USGS', USGS_Flow_Data_Dict),
+                                     (CWMS_dict, 'CWMS', CWMS_Data_Dict)):
+    for key, path in sites_dict.items():
+        if (source, str(key)) in Downloaded:
+            DataDict[path] = Downloaded[(source, str(key))].fillna(-902)
+            Reused_Paths.append(path)
+
+# Summary stats for reused records come from the previous run's summary
+Previous_Summary_Path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
+Previous_Summary_Stats = pd.DataFrame()
+if Reused_Paths and os.path.exists(Previous_Summary_Path):
+    Previous_Summary_Stats = pd.read_csv(Previous_Summary_Path)
+    Previous_Summary_Stats = Previous_Summary_Stats[Previous_Summary_Stats['DataFrame'].isin(Reused_Paths)]
+
+#%%
+Combined_Summary_Stats = pd.concat([CWMS_Summary_Stats,USGS_Flow_Summary_Stats,USGS_Elev_Summary_Stats,Previous_Summary_Stats], ignore_index= True)
+if 'Max Gap Hours' in Combined_Summary_Stats.columns:
+    Combined_Summary_Stats['Max Gap Hours'] = Combined_Summary_Stats['Max Gap Hours'].astype(float).round(2)
+Combined_Summary_Stats.sort_values(by='Max Gap Hours', ascending=False, inplace=True)
+Combined_Summary_Stats.reset_index(drop=True, inplace=True)
+Combined_Summary_Stats.to_csv(os.path.join(OutDir, 'Combined_Summary_Stats.csv'), index=None)
+
+#%%
+# Hourly data for QA/QC (DP_QAQC.py). Keys map ResSimPath back to the download key.
+write_hourly_csv(HourlyCsv, {
+    'USGS': ({**USGS_Flow_Data_Dict, **USGS_Elev_Data_Dict},
+             {v: k for k, v in {**USGS_Flow_dict, **USGS_Elev_dict}.items()}),
+    'CWMS': (CWMS_Data_Dict, {v: k for k, v in CWMS_dict.items()}),
+})
+
+#%%
+# Write obsdata. This writes the final dss file your ResSim alternatives will reference.
+# Written to ObsDataWrite (config.ini). QA/QC-only records (paths ending in QAQC/) are skipped.
+def model_records(DataDict):
+    return {k: v for k, v in DataDict.items() if not k.endswith('QAQC/')}
+# The raw file is rewritten from scratch each run (every record, reused or new, is
+# written below); it is never edited, so nothing is lost. Close it in DSSVue first.
+for old in (ObsDataWrite, ObsDataWrite[:-4] + '.dsc'):
+    if os.path.exists(old):
+        os.remove(old)
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Flow_Data_Dict))
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(USGS_Elev_Data_Dict))
+write_to_dss(dss_file = ObsDataWrite, DataDict=model_records(CWMS_Data_Dict))
+
+# The edited copy is made once. After that it's yours: a new download never replaces it.
+# To start the edits over from a new download, delete it and run step 1 again.
+if os.path.exists(ObsDataEdited):
+    print(f"[INFO] Kept your edited copy {ObsDataEdited} (not replaced by the new download).")
+else:
+    os.makedirs(os.path.dirname(ObsDataEdited), exist_ok=True)
+    shutil.copyfile(ObsDataWrite, ObsDataEdited)
+    print(f"[INFO] Copied the raw download to {ObsDataEdited} - edit that copy in DSSVue.")
+
+# %%

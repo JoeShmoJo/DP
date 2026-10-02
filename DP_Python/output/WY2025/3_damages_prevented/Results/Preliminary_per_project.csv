@@ -1,0 +1,27 @@
+Preliminary estimated flow reduction at each control point per project (cfs)
+Average of 2 mini-simulations: WITH ONLY the project and WITHOUT the project
+The per-project numbers do not always add up to the total reduction and may need adjusting
+Control Point,Total Flow Reduction,Hills Creek,Lookout Point,Fall Creek,Dorena,Cottage Grove,Cougar,Blue River,Fern Ridge,Green Peter,Foster,Detroit
+MF Willamette_at Jasper,27600,7500,14150,4550,x,x,x,x,x,x,x,x
+CF WIllamette_nr Goshen,18100,x,x,x,12750,5350,x,x,x,x,x,x
+Willamette_at Eugene,36600,5750,10650,7100,9050,3700,x,x,x,x,x,x
+McKenzie_at Vida,15200,x,x,x,x,x,6400,8800,x,x,x,x
+Willamette_at Harrisburg,52200,9950,17050,6650,9250,2950,4200,3000,x,x,x,x
+Long Tom_at Monroe,6900,x,x,x,x,x,x,x,6900,x,x,x
+Willamette_at Albany,51800,10850,15450,5400,8700,3050,5050,2450,5550,x,x,x
+No Santiam_at Mehama,18100,x,x,x,x,x,x,x,x,x,x,18100
+So Santiam_at Waterloo,30100,x,x,x,x,x,x,x,x,24200,5900,x
+Santiam_at Jefferson,48400,x,x,x,x,x,x,x,x,22300,6300,19500
+Willamette_at Salem,49000,5000,9050,2450,2750,350,3650,1850,1850,9000,450,7650
+Willamette_at Newberg,50800,5900,10850,3450,4200,1050,3600,2300,2400,12350,1500,11050
+Cottage Grove_OUT,4800,x,x,x,x,4800,x,x,x,x,x,x
+Dorena_OUT,11800,x,x,x,11800,x,x,x,x,x,x,x
+Big Cliff_OUT,14400,x,x,x,x,x,x,x,x,x,x,14400
+Fall Creek_OUT,5500,x,x,5500,x,x,x,x,x,x,x,x
+Foster_OUT,30200,x,x,x,x,x,x,x,x,24650,5550,x
+Willamette_abv Falls at Oregon City,46500,3500,7950,2900,2350,800,2000,2350,2100,12400,1700,11200
+Willamette+Clackamas,43100,3050,6650,2700,2450,700,2000,2150,1950,12000,1750,10950
+Willamette+Marys,52200,10300,15900,5550,8000,2600,4750,2500,5350,x,x,x
+Mkenzie_nr Walterville,15000,x,x,x,x,x,6300,8700,x,x,x,x
+MF Willamette NR Oakridge,11700,11700,x,x,x,x,x,x,x,x,x,x
+McKenzie_nr Coburg,14300,x,x,x,x,x,5950,8350,x,x,x,x

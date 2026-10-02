@@ -1,0 +1,24 @@
+Control Point,Unreg Peak Flow,Date/Time of Unreg Peak,Regulated Peak Flow,Date/Time of Regulated Peak,Flow Reduction,Regulated Peak Source,Short Name,Unreg Property Damage,Reg Property Damage,Damage Difference
+MF Willamette_at Jasper,42900,"30Dec2024, 03:00",15300,"28Mar2025, 09:00",27600,gaged,Jasper,1794900.0,35270.0,1759630.0
+CF WIllamette_nr Goshen,39900,"17Mar2025, 07:00",21900,"17Mar2025, 06:00",18000,gaged,Goshen,2296315.0,0.0,2296315.0
+Willamette_at Eugene,71200,"17Mar2025, 11:00",34600,"17Mar2025, 07:00",36600,gaged,Eugene,12308953.0,53056.0,12255897.0
+McKenzie_at Vida,32100,"24Feb2025, 07:00",16800,"24Feb2025, 06:00",15300,gaged,Vida,72490.0,0.0,72490.0
+Willamette_at Harrisburg,106900,"30Dec2024, 16:00",54700,"17Mar2025, 13:00",52200,gaged,Harrisburg,750147.0,0.0,750147.0
+Long Tom_at Monroe,11900,"17Mar2025, 19:00",5000,"03Jan2025, 20:00",6900,gaged,Monroe,101781.0,0.0,101781.0
+Willamette_at Albany,114300,"31Dec2024, 20:00",62500,"31Dec2024, 17:00",51800,gaged,Albany,9112.0,0.0,9112.0
+No Santiam_at Mehama,37200,"24Feb2025, 06:00",19100,"24Feb2025, 04:00",18100,gaged,Mehama,0.0,0.0,0.0
+So Santiam_at Waterloo,41500,"24Feb2025, 09:00",11400,"06Jan2025, 10:00",30100,gaged,Waterloo,2226485.0,0.0,2226485.0
+Santiam_at Jefferson,86100,"24Feb2025, 15:00",37800,"24Feb2025, 12:00",48300,gaged,Jefferson,14137.0,0.0,14137.0
+Willamette_at Salem,142600,"31Dec2024, 03:00",93600,"07Jan2025, 12:00",49000,gaged,Salem,0.0,0.0,0.0
+Willamette_at Newberg,157800,"01Jan2025, 04:00",107000,"31Dec2024, 04:00",50800,gaged,Newberg,0.0,0.0,0.0
+Cottage Grove_OUT,7200,"16Mar2025, 23:00",2400,"20Mar2025, 03:00",4800,gaged,Cottage Grove,235353634.0,0.0,235353634.0
+Dorena_OUT,15600,"16Mar2025, 22:00",3800,"01Jan2025, 06:00",11800,gaged,Dorena,11806072.0,0.0,11806072.0
+Big Cliff_OUT,23000,"24Feb2025, 06:00",8600,"07Jan2025, 22:00",14400,gaged,Big Cliff,684411.0,0.0,684411.0
+Fall Creek_OUT,8800,"29Dec2024, 21:00",3400,"25Mar2025, 19:00",5400,gaged,Fall Creek,1373334.0,10011.0,1363323.0
+Foster_OUT,39000,"24Feb2025, 06:00",8800,"05Jan2025, 23:00",30200,gaged,Foster,128707.0,0.0,128707.0
+Willamette_abv Falls at Oregon City,178600,"01Jan2025, 05:00",132100,"26Feb2025, 13:00",46500,"ResSim simulated, not gaged",Willamette Falls,0.0,0.0,0.0
+Willamette+Clackamas,187400,"31Dec2024, 15:00",144300,"26Feb2025, 13:00",43100,"Willamette_abv Falls at Oregon City (ResSim) + gage 14211010, not routed",Willamette+Clackamas,867.0,0.0,867.0
+Willamette+Marys,105000,"31Dec2024, 08:00",52800,"31Dec2024, 05:00",52200,"ResSim simulated, not gaged",Corvallis,31845.0,0.0,31845.0
+Mkenzie_nr Walterville,31300,"24Feb2025, 11:00",16300,"24Feb2025, 12:00",15000,"ResSim simulated, not gaged",Walterville,0.0,0.0,0.0
+MF Willamette NR Oakridge,15700,"29Dec2024, 23:00",4000,"04Apr2025, 06:00",11700,"ResSim simulated, not gaged",Oakridge,0.0,0.0,0.0
+McKenzie_nr Coburg,30400,"24Feb2025, 19:00",16100,"24Feb2025, 18:00",14300,"ResSim simulated, not gaged",Coburg,0.0,0.0,0.0
