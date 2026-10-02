@@ -1,6 +1,7 @@
 """Reads DP_Python/config.ini. Relative paths are relative to the config file's folder."""
 import configparser
 import os
+import re
 
 DP_PYTHON_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_CONFIG = os.path.join(DP_PYTHON_DIR, "config.ini")
@@ -22,6 +23,9 @@ class Config:
         value = value.strip().strip('"')
         if not value:
             return None
-        if not os.path.isabs(value):
+        #A Windows drive path (C:/...) is absolute even when this runs on another OS
+        if not os.path.isabs(value) and not re.match(r"^[A-Za-z]:[\\/]", value):
             value = os.path.join(self.dir, value)
+        if re.match(r"^[A-Za-z]:[\\/]", value):
+            return value
         return os.path.normpath(value)
