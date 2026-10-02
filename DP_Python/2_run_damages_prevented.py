@@ -120,6 +120,11 @@ def _run(cfg, run_dir, log):
                                                         cps, resvs, added, time_step, log=lambda *a: None)
         log(f"   {len(resvs_run)} reservoirs with/without at {len(cps)} control points")
         elevations = {r: model.reservoir_elevation(net, obs_alt, inputs, r) for r in resvs}
+        # Hours filled by interpolation, shaded in the reservoir plots
+        filled = {r: {"release": inputs.filled_mask(run_obs.outflow_keys.get(r, ())),
+                      "inflow": inputs.filled_mask(run_obs.inflow_keys.get(r, set()) | run_unreg.inflow_keys.get(r, set())),
+                      "elevation": inputs.filled_mask(inputs.record_keys(model.reservoir_elevation_record(net, obs_alt, r)))}
+                  for r in resvs}
         gaps = dict(inputs.gaps)
 
     res_dir = os.path.join(run_dir, "Results")
@@ -140,7 +145,7 @@ def _run(cfg, run_dir, log):
     if cfg.make_plots:
         from dp import plots
         plots.make_all(os.path.join(run_dir, "Plots"), jp, cps, resvs, run_obs, run_unreg, elevations,
-                       f"{cfg.start:%d%b%Y} - {cfg.end:%d%b%Y}", log=log)
+                       f"{cfg.start:%d%b%Y} - {cfg.end:%d%b%Y}", log=log, filled=filled)
 
     if gaps:
         log("\nWARNING - missing hours in obsData.dss were filled by straight-line interpolation.")
@@ -151,4 +156,7 @@ def _run(cfg, run_dir, log):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
-    sys.exit(0 if main(args[0] if args else DEFAULT_CONFIG) else 1)
+    # Exit with an error code only when the run stopped. (A plain sys.exit(0) on
+    # success shows up as "SystemExit: 0" in VS Code's interactive window / Spyder.)
+    if not main(args[0] if args else DEFAULT_CONFIG):
+        sys.exit(1)

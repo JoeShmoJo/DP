@@ -112,4 +112,5 @@ def main(config_file):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
-    sys.exit(main(args[0] if args else DEFAULT_CONFIG))
+    if main(args[0] if args else DEFAULT_CONFIG):   # exit code 1 only when there are problems
+        sys.exit(1)
