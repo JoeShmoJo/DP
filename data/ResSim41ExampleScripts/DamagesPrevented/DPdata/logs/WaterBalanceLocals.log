@@ -1,0 +1,261 @@
+----------------------------------------------------------------------
+Computing Water-Balance Local Flows
+Alternative:                           Obs_NWP_H
+Output DSS File:                       C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss
+Negative locals allowed:               True
+Opening Dss File: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DP_Download/out/obsData.dss
+Opening Dss File: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss
+Opening Dss File: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss
+Junction: SUVO Luckiamute_nr Suver
+		Added input local flow: SUVO_Suver_HMSsub_LuckiamuteRv_S10 (/LUCKIAMUTE RIVER NEAR SUVER, OR/14190500/FLOW//1HOUR/USGS/)
+Reach : SUVO Luckiamute_nr Suver to Willamette+Luckiamute
+Junction: Tualitan+Scoggins
+		Added input local flow: WSLO_West Linn_HMSsub_TualatinRv_S10 (/TUALATIN RIVER AT WEST LINN, OR/14207500/FLOW//1HOUR/USGS/)
+Reach : Tualitan+Scoggins to Willamette+Tualatin
+Junction: MCMO South Yamill_at McMinnville
+		Added input local flow: MCMO_McMinnville_Local_JYamhR_S01 (/SOUTH YAMHILL RIVER AT MCMINNVILLE, OR/14194150/FLOW//1HOUR/USGS/)
+Reach : MCMO South Yamill_at McMinnville to Willamette+Yamhill
+Junction: CANO Molalla_nr Canby
+		Added input local flow: CANO_Molalla River at Canby_Local_JMolaR_S06 (/MOLALLA RIVER NEAR CANBY, OR/14200000/FLOW//1HOUR/USGS/)
+Reach : CANO Molalla_nr Canby to Molalla+Pudding
+Junction: AURO Pudding_at Aurora
+		Added input local flow: AURO_Pudding River nr Aurora (/PUDDING RIVER AT AURORA, OR/14202000/FLOW//1HOUR/USGS/)
+Reach : AURO Pudding_at Aurora to Molalla+Pudding
+Junction: Detroit_IN
+		Added input local flow: Detroit Inflow (//DET/FLOW-IN//1HOUR/CWMS/)
+Junction: Detroit_OUT
+	Observed flow at Detroit_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Detroit_OUT: resetting flow
+Reach : Detroit_OUT to Big Cliff_IN
+Junction: Big Cliff_IN
+		Zero-flow local (not read): Big Cliff Local Inflow_HMSsub_NSantiamRv_S15
+Junction: Big Cliff_OUT
+	Observed flow at Big Cliff_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Big Cliff_OUT: resetting flow
+Reach : Big Cliff_OUT to No Santiam_at Niagara
+Junction: No Santiam_at Niagara
+Reach : No Santiam_at Niagara to No Santiam_at Mehama
+Junction: No Santiam_at Mehama
+		Zero-flow local (not read): LSMO_Little North Santiam at Mehama
+Local Flow at: No Santiam_at Mehama (MEHO_Mehama_HMSsub_NSantiamRv_S10)
+	Observed flow exists at No Santiam_at Mehama: resetting flow
+Reach : No Santiam_at Mehama to Stayton Div_IN
+Junction: Stayton Div_IN
+Reach : Stayton Div_IN to GreensBridge_nr Jefferson
+Junction: GreensBridge_nr Jefferson
+		Zero-flow local (not read): NSJO_Greens Bridge_HMSsub_NSantiamRv_S05
+Reach : GreensBridge_nr Jefferson to No Santiam+So Santiam
+Junction: Green Peter_IN
+		Added input local flow: Green Peter Inflow_HMSsub_SSantiamRv_S30 (//GPR/FLOW-IN//1HOUR/CWMS/)
+Junction: Green Peter_OUT
+	Observed flow at Green Peter_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Green Peter_OUT: resetting flow
+Reach : Green Peter_OUT to Foster_IN
+Junction: Foster_IN
+Local Flow at: Foster_IN (Foster Local Inflow_HMSsub_SSantiamRv_S20)
+	Observed flow exists at Foster_IN: resetting flow
+Junction: Foster_OUT
+	Observed flow at Foster_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Foster_OUT: resetting flow
+Reach : Foster_OUT to So Santiam+McDowell Cr
+Junction: So Santiam+McDowell Cr
+Reach : So Santiam+McDowell Cr to So Santiam_at Waterloo
+Junction: So Santiam_at Waterloo
+Local Flow at: So Santiam_at Waterloo (WTLO_Waterloo_HMSsub_SSantiamRv_S15)
+	Observed flow exists at So Santiam_at Waterloo: resetting flow
+Reach : So Santiam_at Waterloo to Lebanon Div_IN
+Junction: Lebanon Div_IN
+Reach : Lebanon Div_IN to So Santiam+Crabtree Cr
+Junction: So Santiam+Crabtree Cr
+Reach : So Santiam+Crabtree Cr to So Santiam+Thomas Cr
+Junction: So Santiam+Thomas Cr
+		Zero-flow local (not read): TRSO_Thomas Creek nr Scio
+Reach : So Santiam+Thomas Cr to No Santiam+So Santiam
+Junction: Fern Ridge_IN
+		Added input local flow: Fern Ridge Inflow_HMSsub_LongTomRv_S20 (//FRN/FLOW-IN//1HOUR/CWMS/)
+Junction: Fern Ridge_OUT
+	Observed flow at Fern Ridge_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Fern Ridge_OUT: resetting flow
+Reach : Fern Ridge_OUT to Long Tom_nr Alvadore
+Junction: Long Tom_nr Alvadore
+Reach : Long Tom_nr Alvadore to Long Tom+Amazon Cr
+Junction: Long Tom+Amazon Cr
+Reach : Long Tom+Amazon Cr to Long Tom_at Monroe
+Junction: Long Tom_at Monroe
+Local Flow at: Long Tom_at Monroe (MNRO_Monroe_HMSsub_LongTomRv_S10)
+	Observed flow exists at Long Tom_at Monroe: resetting flow
+Reach : Long Tom_at Monroe to Willamette+Long Tom
+Junction: Blue River_IN
+		Added input local flow: Blue River Inflow_HMSsub_BlueRv_S10 (//BLU/FLOW-IN//1HOUR/CWMS/)
+Junction: Blue River_OUT
+	Observed flow at Blue River_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Blue River_OUT: resetting flow
+Reach : Blue River_OUT to Blue_at Blue River
+Junction: Blue_at Blue River
+Reach : Blue_at Blue River to McKenzie+Blue
+Junction: Cougar_IN
+		Added input local flow: Cougar Inflow_HMSsub_SFMcKenzieRv_S10 (//CGR/FLOW-IN//1HOUR/CWMS/)
+Junction: Cougar_OUT
+	Observed flow at Cougar_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Cougar_OUT: resetting flow
+Reach : Cougar_OUT to SF MkKenzie_nr Rainbow
+Junction: SF MkKenzie_nr Rainbow
+Reach : SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie
+Junction: Cottage Grove_IN
+		Added input local flow: Cottage Grove Inflow_HMSsub_CFWillametteRV_S20 (//COT/FLOW-IN//1HOUR/CWMS/)
+Junction: Cottage Grove_OUT
+	Observed flow at Cottage Grove_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Cottage Grove_OUT: resetting flow
+Reach : Cottage Grove_OUT to CF Willamette+Row
+Junction: Dorena_IN
+		Added input local flow: Dorena Inflow_HMSsub_RowRv_S10 (//DOR/FLOW-IN//1HOUR/CWMS/)
+Junction: Dorena_OUT
+	Observed flow at Dorena_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Dorena_OUT: resetting flow
+Reach : Dorena_OUT to CF Willamette+Row
+Junction: Fall Creek_IN
+		Added input local flow: Fall Creek Inflow_HMSsub_FallCk_S10 (//FAL/FLOW-IN//1HOUR/CWMS/)
+Junction: Fall Creek_OUT
+	Observed flow at Fall Creek_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Fall Creek_OUT: resetting flow
+Reach : Fall Creek_OUT to MF Willamette+Fall
+Junction: Hills Creek_IN
+		Added input local flow: Hills Creek Inflow_HMSsub_ MFWillametteRv_S60 (//HCR/FLOW-IN//1HOUR/CWMS/)
+Junction: Hills Creek_OUT
+	Observed flow at Hills Creek_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Hills Creek_OUT: resetting flow
+Reach : Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge
+Junction: MF Willamette_abv Salt Cr nr Oakridge
+Reach : MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr
+Junction: MF Willamette+Salt Cr
+Reach : MF Willamette+Salt Cr to MF Willamette+Salmon Cr
+Junction: MF Willamette+Salmon Cr
+Reach : MF Willamette+Salmon Cr to MF Willamette+NF Willamette
+Junction: MF Willamette+NF Willamette
+		Zero-flow local (not read): HMSsub_NFMFWillametteRv_S10
+		Zero-flow local (not read): HMSsub_MFWillametteRv_S40
+Reach : MF Willamette+NF Willamette to MF Willamette NR Oakridge
+Junction: MF Willamette NR Oakridge
+Reach : MF Willamette NR Oakridge to Lookout Point_IN
+Junction: Lookout Point_IN
+Local Flow at: Lookout Point_IN (Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60)
+	Observed flow exists at Lookout Point_IN: resetting flow
+Junction: Lookout Point_OUT
+	Observed flow at Lookout Point_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Lookout Point_OUT: resetting flow
+Reach : Lookout Point_OUT to Dexter_IN
+Junction: Dexter_IN
+		Zero-flow local (not read): Dexter Local Inflow_HMSsub_MFWillametteRVS20
+Junction: Dexter_OUT
+	Observed flow at Dexter_OUT but no local here is mapped to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss - none computed
+	Observed flow exists at Dexter_OUT: resetting flow
+Reach : Dexter_OUT to MF Willamette_nr Dexter
+Junction: MF Willamette_nr Dexter
+Reach : MF Willamette_nr Dexter to MF Willamette+Fall
+Junction: TRBO McKenzie_nr Trail Bridge Dam
+		Zero-flow local (not read): TRBO_Trail Bridge Inflow
+	No flow into TRBO McKenzie_nr Trail Bridge Dam: carrying zero flow
+Reach : McKenzie HW to McKenzie+SF McKenzie
+Junction: Molalla+Pudding
+Reach : Molalla+Pudding to Willamette+Molalla
+Junction: No Santiam+So Santiam
+		Zero-flow local (not read): No Santiam+So Santiam_Local_NSR_S07
+		Zero-flow local (not read): No Santiam+So Santiam_Local_SSR_S08
+Reach : No Santiam+So Santiam to Santiam_at Jefferson
+Junction: Santiam_at Jefferson
+Local Flow at: Santiam_at Jefferson (JFFO Santiam_at Jefferson loc)
+	Observed flow exists at Santiam_at Jefferson: resetting flow
+Reach : Santiam_at Jefferson to Willamette+Santiam
+Junction: CF Willamette+Row
+Reach : CF Willamette+Row to CF WIllamette_nr Goshen
+Junction: CF WIllamette_nr Goshen
+Local Flow at: CF WIllamette_nr Goshen (GOSO_Goshen_HMSsub_CFWillametteRv_S10)
+	Observed flow exists at CF WIllamette_nr Goshen: resetting flow
+Reach : CF WIllamette_nr Goshen to MF Willamette+CF Willamette
+Junction: MF Willamette+Fall
+Reach : MF Willamette+Fall to MF Willamette_at Jasper
+Junction: MF Willamette_at Jasper
+Local Flow at: MF Willamette_at Jasper (JASO_Jasper_HMSsub_MFWillametteRv_S10)
+	Observed flow exists at MF Willamette_at Jasper: resetting flow
+Reach : MF Willamette_at Jasper to MF Willamette+CF Willamette
+Junction: McKenzie+SF McKenzie
+		Zero-flow local (not read): McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20
+Reach : McKenzie+SF McKenzie to McKenzie+Blue
+Junction: MF Willamette+CF Willamette
+Reach : MF Willamette+CF Willamette to Willamette_at Eugene
+Junction: Willamette_at Eugene
+Local Flow at: Willamette_at Eugene (EUGO_Willamette at Eugene)
+	Observed flow exists at Willamette_at Eugene: resetting flow
+Reach : Willamette_at Eugene to Willamette+McKenzie
+Junction: McKenzie+Blue
+Reach : McKenzie+Blue to McKenzie_at Vida
+Junction: McKenzie_at Vida
+Local Flow at: McKenzie_at Vida (VIDO_Vida_HMSsub_McKenzieRv_S18)
+	Observed flow exists at McKenzie_at Vida: resetting flow
+Reach : McKenzie_at Vida to Below Leaburg Dam
+Junction: Below Leaburg Dam
+Reach : Below Leaburg Dam to Mkenzie_nr Walterville
+Junction: Mkenzie_nr Walterville
+		Zero-flow local (not read): MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15
+Reach : Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield
+Junction: Abv Hayden Bridge_at Springfield
+Reach : Abv Hayden Bridge_at Springfield to McKenzie+Mohawk
+Junction: McKenzie+Mohawk
+Reach : McKenzie+Mohawk to McKenzie_nr Coburg
+Junction: McKenzie_nr Coburg
+		Zero-flow local (not read): Coburg_HMSsub_McKenzieRv_S10
+Reach : McKenzie_nr Coburg to Willamette+McKenzie
+Junction: Willamette+McKenzie
+Reach : Willamette+McKenzie to Willamette_at Harrisburg
+Junction: Willamette_at Harrisburg
+Local Flow at: Willamette_at Harrisburg (HARO_Harrisburg_HMSsub_WillametteRv_S80)
+	Observed flow exists at Willamette_at Harrisburg: resetting flow
+Reach : Willamette_at Harrisburg to Willamette+Long Tom
+Junction: Willamette+Long Tom
+Reach : Willamette+Long Tom to Willamette+Marys
+Junction: Willamette+Marys
+		Zero-flow local (not read): CORO_Corvallis_HMSsub_WillametteRv_S70
+		Zero-flow local (not read): PHIO_ Philomath_HMSsub_MarysRV_S70
+Reach : Willamette+Marys to Willamette+Calapooia
+Junction: Willamette+Calapooia
+Reach : Willamette+Calapooia to Willamette_at Albany
+Junction: Willamette_at Albany
+Local Flow at: Willamette_at Albany (ALBO_ Albany_HMSsub_WillametteRv_S60)
+	Observed flow exists at Willamette_at Albany: resetting flow
+Reach : Willamette_at Albany to Willamette+Santiam
+Junction: Willamette+Santiam
+Reach : Willamette+Santiam to Willamette+Luckiamute
+Junction: Willamette+Luckiamute
+Reach : Willamette+Luckiamute to Willamette+Ash Cr
+Junction: Willamette+Ash Cr
+Reach : Willamette+Ash Cr to Willamette+Rickreall
+Junction: Willamette+Rickreall
+Reach : Willamette+Rickreall to Willamette_at Salem
+Junction: Willamette_at Salem
+Local Flow at: Willamette_at Salem (SLMO_Salem_HMSsub_WillametteRv_S50)
+	Observed flow exists at Willamette_at Salem: resetting flow
+Reach : Willamette_at Salem to Willamette+Mill
+Junction: Willamette+Mill
+Reach : Willamette+Mill to Willamette+Yamhill
+Junction: Willamette+Yamhill
+Reach : Willamette+Yamhill to Willamette_at Newberg
+Junction: Willamette_at Newberg
+Local Flow at: Willamette_at Newberg (NBGO_Newberg_HMSsub_WillametteRv_S40)
+	Observed flow exists at Willamette_at Newberg: resetting flow
+Reach : Willamette_at Newberg to Willamette_at Wilsonville
+Junction: Willamette_at Wilsonville
+		Zero-flow local (not read): Willamette_at Wilsonville
+Reach : Willamette_at Wilsonville to Willamette+Molalla
+Junction: Willamette+Molalla
+Reach : Willamette+Molalla to Willamette+Tualatin
+Junction: Willamette+Tualatin
+Reach : Willamette+Tualatin to Willamette_abv Falls at Oregon City
+Junction: Willamette_abv Falls at Oregon City
+		Added input local flow: OCUO_Oregon City_HMSsub_WillametteRv_S30 (//WILLAMETTE FALLS/FLOW-LOC//1HOUR/COMPUTED/)
+Reach : Willamette_abv Falls at Oregon City to Willamette Falls
+Junction: Willamette Falls
+
+Done. 14 water-balance local(s) written to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss
+
+Finished logging to:
+C:\Projects\FIRO\watershed\NWP_Willamette_Master_2026_09_24_ScriptCleanup\scripts\DamagesPrevented\DPdata\logs\WaterBalanceLocals.log

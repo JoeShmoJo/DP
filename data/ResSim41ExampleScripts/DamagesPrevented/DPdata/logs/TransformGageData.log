@@ -1,0 +1,16 @@
+----------------------------------------------------------------------
+TRANSFORMING TRIBUTARY FLOWS
+Input File  : C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/config/TransformedLocals.csv
+Observed DSS: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DP_Download/out/obsData.dss
+Output DSS  : C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss
+Time Window : 08Oct2025 2400 to 19Sep2026 2400
+Time Step   : 1Hour
+Processing: WILLAMETTE FALLS from station 14202000
+	Reading: /PUDDING RIVER AT AURORA, OR/14202000/FLOW//1Hour/USGS/
+	Area Ratio: 1.5
+	Wrote: //WILLAMETTE FALLS/FLOW-LOC//1Hour/COMPUTED/
+
+Done transforming tributary locals. 1 record(s) written to C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/DPcalc.dss
+
+Finished logging to:
+C:\Projects\FIRO\watershed\NWP_Willamette_Master_2026_09_24_ScriptCleanup\scripts\DamagesPrevented\DPdata\logs\TransformGageData.log
