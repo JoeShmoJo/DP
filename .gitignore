@@ -3,3 +3,5 @@ __pycache__/
 **/out/Hourly_*.csv
 **/usgs_api_key.txt
 *$py.class
+
+**/simulation.dss
