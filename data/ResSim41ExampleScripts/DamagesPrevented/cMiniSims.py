@@ -21,6 +21,12 @@ At each control point the reduction credited to R is the average of
     (unregulated peak - WITH ONLY R peak) and (WITHOUT R peak - observed peak).
 Peaks are rounded to the nearest 100 cfs first, as in the original.
 
+Added-flow control points (config/AddedFlowPoints.csv) are points beyond the
+network, e.g. Willamette+Clackamas: every series at their base junction
+(unregulated, modeled observed, each WITHOUT / WITH ONLY run) plus a gage
+record from obsData.dss times a factor, hour by hour, not routed. List them in
+ControlPoints.txt like any other control point.
+
 Outputs:
     MiniSimulations.dss   //<junction>/FLOW//<step>/<UNREGULATED | MODELED OBSERVED |
                           OBSERVED | WITHOUT <resv> | WITH ONLY <resv>>/
@@ -38,6 +44,7 @@ import os, csv, logging
 
 from NWDJyLib import cRouting, cFile
 from NWDJyLib.ResSim import cResSim, ResSimController
+from NWDJyLib.DSS import cDSS, cTsUtils
 from DamagesPrevented import DPSettings
 
 ################################################################################
@@ -52,6 +59,7 @@ class JuncPeaks:
         self.modeledObsPeak = None   #Observed alternative's computed flow
         self.modeledObsPeakTime = None
         self.isGaged = False         #True if "Observed Data" exists here
+        self.note = None             #source note for an added-flow point
         self.unregPeak = None
         self.unregPeakTime = None
         self.rPeakDict = {}          #rPeakDict[resvName]["WITH"/"WITHOUT"/"reduction"]
@@ -103,11 +111,21 @@ class ResvPeaks:
 ################################################################################
 # PEAK FLOWS FROM THE OBSERVED AND UNREGULATED RUNS
 
-def getJuncPeakFlows(rssRunObs, rssRunUnreg, simDss, outDss, outputJuncs, bar, txtArea):
+def _addedSeries(baseTSM, point, fPart):
+    """The base junction series plus an added-flow point's gage, named for the point"""
+    tsm = baseTSM.add(point["addTSM"])
+    tsInt = DSSPathString(baseTSM.getPath()).getEPart()
+    tsm.setPathname("//%s/FLOW//%s/%s/" %(point["name"], tsInt, fPart))
+    return tsm
+
+def getJuncPeakFlows(rssRunObs, rssRunUnreg, simDss, outDss, outputJuncs, bar, txtArea, addedByJunc = None):
     """
     Unregulated, modeled observed and (where mapped) observed flows at each
     control point. Writes each to outDss and returns {junction name: JuncPeaks}.
+    addedByJunc: {base junction name: [added-flow point dicts]}; each point gets
+    its own JuncPeaks (not gaged) from the base junction's series plus its gage.
     """
+    if addedByJunc is None: addedByJunc = {}
     juncPeakDict = {}
     initialBar = bar.getValue()
     rssConstant = RssModelVariableConstants.VID_NODE_FLOW
@@ -121,13 +139,29 @@ def getJuncPeakFlows(rssRunObs, rssRunUnreg, simDss, outDss, outputJuncs, bar, t
         jp = JuncPeaks(juncName)
         unregTSM = cResSim.getTSMFromSimulationDSS(simDss, junc, rssRunUnreg, rssConstant, txtArea,
          useObsData=False, isStrict = True, displayMessages = True)
+        modeledObsTSM = cResSim.getTSMFromSimulationDSS(simDss, junc, rssRunObs, rssConstant, txtArea,
+         useObsData = False, isStrict = True, displayMessages = True)
+        addedHere = []
+        if addedByJunc.has_key(juncName): addedHere = addedByJunc[juncName]
+        for point in addedHere:
+            ap = JuncPeaks(point["name"])
+            ap.setGaged(False)
+            ap.note = point["note"]
+            addUnreg = _addedSeries(unregTSM, point, "UNREGULATED")
+            ap.setUnregPeakInfo(addUnreg.max(), HecTime(addUnreg.maxDate(), HecTime.MINUTE_INCREMENT))
+            outDss.write(addUnreg)
+            addObs = _addedSeries(modeledObsTSM, point, "MODELED OBSERVED")
+            ap.setModeledObsPeakInfo(addObs.max(), HecTime(addObs.maxDate(), HecTime.MINUTE_INCREMENT))
+            outDss.write(addObs)
+            juncPeakDict[point["name"]] = ap
+            msg = "\tAdded-flow point: %s = %s + %s" %(point["name"], juncName, point["note"])
+            logging.info(msg)
+            txtArea.printToGUI(msg)
         jp.setUnregPeakInfo(unregTSM.max(), HecTime(unregTSM.maxDate(), HecTime.MINUTE_INCREMENT))
         unregTSM.setLocation(juncName)
         unregTSM.setParameterPart("FLOW")
         unregTSM.setVersion("UNREGULATED")
         outDss.write(unregTSM)
-        modeledObsTSM = cResSim.getTSMFromSimulationDSS(simDss, junc, rssRunObs, rssConstant, txtArea,
-         useObsData = False, isStrict = True, displayMessages = True)
         jp.setModeledObsPeakInfo(modeledObsTSM.max(), HecTime(modeledObsTSM.maxDate(), HecTime.MINUTE_INCREMENT))
         modeledObsTSM.setLocation(juncName)
         modeledObsTSM.setParameterPart("FLOW")
@@ -225,12 +259,13 @@ def forceMinRelease(outflowTSM, minRel, conserveVolume=True):
     correctedTSM.setData(correctedTSC)
     return correctedTSM
 
-def runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, isWith, bar, txtArea):
+def runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, isWith, bar, txtArea, addedByJunc = None):
     """
     Runs every WITH ONLY (isWith=True) or WITHOUT (isWith=False) mini-simulation,
     writes the flow at each control point to outDss, and adds the peaks to juncPeakDict.
     rssRunObs and rssRunUnreg must be on the same network.
     """
+    if addedByJunc is None: addedByJunc = {}
     simDssFile = simDss.getFilename()
     if isWith: rssRunObj = rssRunUnreg #no reservoirs except one
     else: rssRunObj = rssRunObs
@@ -368,6 +403,12 @@ def runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outpu
                 flowTSM.setPathname("//%s/FLOW//%s/%s/" %(elemName, tsInt, fPartOut))
                 outDss.write(flowTSM)
                 juncPeakDict[elemName].setPeakInfo(resvName, flowTSM.max(), HecTime(flowTSM.maxDate(), HecTime.MINUTE_INCREMENT), isWith)
+                addedHere = []
+                if addedByJunc.has_key(elemName): addedHere = addedByJunc[elemName]
+                for point in addedHere:
+                    addTSM = _addedSeries(flowTSM, point, fPartOut)
+                    outDss.write(addTSM)
+                    juncPeakDict[point["name"]].setPeakInfo(resvName, addTSM.max(), HecTime(addTSM.maxDate(), HecTime.MINUTE_INCREMENT), isWith)
     tsBank.close()
     return juncPeakDict
 
@@ -457,6 +498,8 @@ def exportToCSV(outDir, juncNames, resvNames, juncPeakDict, resvPeakDict, reregD
             regPeak = round(jp.modeledObsPeak, -2)
             regTime = jp.modeledObsPeakTime
             source = "ResSim simulated, not gaged"
+            if jp.note:
+                source = jp.note
         rows.append([juncName, _num(unregPeak), jp.unregPeakTime.toString(4), _num(regPeak),
                      regTime.toString(4), _num(unregPeak - regPeak), source])
     files.append(os.path.join(outDir, "CP_Peaks.csv"))
@@ -483,7 +526,60 @@ def readNameList(txtFile):
     """Names from a config list, one per line, # comments stripped"""
     return cFile.stripOutCommentLines(cFile.fileOpenReadClose(txtFile))
 
-def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, resvFile, reregDict, bar, txtArea):
+def readAddedFlowPoints(csvFile):
+    """
+    AddedFlowPoints.csv: Name,BaseJunction,Station,Factor[,Comments], # lines are comments.
+    Returns {name: {"name", "base", "station", "factor"}}. A missing file means none.
+    """
+    points = {}
+    if not csvFile or not os.path.exists(csvFile):
+        return points
+    for line in readNameList(csvFile):
+        fields = [f.strip() for f in line.split(",")]
+        if len(fields) < 3 or fields[0] == "" or fields[0].upper() == "NAME":
+            continue
+        factor = 1.0
+        if len(fields) > 3 and fields[3] != "":
+            factor = float(fields[3])
+        points[fields[0]] = {"name": fields[0], "base": fields[1], "station": fields[2], "factor": factor}
+    return points
+
+def _loadAddedFlows(points, obsDssFile, tsInt, lookbackTime, endTime, txtArea):
+    """
+    Reads each added-flow point's gage from obsData.dss (station = B part, C part
+    containing FLOW, alternative time step) and multiplies it by its factor.
+    Missing hours count as 0, with a warning. Returns an error message, or "".
+    """
+    errMsg = ""
+    obsDss = DSS.open(obsDssFile, lookbackTime, endTime)
+    for point in points:
+        tsm = cDSS.readTSMfromPathnameParts(obsDss, bPart=point["station"], cPart="*FLOW*", ePart=tsInt)
+        if tsm is None:
+            errMsg += "\n\t%s: no FLOW record with B part %s at %s in %s" %(point["name"], point["station"], tsInt, obsDssFile)
+            continue
+        tsm = cTsUtils.transformTSM(tsm, tsInt)
+        tsc = tsm.getData()
+        values = list(tsc.values)
+        nMissing = 0
+        for i in range(len(values)):
+            if not (values[i] > -900. and values[i] < 1.e30): #missing (-901/-902, UNDEFINED) or NaN
+                values[i] = 0.
+                nMissing += 1
+        if nMissing:
+            msg = "WARNING: %s - %d missing hour(s) in gage %s counted as 0; fill them in obsData.dss." %(point["name"], nMissing, point["station"])
+            logging.warning(msg)
+            txtArea.printToGUI(msg)
+        tsc.values = values
+        point["addTSM"] = TimeSeriesMath(tsc).multiply(point["factor"])
+        point["note"] = "%s (ResSim) + gage %s" %(point["base"], point["station"])
+        if point["factor"] != 1.0:
+            point["note"] += " x %s" %point["factor"]
+        point["note"] += ", not routed"
+    obsDss.close()
+    return errMsg
+
+def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, resvFile, reregDict, bar, txtArea,
+                       addedFile = None, obsDssFile = None):
     """
     Runs all mini-simulations and writes MiniSimulations.dss and the CSV tables.
 
@@ -494,6 +590,8 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
     :param str juncFile:     ControlPoints.txt
     :param str resvFile:     Reservoirs.txt
     :param dict reregDict:   {reservoir: its re-regulating reservoir}
+    :param str addedFile:    AddedFlowPoints.csv (optional)
+    :param str obsDssFile:   obsData.dss, read for the added-flow points' gages
     :return: list of CSV files written, or None if the compute stopped
     """
     msg = "----------------------------------------------------------------------"
@@ -503,6 +601,7 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
     msg += "\nControl points:           %s" %juncFile
     msg += "\nReservoirs:               %s" %resvFile
     msg += "\nRe-regs:                  %s" %reregDict
+    msg += "\nAdded-flow points:        %s" %addedFile
     msg += "\nOutput DSS File:          %s" %outDssFile
     msg += "\nOutput CSV Folder:        %s" %outDir
     logging.info(msg)
@@ -530,8 +629,11 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
     #Check every configured name before computing anything
     juncList = readNameList(juncFile)
     resvList = readNameList(resvFile)
+    addedPoints = readAddedFlowPoints(addedFile)
     failElems = []
     outputJuncs = []
+    addedByJunc = {}      #base junction name -> [added-flow points]
+    addedToLoad = []
     resvsToRun = []
     for resvName in resvList:
         resvElem = network.findReservoir(resvName)
@@ -541,9 +643,21 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
     for rereg in reregDict.keys() + reregDict.values():
         if not network.findReservoir(rereg): failElems.append("reservoir in REREG (DPSettings.py): %s" %rereg)
     for juncName in juncList:
+        if juncName in addedPoints.keys():
+            point = addedPoints[juncName]
+            baseElem = network.findJunction(point["base"])
+            if baseElem is None:
+                failElems.append("base junction of added-flow point %s (AddedFlowPoints.csv): %s" %(juncName, point["base"]))
+                continue
+            if not point["base"] in [j.toString() for j in outputJuncs]:
+                outputJuncs.append(baseElem)
+            if not addedByJunc.has_key(point["base"]): addedByJunc[point["base"]] = []
+            addedByJunc[point["base"]].append(point)
+            addedToLoad.append(point)
+            continue
         juncElem = network.findJunction(juncName)
         if juncElem is None: failElems.append("junction: %s" %juncName)
-        else: outputJuncs.append(juncElem)
+        elif not juncName in [j.toString() for j in outputJuncs]: outputJuncs.append(juncElem)
     if failElems:
         errMsg = "These names are not in the network. Fix the spelling in the config file (or remove them):"
         for failElem in failElems: errMsg += "\n\t%s" %failElem
@@ -556,6 +670,14 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
         logging.error(errMsg)
         txtArea.printToGUI(errMsg)
         return None
+    if addedToLoad:
+        tsInt = runObs.getRssAlt().getTimeStepString()
+        errMsg = _loadAddedFlows(addedToLoad, obsDssFile, tsInt, lookbackTime, endTime, txtArea)
+        if errMsg:
+            errMsg = "Added-flow point gage not found:" + errMsg + "\nCheck the Station column of %s." %addedFile
+            logging.error(errMsg)
+            txtArea.printToGUI(errMsg)
+            return None
     simDss = DSS.open(simDssFile, lookbackTime, endTime)
     outDss = DSS.open(outDssFile, lookbackTime, endTime)
     txtArea.printToGUI("Retrieving observed and unregulated peak flows for reservoirs...")
@@ -563,18 +685,19 @@ def runMiniSimulations(altNameObs, altNameUnreg, outDssFile, outDir, juncFile, r
     if not resvPeakDict:
         return _stop(simDss, outDss, txtArea)
     txtArea.printToGUI("Retrieving observed and unregulated peak flows for control points...")
-    juncPeakDict = getJuncPeakFlows(rssRunObs, rssRunUnreg, simDss, outDss, outputJuncs, bar, txtArea)
+    juncPeakDict = getJuncPeakFlows(rssRunObs, rssRunUnreg, simDss, outDss, outputJuncs, bar, txtArea, addedByJunc)
     if not juncPeakDict:
         return _stop(simDss, outDss, txtArea)
     txtArea.printToGUI("Running 'without' simulations...")
-    juncPeakDict = runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, False, bar, txtArea)
+    juncPeakDict = runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, False, bar, txtArea, addedByJunc)
     if not juncPeakDict:
         return _stop(simDss, outDss, txtArea)
     txtArea.printToGUI("Running 'with only' simulations...")
-    juncPeakDict = runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, True, bar, txtArea)
+    juncPeakDict = runResvSimulations(rssRunObs, rssRunUnreg, simDss, outDss, resvsToRun, outputJuncs, juncPeakDict, reregDict, True, bar, txtArea, addedByJunc)
     if not juncPeakDict:
         return _stop(simDss, outDss, txtArea)
-    juncNames = [j.toString() for j in outputJuncs]
+    #Results in ControlPoints.txt order (a base junction not listed there is computed but not reported)
+    juncNames = juncList
     resvNames = [r.toString() for r in resvsToRun]
     computeReductions(juncNames, resvNames, juncPeakDict)
     files = exportToCSV(outDir, juncNames, resvNames, juncPeakDict, resvPeakDict, reregDict)

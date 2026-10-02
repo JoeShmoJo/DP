@@ -132,11 +132,13 @@ Dexter, Lookout Point, Hills Creek).
 
 ## E. Configure Damages Prevented
 
-- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. All 22
-      are checked against the new network's node list (`DP_REPO/data/node _list`). Three old
-      names were changed: McKenzie R. NR Walterville -> `Mkenzie_nr Walterville`,
-      MF Willamette_blw NFork nr Oakridge -> `MF Willamette NR Oakridge`, and
-      Willamette+Clackamas dropped (the network ends at Willamette Falls).
+- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. All 23
+      are checked against the new network's node list (`DP_REPO/data/node _list`). Two old
+      names were changed: McKenzie R. NR Walterville -> `Mkenzie_nr Walterville` and
+      MF Willamette_blw NFork nr Oakridge -> `MF Willamette NR Oakridge`. Willamette+Clackamas
+      is not in the network (it ends at Willamette Falls); it is an added-flow point (next item).
+- [ ] `config/AddedFlowPoints.csv`: Willamette+Clackamas = Willamette_abv Falls at Oregon City +
+      Clackamas gage 14211010 (in `obsData.dss`; fill its gaps - missing hours count as 0).
 - [ ] `config/Reservoirs.txt`: the 13 projects, spelled as in the network.
 - [ ] `DPSettings.py`: only if you want different file locations. `REREG` pairs Big Cliff
       with Detroit and Dexter with Lookout Point.

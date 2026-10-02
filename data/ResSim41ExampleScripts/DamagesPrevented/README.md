@@ -13,7 +13,7 @@ whole process moves with it.
 DamagesPrevented/
   DP_Menu entry point is scripts/DP_Menu.py (one level up); paste scripts/DamagesPrevented_PasteIntoResSim.txt into the Scripts-pane entry
   DPMenu.py, DPSettings.py, cTransform.py, cWaterBalance.py, cMiniSims.py   ResSim side (Jython)
-  config/          ControlPoints.txt, Reservoirs.txt, TransformedLocals.csv
+  config/          ControlPoints.txt, Reservoirs.txt, TransformedLocals.csv, AddedFlowPoints.csv
   DPdata/          DPcalc.dss, MiniSimulations.dss, Results/*.csv, logs/   (written by the menu)
   DP_Download/     desktop Python 3 - ResSim never loads it
     DP_Download.py         downloads USGS/CWMS data -> out/obsData.dss (DSS 7)
@@ -94,6 +94,12 @@ For each reservoir R (Big Cliff runs with Detroit, Dexter with Lookout Point):
 Reduction credited to R at a control point = average of
 (unregulated peak - WITH ONLY R peak) and (WITHOUT R peak - observed peak),
 peaks rounded to the nearest 100 cfs.
+
+Willamette+Clackamas is beyond the network (it ends at Willamette Falls). It is
+an added-flow point (`config/AddedFlowPoints.csv`): every series at
+Willamette_abv Falls at Oregon City plus the Clackamas gage 14211010 from
+obsData.dss, hour by hour, not routed. The Clackamas has no Corps projects, so it
+raises the peaks there without being credited to any reservoir.
 
 Diversions are ignored (`INCLUDE_DIVERSIONS = False`); keep them inactive in
 both alternatives.
