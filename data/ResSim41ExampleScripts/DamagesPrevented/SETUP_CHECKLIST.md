@@ -63,6 +63,15 @@ locals. Missing hours are stored as -902. From the last download's
       both on a 1-hour time step.
 - [ ] Lookback start and end inside the downloaded period (and before any gap at the end).
 - [ ] Unregulated alternative: every reservoir passes inflow.
+- [ ] `scripts/alt_config/<alternative name>.txt` for both alternatives sets
+      `mainstemFlowAugMethod: NoFlowAug`. Otherwise `MainstemFlowAugSV` looks for the
+      "Water Year Type" series. The file name must match the alternative name exactly.
+- [ ] Both alternatives' Timeseries tabs have a **Water Year Type** row, mapped like the
+      working alternatives. The `WaterYearTypeVariable` state variable reads it in every
+      alternative, whatever the flow-aug setting. The row only appears when the operation set
+      the alternative uses (Operations tab) contains the dummy rule (at Big Cliff) that brings
+      the series in; without it the compute fails with "Looking for 'Water Year Type' external
+      time series, but it doesn't exist in this alternative".
 - [ ] Diversions inactive in both alternatives (no diverted flow). Damages Prevented ignores
       them (`INCLUDE_DIVERSIONS = False` in `DPSettings.py`), so an active diversion would make
       the ResSim computes differ from the water-balance locals and the mini-simulations.
