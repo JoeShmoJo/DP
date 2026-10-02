@@ -46,6 +46,10 @@ def main(config_file):
     print(f"         simulation window when exported: {w['lookback']} / {w['start']} to {w['end']}")
     counts = Counter(e["type"] for e in net.elements.values())
     print("         " + ", ".join(f"{k}: {counts[k]}" for k in sorted(counts)))
+    passthrough = [e for e in net.order if e and e.startswith("other:")]
+    if passthrough:
+        print(f"         {len(passthrough)} other elements in the compute order, passed straight through "
+              f"(e.g. {passthrough[0].split(':', 1)[1]})")
 
     bad = net.unsupported_reaches()
     if bad:
