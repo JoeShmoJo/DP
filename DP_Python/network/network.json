@@ -1,0 +1,6837 @@
+{
+ "alternatives": {
+  "Obs_NWP_H": {
+   "input": [
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "TRSO_Thomas Creek nr Scio", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Coburg_HMSsub_McKenzieRv_S10", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "HMSsub_NFMFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "HMSsub_MFWillametteRv_S40", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "ALBO_ Albany_HMSsub_WillametteRv_S60", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Albany/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "OCUO_Oregon City_HMSsub_WillametteRv_S30", 
+     "param": "Flow", 
+     "pathname": "//WILLAMETTE FALLS/FLOW-LOC//1HOUR/COMPUTED/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Willamette_at Wilsonville", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "NBGO_Newberg_HMSsub_WillametteRv_S40", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Newberg/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "SLMO_Salem_HMSsub_WillametteRv_S50", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Salem/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "WTLO_Waterloo_HMSsub_SSantiamRv_S15", 
+     "param": "Flow", 
+     "pathname": "//So Santiam_at Waterloo/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "MEHO_Mehama_HMSsub_NSantiamRv_S10", 
+     "param": "Flow", 
+     "pathname": "//No Santiam_at Mehama/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "LSMO_Little North Santiam at Mehama", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "NSJO_Greens Bridge_HMSsub_NSantiamRv_S05", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "No Santiam+So Santiam_Local_NSR_S07", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "No Santiam+So Santiam_Local_SSR_S08", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "JFFO Santiam_at Jefferson loc", 
+     "param": "Flow", 
+     "pathname": "//Santiam_at Jefferson/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "MNRO_Monroe_HMSsub_LongTomRv_S10", 
+     "param": "Flow", 
+     "pathname": "//Long Tom_at Monroe/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "HARO_Harrisburg_HMSsub_WillametteRv_S80", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Harrisburg/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "VIDO_Vida_HMSsub_McKenzieRv_S18", 
+     "param": "Flow", 
+     "pathname": "//Mckenzie_at Vida/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "EUGO_Willamette at Eugene", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Eugene/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "GOSO_Goshen_HMSsub_CFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "//CF Willamette_at Goshen/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "JASO_Jasper_HMSsub_MFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "//MF Willamette_at Jasper/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Big Cliff Local Inflow_HMSsub_NSantiamRv_S15", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Detroit Inflow", 
+     "param": "Flow", 
+     "pathname": "//DET/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "Foster Local Inflow_HMSsub_SSantiamRv_S20", 
+     "param": "Flow", 
+     "pathname": "//Foster_IN/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Green Peter Inflow_HMSsub_SSantiamRv_S30", 
+     "param": "Flow", 
+     "pathname": "//GPR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fern Ridge Inflow_HMSsub_LongTomRv_S20", 
+     "param": "Flow", 
+     "pathname": "//FRN/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Blue River Inflow_HMSsub_BlueRv_S10", 
+     "param": "Flow", 
+     "pathname": "//BLU/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cougar Inflow_HMSsub_SFMcKenzieRv_S10", 
+     "param": "Flow", 
+     "pathname": "//CGR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cottage Grove Inflow_HMSsub_CFWillametteRV_S20", 
+     "param": "Flow", 
+     "pathname": "//COT/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Dorena Inflow_HMSsub_RowRv_S10", 
+     "param": "Flow", 
+     "pathname": "//DOR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fall Creek Inflow_HMSsub_FallCk_S10", 
+     "param": "Flow", 
+     "pathname": "//FAL/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Dexter Local Inflow_HMSsub_MFWillametteRVS20", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60", 
+     "param": "Flow", 
+     "pathname": "//Lookout Point_IN/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Hills Creek Inflow_HMSsub_ MFWillametteRv_S60", 
+     "param": "Flow", 
+     "pathname": "//HCR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "TRBO_Trail Bridge Inflow", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "CANO_Molalla River at Canby_Local_JMolaR_S06", 
+     "param": "Flow", 
+     "pathname": "/MOLALLA RIVER NEAR CANBY, OR/14200000/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "SUVO_Suver_HMSsub_LuckiamuteRv_S10", 
+     "param": "Flow", 
+     "pathname": "/LUCKIAMUTE RIVER NEAR SUVER, OR/14190500/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "AURO_Pudding River nr Aurora", 
+     "param": "Flow", 
+     "pathname": "/PUDDING RIVER AT AURORA, OR/14202000/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "MCMO_McMinnville_Local_JYamhR_S01", 
+     "param": "Flow", 
+     "pathname": "/SOUTH YAMHILL RIVER AT MCMINNVILLE, OR/14194150/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "WSLO_West Linn_HMSsub_TualatinRv_S10", 
+     "param": "Flow", 
+     "pathname": "/TUALATIN RIVER AT WEST LINN, OR/14207500/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "CORO_Corvallis_HMSsub_WillametteRv_S70", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "PHIO_ Philomath_HMSsub_MarysRV_S70", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E89:F", 
+     "param": "Elev", 
+     "pathname": "/BIG CLIFF LAKE NEAR NIAGARA, OR/14181400/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E294:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/NORTH SANTIAM RIVER AT NIAGARA, OR/14181500/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Big Cliff (BCL) Specified Release", 
+     "param": "", 
+     "pathname": "/NORTH SANTIAM RIVER AT NIAGARA, OR/14181500/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Water Year Type", 
+     "param": "", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E94:F", 
+     "param": "Elev", 
+     "pathname": "/DETROIT LAKE NEAR DETROIT, OR/14180500/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E243:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "//DET/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Detroit (DET) Specified Release", 
+     "param": "", 
+     "pathname": "//DET/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E99:F", 
+     "param": "Elev", 
+     "pathname": "/FOSTER LAKE AT FOSTER, OR/14186600/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E289:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "//FOS/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Foster (FOS) Specified Release", 
+     "param": "", 
+     "pathname": "//FOS/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E104:F", 
+     "param": "Elev", 
+     "pathname": "/GREEN PETER LAKE NEAR FOSTER, OR/14186100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E290:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "//GPR/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Green Peter (GPR) Specified Release", 
+     "param": "", 
+     "pathname": "//GPR/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E109:F", 
+     "param": "Elev", 
+     "pathname": "/FERN RIDGE LAKE NEAR ELMIRA, OR/14168000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E255:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/LONG TOM RIVER NEAR ALVADORE, OR/14169000/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fern Ridge (FRN) Specified Release", 
+     "param": "", 
+     "pathname": "/LONG TOM RIVER NEAR ALVADORE, OR/14169000/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E114:F", 
+     "param": "Elev", 
+     "pathname": "/BLUE RIVER LAKE NEAR BLUE RIVER, OR/14162100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E254:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/BLUE RIVER AT BLUE RIVER, OR/14162200/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Blue River (BLU) Specified Release", 
+     "param": "", 
+     "pathname": "/BLUE RIVER AT BLUE RIVER, OR/14162200/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E119:F", 
+     "param": "Elev", 
+     "pathname": "/COUGAR LAKE NEAR RAINBOW, OR/14159400/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E265:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR/14159500/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cougar (CGR) Specified Release", 
+     "param": "", 
+     "pathname": "/SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR/14159500/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E124:F", 
+     "param": "Elev", 
+     "pathname": "/COTTAGE GROVE LAKE NR COTTAGE GROVE, OR/14153000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E240:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR/14153500/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cottage Grove (COT) Specified Release", 
+     "param": "", 
+     "pathname": "/COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR/14153500/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E129:F", 
+     "param": "Elev", 
+     "pathname": "/DORENA LAKE NEAR COTTAGE GROVE, OR/14155000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E236:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/ROW RIVER NEAR COTTAGE GROVE, OR/14155500/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Dorena (DOR) Specified Release", 
+     "param": "", 
+     "pathname": "/ROW RIVER NEAR COTTAGE GROVE, OR/14155500/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E134:F", 
+     "param": "Elev", 
+     "pathname": "/FALL CREEK LAKE NEAR LOWELL, OR/14150900/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E267:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR/14151000/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fall Creek (FAL) Specified Release", 
+     "param": "", 
+     "pathname": "/FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR/14151000/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E139:F", 
+     "param": "Elev", 
+     "pathname": "/DEXTER LAKE AT DEXTER, OR/14149500/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E293:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR/14150000/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Dexter (DEX) Specified Release", 
+     "param": "", 
+     "pathname": "/MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR/14150000/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E144:F", 
+     "param": "Elev", 
+     "pathname": "/LOOKOUT POINT LAKE NEAR LOWELL, OR/14149000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E292:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "//LOP/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Lookout Point (LOP) Specified Release", 
+     "param": "", 
+     "pathname": "//LOP/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 85
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E149:F", 
+     "param": "Elev", 
+     "pathname": "/HILLS CREEK LAKE NEAR OAKRIDGE, OR/14145100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 14
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E295:F", 
+     "param": "Flow-RELEASE", 
+     "pathname": "/MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR/14145500/FLOW//1HOUR/USGS/", 
+     "variableId": 41
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Hills Creek (HCR) Specified Release", 
+     "param": "", 
+     "pathname": "/MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR/14145500/FLOW//1HOUR/USGS/", 
+     "variableId": 85
+    }
+   ], 
+   "observed": [
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N25", 
+     "param": "Flow", 
+     "pathname": "/WILLAMETTE RIVER AT ALBANY, OR/14174000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N31", 
+     "param": "Flow", 
+     "pathname": "/WILLAMETTE RIVER AT NEWBERG, OR/14197900/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N33", 
+     "param": "Flow", 
+     "pathname": "/WILLAMETTE RIVER AT SALEM, OR/14191000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N34", 
+     "param": "Flow", 
+     "pathname": "/SOUTH SANTIAM RIVER AT WATERLOO, OR/14187500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N36", 
+     "param": "Flow", 
+     "pathname": "/NORTH SANTIAM RIVER AT MEHAMA, OR/14183000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N39", 
+     "param": "Flow", 
+     "pathname": "/SANTIAM RIVER AT JEFFERSON, OR/14189000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N44", 
+     "param": "Flow", 
+     "pathname": "/LONG TOM RIVER AT MONROE, OR/14170000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N46", 
+     "param": "Flow", 
+     "pathname": "/WILLAMETTE RIVER AT HARRISBURG, OR/14166000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N49", 
+     "param": "Flow", 
+     "pathname": "/MCKENZIE RIVER NEAR VIDA, OR/14162500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N52", 
+     "param": "Flow", 
+     "pathname": "//EUGO/FLOW//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N54", 
+     "param": "Flow", 
+     "pathname": "/COAST FORK WILLAMETTE RIVER NEAR GOSHEN, OR/14157500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N56", 
+     "param": "Flow", 
+     "pathname": "/MIDDLE FORK WILLAMETTE RIVER AT JASPER, OR/14152000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N62", 
+     "param": "Flow", 
+     "pathname": "/NORTH SANTIAM RIVER AT NIAGARA, OR/14181500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N64", 
+     "param": "Flow", 
+     "pathname": "//DET/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N66", 
+     "param": "Flow", 
+     "pathname": "//FOS/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N68", 
+     "param": "Flow", 
+     "pathname": "//GPR/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N70", 
+     "param": "Flow", 
+     "pathname": "/LONG TOM RIVER NEAR ALVADORE, OR/14169000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N72", 
+     "param": "Flow", 
+     "pathname": "/BLUE RIVER AT BLUE RIVER, OR/14162200/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N74", 
+     "param": "Flow", 
+     "pathname": "/SOUTH FORK MCKENZIE RIVER NEAR RAINBOW, OR/14159500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N76", 
+     "param": "Flow", 
+     "pathname": "/COAST FORK WILLAMETTE R BLW COTTAGE GROVE DAM, OR/14153500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N78", 
+     "param": "Flow", 
+     "pathname": "/ROW RIVER NEAR COTTAGE GROVE, OR/14155500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N80", 
+     "param": "Flow", 
+     "pathname": "/FALL CREEK BLW WINBERRY CREEK, NEAR FALL CREEK, OR/14151000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N82", 
+     "param": "Flow", 
+     "pathname": "/MIDDLE FORK WILLAMETTE RIVER NEAR DEXTER, OR/14150000/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N84", 
+     "param": "Flow", 
+     "pathname": "//LOP/FLOW-OUT//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N86", 
+     "param": "Flow", 
+     "pathname": "/MF WILLAMETTE RIVER ABV SALT CRK, NEAR OAKRIDGE,OR/14145500/FLOW//1HOUR/USGS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N96", 
+     "param": "Flow", 
+     "pathname": "//FOS/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~N132", 
+     "param": "Flow", 
+     "pathname": "//LOP/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E89:F", 
+     "param": "Elev", 
+     "pathname": "/BIG CLIFF LAKE NEAR NIAGARA, OR/14181400/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E94:F", 
+     "param": "Elev", 
+     "pathname": "/DETROIT LAKE NEAR DETROIT, OR/14180500/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E104:F", 
+     "param": "Elev", 
+     "pathname": "/GREEN PETER LAKE NEAR FOSTER, OR/14186100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E109:F", 
+     "param": "Elev", 
+     "pathname": "/FERN RIDGE LAKE NEAR ELMIRA, OR/14168000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E114:F", 
+     "param": "Elev", 
+     "pathname": "/BLUE RIVER LAKE NEAR BLUE RIVER, OR/14162100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E119:F", 
+     "param": "Elev", 
+     "pathname": "/COUGAR LAKE NEAR RAINBOW, OR/14159400/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E124:F", 
+     "param": "Elev", 
+     "pathname": "/COTTAGE GROVE LAKE NR COTTAGE GROVE, OR/14153000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E129:F", 
+     "param": "Elev", 
+     "pathname": "/DORENA LAKE NEAR COTTAGE GROVE, OR/14155000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E134:F", 
+     "param": "Elev", 
+     "pathname": "/FALL CREEK LAKE NEAR LOWELL, OR/14150900/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E139:F", 
+     "param": "Elev", 
+     "pathname": "/DEXTER LAKE AT DEXTER, OR/14149500/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E144:F", 
+     "param": "Elev", 
+     "pathname": "/LOOKOUT POINT LAKE NEAR LOWELL, OR/14149000/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "~E149:F", 
+     "param": "Elev", 
+     "pathname": "/HILLS CREEK LAKE NEAR OAKRIDGE, OR/14145100/ELEV-FOREBAY//1HOUR/USGS/", 
+     "variableId": 10
+    }
+   ], 
+   "timeStep": "1Hour"
+  }, 
+  "UnregNWP_H": {
+   "input": [
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "TRSO_Thomas Creek nr Scio", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Coburg_HMSsub_McKenzieRv_S10", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "HMSsub_NFMFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "HMSsub_MFWillametteRv_S40", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "ALBO_ Albany_HMSsub_WillametteRv_S60", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Albany/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "OCUO_Oregon City_HMSsub_WillametteRv_S30", 
+     "param": "Flow", 
+     "pathname": "//WILLAMETTE FALLS/FLOW-LOC//1HOUR/COMPUTED/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Willamette_at Wilsonville", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "NBGO_Newberg_HMSsub_WillametteRv_S40", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Newberg/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "SLMO_Salem_HMSsub_WillametteRv_S50", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Salem/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "WTLO_Waterloo_HMSsub_SSantiamRv_S15", 
+     "param": "Flow", 
+     "pathname": "//So Santiam_at Waterloo/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "MEHO_Mehama_HMSsub_NSantiamRv_S10", 
+     "param": "Flow", 
+     "pathname": "//No Santiam_at Mehama/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "LSMO_Little North Santiam at Mehama", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "NSJO_Greens Bridge_HMSsub_NSantiamRv_S05", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "No Santiam+So Santiam_Local_NSR_S07", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "No Santiam+So Santiam_Local_SSR_S08", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "JFFO Santiam_at Jefferson loc", 
+     "param": "Flow", 
+     "pathname": "//Santiam_at Jefferson/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "MNRO_Monroe_HMSsub_LongTomRv_S10", 
+     "param": "Flow", 
+     "pathname": "//Long Tom_at Monroe/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "HARO_Harrisburg_HMSsub_WillametteRv_S80", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Harrisburg/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "VIDO_Vida_HMSsub_McKenzieRv_S18", 
+     "param": "Flow", 
+     "pathname": "//Mckenzie_at Vida/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "EUGO_Willamette at Eugene", 
+     "param": "Flow", 
+     "pathname": "//Willamette_at Eugene/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "GOSO_Goshen_HMSsub_CFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "//CF Willamette_at Goshen/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "JASO_Jasper_HMSsub_MFWillametteRv_S10", 
+     "param": "Flow", 
+     "pathname": "//MF Willamette_at Jasper/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Big Cliff Local Inflow_HMSsub_NSantiamRv_S15", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Detroit Inflow", 
+     "param": "Flow", 
+     "pathname": "//DET/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "Foster Local Inflow_HMSsub_SSantiamRv_S20", 
+     "param": "Flow", 
+     "pathname": "//Foster_IN/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Green Peter Inflow_HMSsub_SSantiamRv_S30", 
+     "param": "Flow", 
+     "pathname": "//GPR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fern Ridge Inflow_HMSsub_LongTomRv_S20", 
+     "param": "Flow", 
+     "pathname": "//FRN/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Blue River Inflow_HMSsub_BlueRv_S10", 
+     "param": "Flow", 
+     "pathname": "//BLU/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cougar Inflow_HMSsub_SFMcKenzieRv_S10", 
+     "param": "Flow", 
+     "pathname": "//CGR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Cottage Grove Inflow_HMSsub_CFWillametteRV_S20", 
+     "param": "Flow", 
+     "pathname": "//COT/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Dorena Inflow_HMSsub_RowRv_S10", 
+     "param": "Flow", 
+     "pathname": "//DOR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Fall Creek Inflow_HMSsub_FallCk_S10", 
+     "param": "Flow", 
+     "pathname": "//FAL/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Dexter Local Inflow_HMSsub_MFWillametteRVS20", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/DPcalc.dss", 
+     "name": "Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60", 
+     "param": "Flow", 
+     "pathname": "//Lookout Point_IN/FLOW-LOC//1HOUR/NWP/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "Hills Creek Inflow_HMSsub_ MFWillametteRv_S60", 
+     "param": "Flow", 
+     "pathname": "//HCR/FLOW-IN//1HOUR/CWMS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "TRBO_Trail Bridge Inflow", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "CANO_Molalla River at Canby_Local_JMolaR_S06", 
+     "param": "Flow", 
+     "pathname": "/MOLALLA RIVER NEAR CANBY, OR/14200000/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "SUVO_Suver_HMSsub_LuckiamuteRv_S10", 
+     "param": "Flow", 
+     "pathname": "/LUCKIAMUTE RIVER NEAR SUVER, OR/14190500/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "AURO_Pudding River nr Aurora", 
+     "param": "Flow", 
+     "pathname": "/PUDDING RIVER AT AURORA, OR/14202000/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "MCMO_McMinnville_Local_JYamhR_S01", 
+     "param": "Flow", 
+     "pathname": "/SOUTH YAMHILL RIVER AT MCMINNVILLE, OR/14194150/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DP_Download/out/obsData.dss", 
+     "name": "WSLO_West Linn_HMSsub_TualatinRv_S10", 
+     "param": "Flow", 
+     "pathname": "/TUALATIN RIVER AT WEST LINN, OR/14207500/FLOW//1HOUR/USGS/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "CORO_Corvallis_HMSsub_WillametteRv_S70", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "PHIO_ Philomath_HMSsub_MarysRV_S70", 
+     "param": "Flow", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 4
+    }, 
+    {
+     "dssFile": "scripts/DamagesPrevented/DPdata/Zero_Flow_record.dss", 
+     "name": "Water Year Type", 
+     "param": "", 
+     "pathname": "/ZERO/ZERO/FLOW//1HOUR/DUMMY/", 
+     "variableId": 85
+    }
+   ], 
+   "observed": [
+    {
+     "dssFile": "", 
+     "name": "~N25", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N31", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N33", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N34", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N36", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N39", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N44", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N46", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N49", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N52", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N54", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N56", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N62", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N64", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N66", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N68", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N70", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N72", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N74", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N76", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N78", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N80", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N82", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N84", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N86", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N96", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~N132", 
+     "param": "Flow", 
+     "pathname": "///////", 
+     "variableId": 0
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E89:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E94:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E104:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E109:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E114:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E119:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E124:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E129:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E134:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E139:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E144:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }, 
+    {
+     "dssFile": "", 
+     "name": "~E149:F", 
+     "param": "Elev", 
+     "pathname": "///////", 
+     "variableId": 10
+    }
+   ], 
+   "timeStep": "1Hour"
+  }
+ }, 
+ "exportVersion": 1, 
+ "exported": "2026-10-02 11:31", 
+ "network": {
+  "confluenceJunctions": [
+   "junction:Molalla+Pudding", 
+   "junction:Willamette+Tualatin", 
+   "junction:Willamette+Molalla", 
+   "junction:Willamette+Yamhill", 
+   "junction:No Santiam+So Santiam", 
+   "junction:Willamette+Long Tom", 
+   "junction:McKenzie+SF McKenzie", 
+   "junction:McKenzie+Blue", 
+   "junction:Willamette+McKenzie", 
+   "junction:CF Willamette+Row", 
+   "junction:MF Willamette+CF Willamette", 
+   "junction:MF Willamette+Fall", 
+   "junction:Willamette+Luckiamute", 
+   "junction:Willamette+Santiam"
+  ], 
+  "confluenceReservoirs": {}, 
+  "elements": {
+   "diversion:Diversion 1 down": {
+    "junction": "Willamette_at Wilsonville", 
+    "name": "Diversion 1 down", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 1 up": {
+    "junction": "Willamette_at Salem", 
+    "name": "Diversion 1 up", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 10": {
+    "junction": "MF Willamette_at Jasper", 
+    "name": "Diversion 10", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 11": {
+    "junction": "MF Willamette_at Jasper", 
+    "name": "Diversion 11", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 12": {
+    "junction": "Fall Creek_OUT", 
+    "name": "Diversion 12", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 13": {
+    "junction": "CF WIllamette_nr Goshen", 
+    "name": "Diversion 13", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 14": {
+    "junction": "Dorena_OUT", 
+    "name": "Diversion 14", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 15": {
+    "junction": "Cottage Grove_OUT", 
+    "name": "Diversion 15", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 2": {
+    "junction": "Santiam_at Jefferson", 
+    "name": "Diversion 2", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 3": {
+    "junction": "Detroit_OUT", 
+    "name": "Diversion 3", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 4": {
+    "junction": "So Santiam_at Waterloo", 
+    "name": "Diversion 4", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 5": {
+    "junction": "Willamette+Marys", 
+    "name": "Diversion 5", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 6": {
+    "junction": "Fern Ridge_OUT", 
+    "name": "Diversion 6", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 7": {
+    "junction": "Willamette_at Harrisburg", 
+    "name": "Diversion 7", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 8": {
+    "junction": "Mkenzie_nr Walterville", 
+    "name": "Diversion 8", 
+    "type": "diversion"
+   }, 
+   "diversion:Diversion 9": {
+    "junction": "Willamette_at Eugene", 
+    "name": "Diversion 9", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 1 down": {
+    "junction": "Willamette_at Wilsonville", 
+    "name": "Return 1 down", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 1 up": {
+    "junction": "Willamette_at Wilsonville", 
+    "name": "Return 1 up", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 10": {
+    "junction": "Willamette_at Eugene", 
+    "name": "Return 10", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 11": {
+    "junction": "MF Willamette_at Jasper", 
+    "name": "Return 11", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 12": {
+    "junction": "MF Willamette_at Jasper", 
+    "name": "Return 12", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 13": {
+    "junction": "Willamette_at Eugene", 
+    "name": "Return 13", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 14": {
+    "junction": "CF WIllamette_nr Goshen", 
+    "name": "Return 14", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 15": {
+    "junction": "CF WIllamette_nr Goshen", 
+    "name": "Return 15", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 2": {
+    "junction": "Willamette_at Salem", 
+    "name": "Return 2", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 3": {
+    "junction": "No Santiam_at Mehama", 
+    "name": "Return 3", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 4": {
+    "junction": "So Santiam+Thomas Cr", 
+    "name": "Return 4", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 5": {
+    "junction": "Willamette_at Salem", 
+    "name": "Return 5", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 6": {
+    "junction": "Long Tom_at Monroe", 
+    "name": "Return 6", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 7": {
+    "junction": "Willamette_at Harrisburg", 
+    "name": "Return 7", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 8": {
+    "junction": "McKenzie_nr Coburg", 
+    "name": "Return 8", 
+    "type": "diversion"
+   }, 
+   "diversion:Return 9": {
+    "junction": "Willamette_at Eugene", 
+    "name": "Return 9", 
+    "type": "diversion"
+   }, 
+   "junction:AURO Pudding_at Aurora": {
+    "connected": [
+     "reach:AURO Pudding_at Aurora to Molalla+Pudding"
+    ], 
+    "downstream": "reach:AURO Pudding_at Aurora to Molalla+Pudding", 
+    "flowProxy": "~N4", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "AURO_Pudding River nr Aurora", 
+      "knownFlowProxy": "AURO_Pudding River nr Aurora", 
+      "node": "AURO_Pudding River nr Aurora"
+     }
+    ], 
+    "name": "AURO Pudding_at Aurora", 
+    "type": "junction"
+   }, 
+   "junction:Abv Hayden Bridge_at Springfield": {
+    "connected": [
+     "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+     "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk"
+    ], 
+    "downstream": "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+    "flowProxy": "~N15", 
+    "locals": [], 
+    "name": "Abv Hayden Bridge_at Springfield", 
+    "type": "junction"
+   }, 
+   "junction:Below Leaburg Dam": {
+    "connected": [
+     "reach:McKenzie_at Vida to Below Leaburg Dam", 
+     "reach:Below Leaburg Dam to Mkenzie_nr Walterville"
+    ], 
+    "downstream": "reach:Below Leaburg Dam to Mkenzie_nr Walterville", 
+    "flowProxy": "~N16", 
+    "locals": [], 
+    "name": "Below Leaburg Dam", 
+    "type": "junction"
+   }, 
+   "junction:Big Cliff_IN": {
+    "connected": [
+     "reservoir:Big Cliff", 
+     "reach:Detroit_OUT to Big Cliff_IN"
+    ], 
+    "downstream": "pool:Big Cliff", 
+    "flowProxy": "~N88", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E63~Big Cliff Local Inflow_HMSsub_NSantiamRv_S15", 
+      "knownFlowProxy": "Big Cliff Local Inflow_HMSsub_NSantiamRv_S15", 
+      "node": "Big Cliff_IN Big Cliff Local Inflow_HMSsub_NSantiamRv_S15"
+     }
+    ], 
+    "name": "Big Cliff_IN", 
+    "type": "junction"
+   }, 
+   "junction:Big Cliff_OUT": {
+    "connected": [
+     "reservoir:Big Cliff", 
+     "reach:Big Cliff_OUT to No Santiam_at Niagara"
+    ], 
+    "downstream": "reach:Big Cliff_OUT to No Santiam_at Niagara", 
+    "flowProxy": "~N62", 
+    "locals": [], 
+    "name": "Big Cliff_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Blue River_IN": {
+    "connected": [
+     "reservoir:Blue River"
+    ], 
+    "downstream": "pool:Blue River", 
+    "flowProxy": "~N108", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E73~Blue River Inflow_HMSsub_BlueRv_S10", 
+      "knownFlowProxy": "Blue River Inflow_HMSsub_BlueRv_S10", 
+      "node": "Blue River_IN Blue River Inflow_HMSsub_BlueRv_S10"
+     }
+    ], 
+    "name": "Blue River_IN", 
+    "type": "junction"
+   }, 
+   "junction:Blue River_OUT": {
+    "connected": [
+     "reservoir:Blue River", 
+     "reach:Blue River_OUT to Blue_at Blue River"
+    ], 
+    "downstream": "reach:Blue River_OUT to Blue_at Blue River", 
+    "flowProxy": "~N72", 
+    "locals": [], 
+    "name": "Blue River_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Blue_at Blue River": {
+    "connected": [
+     "reach:Blue River_OUT to Blue_at Blue River", 
+     "reach:Blue_at Blue River to McKenzie+Blue"
+    ], 
+    "downstream": "reach:Blue_at Blue River to McKenzie+Blue", 
+    "flowProxy": "~N17", 
+    "locals": [], 
+    "name": "Blue_at Blue River", 
+    "type": "junction"
+   }, 
+   "junction:CANO Molalla_nr Canby": {
+    "connected": [
+     "reach:CANO Molalla_nr Canby to Molalla+Pudding"
+    ], 
+    "downstream": "reach:CANO Molalla_nr Canby to Molalla+Pudding", 
+    "flowProxy": "~N3", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "CANO_Molalla River at Canby_Local_JMolaR_S06", 
+      "knownFlowProxy": "CANO_Molalla River at Canby_Local_JMolaR_S06", 
+      "node": "CANO_Molalla River at Canby_Local_JMolaR_S06"
+     }
+    ], 
+    "name": "CANO Molalla_nr Canby", 
+    "type": "junction"
+   }, 
+   "junction:CF WIllamette_nr Goshen": {
+    "connected": [
+     "reach:CF Willamette+Row to CF WIllamette_nr Goshen", 
+     "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+     "diversion:Diversion 13", 
+     "diversion:Return 15", 
+     "diversion:Return 14"
+    ], 
+    "downstream": "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+    "flowProxy": "~N54", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "GOSO_Goshen_HMSsub_CFWillametteRv_S10", 
+      "knownFlowProxy": "GOSO_Goshen_HMSsub_CFWillametteRv_S10", 
+      "node": "GOSO_Goshen_HMSsub_CFWillametteRv_S10"
+     }
+    ], 
+    "name": "CF WIllamette_nr Goshen", 
+    "type": "junction"
+   }, 
+   "junction:CF Willamette+Row": {
+    "connected": [
+     "reach:Cottage Grove_OUT to CF Willamette+Row", 
+     "reach:Dorena_OUT to CF Willamette+Row", 
+     "reach:CF Willamette+Row to CF WIllamette_nr Goshen"
+    ], 
+    "downstream": "reach:CF Willamette+Row to CF WIllamette_nr Goshen", 
+    "flowProxy": "~N53", 
+    "locals": [], 
+    "name": "CF Willamette+Row", 
+    "type": "junction"
+   }, 
+   "junction:Cottage Grove_IN": {
+    "connected": [
+     "reservoir:Cottage Grove"
+    ], 
+    "downstream": "pool:Cottage Grove", 
+    "flowProxy": "~N116", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E77~Cottage Grove Inflow_HMSsub_CFWillametteRV_S20", 
+      "knownFlowProxy": "Cottage Grove Inflow_HMSsub_CFWillametteRV_S20", 
+      "node": "Cottage Grove_IN Cottage Grove Inflow_HMSsub_CFWillametteRV_S20"
+     }
+    ], 
+    "name": "Cottage Grove_IN", 
+    "type": "junction"
+   }, 
+   "junction:Cottage Grove_OUT": {
+    "connected": [
+     "reservoir:Cottage Grove", 
+     "reach:Cottage Grove_OUT to CF Willamette+Row", 
+     "diversion:Diversion 15"
+    ], 
+    "downstream": "reach:Cottage Grove_OUT to CF Willamette+Row", 
+    "flowProxy": "~N76", 
+    "locals": [], 
+    "name": "Cottage Grove_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Cougar_IN": {
+    "connected": [
+     "reservoir:Cougar"
+    ], 
+    "downstream": "pool:Cougar", 
+    "flowProxy": "~N112", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E75~Cougar Inflow_HMSsub_SFMcKenzieRv_S10", 
+      "knownFlowProxy": "Cougar Inflow_HMSsub_SFMcKenzieRv_S10", 
+      "node": "Cougar_IN Cougar Inflow_HMSsub_SFMcKenzieRv_S10"
+     }
+    ], 
+    "name": "Cougar_IN", 
+    "type": "junction"
+   }, 
+   "junction:Cougar_OUT": {
+    "connected": [
+     "reservoir:Cougar", 
+     "reach:Cougar_OUT to SF MkKenzie_nr Rainbow"
+    ], 
+    "downstream": "reach:Cougar_OUT to SF MkKenzie_nr Rainbow", 
+    "flowProxy": "~N74", 
+    "locals": [], 
+    "name": "Cougar_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Detroit_IN": {
+    "connected": [
+     "reservoir:Detroit"
+    ], 
+    "downstream": "pool:Detroit", 
+    "flowProxy": "~N92", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E65~Detroit Inflow", 
+      "knownFlowProxy": "Detroit Inflow", 
+      "node": "Detroit_IN Detroit Inflow"
+     }
+    ], 
+    "name": "Detroit_IN", 
+    "type": "junction"
+   }, 
+   "junction:Detroit_OUT": {
+    "connected": [
+     "reservoir:Detroit", 
+     "reach:Detroit_OUT to Big Cliff_IN", 
+     "diversion:Diversion 3"
+    ], 
+    "downstream": "reach:Detroit_OUT to Big Cliff_IN", 
+    "flowProxy": "~N64", 
+    "locals": [], 
+    "name": "Detroit_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Dexter_IN": {
+    "connected": [
+     "reservoir:Dexter", 
+     "reach:Lookout Point_OUT to Dexter_IN"
+    ], 
+    "downstream": "pool:Dexter", 
+    "flowProxy": "~N128", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E83~Dexter Local Inflow_HMSsub_MFWillametteRVS20", 
+      "knownFlowProxy": "Dexter Local Inflow_HMSsub_MFWillametteRVS20", 
+      "node": "Dexter_IN Dexter Local Inflow_HMSsub_MFWillametteRVS20"
+     }
+    ], 
+    "name": "Dexter_IN", 
+    "type": "junction"
+   }, 
+   "junction:Dexter_OUT": {
+    "connected": [
+     "reservoir:Dexter", 
+     "reach:Dexter_OUT to MF Willamette_nr Dexter"
+    ], 
+    "downstream": "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+    "flowProxy": "~N82", 
+    "locals": [], 
+    "name": "Dexter_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Dorena_IN": {
+    "connected": [
+     "reservoir:Dorena"
+    ], 
+    "downstream": "pool:Dorena", 
+    "flowProxy": "~N120", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E79~Dorena Inflow_HMSsub_RowRv_S10", 
+      "knownFlowProxy": "Dorena Inflow_HMSsub_RowRv_S10", 
+      "node": "Dorena_IN Dorena Inflow_HMSsub_RowRv_S10"
+     }
+    ], 
+    "name": "Dorena_IN", 
+    "type": "junction"
+   }, 
+   "junction:Dorena_OUT": {
+    "connected": [
+     "reservoir:Dorena", 
+     "reach:Dorena_OUT to CF Willamette+Row", 
+     "diversion:Diversion 14"
+    ], 
+    "downstream": "reach:Dorena_OUT to CF Willamette+Row", 
+    "flowProxy": "~N78", 
+    "locals": [], 
+    "name": "Dorena_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Fall Creek_IN": {
+    "connected": [
+     "reservoir:Fall Creek"
+    ], 
+    "downstream": "pool:Fall Creek", 
+    "flowProxy": "~N124", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E81~Fall Creek Inflow_HMSsub_FallCk_S10", 
+      "knownFlowProxy": "Fall Creek Inflow_HMSsub_FallCk_S10", 
+      "node": "Fall Creek_IN Fall Creek Inflow_HMSsub_FallCk_S10"
+     }
+    ], 
+    "name": "Fall Creek_IN", 
+    "type": "junction"
+   }, 
+   "junction:Fall Creek_OUT": {
+    "connected": [
+     "reservoir:Fall Creek", 
+     "reach:Fall Creek_OUT to MF Willamette+Fall", 
+     "diversion:Diversion 12"
+    ], 
+    "downstream": "reach:Fall Creek_OUT to MF Willamette+Fall", 
+    "flowProxy": "~N80", 
+    "locals": [], 
+    "name": "Fall Creek_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Fern Ridge_IN": {
+    "connected": [
+     "reservoir:Fern Ridge"
+    ], 
+    "downstream": "pool:Fern Ridge", 
+    "flowProxy": "~N104", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E71~Fern Ridge Inflow_HMSsub_LongTomRv_S20", 
+      "knownFlowProxy": "Fern Ridge Inflow_HMSsub_LongTomRv_S20", 
+      "node": "Fern Ridge_IN Fern Ridge Inflow_HMSsub_LongTomRv_S20"
+     }
+    ], 
+    "name": "Fern Ridge_IN", 
+    "type": "junction"
+   }, 
+   "junction:Fern Ridge_OUT": {
+    "connected": [
+     "reservoir:Fern Ridge", 
+     "reach:Fern Ridge_OUT to Long Tom_nr Alvadore", 
+     "diversion:Diversion 6"
+    ], 
+    "downstream": "reach:Fern Ridge_OUT to Long Tom_nr Alvadore", 
+    "flowProxy": "~N70", 
+    "locals": [], 
+    "name": "Fern Ridge_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Foster_IN": {
+    "connected": [
+     "reservoir:Foster", 
+     "reach:Green Peter_OUT to Foster_IN"
+    ], 
+    "downstream": "pool:Foster", 
+    "flowProxy": "~N96", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "Foster Local Inflow_HMSsub_SSantiamRv_S20", 
+      "knownFlowProxy": "Foster Local Inflow_HMSsub_SSantiamRv_S20", 
+      "node": "Foster Local Inflow_HMSsub_SSantiamRv_S20"
+     }
+    ], 
+    "name": "Foster_IN", 
+    "type": "junction"
+   }, 
+   "junction:Foster_OUT": {
+    "connected": [
+     "reservoir:Foster", 
+     "reach:Foster_OUT to So Santiam+McDowell Cr"
+    ], 
+    "downstream": "reach:Foster_OUT to So Santiam+McDowell Cr", 
+    "flowProxy": "~N66", 
+    "locals": [], 
+    "name": "Foster_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Green Peter_IN": {
+    "connected": [
+     "reservoir:Green Peter"
+    ], 
+    "downstream": "pool:Green Peter", 
+    "flowProxy": "~N100", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E69~Green Peter Inflow_HMSsub_SSantiamRv_S30", 
+      "knownFlowProxy": "Green Peter Inflow_HMSsub_SSantiamRv_S30", 
+      "node": "Green Peter_IN Green Peter Inflow_HMSsub_SSantiamRv_S30"
+     }
+    ], 
+    "name": "Green Peter_IN", 
+    "type": "junction"
+   }, 
+   "junction:Green Peter_OUT": {
+    "connected": [
+     "reservoir:Green Peter", 
+     "reach:Green Peter_OUT to Foster_IN"
+    ], 
+    "downstream": "reach:Green Peter_OUT to Foster_IN", 
+    "flowProxy": "~N68", 
+    "locals": [], 
+    "name": "Green Peter_OUT", 
+    "type": "junction"
+   }, 
+   "junction:GreensBridge_nr Jefferson": {
+    "connected": [
+     "reach:Stayton Div_IN to GreensBridge_nr Jefferson", 
+     "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam"
+    ], 
+    "downstream": "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam", 
+    "flowProxy": "~N37", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E37~NSJO_Greens Bridge_HMSsub_NSantiamRv_S05", 
+      "knownFlowProxy": "NSJO_Greens Bridge_HMSsub_NSantiamRv_S05", 
+      "node": "GreensBridge_nr Jefferson NSJO_Greens Bridge_HMSsub_NSantiamRv_S05"
+     }
+    ], 
+    "name": "GreensBridge_nr Jefferson", 
+    "type": "junction"
+   }, 
+   "junction:Hills Creek_IN": {
+    "connected": [
+     "reservoir:Hills Creek"
+    ], 
+    "downstream": "pool:Hills Creek", 
+    "flowProxy": "~N136", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E87~Hills Creek Inflow_HMSsub_ MFWillametteRv_S60", 
+      "knownFlowProxy": "Hills Creek Inflow_HMSsub_ MFWillametteRv_S60", 
+      "node": "Hills Creek_IN Hills Creek Inflow_HMSsub_ MFWillametteRv_S60"
+     }
+    ], 
+    "name": "Hills Creek_IN", 
+    "type": "junction"
+   }, 
+   "junction:Hills Creek_OUT": {
+    "connected": [
+     "reservoir:Hills Creek", 
+     "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge"
+    ], 
+    "downstream": "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge", 
+    "flowProxy": "~N86", 
+    "locals": [], 
+    "name": "Hills Creek_OUT", 
+    "type": "junction"
+   }, 
+   "junction:Lebanon Div_IN": {
+    "connected": [
+     "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+     "reach:Lebanon Div_IN to So Santiam+Crabtree Cr"
+    ], 
+    "downstream": "reach:Lebanon Div_IN to So Santiam+Crabtree Cr", 
+    "flowProxy": "~N60", 
+    "locals": [], 
+    "name": "Lebanon Div_IN", 
+    "type": "junction"
+   }, 
+   "junction:Long Tom+Amazon Cr": {
+    "connected": [
+     "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr", 
+     "reach:Long Tom+Amazon Cr to Long Tom_at Monroe"
+    ], 
+    "downstream": "reach:Long Tom+Amazon Cr to Long Tom_at Monroe", 
+    "flowProxy": "~N12", 
+    "locals": [], 
+    "name": "Long Tom+Amazon Cr", 
+    "type": "junction"
+   }, 
+   "junction:Long Tom_at Monroe": {
+    "connected": [
+     "reach:Long Tom+Amazon Cr to Long Tom_at Monroe", 
+     "reach:Long Tom_at Monroe to Willamette+Long Tom", 
+     "diversion:Return 6"
+    ], 
+    "downstream": "reach:Long Tom_at Monroe to Willamette+Long Tom", 
+    "flowProxy": "~N44", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "MNRO_Monroe_HMSsub_LongTomRv_S10", 
+      "knownFlowProxy": "MNRO_Monroe_HMSsub_LongTomRv_S10", 
+      "node": "MNRO_Monroe_HMSsub_LongTomRv_S10"
+     }
+    ], 
+    "name": "Long Tom_at Monroe", 
+    "type": "junction"
+   }, 
+   "junction:Long Tom_nr Alvadore": {
+    "connected": [
+     "reach:Fern Ridge_OUT to Long Tom_nr Alvadore", 
+     "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr"
+    ], 
+    "downstream": "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr", 
+    "flowProxy": "~N13", 
+    "locals": [], 
+    "name": "Long Tom_nr Alvadore", 
+    "type": "junction"
+   }, 
+   "junction:Lookout Point_IN": {
+    "connected": [
+     "reservoir:Lookout Point", 
+     "reach:MF Willamette NR Oakridge to Lookout Point_IN"
+    ], 
+    "downstream": "pool:Lookout Point", 
+    "flowProxy": "~N132", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60", 
+      "knownFlowProxy": "Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60", 
+      "node": "Lookout Point Local Inflow_HMSsub_MFWillametteRV_S60"
+     }
+    ], 
+    "name": "Lookout Point_IN", 
+    "type": "junction"
+   }, 
+   "junction:Lookout Point_OUT": {
+    "connected": [
+     "reservoir:Lookout Point", 
+     "reach:Lookout Point_OUT to Dexter_IN"
+    ], 
+    "downstream": "reach:Lookout Point_OUT to Dexter_IN", 
+    "flowProxy": "~N84", 
+    "locals": [], 
+    "name": "Lookout Point_OUT", 
+    "type": "junction"
+   }, 
+   "junction:MCMO South Yamill_at McMinnville": {
+    "connected": [
+     "reach:MCMO South Yamill_at McMinnville to Willamette+Yamhill"
+    ], 
+    "downstream": "reach:MCMO South Yamill_at McMinnville to Willamette+Yamhill", 
+    "flowProxy": "~N2", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "MCMO_McMinnville_Local_JYamhR_S01", 
+      "knownFlowProxy": "MCMO_McMinnville_Local_JYamhR_S01", 
+      "node": "MCMO_McMinnville_Local_JYamhR_S01"
+     }
+    ], 
+    "name": "MCMO South Yamill_at McMinnville", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette NR Oakridge": {
+    "connected": [
+     "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge", 
+     "reach:MF Willamette NR Oakridge to Lookout Point_IN"
+    ], 
+    "downstream": "reach:MF Willamette NR Oakridge to Lookout Point_IN", 
+    "flowProxy": "~N58", 
+    "locals": [], 
+    "name": "MF Willamette NR Oakridge", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette+CF Willamette": {
+    "connected": [
+     "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene"
+    ], 
+    "downstream": "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+    "flowProxy": "~N55", 
+    "locals": [], 
+    "name": "MF Willamette+CF Willamette", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette+Fall": {
+    "connected": [
+     "reach:Fall Creek_OUT to MF Willamette+Fall", 
+     "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper"
+    ], 
+    "downstream": "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+    "flowProxy": "~N57", 
+    "locals": [], 
+    "name": "MF Willamette+Fall", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette+NF Willamette": {
+    "connected": [
+     "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette", 
+     "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge"
+    ], 
+    "downstream": "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge", 
+    "flowProxy": "~N24", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E24~HMSsub_NFMFWillametteRv_S10", 
+      "knownFlowProxy": "HMSsub_NFMFWillametteRv_S10", 
+      "node": "MF Willamette+NF Willamette HMSsub_NFMFWillametteRv_S10"
+     }, 
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E24~HMSsub_MFWillametteRv_S40", 
+      "knownFlowProxy": "HMSsub_MFWillametteRv_S40", 
+      "node": "MF Willamette+NF Willamette HMSsub_MFWillametteRv_S40"
+     }
+    ], 
+    "name": "MF Willamette+NF Willamette", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette+Salmon Cr": {
+    "connected": [
+     "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr", 
+     "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette"
+    ], 
+    "downstream": "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette", 
+    "flowProxy": "~N20", 
+    "locals": [], 
+    "name": "MF Willamette+Salmon Cr", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette+Salt Cr": {
+    "connected": [
+     "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr", 
+     "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr"
+    ], 
+    "downstream": "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr", 
+    "flowProxy": "~N21", 
+    "locals": [], 
+    "name": "MF Willamette+Salt Cr", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette_abv Salt Cr nr Oakridge": {
+    "connected": [
+     "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge", 
+     "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr"
+    ], 
+    "downstream": "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr", 
+    "flowProxy": "~N22", 
+    "locals": [], 
+    "name": "MF Willamette_abv Salt Cr nr Oakridge", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette_at Jasper": {
+    "connected": [
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "diversion:Diversion 10", 
+     "diversion:Diversion 11", 
+     "diversion:Return 11", 
+     "diversion:Return 12"
+    ], 
+    "downstream": "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+    "flowProxy": "~N56", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "JASO_Jasper_HMSsub_MFWillametteRv_S10", 
+      "knownFlowProxy": "JASO_Jasper_HMSsub_MFWillametteRv_S10", 
+      "node": "JASO_Jasper_HMSsub_MFWillametteRv_S10"
+     }
+    ], 
+    "name": "MF Willamette_at Jasper", 
+    "type": "junction"
+   }, 
+   "junction:MF Willamette_nr Dexter": {
+    "connected": [
+     "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+     "reach:MF Willamette_nr Dexter to MF Willamette+Fall"
+    ], 
+    "downstream": "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+    "flowProxy": "~N19", 
+    "locals": [], 
+    "name": "MF Willamette_nr Dexter", 
+    "type": "junction"
+   }, 
+   "junction:McKenzie+Blue": {
+    "connected": [
+     "reach:McKenzie+SF McKenzie to McKenzie+Blue", 
+     "reach:Blue_at Blue River to McKenzie+Blue", 
+     "reach:McKenzie+Blue to McKenzie_at Vida"
+    ], 
+    "downstream": "reach:McKenzie+Blue to McKenzie_at Vida", 
+    "flowProxy": "~N48", 
+    "locals": [], 
+    "name": "McKenzie+Blue", 
+    "type": "junction"
+   }, 
+   "junction:McKenzie+Mohawk": {
+    "connected": [
+     "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+     "reach:McKenzie+Mohawk to McKenzie_nr Coburg"
+    ], 
+    "downstream": "reach:McKenzie+Mohawk to McKenzie_nr Coburg", 
+    "flowProxy": "~N14", 
+    "locals": [], 
+    "name": "McKenzie+Mohawk", 
+    "type": "junction"
+   }, 
+   "junction:McKenzie+SF McKenzie": {
+    "connected": [
+     "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie", 
+     "reach:McKenzie HW to McKenzie+SF McKenzie", 
+     "reach:McKenzie+SF McKenzie to McKenzie+Blue"
+    ], 
+    "downstream": "reach:McKenzie+SF McKenzie to McKenzie+Blue", 
+    "flowProxy": "~N47", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20", 
+      "knownFlowProxy": "McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20", 
+      "node": "McKenzie+SF McKenzie_HMSsub_McKenzieRV_S20"
+     }
+    ], 
+    "name": "McKenzie+SF McKenzie", 
+    "type": "junction"
+   }, 
+   "junction:McKenzie_at Vida": {
+    "connected": [
+     "reach:McKenzie+Blue to McKenzie_at Vida", 
+     "reach:McKenzie_at Vida to Below Leaburg Dam"
+    ], 
+    "downstream": "reach:McKenzie_at Vida to Below Leaburg Dam", 
+    "flowProxy": "~N49", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "VIDO_Vida_HMSsub_McKenzieRv_S18", 
+      "knownFlowProxy": "VIDO_Vida_HMSsub_McKenzieRv_S18", 
+      "node": "VIDO_Vida_HMSsub_McKenzieRv_S18"
+     }
+    ], 
+    "name": "McKenzie_at Vida", 
+    "type": "junction"
+   }, 
+   "junction:McKenzie_nr Coburg": {
+    "connected": [
+     "reach:McKenzie+Mohawk to McKenzie_nr Coburg", 
+     "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+     "diversion:Return 8"
+    ], 
+    "downstream": "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+    "flowProxy": "~N23", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "Coburg_HMSsub_McKenzieRv_S10", 
+      "knownFlowProxy": "Coburg_HMSsub_McKenzieRv_S10", 
+      "node": "Coburg_HMSsub_McKenzieRv_S10"
+     }
+    ], 
+    "name": "McKenzie_nr Coburg", 
+    "type": "junction"
+   }, 
+   "junction:Mkenzie_nr Walterville": {
+    "connected": [
+     "reach:Below Leaburg Dam to Mkenzie_nr Walterville", 
+     "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+     "diversion:Diversion 8"
+    ], 
+    "downstream": "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+    "flowProxy": "~N50", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15", 
+      "knownFlowProxy": "MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15", 
+      "node": "MCZO_McKenzie nr Walterville_HMSsub_McKenzieRv_S15"
+     }
+    ], 
+    "name": "Mkenzie_nr Walterville", 
+    "type": "junction"
+   }, 
+   "junction:Molalla+Pudding": {
+    "connected": [
+     "reach:Molalla+Pudding to Willamette+Molalla", 
+     "reach:AURO Pudding_at Aurora to Molalla+Pudding", 
+     "reach:CANO Molalla_nr Canby to Molalla+Pudding"
+    ], 
+    "downstream": "reach:Molalla+Pudding to Willamette+Molalla", 
+    "flowProxy": "~N5", 
+    "locals": [], 
+    "name": "Molalla+Pudding", 
+    "type": "junction"
+   }, 
+   "junction:No Santiam+So Santiam": {
+    "connected": [
+     "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam"
+    ], 
+    "downstream": "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+    "flowProxy": "~N38", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "No Santiam+So Santiam_Local_NSR_S07", 
+      "knownFlowProxy": "No Santiam+So Santiam_Local_NSR_S07", 
+      "node": "No Santiam+So Santiam_Local_NSR_S07"
+     }, 
+     {
+      "factor": 1.0, 
+      "flowProxy": "No Santiam+So Santiam_Local_SSR_S08", 
+      "knownFlowProxy": "No Santiam+So Santiam_Local_SSR_S08", 
+      "node": "No Santiam+So Santiam_Local_SSR_S08"
+     }
+    ], 
+    "name": "No Santiam+So Santiam", 
+    "type": "junction"
+   }, 
+   "junction:No Santiam_at Mehama": {
+    "connected": [
+     "reach:No Santiam_at Niagara to No Santiam_at Mehama", 
+     "reach:No Santiam_at Mehama to Stayton Div_IN", 
+     "diversion:Return 3"
+    ], 
+    "downstream": "reach:No Santiam_at Mehama to Stayton Div_IN", 
+    "flowProxy": "~N36", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "MEHO_Mehama_HMSsub_NSantiamRv_S10", 
+      "knownFlowProxy": "MEHO_Mehama_HMSsub_NSantiamRv_S10", 
+      "node": "MEHO_Mehama_HMSsub_NSantiamRv_S10"
+     }, 
+     {
+      "factor": 1.0, 
+      "flowProxy": "LSMO_Little North Santiam at Mehama", 
+      "knownFlowProxy": "LSMO_Little North Santiam at Mehama", 
+      "node": "LSMO_Little North Santiam at Mehama"
+     }
+    ], 
+    "name": "No Santiam_at Mehama", 
+    "type": "junction"
+   }, 
+   "junction:No Santiam_at Niagara": {
+    "connected": [
+     "reach:Big Cliff_OUT to No Santiam_at Niagara", 
+     "reach:No Santiam_at Niagara to No Santiam_at Mehama"
+    ], 
+    "downstream": "reach:No Santiam_at Niagara to No Santiam_at Mehama", 
+    "flowProxy": "~N35", 
+    "locals": [], 
+    "name": "No Santiam_at Niagara", 
+    "type": "junction"
+   }, 
+   "junction:SF MkKenzie_nr Rainbow": {
+    "connected": [
+     "reach:Cougar_OUT to SF MkKenzie_nr Rainbow", 
+     "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie"
+    ], 
+    "downstream": "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie", 
+    "flowProxy": "~N18", 
+    "locals": [], 
+    "name": "SF MkKenzie_nr Rainbow", 
+    "type": "junction"
+   }, 
+   "junction:SUVO Luckiamute_nr Suver": {
+    "connected": [
+     "reach:SUVO Luckiamute_nr Suver to Willamette+Luckiamute"
+    ], 
+    "downstream": "reach:SUVO Luckiamute_nr Suver to Willamette+Luckiamute", 
+    "flowProxy": "~N0", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "SUVO_Suver_HMSsub_LuckiamuteRv_S10", 
+      "knownFlowProxy": "SUVO_Suver_HMSsub_LuckiamuteRv_S10", 
+      "node": "SUVO_Suver_HMSsub_LuckiamuteRv_S10"
+     }
+    ], 
+    "name": "SUVO Luckiamute_nr Suver", 
+    "type": "junction"
+   }, 
+   "junction:Santiam_at Jefferson": {
+    "connected": [
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "diversion:Diversion 2"
+    ], 
+    "downstream": "reach:Santiam_at Jefferson to Willamette+Santiam", 
+    "flowProxy": "~N39", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "JFFO Santiam_at Jefferson loc", 
+      "knownFlowProxy": "JFFO Santiam_at Jefferson loc", 
+      "node": "JFFO Santiam_at Jefferson loc"
+     }
+    ], 
+    "name": "Santiam_at Jefferson", 
+    "type": "junction"
+   }, 
+   "junction:So Santiam+Crabtree Cr": {
+    "connected": [
+     "reach:Lebanon Div_IN to So Santiam+Crabtree Cr", 
+     "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr"
+    ], 
+    "downstream": "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+    "flowProxy": "~N10", 
+    "locals": [], 
+    "name": "So Santiam+Crabtree Cr", 
+    "type": "junction"
+   }, 
+   "junction:So Santiam+McDowell Cr": {
+    "connected": [
+     "reach:Foster_OUT to So Santiam+McDowell Cr", 
+     "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo"
+    ], 
+    "downstream": "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+    "flowProxy": "~N11", 
+    "locals": [], 
+    "name": "So Santiam+McDowell Cr", 
+    "type": "junction"
+   }, 
+   "junction:So Santiam+Thomas Cr": {
+    "connected": [
+     "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+     "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+     "diversion:Return 4"
+    ], 
+    "downstream": "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+    "flowProxy": "~N9", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E9~TRSO_Thomas Creek nr Scio", 
+      "knownFlowProxy": "TRSO_Thomas Creek nr Scio", 
+      "node": "So Santiam+Thomas Cr TRSO_Thomas Creek nr Scio"
+     }
+    ], 
+    "name": "So Santiam+Thomas Cr", 
+    "type": "junction"
+   }, 
+   "junction:So Santiam_at Waterloo": {
+    "connected": [
+     "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+     "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+     "diversion:Diversion 4"
+    ], 
+    "downstream": "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+    "flowProxy": "~N34", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "WTLO_Waterloo_HMSsub_SSantiamRv_S15", 
+      "knownFlowProxy": "WTLO_Waterloo_HMSsub_SSantiamRv_S15", 
+      "node": "WTLO_Waterloo_HMSsub_SSantiamRv_S15"
+     }
+    ], 
+    "name": "So Santiam_at Waterloo", 
+    "type": "junction"
+   }, 
+   "junction:Stayton Div_IN": {
+    "connected": [
+     "reach:No Santiam_at Mehama to Stayton Div_IN", 
+     "reach:Stayton Div_IN to GreensBridge_nr Jefferson"
+    ], 
+    "downstream": "reach:Stayton Div_IN to GreensBridge_nr Jefferson", 
+    "flowProxy": "~N61", 
+    "locals": [], 
+    "name": "Stayton Div_IN", 
+    "type": "junction"
+   }, 
+   "junction:TRBO McKenzie_nr Trail Bridge Dam": {
+    "connected": [
+     "reach:McKenzie HW to McKenzie+SF McKenzie"
+    ], 
+    "downstream": "reach:McKenzie HW to McKenzie+SF McKenzie", 
+    "flowProxy": "~N162", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "TRBO_Trail Bridge Inflow", 
+      "knownFlowProxy": "TRBO_Trail Bridge Inflow", 
+      "node": "TRBO_Trail Bridge Inflow"
+     }
+    ], 
+    "name": "TRBO McKenzie_nr Trail Bridge Dam", 
+    "type": "junction"
+   }, 
+   "junction:Tualitan+Scoggins": {
+    "connected": [
+     "reach:Tualitan+Scoggins to Willamette+Tualatin"
+    ], 
+    "downstream": "reach:Tualitan+Scoggins to Willamette+Tualatin", 
+    "flowProxy": "~N1", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "WSLO_West Linn_HMSsub_TualatinRv_S10", 
+      "knownFlowProxy": "WSLO_West Linn_HMSsub_TualatinRv_S10", 
+      "node": "WSLO_West Linn_HMSsub_TualatinRv_S10"
+     }
+    ], 
+    "name": "Tualitan+Scoggins", 
+    "type": "junction"
+   }, 
+   "junction:Willamette Falls": {
+    "connected": [
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls"
+    ], 
+    "downstream": null, 
+    "flowProxy": "~N26", 
+    "locals": [], 
+    "name": "Willamette Falls", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Ash Cr": {
+    "connected": [
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr"
+    ], 
+    "downstream": "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+    "flowProxy": "~N8", 
+    "locals": [], 
+    "name": "Willamette+Ash Cr", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Calapooia": {
+    "connected": [
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany"
+    ], 
+    "downstream": "reach:Willamette+Calapooia to Willamette_at Albany", 
+    "flowProxy": "~N42", 
+    "locals": [], 
+    "name": "Willamette+Calapooia", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Long Tom": {
+    "connected": [
+     "reach:Long Tom_at Monroe to Willamette+Long Tom", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys"
+    ], 
+    "downstream": "reach:Willamette+Long Tom to Willamette+Marys", 
+    "flowProxy": "~N45", 
+    "locals": [], 
+    "name": "Willamette+Long Tom", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Luckiamute": {
+    "connected": [
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "reach:SUVO Luckiamute_nr Suver to Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr"
+    ], 
+    "downstream": "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+    "flowProxy": "~N350", 
+    "locals": [], 
+    "name": "Willamette+Luckiamute", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Marys": {
+    "connected": [
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "diversion:Diversion 5"
+    ], 
+    "downstream": "reach:Willamette+Marys to Willamette+Calapooia", 
+    "flowProxy": "~N43", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E43~CORO_Corvallis_HMSsub_WillametteRv_S70", 
+      "knownFlowProxy": "CORO_Corvallis_HMSsub_WillametteRv_S70", 
+      "node": "Willamette+Marys CORO_Corvallis_HMSsub_WillametteRv_S70"
+     }, 
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E43~PHIO_ Philomath_HMSsub_MarysRV_S70", 
+      "knownFlowProxy": "PHIO_ Philomath_HMSsub_MarysRV_S70", 
+      "node": "Willamette+Marys PHIO_ Philomath_HMSsub_MarysRV_S70"
+     }
+    ], 
+    "name": "Willamette+Marys", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+McKenzie": {
+    "connected": [
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg"
+    ], 
+    "downstream": "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+    "flowProxy": "~N51", 
+    "locals": [], 
+    "name": "Willamette+McKenzie", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Mill": {
+    "connected": [
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill"
+    ], 
+    "downstream": "reach:Willamette+Mill to Willamette+Yamhill", 
+    "flowProxy": "~N6", 
+    "locals": [], 
+    "name": "Willamette+Mill", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Molalla": {
+    "connected": [
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "reach:Molalla+Pudding to Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin"
+    ], 
+    "downstream": "reach:Willamette+Molalla to Willamette+Tualatin", 
+    "flowProxy": "~N29", 
+    "locals": [], 
+    "name": "Willamette+Molalla", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Rickreall": {
+    "connected": [
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem"
+    ], 
+    "downstream": "reach:Willamette+Rickreall to Willamette_at Salem", 
+    "flowProxy": "~N7", 
+    "locals": [], 
+    "name": "Willamette+Rickreall", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Santiam": {
+    "connected": [
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "reach:Willamette_at Albany to Willamette+Santiam"
+    ], 
+    "downstream": "reach:Willamette+Santiam to Willamette+Luckiamute", 
+    "flowProxy": "~N351", 
+    "locals": [], 
+    "name": "Willamette+Santiam", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Tualatin": {
+    "connected": [
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "reach:Tualitan+Scoggins to Willamette+Tualatin"
+    ], 
+    "downstream": "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+    "flowProxy": "~N28", 
+    "locals": [], 
+    "name": "Willamette+Tualatin", 
+    "type": "junction"
+   }, 
+   "junction:Willamette+Yamhill": {
+    "connected": [
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "reach:MCMO South Yamill_at McMinnville to Willamette+Yamhill"
+    ], 
+    "downstream": "reach:Willamette+Yamhill to Willamette_at Newberg", 
+    "flowProxy": "~N32", 
+    "locals": [], 
+    "name": "Willamette+Yamhill", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_abv Falls at Oregon City": {
+    "connected": [
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls"
+    ], 
+    "downstream": "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+    "flowProxy": "~N27", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "~E27~OCUO_Oregon City_HMSsub_WillametteRv_S30", 
+      "knownFlowProxy": "OCUO_Oregon City_HMSsub_WillametteRv_S30", 
+      "node": "Willamette_abv Falls at Oregon City OCUO_Oregon City_HMSsub_WillametteRv_S30"
+     }
+    ], 
+    "name": "Willamette_abv Falls at Oregon City", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Albany": {
+    "connected": [
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam"
+    ], 
+    "downstream": "reach:Willamette_at Albany to Willamette+Santiam", 
+    "flowProxy": "~N25", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "ALBO_ Albany_HMSsub_WillametteRv_S60", 
+      "knownFlowProxy": "ALBO_ Albany_HMSsub_WillametteRv_S60", 
+      "node": "ALBO_ Albany_HMSsub_WillametteRv_S60"
+     }
+    ], 
+    "name": "Willamette_at Albany", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Eugene": {
+    "connected": [
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "diversion:Return 9", 
+     "diversion:Return 10", 
+     "diversion:Return 13", 
+     "diversion:Diversion 9"
+    ], 
+    "downstream": "reach:Willamette_at Eugene to Willamette+McKenzie", 
+    "flowProxy": "~N52", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "EUGO_Willamette at Eugene", 
+      "knownFlowProxy": "EUGO_Willamette at Eugene", 
+      "node": "EUGO_Willamette at Eugene"
+     }
+    ], 
+    "name": "Willamette_at Eugene", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Harrisburg": {
+    "connected": [
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "diversion:Return 7", 
+     "diversion:Diversion 7"
+    ], 
+    "downstream": "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+    "flowProxy": "~N46", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "HARO_Harrisburg_HMSsub_WillametteRv_S80", 
+      "knownFlowProxy": "HARO_Harrisburg_HMSsub_WillametteRv_S80", 
+      "node": "HARO_Harrisburg_HMSsub_WillametteRv_S80"
+     }
+    ], 
+    "name": "Willamette_at Harrisburg", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Newberg": {
+    "connected": [
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville"
+    ], 
+    "downstream": "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+    "flowProxy": "~N31", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "NBGO_Newberg_HMSsub_WillametteRv_S40", 
+      "knownFlowProxy": "NBGO_Newberg_HMSsub_WillametteRv_S40", 
+      "node": "NBGO_Newberg_HMSsub_WillametteRv_S40"
+     }
+    ], 
+    "name": "Willamette_at Newberg", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Salem": {
+    "connected": [
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "diversion:Return 2", 
+     "diversion:Return 5", 
+     "diversion:Diversion 1 up"
+    ], 
+    "downstream": "reach:Willamette_at Salem to Willamette+Mill", 
+    "flowProxy": "~N33", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "SLMO_Salem_HMSsub_WillametteRv_S50", 
+      "knownFlowProxy": "SLMO_Salem_HMSsub_WillametteRv_S50", 
+      "node": "SLMO_Salem_HMSsub_WillametteRv_S50"
+     }
+    ], 
+    "name": "Willamette_at Salem", 
+    "type": "junction"
+   }, 
+   "junction:Willamette_at Wilsonville": {
+    "connected": [
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "diversion:Return 1 down", 
+     "diversion:Return 1 up", 
+     "diversion:Diversion 1 down"
+    ], 
+    "downstream": "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+    "flowProxy": "~N30", 
+    "locals": [
+     {
+      "factor": 1.0, 
+      "flowProxy": "Willamette_at Wilsonville", 
+      "knownFlowProxy": "Willamette_at Wilsonville", 
+      "node": "Willamette_at Wilsonville"
+     }
+    ], 
+    "name": "Willamette_at Wilsonville", 
+    "type": "junction"
+   }, 
+   "reach:AURO Pudding_at Aurora to Molalla+Pudding": {
+    "downstream": "junction:Molalla+Pudding", 
+    "flowProxy": "~N344", 
+    "name": "AURO Pudding_at Aurora to Molalla+Pudding", 
+    "routing": {
+     "k": [
+      4.0
+     ], 
+     "method": "Muskingum", 
+     "subreaches": 1, 
+     "supported": true, 
+     "x": [
+      0.25
+     ]
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk": {
+    "downstream": "junction:McKenzie+Mohawk", 
+    "flowProxy": "~N171", 
+    "name": "Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Below Leaburg Dam to Mkenzie_nr Walterville": {
+    "downstream": "junction:Mkenzie_nr Walterville", 
+    "flowProxy": "~N169", 
+    "name": "Below Leaburg Dam to Mkenzie_nr Walterville", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Big Cliff_OUT to No Santiam_at Niagara": {
+    "downstream": "junction:No Santiam_at Niagara", 
+    "flowProxy": "~N357", 
+    "name": "Big Cliff_OUT to No Santiam_at Niagara", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Blue River_OUT to Blue_at Blue River": {
+    "downstream": "junction:Blue_at Blue River", 
+    "flowProxy": "~N164", 
+    "name": "Blue River_OUT to Blue_at Blue River", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      75.0, 
+      100.0, 
+      250.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      2500.0, 
+      3000.0, 
+      3250.0, 
+      3500.0, 
+      3750.0, 
+      4000.0, 
+      4250.0, 
+      4500.0, 
+      4750.0, 
+      5000.0, 
+      5340.0, 
+      6000.0, 
+      1300000.0
+     ], 
+     "storage": [
+      0.0, 
+      9.0, 
+      12.0, 
+      20.0, 
+      31.0, 
+      45.0, 
+      57.0, 
+      68.0, 
+      78.0, 
+      89.0, 
+      99.0, 
+      106.0, 
+      112.0, 
+      118.0, 
+      125.0, 
+      130.0, 
+      136.0, 
+      144.0, 
+      151.0, 
+      161.0, 
+      14752.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Blue_at Blue River to McKenzie+Blue": {
+    "downstream": "junction:McKenzie+Blue", 
+    "flowProxy": "~N166", 
+    "name": "Blue_at Blue River to McKenzie+Blue", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:CANO Molalla_nr Canby to Molalla+Pudding": {
+    "downstream": "junction:Molalla+Pudding", 
+    "flowProxy": "~N345", 
+    "name": "CANO Molalla_nr Canby to Molalla+Pudding", 
+    "routing": {
+     "k": [
+      1.8
+     ], 
+     "method": "Muskingum", 
+     "subreaches": 1, 
+     "supported": true, 
+     "x": [
+      0.25
+     ]
+    }, 
+    "type": "reach"
+   }, 
+   "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette": {
+    "downstream": "junction:MF Willamette+CF Willamette", 
+    "flowProxy": "~N152", 
+    "name": "CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      200.0, 
+      1000.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      55000.0, 
+      58500.0, 
+      60000.0, 
+      120000.0, 
+      240000.0, 
+      480000.0, 
+      600000.0
+     ], 
+     "storage": [
+      0.0, 
+      83.0, 
+      225.0, 
+      370.0, 
+      523.0, 
+      675.0, 
+      965.0, 
+      1303.0, 
+      1679.0, 
+      2211.0, 
+      4023.0, 
+      5454.0, 
+      6939.0, 
+      8378.0, 
+      9929.0, 
+      11499.0, 
+      13271.0, 
+      13745.0, 
+      14635.0, 
+      15053.0, 
+      26581.0, 
+      47328.0, 
+      80350.0, 
+      146263.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:CF Willamette+Row to CF WIllamette_nr Goshen": {
+    "downstream": "junction:CF WIllamette_nr Goshen", 
+    "flowProxy": "~N151", 
+    "name": "CF Willamette+Row to CF WIllamette_nr Goshen", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      200.0, 
+      1000.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      55000.0, 
+      58500.0, 
+      60000.0, 
+      120000.0, 
+      240000.0, 
+      480000.0, 
+      600000.0
+     ], 
+     "storage": [
+      0.0, 
+      349.0, 
+      929.0, 
+      1494.0, 
+      2035.0, 
+      2570.0, 
+      3634.0, 
+      4677.0, 
+      5740.0, 
+      6834.0, 
+      11543.0, 
+      14651.0, 
+      17879.0, 
+      21142.0, 
+      24301.0, 
+      27338.0, 
+      30161.0, 
+      32931.0, 
+      34935.0, 
+      35660.0, 
+      59845.0, 
+      96855.0, 
+      150694.0, 
+      174574.0
+     ], 
+     "subreaches": 5, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Cottage Grove_OUT to CF Willamette+Row": {
+    "downstream": "junction:CF Willamette+Row", 
+    "flowProxy": "~N149", 
+    "name": "Cottage Grove_OUT to CF Willamette+Row", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      75.0, 
+      100.0, 
+      250.0, 
+      500.0, 
+      750.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      2500.0, 
+      2750.0, 
+      3000.0, 
+      3250.0, 
+      3500.0, 
+      4000.0, 
+      4500.0, 
+      5000.0, 
+      5500.0, 
+      5910.0, 
+      6000.0, 
+      12000.0, 
+      24000.0, 
+      48000.0, 
+      210000.0
+     ], 
+     "storage": [
+      0.0, 
+      84.0, 
+      111.0, 
+      184.0, 
+      291.0, 
+      369.0, 
+      440.0, 
+      560.0, 
+      671.0, 
+      781.0, 
+      854.0, 
+      924.0, 
+      1007.0, 
+      1078.0, 
+      1205.0, 
+      1346.0, 
+      1523.0, 
+      1719.0, 
+      1903.0, 
+      1966.0, 
+      5211.0, 
+      11019.0, 
+      19641.0, 
+      46823.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Cougar_OUT to SF MkKenzie_nr Rainbow": {
+    "downstream": "junction:SF MkKenzie_nr Rainbow", 
+    "flowProxy": "~N160", 
+    "name": "Cougar_OUT to SF MkKenzie_nr Rainbow", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      350.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2500.0, 
+      3000.0, 
+      3500.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14000.0, 
+      16000.0, 
+      18000.0, 
+      20000.0, 
+      24500.0, 
+      30000.0, 
+      3000000.0
+     ], 
+     "storage": [
+      0.0, 
+      133.0, 
+      159.0, 
+      227.0, 
+      288.0, 
+      413.0, 
+      474.0, 
+      537.0, 
+      606.0, 
+      763.0, 
+      911.0, 
+      1150.0, 
+      1394.0, 
+      1612.0, 
+      1820.0, 
+      2020.0, 
+      2210.0, 
+      2396.0, 
+      2857.0, 
+      3478.0, 
+      101565.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Detroit_OUT to Big Cliff_IN": {
+    "downstream": "junction:Big Cliff_IN", 
+    "flowProxy": "~N195", 
+    "name": "Detroit_OUT to Big Cliff_IN", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Dexter_OUT to MF Willamette_nr Dexter": {
+    "downstream": "junction:MF Willamette_nr Dexter", 
+    "flowProxy": "~N154", 
+    "name": "Dexter_OUT to MF Willamette_nr Dexter", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1200.0, 
+      2500.0, 
+      5000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      11000.0, 
+      12000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      62600.0, 
+      65000.0, 
+      130000.0, 
+      260000.0, 
+      520000.0, 
+      5385000.0
+     ], 
+     "storage": [
+      0.0, 
+      232.0, 
+      336.0, 
+      572.0, 
+      789.0, 
+      922.0, 
+      1100.0, 
+      1276.0, 
+      1450.0, 
+      1619.0, 
+      1993.0, 
+      2576.0, 
+      3177.0, 
+      3789.0, 
+      5059.0, 
+      6276.0, 
+      7483.0, 
+      8561.0, 
+      10168.0, 
+      10503.0, 
+      18566.0, 
+      30885.0, 
+      49574.0, 
+      198246.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Dorena_OUT to CF Willamette+Row": {
+    "downstream": "junction:CF Willamette+Row", 
+    "flowProxy": "~N150", 
+    "name": "Dorena_OUT to CF Willamette+Row", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      125.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      2500.0, 
+      3000.0, 
+      3500.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14000.0, 
+      16000.0, 
+      18000.0, 
+      20000.0, 
+      21400.0, 
+      25000.0, 
+      50000.0, 
+      100000.0, 
+      200000.0, 
+      562000.0
+     ], 
+     "storage": [
+      0.0, 
+      135.0, 
+      257.0, 
+      386.0, 
+      501.0, 
+      609.0, 
+      726.0, 
+      835.0, 
+      947.0, 
+      1059.0, 
+      1482.0, 
+      1865.0, 
+      2261.0, 
+      2681.0, 
+      3115.0, 
+      3565.0, 
+      4039.0, 
+      4524.0, 
+      4869.0, 
+      5687.0, 
+      11795.0, 
+      21156.0, 
+      35008.0, 
+      67033.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Fall Creek_OUT to MF Willamette+Fall": {
+    "downstream": "junction:MF Willamette+Fall", 
+    "flowProxy": "~N153", 
+    "name": "Fall Creek_OUT to MF Willamette+Fall", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      80.0, 
+      100.0, 
+      250.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      3800.0, 
+      5000.0, 
+      7000.0, 
+      9000.0, 
+      11000.0, 
+      13000.0, 
+      15000.0, 
+      18000.0, 
+      21000.0, 
+      24700.0, 
+      30000.0, 
+      80000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      45.0, 
+      54.0, 
+      97.0, 
+      155.0, 
+      248.0, 
+      332.0, 
+      408.0, 
+      549.0, 
+      657.0, 
+      814.0, 
+      1070.0, 
+      1342.0, 
+      1639.0, 
+      1944.0, 
+      2265.0, 
+      2691.0, 
+      3101.0, 
+      3657.0, 
+      4422.0, 
+      15000.0, 
+      209635.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Fern Ridge_OUT to Long Tom_nr Alvadore": {
+    "downstream": "junction:Long Tom_nr Alvadore", 
+    "flowProxy": "~N175", 
+    "name": "Fern Ridge_OUT to Long Tom_nr Alvadore", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Foster_OUT to So Santiam+McDowell Cr": {
+    "downstream": "junction:So Santiam+McDowell Cr", 
+    "flowProxy": "~N182", 
+    "name": "Foster_OUT to So Santiam+McDowell Cr", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      470.0, 
+      498.0, 
+      526.0, 
+      611.0, 
+      682.0, 
+      752.0, 
+      893.0, 
+      1035.0, 
+      1317.0, 
+      1882.0, 
+      2587.0, 
+      3293.0, 
+      3999.0, 
+      4704.0, 
+      6116.0, 
+      7528.0, 
+      8939.0, 
+      10350.0, 
+      11762.0, 
+      14585.0, 
+      20231.0, 
+      24466.0, 
+      28700.0, 
+      120000.0, 
+      200000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      288.0, 
+      300.0, 
+      312.0, 
+      344.0, 
+      370.0, 
+      396.0, 
+      445.0, 
+      492.0, 
+      580.0, 
+      744.0, 
+      931.0, 
+      1106.0, 
+      1278.0, 
+      1444.0, 
+      1765.0, 
+      2090.0, 
+      2482.0, 
+      2927.0, 
+      3273.0, 
+      4037.0, 
+      5475.0, 
+      6565.0, 
+      7717.0, 
+      27671.0, 
+      51240.0, 
+      286930.0
+     ], 
+     "subreaches": 3, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Green Peter_OUT to Foster_IN": {
+    "downstream": "junction:Foster_IN", 
+    "flowProxy": "~N181", 
+    "name": "Green Peter_OUT to Foster_IN", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      300.0, 
+      313.0, 
+      325.0, 
+      364.0, 
+      395.0, 
+      427.0, 
+      490.0, 
+      554.0, 
+      681.0, 
+      935.0, 
+      1252.0, 
+      1570.0, 
+      1888.0, 
+      2205.0, 
+      2840.0, 
+      3475.0, 
+      4110.0, 
+      4745.0, 
+      5380.0, 
+      6650.0, 
+      9190.0, 
+      11095.0, 
+      13000.0, 
+      100000.0, 
+      175000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      191.0, 
+      201.0, 
+      214.0, 
+      239.0, 
+      254.0, 
+      266.0, 
+      286.0, 
+      303.0, 
+      315.0, 
+      334.0, 
+      353.0, 
+      370.0, 
+      386.0, 
+      401.0, 
+      427.0, 
+      452.0, 
+      475.0, 
+      496.0, 
+      517.0, 
+      558.0, 
+      632.0, 
+      684.0, 
+      732.0, 
+      2287.0, 
+      3775.0, 
+      20143.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam": {
+    "downstream": "junction:No Santiam+So Santiam", 
+    "flowProxy": "~N361", 
+    "name": "GreensBridge_nr Jefferson to No Santiam+So Santiam", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge": {
+    "downstream": "junction:MF Willamette_abv Salt Cr nr Oakridge", 
+    "flowProxy": "~N143", 
+    "name": "Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      450.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      34000.0, 
+      35000.0, 
+      3200000.0
+     ], 
+     "storage": [
+      0.0, 
+      823.0, 
+      849.0, 
+      1040.0, 
+      1206.0, 
+      1364.0, 
+      1679.0, 
+      1980.0, 
+      2277.0, 
+      2530.0, 
+      2750.0, 
+      2953.0, 
+      3160.0, 
+      3340.0, 
+      4239.0, 
+      5036.0, 
+      5794.0, 
+      6551.0, 
+      7113.0, 
+      7252.0, 
+      281407.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Lebanon Div_IN to So Santiam+Crabtree Cr": {
+    "downstream": "junction:So Santiam+Crabtree Cr", 
+    "flowProxy": "~N192", 
+    "name": "Lebanon Div_IN to So Santiam+Crabtree Cr", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      65.0, 
+      160.0, 
+      255.0, 
+      541.0, 
+      779.0, 
+      1016.0, 
+      1492.0, 
+      1968.0, 
+      2919.0, 
+      4822.0, 
+      7200.0, 
+      9578.0, 
+      11957.0, 
+      14335.0, 
+      19092.0, 
+      23849.0, 
+      28606.0, 
+      33362.0, 
+      38119.0, 
+      47632.0, 
+      66660.0, 
+      80930.0, 
+      95200.0, 
+      120000.0, 
+      200000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      38.0, 
+      93.0, 
+      149.0, 
+      316.0, 
+      455.0, 
+      593.0, 
+      871.0, 
+      1149.0, 
+      1705.0, 
+      2816.0, 
+      4205.0, 
+      5594.0, 
+      6983.0, 
+      8372.0, 
+      11150.0, 
+      13928.0, 
+      16706.0, 
+      19483.0, 
+      22261.0, 
+      27817.0, 
+      38929.0, 
+      47263.0, 
+      55597.0, 
+      70080.0, 
+      116800.0, 
+      583999.0
+     ], 
+     "subreaches": 5, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Long Tom+Amazon Cr to Long Tom_at Monroe": {
+    "downstream": "junction:Long Tom_at Monroe", 
+    "flowProxy": "~N177", 
+    "name": "Long Tom+Amazon Cr to Long Tom_at Monroe", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Long Tom_at Monroe to Willamette+Long Tom": {
+    "downstream": "junction:Willamette+Long Tom", 
+    "flowProxy": "~N178", 
+    "name": "Long Tom_at Monroe to Willamette+Long Tom", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      50.0, 
+      100.0, 
+      250.0, 
+      500.0, 
+      1000.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      4650.0, 
+      5500.0, 
+      6780.0, 
+      7500.0, 
+      9500.0, 
+      11500.0, 
+      13500.0, 
+      15500.0, 
+      17500.0, 
+      19300.0, 
+      25000.0, 
+      180000.0
+     ], 
+     "storage": [
+      0.0, 
+      70.0, 
+      109.0, 
+      204.0, 
+      330.0, 
+      576.0, 
+      1096.0, 
+      1441.0, 
+      1821.0, 
+      2039.0, 
+      2323.0, 
+      2751.0, 
+      2992.0, 
+      3661.0, 
+      4329.0, 
+      4998.0, 
+      5667.0, 
+      6336.0, 
+      6938.0, 
+      8844.0, 
+      60676.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr": {
+    "downstream": "junction:Long Tom+Amazon Cr", 
+    "flowProxy": "~N176", 
+    "name": "Long Tom_nr Alvadore to Long Tom+Amazon Cr", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      50.0, 
+      100.0, 
+      250.0, 
+      500.0, 
+      1000.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      4650.0, 
+      5500.0, 
+      6780.0, 
+      7500.0, 
+      9500.0, 
+      11500.0, 
+      13500.0, 
+      15500.0, 
+      17500.0, 
+      19300.0, 
+      25000.0, 
+      180000.0
+     ], 
+     "storage": [
+      0.0, 
+      283.0, 
+      314.0, 
+      406.0, 
+      560.0, 
+      867.0, 
+      1531.0, 
+      2286.0, 
+      3040.0, 
+      3472.0, 
+      4036.0, 
+      4886.0, 
+      5364.0, 
+      6692.0, 
+      8020.0, 
+      9348.0, 
+      10676.0, 
+      12004.0, 
+      13199.0, 
+      16984.0, 
+      119904.0
+     ], 
+     "subreaches": 4, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Lookout Point_OUT to Dexter_IN": {
+    "downstream": "junction:Dexter_IN", 
+    "flowProxy": "~N189", 
+    "name": "Lookout Point_OUT to Dexter_IN", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MCMO South Yamill_at McMinnville to Willamette+Yamhill": {
+    "downstream": "junction:Willamette+Yamhill", 
+    "flowProxy": "~N343", 
+    "name": "MCMO South Yamill_at McMinnville to Willamette+Yamhill", 
+    "routing": {
+     "k": [
+      13.6
+     ], 
+     "method": "Muskingum", 
+     "subreaches": 2, 
+     "supported": true, 
+     "x": [
+      0.25
+     ]
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette NR Oakridge to Lookout Point_IN": {
+    "downstream": "junction:Lookout Point_IN", 
+    "flowProxy": "~N148", 
+    "name": "MF Willamette NR Oakridge to Lookout Point_IN", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      20000.0, 
+      30000.0, 
+      40000.0, 
+      50000.0, 
+      59900.0, 
+      62000.0, 
+      3100000.0
+     ], 
+     "storage": [
+      0.0, 
+      669.0, 
+      1059.0, 
+      1362.0, 
+      1632.0, 
+      2112.0, 
+      2565.0, 
+      2981.0, 
+      3379.0, 
+      3771.0, 
+      4160.0, 
+      4522.0, 
+      4874.0, 
+      8091.0, 
+      10998.0, 
+      13945.0, 
+      16946.0, 
+      19934.0, 
+      20614.0, 
+      598144.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette+CF Willamette to Willamette_at Eugene": {
+    "downstream": "junction:Willamette_at Eugene", 
+    "flowProxy": "~N158", 
+    "name": "MF Willamette+CF Willamette to Willamette_at Eugene", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1500.0, 
+      2500.0, 
+      5000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      55000.0, 
+      60000.0, 
+      65000.0, 
+      70000.0, 
+      75000.0, 
+      80000.0, 
+      100000.0, 
+      1600000.0
+     ], 
+     "storage": [
+      0.0, 
+      439.0, 
+      731.0, 
+      1463.0, 
+      2925.0, 
+      4388.0, 
+      5850.0, 
+      7313.0, 
+      8775.0, 
+      11700.0, 
+      13163.0, 
+      14625.0, 
+      16088.0, 
+      17550.0, 
+      19013.0, 
+      20475.0, 
+      21938.0, 
+      23400.0, 
+      29250.0, 
+      468000.0
+     ], 
+     "subreaches": 3, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette+Fall to MF Willamette_at Jasper": {
+    "downstream": "junction:MF Willamette_at Jasper", 
+    "flowProxy": "~N156", 
+    "name": "MF Willamette+Fall to MF Willamette_at Jasper", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1200.0, 
+      2000.0, 
+      3000.0, 
+      6000.0, 
+      9000.0, 
+      12000.0, 
+      15000.0, 
+      18000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      50000.0, 
+      60000.0, 
+      70000.0, 
+      80000.0, 
+      94000.0, 
+      100000.0, 
+      200000.0, 
+      400000.0, 
+      800000.0, 
+      3400000.0
+     ], 
+     "storage": [
+      0.0, 
+      131.0, 
+      188.0, 
+      251.0, 
+      420.0, 
+      569.0, 
+      710.0, 
+      857.0, 
+      1010.0, 
+      1121.0, 
+      1422.0, 
+      1741.0, 
+      2077.0, 
+      2428.0, 
+      3169.0, 
+      3977.0, 
+      4821.0, 
+      5618.0, 
+      6775.0, 
+      7196.0, 
+      13750.0, 
+      23444.0, 
+      36155.0, 
+      105553.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge": {
+    "downstream": "junction:MF Willamette NR Oakridge", 
+    "flowProxy": "~N147", 
+    "name": "MF Willamette+NF Willamette to MF Willamette NR Oakridge", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      500.0, 
+      501.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      20000.0, 
+      30000.0, 
+      40000.0, 
+      50000.0, 
+      59900.0, 
+      62000.0, 
+      3100000.0
+     ], 
+     "storage": [
+      0.0, 
+      192.0, 
+      197.0, 
+      247.0, 
+      292.0, 
+      335.0, 
+      419.0, 
+      501.0, 
+      583.0, 
+      663.0, 
+      745.0, 
+      823.0, 
+      902.0, 
+      977.0, 
+      1384.0, 
+      1766.0, 
+      2137.0, 
+      2506.0, 
+      2816.0, 
+      2889.0, 
+      159425.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette": {
+    "downstream": "junction:MF Willamette+NF Willamette", 
+    "flowProxy": "~N146", 
+    "name": "MF Willamette+Salmon Cr to MF Willamette+NF Willamette", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      450.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      34000.0, 
+      35000.0, 
+      3200000.0
+     ], 
+     "storage": [
+      0.0, 
+      774.0, 
+      794.0, 
+      948.0, 
+      1079.0, 
+      1193.0, 
+      1402.0, 
+      1605.0, 
+      1809.0, 
+      1972.0, 
+      2102.0, 
+      2216.0, 
+      2336.0, 
+      2442.0, 
+      2954.0, 
+      3424.0, 
+      3902.0, 
+      4387.0, 
+      4744.0, 
+      4831.0, 
+      184210.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr": {
+    "downstream": "junction:MF Willamette+Salmon Cr", 
+    "flowProxy": "~N145", 
+    "name": "MF Willamette+Salt Cr to MF Willamette+Salmon Cr", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      450.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2000.0, 
+      3000.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      7000.0, 
+      8000.0, 
+      9000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      34000.0, 
+      35000.0, 
+      3200000.0
+     ], 
+     "storage": [
+      0.0, 
+      27.0, 
+      29.0, 
+      47.0, 
+      62.0, 
+      76.0, 
+      104.0, 
+      127.0, 
+      148.0, 
+      168.0, 
+      188.0, 
+      207.0, 
+      226.0, 
+      248.0, 
+      345.0, 
+      441.0, 
+      544.0, 
+      654.0, 
+      740.0, 
+      762.0, 
+      42318.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr": {
+    "downstream": "junction:MF Willamette+Salt Cr", 
+    "flowProxy": "~N144", 
+    "name": "MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette": {
+    "downstream": "junction:MF Willamette+CF Willamette", 
+    "flowProxy": "~N157", 
+    "name": "MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1200.0, 
+      2000.0, 
+      3000.0, 
+      6000.0, 
+      9000.0, 
+      12000.0, 
+      15000.0, 
+      18000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      50000.0, 
+      60000.0, 
+      70000.0, 
+      80000.0, 
+      94000.0, 
+      100000.0, 
+      200000.0, 
+      400000.0, 
+      800000.0, 
+      3400000.0
+     ], 
+     "storage": [
+      0.0, 
+      456.0, 
+      665.0, 
+      918.0, 
+      1661.0, 
+      2446.0, 
+      3256.0, 
+      4075.0, 
+      4902.0, 
+      5528.0, 
+      7013.0, 
+      8482.0, 
+      10017.0, 
+      11444.0, 
+      14306.0, 
+      17109.0, 
+      20222.0, 
+      22982.0, 
+      26273.0, 
+      27507.0, 
+      47698.0, 
+      78874.0, 
+      126397.0, 
+      361184.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:MF Willamette_nr Dexter to MF Willamette+Fall": {
+    "downstream": "junction:MF Willamette+Fall", 
+    "flowProxy": "~N155", 
+    "name": "MF Willamette_nr Dexter to MF Willamette+Fall", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie HW to McKenzie+SF McKenzie": {
+    "downstream": "junction:McKenzie+SF McKenzie", 
+    "flowProxy": "~N163", 
+    "name": "McKenzie HW to McKenzie+SF McKenzie", 
+    "routing": {
+     "k": [
+      3.4
+     ], 
+     "method": "Muskingum", 
+     "subreaches": 1, 
+     "supported": true, 
+     "x": [
+      0.25
+     ]
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie+Blue to McKenzie_at Vida": {
+    "downstream": "junction:McKenzie_at Vida", 
+    "flowProxy": "~N167", 
+    "name": "McKenzie+Blue to McKenzie_at Vida", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      500.0, 
+      1000.0, 
+      2000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14500.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      60000.0, 
+      64400.0, 
+      70000.0, 
+      1200000.0
+     ], 
+     "storage": [
+      0.0, 
+      237.0, 
+      407.0, 
+      696.0, 
+      1171.0, 
+      1614.0, 
+      2014.0, 
+      2409.0, 
+      2800.0, 
+      3264.0, 
+      4247.0, 
+      5115.0, 
+      5916.0, 
+      6737.0, 
+      7505.0, 
+      8246.0, 
+      8972.0, 
+      10406.0, 
+      11032.0, 
+      11823.0, 
+      132900.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie+Mohawk to McKenzie_nr Coburg": {
+    "downstream": "junction:McKenzie_nr Coburg", 
+    "flowProxy": "~N172", 
+    "name": "McKenzie+Mohawk to McKenzie_nr Coburg", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1250.0, 
+      2000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14000.0, 
+      16000.0, 
+      19000.0, 
+      22000.0, 
+      25000.0, 
+      28000.0, 
+      31000.0, 
+      34000.0, 
+      37000.0, 
+      40000.0, 
+      47500.0, 
+      50000.0, 
+      168000.0, 
+      500000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      1293.0, 
+      2056.0, 
+      3559.0, 
+      4865.0, 
+      6144.0, 
+      7372.0, 
+      8608.0, 
+      9859.0, 
+      10894.0, 
+      12432.0, 
+      14109.0, 
+      15866.0, 
+      17623.0, 
+      19380.0, 
+      21137.0, 
+      22894.0, 
+      24643.0, 
+      29932.0, 
+      31982.0, 
+      128742.0, 
+      400982.0, 
+      810981.0
+     ], 
+     "subreaches": 8, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie+SF McKenzie to McKenzie+Blue": {
+    "downstream": "junction:McKenzie+Blue", 
+    "flowProxy": "~N165", 
+    "name": "McKenzie+SF McKenzie to McKenzie+Blue", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      350.0, 
+      500.0, 
+      1000.0, 
+      1500.0, 
+      2500.0, 
+      3000.0, 
+      3500.0, 
+      4000.0, 
+      5000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14000.0, 
+      16000.0, 
+      18000.0, 
+      20000.0, 
+      24500.0, 
+      30000.0, 
+      3000000.0
+     ], 
+     "storage": [
+      0.0, 
+      54.0, 
+      70.0, 
+      115.0, 
+      159.0, 
+      232.0, 
+      279.0, 
+      320.0, 
+      363.0, 
+      447.0, 
+      527.0, 
+      657.0, 
+      778.0, 
+      893.0, 
+      1013.0, 
+      1132.0, 
+      1255.0, 
+      1395.0, 
+      1641.0, 
+      1952.0, 
+      81459.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie_at Vida to Below Leaburg Dam": {
+    "downstream": "junction:Below Leaburg Dam", 
+    "flowProxy": "~N168", 
+    "name": "McKenzie_at Vida to Below Leaburg Dam", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1000.0, 
+      2000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12000.0, 
+      14000.0, 
+      15500.0, 
+      17500.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      40000.0, 
+      45000.0, 
+      50000.0, 
+      56100.0, 
+      60000.0, 
+      500000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      1153.0, 
+      1477.0, 
+      2356.0, 
+      3320.0, 
+      4286.0, 
+      5176.0, 
+      6025.0, 
+      6852.0, 
+      7951.0, 
+      9374.0, 
+      10652.0, 
+      12513.0, 
+      14406.0, 
+      16264.0, 
+      18097.0, 
+      20139.0, 
+      22180.0, 
+      24671.0, 
+      26265.0, 
+      239029.0, 
+      480806.0
+     ], 
+     "subreaches": 5, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:McKenzie_nr Coburg to Willamette+McKenzie": {
+    "downstream": "junction:Willamette+McKenzie", 
+    "flowProxy": "~N173", 
+    "name": "McKenzie_nr Coburg to Willamette+McKenzie", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      1500.0, 
+      2000.0, 
+      4000.0, 
+      6000.0, 
+      8000.0, 
+      10000.0, 
+      12500.0, 
+      15000.0, 
+      17000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      40000.0, 
+      50000.0, 
+      60000.0, 
+      70000.0, 
+      80000.0, 
+      88200.0, 
+      100000.0, 
+      125000.0, 
+      500000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      249.0, 
+      331.0, 
+      573.0, 
+      783.0, 
+      989.0, 
+      1187.0, 
+      1436.0, 
+      1670.0, 
+      1836.0, 
+      2091.0, 
+      2554.0, 
+      3025.0, 
+      3967.0, 
+      5148.0, 
+      6342.0, 
+      7516.0, 
+      8753.0, 
+      9742.0, 
+      11347.0, 
+      14097.0, 
+      55347.0, 
+      110347.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield": {
+    "downstream": "junction:Abv Hayden Bridge_at Springfield", 
+    "flowProxy": "~N170", 
+    "name": "Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Molalla+Pudding to Willamette+Molalla": {
+    "downstream": "junction:Willamette+Molalla", 
+    "flowProxy": "~N214", 
+    "name": "Molalla+Pudding to Willamette+Molalla", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:No Santiam+So Santiam to Santiam_at Jefferson": {
+    "downstream": "junction:Santiam_at Jefferson", 
+    "flowProxy": "~N201", 
+    "name": "No Santiam+So Santiam to Santiam_at Jefferson", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      260.0, 
+      462.0, 
+      663.0, 
+      1269.0, 
+      1773.0, 
+      2277.0, 
+      3286.0, 
+      4295.0, 
+      6312.0, 
+      10347.0, 
+      15390.0, 
+      20434.0, 
+      25478.0, 
+      30521.0, 
+      40608.0, 
+      50695.0, 
+      60782.0, 
+      70869.0, 
+      80956.0, 
+      101130.0, 
+      141478.0, 
+      171739.0, 
+      202000.0, 
+      210000.0, 
+      300000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      41.0, 
+      58.0, 
+      73.0, 
+      111.0, 
+      137.0, 
+      163.0, 
+      215.0, 
+      267.0, 
+      371.0, 
+      579.0, 
+      839.0, 
+      1100.0, 
+      1360.0, 
+      1620.0, 
+      2140.0, 
+      2661.0, 
+      3181.0, 
+      3701.0, 
+      4242.0, 
+      5370.0, 
+      7791.0, 
+      9751.0, 
+      11717.0, 
+      12229.0, 
+      17787.0, 
+      61016.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:No Santiam_at Mehama to Stayton Div_IN": {
+    "downstream": "junction:Stayton Div_IN", 
+    "flowProxy": "~N359", 
+    "name": "No Santiam_at Mehama to Stayton Div_IN", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      450.0, 
+      526.0, 
+      602.0, 
+      831.0, 
+      1021.0, 
+      1212.0, 
+      1592.0, 
+      1973.0, 
+      2734.0, 
+      4258.0, 
+      6161.0, 
+      8065.0, 
+      9969.0, 
+      11872.0, 
+      15680.0, 
+      19488.0, 
+      23295.0, 
+      27102.0, 
+      30910.0, 
+      38525.0, 
+      53755.0, 
+      65178.0, 
+      76600.0, 
+      100000.0, 
+      175000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      611.0, 
+      699.0, 
+      779.0, 
+      1009.0, 
+      1192.0, 
+      1362.0, 
+      1664.0, 
+      1948.0, 
+      2450.0, 
+      3402.0, 
+      4501.0, 
+      5600.0, 
+      6700.0, 
+      7677.0, 
+      9436.0, 
+      11196.0, 
+      12954.0, 
+      14713.0, 
+      16668.0, 
+      21066.0, 
+      29861.0, 
+      36458.0, 
+      43054.0, 
+      56567.0, 
+      99880.0, 
+      576317.0
+     ], 
+     "subreaches": 6, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:No Santiam_at Niagara to No Santiam_at Mehama": {
+    "downstream": "junction:No Santiam_at Mehama", 
+    "flowProxy": "~N358", 
+    "name": "No Santiam_at Niagara to No Santiam_at Mehama", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      400.0, 
+      463.0, 
+      526.0, 
+      714.0, 
+      871.0, 
+      1028.0, 
+      1342.0, 
+      1656.0, 
+      2284.0, 
+      3540.0, 
+      5110.0, 
+      6680.0, 
+      8250.0, 
+      9820.0, 
+      12960.0, 
+      16100.0, 
+      19240.0, 
+      22380.0, 
+      25520.0, 
+      31800.0, 
+      44360.0, 
+      53780.0, 
+      63200.0, 
+      100000.0, 
+      175000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      394.0, 
+      429.0, 
+      463.0, 
+      557.0, 
+      628.0, 
+      695.0, 
+      822.0, 
+      939.0, 
+      1155.0, 
+      1541.0, 
+      1978.0, 
+      2373.0, 
+      2745.0, 
+      3102.0, 
+      3793.0, 
+      4466.0, 
+      5100.0, 
+      5712.0, 
+      6309.0, 
+      7517.0, 
+      9808.0, 
+      11505.0, 
+      13238.0, 
+      20255.0, 
+      35189.0, 
+      199463.0
+     ], 
+     "subreaches": 5, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie": {
+    "downstream": "junction:McKenzie+SF McKenzie", 
+    "flowProxy": "~N161", 
+    "name": "SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:SUVO Luckiamute_nr Suver to Willamette+Luckiamute": {
+    "downstream": "junction:Willamette+Luckiamute", 
+    "flowProxy": "~N354", 
+    "name": "SUVO Luckiamute_nr Suver to Willamette+Luckiamute", 
+    "routing": {
+     "k": [
+      10.1
+     ], 
+     "method": "Muskingum", 
+     "subreaches": 2, 
+     "supported": true, 
+     "x": [
+      0.25
+     ]
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Santiam_at Jefferson to Willamette+Santiam": {
+    "downstream": "junction:Willamette+Santiam", 
+    "flowProxy": "~N352", 
+    "name": "Santiam_at Jefferson to Willamette+Santiam", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      250.0, 
+      500.0, 
+      1000.0, 
+      2000.0, 
+      4000.0, 
+      8000.0, 
+      16000.0, 
+      25000.0, 
+      35000.0, 
+      42000.0, 
+      50000.0, 
+      60000.0, 
+      80000.0, 
+      100000.0, 
+      125000.0, 
+      150000.0, 
+      180000.0, 
+      200000.0, 
+      210000.0, 
+      300000.0, 
+      999999.0
+     ], 
+     "storage": [
+      0.0, 
+      262.0, 
+      389.0, 
+      617.0, 
+      949.0, 
+      1496.0, 
+      2479.0, 
+      4333.0, 
+      6666.0, 
+      9994.0, 
+      13523.0, 
+      18133.0, 
+      24501.0, 
+      37238.0, 
+      48762.0, 
+      62512.0, 
+      76262.0, 
+      92762.0, 
+      103762.0, 
+      109262.0, 
+      158762.0, 
+      543762.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr": {
+    "downstream": "junction:So Santiam+Thomas Cr", 
+    "flowProxy": "~N193", 
+    "name": "So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo": {
+    "downstream": "junction:So Santiam_at Waterloo", 
+    "flowProxy": "~N183", 
+    "name": "So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      65.0, 
+      160.0, 
+      255.0, 
+      541.0, 
+      779.0, 
+      1016.0, 
+      1492.0, 
+      1968.0, 
+      2919.0, 
+      4822.0, 
+      7200.0, 
+      9578.0, 
+      11957.0, 
+      14335.0, 
+      19092.0, 
+      23849.0, 
+      28606.0, 
+      33362.0, 
+      38119.0, 
+      47632.0, 
+      66660.0, 
+      80930.0, 
+      95200.0, 
+      120000.0, 
+      200000.0
+     ], 
+     "storage": [
+      0.0, 
+      87.0, 
+      91.0, 
+      95.0, 
+      105.0, 
+      113.0, 
+      121.0, 
+      137.0, 
+      152.0, 
+      180.0, 
+      233.0, 
+      294.0, 
+      351.0, 
+      405.0, 
+      458.0, 
+      558.0, 
+      654.0, 
+      770.0, 
+      965.0, 
+      1084.0, 
+      1355.0, 
+      1828.0, 
+      2257.0, 
+      2780.0, 
+      7844.0, 
+      16172.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:So Santiam+Thomas Cr to No Santiam+So Santiam": {
+    "downstream": "junction:No Santiam+So Santiam", 
+    "flowProxy": "~N194", 
+    "name": "So Santiam+Thomas Cr to No Santiam+So Santiam", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:So Santiam_at Waterloo to Lebanon Div_IN": {
+    "downstream": "junction:Lebanon Div_IN", 
+    "flowProxy": "~N184", 
+    "name": "So Santiam_at Waterloo to Lebanon Div_IN", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Stayton Div_IN to GreensBridge_nr Jefferson": {
+    "downstream": "junction:GreensBridge_nr Jefferson", 
+    "flowProxy": "~N360", 
+    "name": "Stayton Div_IN to GreensBridge_nr Jefferson", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Tualitan+Scoggins to Willamette+Tualatin": {
+    "downstream": "junction:Willamette+Tualatin", 
+    "flowProxy": "~N348", 
+    "name": "Tualitan+Scoggins to Willamette+Tualatin", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Ash Cr to Willamette+Rickreall": {
+    "downstream": "junction:Willamette+Rickreall", 
+    "flowProxy": "~N204", 
+    "name": "Willamette+Ash Cr to Willamette+Rickreall", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Calapooia to Willamette_at Albany": {
+    "downstream": "junction:Willamette_at Albany", 
+    "flowProxy": "~N187", 
+    "name": "Willamette+Calapooia to Willamette_at Albany", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Long Tom to Willamette+Marys": {
+    "downstream": "junction:Willamette+Marys", 
+    "flowProxy": "~N180", 
+    "name": "Willamette+Long Tom to Willamette+Marys", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2000.0, 
+      5500.0, 
+      12500.0, 
+      20000.0, 
+      28000.0, 
+      36000.0, 
+      45000.0, 
+      55000.0, 
+      65000.0, 
+      72000.0, 
+      90000.0, 
+      110000.0, 
+      130000.0, 
+      150000.0, 
+      175000.0, 
+      200000.0, 
+      220000.0, 
+      235000.0, 
+      340000.0, 
+      480000.0, 
+      2000000.0
+     ], 
+     "storage": [
+      0.0, 
+      2145.0, 
+      3977.0, 
+      7929.0, 
+      11866.0, 
+      16374.0, 
+      21912.0, 
+      28434.0, 
+      36670.0, 
+      46582.0, 
+      56289.0, 
+      74566.0, 
+      91212.0, 
+      108992.0, 
+      126085.0, 
+      148260.0, 
+      165901.0, 
+      176750.0, 
+      189013.0, 
+      254108.0, 
+      323823.0, 
+      1080729.0
+     ], 
+     "subreaches": 4, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Luckiamute to Willamette+Ash Cr": {
+    "downstream": "junction:Willamette+Ash Cr", 
+    "flowProxy": "~N356", 
+    "name": "Willamette+Luckiamute to Willamette+Ash Cr", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2300.0, 
+      6500.0, 
+      18000.0, 
+      29000.0, 
+      40500.0, 
+      55500.0, 
+      76000.0, 
+      80000.0, 
+      90000.0, 
+      105000.0, 
+      120000.0, 
+      135000.0, 
+      150000.0, 
+      170000.0, 
+      190000.0, 
+      215000.0, 
+      235000.0, 
+      250000.0, 
+      350000.0, 
+      500000.0, 
+      1999999.0
+     ], 
+     "storage": [
+      0.0, 
+      4941.0, 
+      8277.0, 
+      15324.0, 
+      22065.0, 
+      29918.0, 
+      42280.0, 
+      64551.0, 
+      69331.0, 
+      82609.0, 
+      102525.0, 
+      121394.0, 
+      139319.0, 
+      153659.0, 
+      170730.0, 
+      187802.0, 
+      209141.0, 
+      226212.0, 
+      239016.0, 
+      324373.0, 
+      452409.0, 
+      1732765.0
+     ], 
+     "subreaches": 2, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Marys to Willamette+Calapooia": {
+    "downstream": "junction:Willamette+Calapooia", 
+    "flowProxy": "~N186", 
+    "name": "Willamette+Marys to Willamette+Calapooia", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2000.0, 
+      6000.0, 
+      14000.0, 
+      22000.0, 
+      30000.0, 
+      39000.0, 
+      49000.0, 
+      60000.0, 
+      70000.0, 
+      80000.0, 
+      95000.0, 
+      115000.0, 
+      135000.0, 
+      155000.0, 
+      180000.0, 
+      205000.0, 
+      225000.0, 
+      240000.0, 
+      340000.0, 
+      480000.0, 
+      2000000.0
+     ], 
+     "storage": [
+      0.0, 
+      2039.0, 
+      3460.0, 
+      5509.0, 
+      7417.0, 
+      9524.0, 
+      12270.0, 
+      15990.0, 
+      21001.0, 
+      26674.0, 
+      32051.0, 
+      42853.0, 
+      58062.0, 
+      74352.0, 
+      90780.0, 
+      110934.0, 
+      129286.0, 
+      142889.0, 
+      153192.0, 
+      217193.0, 
+      302782.0, 
+      1232034.0
+     ], 
+     "subreaches": 3, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+McKenzie to Willamette_at Harrisburg": {
+    "downstream": "junction:Willamette_at Harrisburg", 
+    "flowProxy": "~N174", 
+    "name": "Willamette+McKenzie to Willamette_at Harrisburg", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2000.0, 
+      5000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      35000.0, 
+      42000.0, 
+      60000.0, 
+      80000.0, 
+      100000.0, 
+      120000.0, 
+      140000.0, 
+      160000.0, 
+      180000.0, 
+      200000.0, 
+      210000.0, 
+      320000.0, 
+      400000.0, 
+      2000000.0
+     ], 
+     "storage": [
+      0.0, 
+      644.0, 
+      1615.0, 
+      3367.0, 
+      5253.0, 
+      7253.0, 
+      9453.0, 
+      11653.0, 
+      13853.0, 
+      16933.0, 
+      24853.0, 
+      33653.0, 
+      42453.0, 
+      51253.0, 
+      60053.0, 
+      68853.0, 
+      77653.0, 
+      86453.0, 
+      90853.0, 
+      139253.0, 
+      174453.0, 
+      878453.0
+     ], 
+     "subreaches": 8, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Mill to Willamette+Yamhill": {
+    "downstream": "junction:Willamette+Yamhill", 
+    "flowProxy": "~N207", 
+    "name": "Willamette+Mill to Willamette+Yamhill", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      3950.0, 
+      9000.0, 
+      20000.0, 
+      35000.0, 
+      50000.0, 
+      65000.0, 
+      80000.0, 
+      90000.0, 
+      100000.0, 
+      115000.0, 
+      130000.0, 
+      145000.0, 
+      160000.0, 
+      175000.0, 
+      195000.0, 
+      215000.0, 
+      235000.0, 
+      250000.0, 
+      350000.0, 
+      500000.0, 
+      524226.0, 
+      1999999.0
+     ], 
+     "storage": [
+      0.0, 
+      8768.0, 
+      13840.0, 
+      23066.0, 
+      33885.0, 
+      44708.0, 
+      59597.0, 
+      81398.0, 
+      94363.0, 
+      107598.0, 
+      128488.0, 
+      150887.0, 
+      174545.0, 
+      199182.0, 
+      230164.0, 
+      266190.0, 
+      306909.0, 
+      344225.0, 
+      373749.0, 
+      571868.0, 
+      854373.0, 
+      900000.0, 
+      3679456.0
+     ], 
+     "subreaches": 4, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Molalla to Willamette+Tualatin": {
+    "downstream": "junction:Willamette+Tualatin", 
+    "flowProxy": "~N215", 
+    "name": "Willamette+Molalla to Willamette+Tualatin", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      4500.0, 
+      10000.0, 
+      25000.0, 
+      40000.0, 
+      55000.0, 
+      70000.0, 
+      85000.0, 
+      100000.0, 
+      110000.0, 
+      125000.0, 
+      140000.0, 
+      155000.0, 
+      170000.0, 
+      185000.0, 
+      205000.0, 
+      220000.0, 
+      235000.0, 
+      250000.0, 
+      350000.0, 
+      500000.0, 
+      566160.0, 
+      627464.0, 
+      688769.0, 
+      750074.0, 
+      1999999.0
+     ], 
+     "storage": [
+      0.0, 
+      25236.0, 
+      25951.0, 
+      27545.0, 
+      28961.0, 
+      30328.0, 
+      31662.0, 
+      33225.0, 
+      34740.0, 
+      35562.0, 
+      36803.0, 
+      38081.0, 
+      39432.0, 
+      40638.0, 
+      42075.0, 
+      43876.0, 
+      45383.0, 
+      46832.0, 
+      48249.0, 
+      57370.0, 
+      69604.0, 
+      75000.0, 
+      80000.0, 
+      85000.0, 
+      90000.0, 
+      191943.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Rickreall to Willamette_at Salem": {
+    "downstream": "junction:Willamette_at Salem", 
+    "flowProxy": "~N205", 
+    "name": "Willamette+Rickreall to Willamette_at Salem", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Santiam to Willamette+Luckiamute": {
+    "downstream": "junction:Willamette+Luckiamute", 
+    "flowProxy": "~N353", 
+    "name": "Willamette+Santiam to Willamette+Luckiamute", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City": {
+    "downstream": "junction:Willamette_abv Falls at Oregon City", 
+    "flowProxy": "~N217", 
+    "name": "Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette+Yamhill to Willamette_at Newberg": {
+    "downstream": "junction:Willamette_at Newberg", 
+    "flowProxy": "~N209", 
+    "name": "Willamette+Yamhill to Willamette_at Newberg", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      4000.0, 
+      9000.0, 
+      20000.0, 
+      35000.0, 
+      50000.0, 
+      65000.0, 
+      80000.0, 
+      90000.0, 
+      100000.0, 
+      115000.0, 
+      130000.0, 
+      145000.0, 
+      160000.0, 
+      175000.0, 
+      195000.0, 
+      215000.0, 
+      235000.0, 
+      250000.0, 
+      350000.0, 
+      500000.0, 
+      1999999.0
+     ], 
+     "storage": [
+      0.0, 
+      23044.0, 
+      23957.0, 
+      26258.0, 
+      28742.0, 
+      31276.0, 
+      33762.0, 
+      36358.0, 
+      38599.0, 
+      40124.0, 
+      42492.0, 
+      44856.0, 
+      47245.0, 
+      49615.0, 
+      52156.0, 
+      55821.0, 
+      59330.0, 
+      63303.0, 
+      67022.0, 
+      95781.0, 
+      145020.0, 
+      637410.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_abv Falls at Oregon City to Willamette Falls": {
+    "downstream": "junction:Willamette Falls", 
+    "flowProxy": "~N218", 
+    "name": "Willamette_abv Falls at Oregon City to Willamette Falls", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Albany to Willamette+Santiam": {
+    "downstream": "junction:Willamette+Santiam", 
+    "flowProxy": "~N355", 
+    "name": "Willamette_at Albany to Willamette+Santiam", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2000.0, 
+      6000.0, 
+      14000.0, 
+      22000.0, 
+      30000.0, 
+      39000.0, 
+      49000.0, 
+      60000.0, 
+      70000.0, 
+      80000.0, 
+      95000.0, 
+      115000.0, 
+      135000.0, 
+      155000.0, 
+      180000.0, 
+      205000.0, 
+      225000.0, 
+      240000.0, 
+      340000.0, 
+      480000.0, 
+      2000000.0
+     ], 
+     "storage": [
+      0.0, 
+      2175.0, 
+      3962.0, 
+      6655.0, 
+      9085.0, 
+      11818.0, 
+      15578.0, 
+      21058.0, 
+      26336.0, 
+      31578.0, 
+      37437.0, 
+      45687.0, 
+      56598.0, 
+      68058.0, 
+      80203.0, 
+      94778.0, 
+      109097.0, 
+      119853.0, 
+      127757.0, 
+      176768.0, 
+      238841.0, 
+      912776.0
+     ], 
+     "subreaches": 1, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Eugene to Willamette+McKenzie": {
+    "downstream": "junction:Willamette+McKenzie", 
+    "flowProxy": "~N159", 
+    "name": "Willamette_at Eugene to Willamette+McKenzie", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Harrisburg to Willamette+Long Tom": {
+    "downstream": "junction:Willamette+Long Tom", 
+    "flowProxy": "~N179", 
+    "name": "Willamette_at Harrisburg to Willamette+Long Tom", 
+    "routing": {
+     "hasChannelLosses": false, 
+     "method": "Modified Puls", 
+     "outflow": [
+      0.0, 
+      2000.0, 
+      5000.0, 
+      10000.0, 
+      15000.0, 
+      20000.0, 
+      25000.0, 
+      30000.0, 
+      36000.0, 
+      42000.0, 
+      55000.0, 
+      70500.0, 
+      85000.0, 
+      100000.0, 
+      120000.0, 
+      150000.0, 
+      175000.0, 
+      190000.0, 
+      210000.0, 
+      320000.0, 
+      400000.0, 
+      2000000.0
+     ], 
+     "storage": [
+      0.0, 
+      1584.0, 
+      2953.0, 
+      4970.0, 
+      7001.0, 
+      9366.0, 
+      12319.0, 
+      15717.0, 
+      20065.0, 
+      24439.0, 
+      33650.0, 
+      43685.0, 
+      52153.0, 
+      60151.0, 
+      69888.0, 
+      83875.0, 
+      95321.0, 
+      102349.0, 
+      112137.0, 
+      169589.0, 
+      211354.0, 
+      1046654.0
+     ], 
+     "subreaches": 3, 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Newberg to Willamette_at Wilsonville": {
+    "downstream": "junction:Willamette_at Wilsonville", 
+    "flowProxy": "~N210", 
+    "name": "Willamette_at Newberg to Willamette_at Wilsonville", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Salem to Willamette+Mill": {
+    "downstream": "junction:Willamette+Mill", 
+    "flowProxy": "~N206", 
+    "name": "Willamette_at Salem to Willamette+Mill", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reach:Willamette_at Wilsonville to Willamette+Molalla": {
+    "downstream": "junction:Willamette+Molalla", 
+    "flowProxy": "~N213", 
+    "name": "Willamette_at Wilsonville to Willamette+Molalla", 
+    "routing": {
+     "method": "Null", 
+     "supported": true
+    }, 
+    "type": "reach"
+   }, 
+   "reservoir:Big Cliff": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Big Cliff-Dam L&O", 
+    "downstreamElements": [
+     "junction:Big Cliff_OUT", 
+     "reach:Big Cliff_OUT to No Santiam_at Niagara", 
+     "junction:No Santiam_at Niagara", 
+     "reach:No Santiam_at Niagara to No Santiam_at Mehama", 
+     "junction:No Santiam_at Mehama", 
+     "reach:No Santiam_at Mehama to Stayton Div_IN", 
+     "junction:Stayton Div_IN", 
+     "reach:Stayton Div_IN to GreensBridge_nr Jefferson", 
+     "junction:GreensBridge_nr Jefferson", 
+     "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam", 
+     "junction:No Santiam+So Santiam", 
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "junction:Santiam_at Jefferson", 
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E89:F", 
+    "name": "Big Cliff", 
+    "outflowProxy": "~E89:F", 
+    "pool": "pool:Big Cliff", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Blue River": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Blue River-Dam L&O", 
+    "downstreamElements": [
+     "junction:Blue River_OUT", 
+     "reach:Blue River_OUT to Blue_at Blue River", 
+     "junction:Blue_at Blue River", 
+     "reach:Blue_at Blue River to McKenzie+Blue", 
+     "junction:McKenzie+Blue", 
+     "reach:McKenzie+Blue to McKenzie_at Vida", 
+     "junction:McKenzie_at Vida", 
+     "reach:McKenzie_at Vida to Below Leaburg Dam", 
+     "junction:Below Leaburg Dam", 
+     "reach:Below Leaburg Dam to Mkenzie_nr Walterville", 
+     "junction:Mkenzie_nr Walterville", 
+     "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+     "junction:Abv Hayden Bridge_at Springfield", 
+     "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+     "junction:McKenzie+Mohawk", 
+     "reach:McKenzie+Mohawk to McKenzie_nr Coburg", 
+     "junction:McKenzie_nr Coburg", 
+     "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E114:F", 
+    "name": "Blue River", 
+    "outflowProxy": "~E114:F", 
+    "pool": "pool:Blue River", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Cottage Grove": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Cottage Grove-Dam L&O", 
+    "downstreamElements": [
+     "junction:Cottage Grove_OUT", 
+     "reach:Cottage Grove_OUT to CF Willamette+Row", 
+     "junction:CF Willamette+Row", 
+     "reach:CF Willamette+Row to CF WIllamette_nr Goshen", 
+     "junction:CF WIllamette_nr Goshen", 
+     "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E124:F", 
+    "name": "Cottage Grove", 
+    "outflowProxy": "~E124:F", 
+    "pool": "pool:Cottage Grove", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Cougar": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Cougar-Dam L&O", 
+    "downstreamElements": [
+     "junction:Cougar_OUT", 
+     "reach:Cougar_OUT to SF MkKenzie_nr Rainbow", 
+     "junction:SF MkKenzie_nr Rainbow", 
+     "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie", 
+     "junction:McKenzie+SF McKenzie", 
+     "reach:McKenzie+SF McKenzie to McKenzie+Blue", 
+     "junction:McKenzie+Blue", 
+     "reach:McKenzie+Blue to McKenzie_at Vida", 
+     "junction:McKenzie_at Vida", 
+     "reach:McKenzie_at Vida to Below Leaburg Dam", 
+     "junction:Below Leaburg Dam", 
+     "reach:Below Leaburg Dam to Mkenzie_nr Walterville", 
+     "junction:Mkenzie_nr Walterville", 
+     "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+     "junction:Abv Hayden Bridge_at Springfield", 
+     "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+     "junction:McKenzie+Mohawk", 
+     "reach:McKenzie+Mohawk to McKenzie_nr Coburg", 
+     "junction:McKenzie_nr Coburg", 
+     "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E119:F", 
+    "name": "Cougar", 
+    "outflowProxy": "~E119:F", 
+    "pool": "pool:Cougar", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Detroit": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Detroit-Dam L&O", 
+    "downstreamElements": [
+     "junction:Detroit_OUT", 
+     "reach:Detroit_OUT to Big Cliff_IN", 
+     "junction:Big Cliff_IN", 
+     "reservoir:Big Cliff", 
+     "junction:Big Cliff_OUT", 
+     "reach:Big Cliff_OUT to No Santiam_at Niagara", 
+     "junction:No Santiam_at Niagara", 
+     "reach:No Santiam_at Niagara to No Santiam_at Mehama", 
+     "junction:No Santiam_at Mehama", 
+     "reach:No Santiam_at Mehama to Stayton Div_IN", 
+     "junction:Stayton Div_IN", 
+     "reach:Stayton Div_IN to GreensBridge_nr Jefferson", 
+     "junction:GreensBridge_nr Jefferson", 
+     "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam", 
+     "junction:No Santiam+So Santiam", 
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "junction:Santiam_at Jefferson", 
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E94:F", 
+    "name": "Detroit", 
+    "outflowProxy": "~E94:F", 
+    "pool": "pool:Detroit", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Dexter": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Dexter-Dam L&O", 
+    "downstreamElements": [
+     "junction:Dexter_OUT", 
+     "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+     "junction:MF Willamette_nr Dexter", 
+     "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+     "junction:MF Willamette+Fall", 
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+     "junction:MF Willamette_at Jasper", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E139:F", 
+    "name": "Dexter", 
+    "outflowProxy": "~E139:F", 
+    "pool": "pool:Dexter", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Dorena": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Dorena-Dam L&O", 
+    "downstreamElements": [
+     "junction:Dorena_OUT", 
+     "reach:Dorena_OUT to CF Willamette+Row", 
+     "junction:CF Willamette+Row", 
+     "reach:CF Willamette+Row to CF WIllamette_nr Goshen", 
+     "junction:CF WIllamette_nr Goshen", 
+     "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E129:F", 
+    "name": "Dorena", 
+    "outflowProxy": "~E129:F", 
+    "pool": "pool:Dorena", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Fall Creek": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Fall Creek-Dam L&O", 
+    "downstreamElements": [
+     "junction:Fall Creek_OUT", 
+     "reach:Fall Creek_OUT to MF Willamette+Fall", 
+     "junction:MF Willamette+Fall", 
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+     "junction:MF Willamette_at Jasper", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E134:F", 
+    "name": "Fall Creek", 
+    "outflowProxy": "~E134:F", 
+    "pool": "pool:Fall Creek", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Fern Ridge": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Fern Ridge-Dam L&O", 
+    "downstreamElements": [
+     "junction:Fern Ridge_OUT", 
+     "reach:Fern Ridge_OUT to Long Tom_nr Alvadore", 
+     "junction:Long Tom_nr Alvadore", 
+     "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr", 
+     "junction:Long Tom+Amazon Cr", 
+     "reach:Long Tom+Amazon Cr to Long Tom_at Monroe", 
+     "junction:Long Tom_at Monroe", 
+     "reach:Long Tom_at Monroe to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E109:F", 
+    "name": "Fern Ridge", 
+    "outflowProxy": "~E109:F", 
+    "pool": "pool:Fern Ridge", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Foster": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Foster-Dam L&O", 
+    "downstreamElements": [
+     "junction:Foster_OUT", 
+     "reach:Foster_OUT to So Santiam+McDowell Cr", 
+     "junction:So Santiam+McDowell Cr", 
+     "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+     "junction:So Santiam_at Waterloo", 
+     "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+     "junction:Lebanon Div_IN", 
+     "reach:Lebanon Div_IN to So Santiam+Crabtree Cr", 
+     "junction:So Santiam+Crabtree Cr", 
+     "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+     "junction:So Santiam+Thomas Cr", 
+     "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+     "junction:No Santiam+So Santiam", 
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "junction:Santiam_at Jefferson", 
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E99:F", 
+    "name": "Foster", 
+    "outflowProxy": "~E99:F", 
+    "pool": "pool:Foster", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Green Peter": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Green Peter-Dam L&O", 
+    "downstreamElements": [
+     "junction:Green Peter_OUT", 
+     "reach:Green Peter_OUT to Foster_IN", 
+     "junction:Foster_IN", 
+     "reservoir:Foster", 
+     "junction:Foster_OUT", 
+     "reach:Foster_OUT to So Santiam+McDowell Cr", 
+     "junction:So Santiam+McDowell Cr", 
+     "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+     "junction:So Santiam_at Waterloo", 
+     "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+     "junction:Lebanon Div_IN", 
+     "reach:Lebanon Div_IN to So Santiam+Crabtree Cr", 
+     "junction:So Santiam+Crabtree Cr", 
+     "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+     "junction:So Santiam+Thomas Cr", 
+     "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+     "junction:No Santiam+So Santiam", 
+     "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+     "junction:Santiam_at Jefferson", 
+     "reach:Santiam_at Jefferson to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E104:F", 
+    "name": "Green Peter", 
+    "outflowProxy": "~E104:F", 
+    "pool": "pool:Green Peter", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Hills Creek": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Hills Creek-Dam L&O", 
+    "downstreamElements": [
+     "junction:Hills Creek_OUT", 
+     "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge", 
+     "junction:MF Willamette_abv Salt Cr nr Oakridge", 
+     "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr", 
+     "junction:MF Willamette+Salt Cr", 
+     "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr", 
+     "junction:MF Willamette+Salmon Cr", 
+     "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette", 
+     "junction:MF Willamette+NF Willamette", 
+     "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge", 
+     "junction:MF Willamette NR Oakridge", 
+     "reach:MF Willamette NR Oakridge to Lookout Point_IN", 
+     "junction:Lookout Point_IN", 
+     "reservoir:Lookout Point", 
+     "junction:Lookout Point_OUT", 
+     "reach:Lookout Point_OUT to Dexter_IN", 
+     "junction:Dexter_IN", 
+     "reservoir:Dexter", 
+     "junction:Dexter_OUT", 
+     "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+     "junction:MF Willamette_nr Dexter", 
+     "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+     "junction:MF Willamette+Fall", 
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+     "junction:MF Willamette_at Jasper", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E149:F", 
+    "name": "Hills Creek", 
+    "outflowProxy": "~E149:F", 
+    "pool": "pool:Hills Creek", 
+    "type": "reservoir"
+   }, 
+   "reservoir:Lookout Point": {
+    "confluenceInflowJunctions": [], 
+    "downstream": "other:Lookout Point-Dam L&O", 
+    "downstreamElements": [
+     "junction:Lookout Point_OUT", 
+     "reach:Lookout Point_OUT to Dexter_IN", 
+     "junction:Dexter_IN", 
+     "reservoir:Dexter", 
+     "junction:Dexter_OUT", 
+     "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+     "junction:MF Willamette_nr Dexter", 
+     "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+     "junction:MF Willamette+Fall", 
+     "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+     "junction:MF Willamette_at Jasper", 
+     "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+     "junction:MF Willamette+CF Willamette", 
+     "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+     "junction:Willamette_at Eugene", 
+     "reach:Willamette_at Eugene to Willamette+McKenzie", 
+     "junction:Willamette+McKenzie", 
+     "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+     "junction:Willamette_at Harrisburg", 
+     "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+     "junction:Willamette+Long Tom", 
+     "reach:Willamette+Long Tom to Willamette+Marys", 
+     "junction:Willamette+Marys", 
+     "reach:Willamette+Marys to Willamette+Calapooia", 
+     "junction:Willamette+Calapooia", 
+     "reach:Willamette+Calapooia to Willamette_at Albany", 
+     "junction:Willamette_at Albany", 
+     "reach:Willamette_at Albany to Willamette+Santiam", 
+     "junction:Willamette+Santiam", 
+     "reach:Willamette+Santiam to Willamette+Luckiamute", 
+     "junction:Willamette+Luckiamute", 
+     "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+     "junction:Willamette+Ash Cr", 
+     "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+     "junction:Willamette+Rickreall", 
+     "reach:Willamette+Rickreall to Willamette_at Salem", 
+     "junction:Willamette_at Salem", 
+     "reach:Willamette_at Salem to Willamette+Mill", 
+     "junction:Willamette+Mill", 
+     "reach:Willamette+Mill to Willamette+Yamhill", 
+     "junction:Willamette+Yamhill", 
+     "reach:Willamette+Yamhill to Willamette_at Newberg", 
+     "junction:Willamette_at Newberg", 
+     "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+     "junction:Willamette_at Wilsonville", 
+     "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+     "junction:Willamette+Molalla", 
+     "reach:Willamette+Molalla to Willamette+Tualatin", 
+     "junction:Willamette+Tualatin", 
+     "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+     "junction:Willamette_abv Falls at Oregon City", 
+     "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+     "junction:Willamette Falls"
+    ], 
+    "inflowProxy": "~E144:F", 
+    "name": "Lookout Point", 
+    "outflowProxy": "~E144:F", 
+    "pool": "pool:Lookout Point", 
+    "type": "reservoir"
+   }
+  }, 
+  "headwaterJunctions": [
+   "junction:SUVO Luckiamute_nr Suver", 
+   "junction:Tualitan+Scoggins", 
+   "junction:MCMO South Yamill_at McMinnville", 
+   "junction:CANO Molalla_nr Canby", 
+   "junction:AURO Pudding_at Aurora", 
+   "junction:Detroit_IN", 
+   "junction:Green Peter_IN", 
+   "junction:Fern Ridge_IN", 
+   "junction:Blue River_IN", 
+   "junction:Cougar_IN", 
+   "junction:Cottage Grove_IN", 
+   "junction:Dorena_IN", 
+   "junction:Fall Creek_IN", 
+   "junction:Hills Creek_IN", 
+   "junction:TRBO McKenzie_nr Trail Bridge Dam"
+  ], 
+  "orderFromUpstream": [
+   "junction:SUVO Luckiamute_nr Suver", 
+   "reach:SUVO Luckiamute_nr Suver to Willamette+Luckiamute", 
+   "junction:Tualitan+Scoggins", 
+   "reach:Tualitan+Scoggins to Willamette+Tualatin", 
+   "junction:MCMO South Yamill_at McMinnville", 
+   "reach:MCMO South Yamill_at McMinnville to Willamette+Yamhill", 
+   "junction:CANO Molalla_nr Canby", 
+   "reach:CANO Molalla_nr Canby to Molalla+Pudding", 
+   "junction:AURO Pudding_at Aurora", 
+   "reach:AURO Pudding_at Aurora to Molalla+Pudding", 
+   "junction:Detroit_IN", 
+   "pool:Detroit", 
+   "other:Detroit-Dam L&O", 
+   "other:Detroit-Dam Tailwater", 
+   "junction:Detroit_OUT", 
+   "reach:Detroit_OUT to Big Cliff_IN", 
+   "junction:Big Cliff_IN", 
+   "pool:Big Cliff", 
+   "other:Big Cliff-Dam L&O", 
+   "other:Big Cliff-Dam Tailwater", 
+   "junction:Big Cliff_OUT", 
+   "reach:Big Cliff_OUT to No Santiam_at Niagara", 
+   "junction:No Santiam_at Niagara", 
+   "reach:No Santiam_at Niagara to No Santiam_at Mehama", 
+   "junction:No Santiam_at Mehama", 
+   "reach:No Santiam_at Mehama to Stayton Div_IN", 
+   "junction:Stayton Div_IN", 
+   "reach:Stayton Div_IN to GreensBridge_nr Jefferson", 
+   "junction:GreensBridge_nr Jefferson", 
+   "reach:GreensBridge_nr Jefferson to No Santiam+So Santiam", 
+   "junction:Green Peter_IN", 
+   "pool:Green Peter", 
+   "other:Green Peter-Dam L&O", 
+   "other:Green Peter-Dam Tailwater", 
+   "junction:Green Peter_OUT", 
+   "reach:Green Peter_OUT to Foster_IN", 
+   "junction:Foster_IN", 
+   "pool:Foster", 
+   "other:Foster-Dam L&O", 
+   "other:Foster-Dam Tailwater", 
+   "junction:Foster_OUT", 
+   "reach:Foster_OUT to So Santiam+McDowell Cr", 
+   "junction:So Santiam+McDowell Cr", 
+   "reach:So Santiam+McDowell Cr to So Santiam_at Waterloo", 
+   "junction:So Santiam_at Waterloo", 
+   "reach:So Santiam_at Waterloo to Lebanon Div_IN", 
+   "junction:Lebanon Div_IN", 
+   "reach:Lebanon Div_IN to So Santiam+Crabtree Cr", 
+   "junction:So Santiam+Crabtree Cr", 
+   "reach:So Santiam+Crabtree Cr to So Santiam+Thomas Cr", 
+   "junction:So Santiam+Thomas Cr", 
+   "reach:So Santiam+Thomas Cr to No Santiam+So Santiam", 
+   "junction:Fern Ridge_IN", 
+   "pool:Fern Ridge", 
+   "other:Fern Ridge-Dam L&O", 
+   "other:Fern Ridge-Dam Tailwater", 
+   "junction:Fern Ridge_OUT", 
+   "reach:Fern Ridge_OUT to Long Tom_nr Alvadore", 
+   "junction:Long Tom_nr Alvadore", 
+   "reach:Long Tom_nr Alvadore to Long Tom+Amazon Cr", 
+   "junction:Long Tom+Amazon Cr", 
+   "reach:Long Tom+Amazon Cr to Long Tom_at Monroe", 
+   "junction:Long Tom_at Monroe", 
+   "reach:Long Tom_at Monroe to Willamette+Long Tom", 
+   "junction:Blue River_IN", 
+   "pool:Blue River", 
+   "other:Blue River-Dam L&O", 
+   "other:Blue River-Dam Tailwater", 
+   "junction:Blue River_OUT", 
+   "reach:Blue River_OUT to Blue_at Blue River", 
+   "junction:Blue_at Blue River", 
+   "reach:Blue_at Blue River to McKenzie+Blue", 
+   "junction:Cougar_IN", 
+   "pool:Cougar", 
+   "other:Cougar-Dam L&O", 
+   "other:Cougar-Dam Tailwater", 
+   "junction:Cougar_OUT", 
+   "reach:Cougar_OUT to SF MkKenzie_nr Rainbow", 
+   "junction:SF MkKenzie_nr Rainbow", 
+   "reach:SF MkKenzie_nr Rainbow to McKenzie+SF McKenzie", 
+   "junction:Cottage Grove_IN", 
+   "pool:Cottage Grove", 
+   "other:Cottage Grove-Dam L&O", 
+   "other:Cottage Grove-Dam Tailwater", 
+   "junction:Cottage Grove_OUT", 
+   "reach:Cottage Grove_OUT to CF Willamette+Row", 
+   "junction:Dorena_IN", 
+   "pool:Dorena", 
+   "other:Dorena-Dam L&O", 
+   "other:Dorena-Dam Tailwater", 
+   "junction:Dorena_OUT", 
+   "reach:Dorena_OUT to CF Willamette+Row", 
+   "junction:Fall Creek_IN", 
+   "pool:Fall Creek", 
+   "other:Fall Creek-Dam L&O", 
+   "other:Fall Creek-Dam Tailwater", 
+   "junction:Fall Creek_OUT", 
+   "reach:Fall Creek_OUT to MF Willamette+Fall", 
+   "junction:Hills Creek_IN", 
+   "pool:Hills Creek", 
+   "other:Hills Creek-Dam L&O", 
+   "other:Hills Creek-Dam Tailwater", 
+   "junction:Hills Creek_OUT", 
+   "reach:Hills Creek_OUT to MF Willamette_abv Salt Cr nr Oakridge", 
+   "junction:MF Willamette_abv Salt Cr nr Oakridge", 
+   "reach:MF Willamette_abv Salt Cr nr Oakridge to MF Willamette+Salt Cr", 
+   "junction:MF Willamette+Salt Cr", 
+   "reach:MF Willamette+Salt Cr to MF Willamette+Salmon Cr", 
+   "junction:MF Willamette+Salmon Cr", 
+   "reach:MF Willamette+Salmon Cr to MF Willamette+NF Willamette", 
+   "junction:MF Willamette+NF Willamette", 
+   "reach:MF Willamette+NF Willamette to MF Willamette NR Oakridge", 
+   "junction:MF Willamette NR Oakridge", 
+   "reach:MF Willamette NR Oakridge to Lookout Point_IN", 
+   "junction:Lookout Point_IN", 
+   "pool:Lookout Point", 
+   "other:Lookout Point-Dam L&O", 
+   "other:Lookout Point-Dam Tailwater", 
+   "junction:Lookout Point_OUT", 
+   "reach:Lookout Point_OUT to Dexter_IN", 
+   "junction:Dexter_IN", 
+   "pool:Dexter", 
+   "other:Dexter-Dam L&O", 
+   "other:Dexter-Dam Tailwater", 
+   "junction:Dexter_OUT", 
+   "reach:Dexter_OUT to MF Willamette_nr Dexter", 
+   "junction:MF Willamette_nr Dexter", 
+   "reach:MF Willamette_nr Dexter to MF Willamette+Fall", 
+   "junction:TRBO McKenzie_nr Trail Bridge Dam", 
+   "reach:McKenzie HW to McKenzie+SF McKenzie", 
+   "junction:Molalla+Pudding", 
+   "reach:Molalla+Pudding to Willamette+Molalla", 
+   "junction:No Santiam+So Santiam", 
+   "reach:No Santiam+So Santiam to Santiam_at Jefferson", 
+   "junction:Santiam_at Jefferson", 
+   "reach:Santiam_at Jefferson to Willamette+Santiam", 
+   "junction:CF Willamette+Row", 
+   "reach:CF Willamette+Row to CF WIllamette_nr Goshen", 
+   "junction:CF WIllamette_nr Goshen", 
+   "reach:CF WIllamette_nr Goshen to MF Willamette+CF Willamette", 
+   "junction:MF Willamette+Fall", 
+   "reach:MF Willamette+Fall to MF Willamette_at Jasper", 
+   "junction:MF Willamette_at Jasper", 
+   "reach:MF Willamette_at Jasper to MF Willamette+CF Willamette", 
+   "junction:McKenzie+SF McKenzie", 
+   "reach:McKenzie+SF McKenzie to McKenzie+Blue", 
+   "junction:MF Willamette+CF Willamette", 
+   "reach:MF Willamette+CF Willamette to Willamette_at Eugene", 
+   "junction:Willamette_at Eugene", 
+   "reach:Willamette_at Eugene to Willamette+McKenzie", 
+   "junction:McKenzie+Blue", 
+   "reach:McKenzie+Blue to McKenzie_at Vida", 
+   "junction:McKenzie_at Vida", 
+   "reach:McKenzie_at Vida to Below Leaburg Dam", 
+   "junction:Below Leaburg Dam", 
+   "reach:Below Leaburg Dam to Mkenzie_nr Walterville", 
+   "junction:Mkenzie_nr Walterville", 
+   "reach:Mkenzie_nr Walterville to Abv Hayden Bridge_at Springfield", 
+   "junction:Abv Hayden Bridge_at Springfield", 
+   "reach:Abv Hayden Bridge_at Springfield to McKenzie+Mohawk", 
+   "junction:McKenzie+Mohawk", 
+   "reach:McKenzie+Mohawk to McKenzie_nr Coburg", 
+   "junction:McKenzie_nr Coburg", 
+   "reach:McKenzie_nr Coburg to Willamette+McKenzie", 
+   "junction:Willamette+McKenzie", 
+   "reach:Willamette+McKenzie to Willamette_at Harrisburg", 
+   "junction:Willamette_at Harrisburg", 
+   "reach:Willamette_at Harrisburg to Willamette+Long Tom", 
+   "junction:Willamette+Long Tom", 
+   "reach:Willamette+Long Tom to Willamette+Marys", 
+   "junction:Willamette+Marys", 
+   "reach:Willamette+Marys to Willamette+Calapooia", 
+   "junction:Willamette+Calapooia", 
+   "reach:Willamette+Calapooia to Willamette_at Albany", 
+   "junction:Willamette_at Albany", 
+   "reach:Willamette_at Albany to Willamette+Santiam", 
+   "junction:Willamette+Santiam", 
+   "reach:Willamette+Santiam to Willamette+Luckiamute", 
+   "junction:Willamette+Luckiamute", 
+   "reach:Willamette+Luckiamute to Willamette+Ash Cr", 
+   "junction:Willamette+Ash Cr", 
+   "reach:Willamette+Ash Cr to Willamette+Rickreall", 
+   "junction:Willamette+Rickreall", 
+   "reach:Willamette+Rickreall to Willamette_at Salem", 
+   "junction:Willamette_at Salem", 
+   "reach:Willamette_at Salem to Willamette+Mill", 
+   "junction:Willamette+Mill", 
+   "reach:Willamette+Mill to Willamette+Yamhill", 
+   "junction:Willamette+Yamhill", 
+   "reach:Willamette+Yamhill to Willamette_at Newberg", 
+   "junction:Willamette_at Newberg", 
+   "reach:Willamette_at Newberg to Willamette_at Wilsonville", 
+   "junction:Willamette_at Wilsonville", 
+   "reach:Willamette_at Wilsonville to Willamette+Molalla", 
+   "junction:Willamette+Molalla", 
+   "reach:Willamette+Molalla to Willamette+Tualatin", 
+   "junction:Willamette+Tualatin", 
+   "reach:Willamette+Tualatin to Willamette_abv Falls at Oregon City", 
+   "junction:Willamette_abv Falls at Oregon City", 
+   "reach:Willamette_abv Falls at Oregon City to Willamette Falls", 
+   "junction:Willamette Falls"
+  ]
+ }, 
+ "simulationWindow": {
+  "end": "30Sep2025 2400", 
+  "lookback": "30Sep2024 2300", 
+  "start": "30Sep2024 2400"
+ }, 
+ "variableIds": {
+  "NODE_FLOW": 0, 
+  "NODE_KNOWNFLOW": 4, 
+  "OPRULETS_TSINPUT": 85, 
+  "POOL_INFLOW": 12, 
+  "POOL_OUTFLOW": 21
+ }, 
+ "watershedDir": ""
+}
