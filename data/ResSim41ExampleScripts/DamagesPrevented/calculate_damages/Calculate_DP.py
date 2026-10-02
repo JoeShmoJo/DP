@@ -30,14 +30,25 @@ import numpy as np
 
 ################################################################################
 # USER INPUT
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+try:
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+except NameError:   # pasted into a Jupyter/IPython cell
+    SCRIPT_DIR = os.getcwd()
 
-# The folder the ResSim Damages Prevented menu writes its CSV results to
-RESULTS_DIR = os.path.join(SCRIPT_DIR, '..', 'DPdata', 'Results')
+# The folder the ResSim Damages Prevented menu writes its CSV results to: the
+# folder this script is in if it holds CP_Peaks.csv, else ../DPdata/Results
+if os.path.exists(os.path.join(SCRIPT_DIR, 'CP_Peaks.csv')):
+    RESULTS_DIR = SCRIPT_DIR
+else:
+    RESULTS_DIR = os.path.join(SCRIPT_DIR, '..', 'DPdata', 'Results')
 # Added to the output file names, e.g. '2026' -> damages_prevented_2026.csv
 OUTPUT_TAG = ''
 
+# Damage curves (Read_Damage_Curves.py): next to this script, or in
+# DamagesPrevented/calculate_damages when the script is run from DPdata/Results
 DAMAGE_CURVES_PKL = os.path.join(SCRIPT_DIR, 'regulated_damage_curves.pkl')
+if not os.path.exists(DAMAGE_CURVES_PKL):
+    DAMAGE_CURVES_PKL = os.path.join(SCRIPT_DIR, '..', '..', 'calculate_damages', 'regulated_damage_curves.pkl')
 
 # Damage curve (tab in WV_Projects_Average_Annual_Benefits.xlsx) -> control point
 # name in the Willamette ResSim 4.1 network (old network name in the comment)
@@ -291,6 +302,8 @@ def main(results_dir, tag):
 
 
 if __name__ == '__main__':
-    results_dir = sys.argv[1] if len(sys.argv) > 1 else RESULTS_DIR
-    tag = sys.argv[2] if len(sys.argv) > 2 else OUTPUT_TAG
+    # Jupyter/Spyder kernels add their own '--f=...' argument; ignore anything starting with '-'
+    args = [a for a in sys.argv[1:] if not a.startswith('-')]
+    results_dir = args[0] if len(args) > 0 else RESULTS_DIR
+    tag = args[1] if len(args) > 1 else OUTPUT_TAG
     main(results_dir, tag)
