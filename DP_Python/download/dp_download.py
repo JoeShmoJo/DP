@@ -68,6 +68,13 @@ to out/QAQC_CWMS_Candidates.csv - review the picks, edit the csv if needed,
 and rerun. QA/QC-only records have ResSimPaths ending in QAQC/ and are left
 out of the DSS file.
 
+- 03Oct2026
+Saves as it goes: each record is processed and appended to the hourly csv
+(and its row to Combined_Summary_Stats.csv) as soon as it finishes
+downloading, so an interrupted or failed run keeps what it already got and the
+next run only downloads the rest. At the end the csv and summary are rewritten
+complete as before. When a record appears more than once in the csv the
+newest copy is used.
 - 02Oct2026
 Moved into DP_Python/download (step 1 of the Python-only Damages Prevented
 process, run by DP_Python/1_download_data.py). The period and the obsData.dss
@@ -195,7 +202,7 @@ ReuseDownloaded = True
 
 
 #Functions
-def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
+def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD, on_record=None):
     """
     Downloads USGS data via the modernized USGS Water Data API
     (dataretrieval.waterdata), which replaces the legacy WaterServices API
@@ -203,6 +210,7 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
 
     service: 'iv' for continuous/instantaneous values, 'dv' for daily values
     (reported as the daily mean, statistic_id '00003').
+    on_record(key, path, data): called after each record downloads (saves it right away).
     """
     NWIS = {}
     # ISO 8601 interval covering the full start/end days, as required by the
@@ -241,11 +249,13 @@ def NWIS_dl(sites_dict, service, startDate, endDate, parameterCD):
                 data['time'] = pd.to_datetime(data['time'])
                 data = data.set_index('time').sort_index()
                 NWIS[name] = data
+                if on_record is not None:
+                    on_record(site, name, data)
         except Exception as e:
             print(f"Failed to download data for {site}: {e}")
     return NWIS
 
-def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
+def CWMS_Download(sites_dict, StartDate, EndDate, office='nws', on_record=None):
     # Convert StartDate and EndDate to datetime objects. EndDate is pushed to
     # the end of that day so the last day isn't dropped.
     StartDate = pd.to_datetime(StartDate)
@@ -267,6 +277,8 @@ def CWMS_Download(sites_dict, StartDate, EndDate, office='nws'):
                 print(f"Downloaded data for {site} is empty.")
             else:
                 CWMS_data[name] = data
+                if on_record is not None:
+                    on_record(site, name, data)
         except Exception as e:
             # Print the failed tsid and the error message
             print(f"Failed to download data for {site}: {e}")
@@ -431,7 +443,7 @@ def load_downloaded(csv_file, startDate, endDate):
     done = {}
     for (source, key), g in hourly.groupby(['Source', 'Download_Key']):
         s = g.set_index('time_utc')['value'].astype(float).sort_index()
-        s = s[~s.index.duplicated()]
+        s = s[~s.index.duplicated(keep='last')]   # a record saved twice: the newest copy wins
         if s.index.min() <= start and s.index.max() >= end and s.notna().any():
             done[(source, key)] = s.reindex(period)
     return done
@@ -442,19 +454,50 @@ def write_hourly_csv(csv_file, DataDicts):
     frames = []
     for source, (DataDict, keys) in DataDicts.items():
         for pathname, df in DataDict.items():
-            s = df.iloc[:, 0] if isinstance(df, pd.DataFrame) else df
-            s = s.replace(-902, np.nan)
-            idx = s.index.tz_convert('UTC') if s.index.tz is not None else s.index
-            frames.append(pd.DataFrame({
-                'time_utc': idx.strftime('%Y-%m-%d %H:%M'),
-                'Source': source,
-                'Download_Key': keys.get(pathname, ''),
-                'ResSimPath': pathname,
-                'value': s.to_numpy(),
-            }))
+            frames.append(hourly_frame(source, keys.get(pathname, ''), pathname, df))
     if frames:
         pd.concat(frames, ignore_index=True).to_csv(csv_file, index=False)
         print(f"Wrote {csv_file}")
+
+def hourly_frame(source, key, pathname, df):
+    """One processed record as rows of the long-format hourly csv (-902 -> blank)"""
+    s = df.iloc[:, 0] if isinstance(df, pd.DataFrame) else df
+    s = s.replace(-902, np.nan)
+    idx = s.index.tz_convert('UTC') if s.index.tz is not None else s.index
+    return pd.DataFrame({
+        'time_utc': idx.strftime('%Y-%m-%d %H:%M'),
+        'Source': source,
+        'Download_Key': key,
+        'ResSimPath': pathname,
+        'value': s.to_numpy(),
+    })
+
+def save_record(source, key, pathname, raw):
+    """
+    Save one record as soon as it is downloaded: process it to hourly, append
+    it to HourlyCsv and put its row in Combined_Summary_Stats.csv. A run that
+    stops part way keeps these, and the next run reuses them (load_downloaded).
+    Never stops the download: a failure here is only reported.
+    """
+    try:
+        one = {pathname: raw.copy()}
+        if source == 'USGS':
+            stats = process_usgs_data(one, startDate, endDate)
+        else:
+            stats = process_cwms_data(one, startDate, endDate)
+        if stats.empty:
+            return
+        rows = hourly_frame(source, str(key), pathname, one[pathname])
+        rows.to_csv(HourlyCsv, mode='a', header=not os.path.exists(HourlyCsv), index=False)
+        summary_path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
+        if os.path.exists(summary_path):
+            summary = pd.read_csv(summary_path)
+            summary = summary[summary['DataFrame'] != pathname]
+            stats = pd.concat([summary, stats], ignore_index=True)
+        stats.to_csv(summary_path, index=None)
+        print(f"   saved {source} {key}")
+    except Exception as e:
+        print(f"[WARNING] Could not save {source} {key} as it downloaded ({e}); it is still kept for this run.")
 
 def write_to_dss(dss_file, DataDict):
     for pathname, df in DataDict.items():
@@ -545,11 +588,16 @@ print(f"{n_all - n_need} of {n_all} records already downloaded in {HourlyCsv}; d
 # Download the data. All data is downloaded as instant. The processing later makes it hourly
 # or daily. You could also set the service to 'dv' for daily if you don't need hourly.
 
-USGS_Elev_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Elev_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '62614')
+# Each record is saved as soon as it downloads (save_record), so an interrupted run
+# keeps what it got and the next run only downloads the rest.
+save_usgs = lambda key, path, data: save_record('USGS', key, path, data)
+save_cwms = lambda key, path, data: save_record('CWMS', key, path, data)
 
-USGS_Flow_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Flow_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '00060')
+USGS_Elev_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Elev_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '62614', on_record = save_usgs)
 
-CWMS_Data_Dict = CWMS_Download(sites_dict=still_needed(CWMS_dict, 'CWMS'), StartDate = startDate, EndDate = endDate)
+USGS_Flow_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Flow_dict, 'USGS'), service = 'iv', startDate = startDate, endDate = endDate, parameterCD = '00060', on_record = save_usgs)
+
+CWMS_Data_Dict = CWMS_Download(sites_dict=still_needed(CWMS_dict, 'CWMS'), StartDate = startDate, EndDate = endDate, on_record = save_cwms)
 
 #%%
 # Process Data and create summary stats - this process gets rid of all the metadata that comes
