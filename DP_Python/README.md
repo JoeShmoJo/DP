@@ -71,8 +71,10 @@ Everything else in `config.ini` can usually stay as it is.
   `download/config/RequiredRecordsDictWIL.csv`, and writes them to
   `data/obsData.dss`. If `data/obsData.dss` already exists, it is first moved
   to `data/backup/` with a timestamp, so a cleaned file is never lost.
-- Records already downloaded for the same period are reused, so re-running
-  after a failure only downloads what is missing.
+- Each record is saved to `data/download/` as soon as it finishes downloading,
+  and records already downloaded for the same period are reused. So if the
+  download is interrupted or fails part way, just run it again: it picks up
+  where it stopped.
 - Runs the data checks and writes them to **`QAQC/`**:
 
 | File | What to look for |
