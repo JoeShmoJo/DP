@@ -30,6 +30,7 @@ CONFIG_DIR = DP_DIR + "/config"
 TRANSFORM_CSV = CONFIG_DIR + "/TransformedLocals.csv"    #gage transformations (Willamette Falls)
 CONTROL_POINTS_TXT = CONFIG_DIR + "/ControlPoints.txt"   #junctions to report flow reductions at
 RESERVOIRS_TXT = CONFIG_DIR + "/Reservoirs.txt"          #reservoirs to run with/without
+ADDED_POINTS_CSV = CONFIG_DIR + "/AddedFlowPoints.csv"   #control points beyond the network: junction + gage (Willamette+Clackamas)
 
 #Reservoirs that release into a re-regulating reservoir. The pair is treated as
 #one project in the mini-simulations, credited to the upstream reservoir.

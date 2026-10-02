@@ -63,6 +63,15 @@ locals. Missing hours are stored as -902. From the last download's
       both on a 1-hour time step.
 - [ ] Lookback start and end inside the downloaded period (and before any gap at the end).
 - [ ] Unregulated alternative: every reservoir passes inflow.
+- [ ] `scripts/alt_config/<alternative name>.txt` for both alternatives sets
+      `mainstemFlowAugMethod: NoFlowAug`. Otherwise `MainstemFlowAugSV` looks for the
+      "Water Year Type" series. The file name must match the alternative name exactly.
+- [ ] Both alternatives' Timeseries tabs have a **Water Year Type** row, mapped like the
+      working alternatives. The `WaterYearTypeVariable` state variable reads it in every
+      alternative, whatever the flow-aug setting. The row only appears when the operation set
+      the alternative uses (Operations tab) contains the dummy rule (at Big Cliff) that brings
+      the series in; without it the compute fails with "Looking for 'Water Year Type' external
+      time series, but it doesn't exist in this alternative".
 - [ ] Diversions inactive in both alternatives (no diverted flow). Damages Prevented ignores
       them (`INCLUDE_DIVERSIONS = False` in `DPSettings.py`), so an active diversion would make
       the ResSim computes differ from the water-balance locals and the mini-simulations.
@@ -123,11 +132,13 @@ Dexter, Lookout Point, Hills Creek).
 
 ## E. Configure Damages Prevented
 
-- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. All 22
-      are checked against the new network's node list (`DP_REPO/data/node _list`). Three old
-      names were changed: McKenzie R. NR Walterville -> `Mkenzie_nr Walterville`,
-      MF Willamette_blw NFork nr Oakridge -> `MF Willamette NR Oakridge`, and
-      Willamette+Clackamas dropped (the network ends at Willamette Falls).
+- [ ] `scripts/DamagesPrevented/config/ControlPoints.txt`: junction names to report at. All 23
+      are checked against the new network's node list (`DP_REPO/data/node _list`). Two old
+      names were changed: McKenzie R. NR Walterville -> `Mkenzie_nr Walterville` and
+      MF Willamette_blw NFork nr Oakridge -> `MF Willamette NR Oakridge`. Willamette+Clackamas
+      is not in the network (it ends at Willamette Falls); it is an added-flow point (next item).
+- [ ] `config/AddedFlowPoints.csv`: Willamette+Clackamas = Willamette_abv Falls at Oregon City +
+      Clackamas gage 14211010 (in `obsData.dss`; fill its gaps - missing hours count as 0).
 - [ ] `config/Reservoirs.txt`: the 13 projects, spelled as in the network.
 - [ ] `DPSettings.py`: only if you want different file locations. `REREG` pairs Big Cliff
       with Detroit and Dexter with Lookout Point.

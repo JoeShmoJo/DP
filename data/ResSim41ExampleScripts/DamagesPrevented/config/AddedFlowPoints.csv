@@ -1,0 +1,11 @@
+#Control points beyond the network. Read by DamagesPrevented/cMiniSims.py (step 3).
+#Each is the flow at its base junction (unregulated, modeled observed, every
+#WITHOUT / WITH ONLY run) plus a gage from DP_Download/out/obsData.dss times Factor,
+#hour by hour, not routed. List the Name in ControlPoints.txt like any other point.
+#Columns:
+#  Name          control point name used in the results (and the damage curve aliases)
+#  BaseJunction  network junction the gage is added to
+#  Station       B part of the gage record in obsData.dss (C part containing FLOW)
+#  Factor        multiplier on the gage (blank = 1)
+#Name,BaseJunction,Station,Factor,Comments
+Willamette+Clackamas,Willamette_abv Falls at Oregon City,14211010,1,Clackamas R nr Oregon City; enters just below the Falls so not routed

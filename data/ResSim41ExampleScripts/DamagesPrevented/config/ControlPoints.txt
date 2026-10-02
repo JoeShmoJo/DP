@@ -25,8 +25,8 @@ Fall Creek_OUT
 Foster_OUT
 #From the old Willamette list, renamed to the new network (node list, Oct 2026)
 Willamette_abv Falls at Oregon City
+Willamette+Clackamas                   #not in the network: Willamette_abv Falls + Clackamas gage (AddedFlowPoints.csv)
 Willamette+Marys
 Mkenzie_nr Walterville                 #old: McKenzie R. NR Walterville (network spells it Mkenzie)
 MF Willamette NR Oakridge              #old: MF Willamette_blw NFork nr Oakridge (USGS 14145500, below the NF confluence)
 McKenzie_nr Coburg
-#Willamette+Clackamas dropped: the new network ends at Willamette Falls and has no Clackamas

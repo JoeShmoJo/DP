@@ -55,7 +55,9 @@ def runMiniSimsStep(altNameObs, altNameUnreg, bar, txtArea):
                                  DPSettings.absPath(DPSettings.RESULTS_DIR),
                                  DPSettings.absPath(DPSettings.CONTROL_POINTS_TXT),
                                  DPSettings.absPath(DPSettings.RESERVOIRS_TXT),
-                                 DPSettings.REREG, bar, txtArea)
+                                 DPSettings.REREG, bar, txtArea,
+                                 DPSettings.absPath(DPSettings.ADDED_POINTS_CSV),
+                                 DPSettings.absPath(DPSettings.OBSDATA_DSS))
 
 ################################################################################
 # CLASS DEFINITIONS

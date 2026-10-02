@@ -1,3 +1,7 @@
 #If any changes to the default are desired, you can put the values here
 
-computeMainstemFlowAug: false
+#Damages Prevented alternative: no Salem/Albany mainstem flow augmentation.
+#NoFlowAug makes MainstemFlowAugSV skip everything, including the 'Water Year Type'
+#time series, which this alternative's operation set doesn't bring in.
+#(computeMainstemFlowAug, used here before, is not read by any script.)
+mainstemFlowAugMethod: NoFlowAug

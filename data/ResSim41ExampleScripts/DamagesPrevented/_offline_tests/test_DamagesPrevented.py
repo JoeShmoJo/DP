@@ -260,12 +260,16 @@ rows = cTransform.parseTransformCSV(os.path.join(cfg, "TransformedLocals.csv"))
 check(len(rows) == 1 and rows[0]["bPart"] == "WILLAMETTE FALLS" and rows[0]["station"] == "14202000"
       and rows[0]["areaRatio"] == 1.5 and rows[0]["aMove1"] is None, "TransformedLocals.csv: Willamette Falls = 1.5 x 14202000")
 cps = cMiniSims.readNameList(os.path.join(cfg, "ControlPoints.txt"))
-check(len(cps) == 22 and "CF WIllamette_nr Goshen" in cps and "Mkenzie_nr Walterville" in cps
-      and "MF Willamette NR Oakridge" in cps and "Willamette+Clackamas" not in cps,
-      "ControlPoints.txt: 22 names, inline comments stripped")
+check(len(cps) == 23 and "CF WIllamette_nr Goshen" in cps and "Mkenzie_nr Walterville" in cps
+      and "MF Willamette NR Oakridge" in cps and "Willamette+Clackamas" in cps,
+      "ControlPoints.txt: 23 names, inline comments stripped")
 rs = cMiniSims.readNameList(os.path.join(cfg, "Reservoirs.txt"))
 check(len(rs) == 13 and "Big Cliff" in rs and "Dexter" in rs, "Reservoirs.txt: 13 reservoirs")
 check(DPSettings.REREG == {"Detroit": "Big Cliff", "Lookout Point": "Dexter"}, "re-reg pairs")
+ap = cMiniSims.readAddedFlowPoints(os.path.join(cfg, "AddedFlowPoints.csv"))
+check(ap.keys() == ["Willamette+Clackamas"] and ap["Willamette+Clackamas"]["base"] == "Willamette_abv Falls at Oregon City"
+      and ap["Willamette+Clackamas"]["station"] == "14211010" and ap["Willamette+Clackamas"]["factor"] == 1.0,
+      "AddedFlowPoints.csv: Willamette+Clackamas = abv Falls + 14211010")
 
 ################################################################################
 print "\n== Diversions whose rule can't be read (no rule on the controller, as in the new watershed)"
@@ -422,6 +426,55 @@ resvPeaks = dict((row[0], row) for row in readCSV("Resv_Peaks.csv")[1:])
 check(resvPeaks["Res2"][3] == "%.0f" %r100(QR[I2.index(max(I2))]) and "Rereg2" in resvPeaks["Res2"][5],
       "Resv_Peaks: Res2 outflow taken below its re-reg")
 check(len(readCSV("Mini-Simulations.csv")) == 1 + 3 + 2, "Mini-Simulations.csv: one row per reservoir x downstream control point")
+
+################################################################################
+print "\n== Step 3 with an added-flow point (like Willamette+Clackamas): Mouth + gage x 2, not routed"
+CK = [300., 500., 900., 800., 2500., 600., 400., 300.]   #peaks later than the Mouth flows
+F.putRecord(OBSDATA, "/CLACK GAGE/14299999/FLOW//1HOUR/USGS/", CK, TIMES)
+addFile = os.path.join(WS, "added.csv")
+writeText(addFile, "#Name,BaseJunction,Station,Factor,Comments\nMouth+Clack,Mouth,14299999,2,test gage\n")
+cpFile2 = os.path.join(WS, "cp2.txt")
+writeText(cpFile2, "Res1_OUT\nConf\nMouth+Clack   # base junction Mouth not listed\n")
+outDir2 = os.path.join(WS, "Results2")
+miniDss2 = os.path.join(WS, "MiniSimulations2.dss")
+txt = Txt()
+files = cMiniSims.runMiniSimulations("Obs_NWP_H", "Unreg_NWP_H", miniDss2, outDir2, cpFile2, rsFile, rereg, Bar(), txt,
+                                     addFile, OBSDATA)
+check(files is not None, "runs with an added-flow point")
+if files is None:
+    print txt.text()
+CK2 = [2*v for v in CK]
+for run in ("WITHOUT Res1", "WITH ONLY Res1", "WITHOUT Res2", "WITH ONLY Res2"):
+    check(series(miniDss2, "//Mouth+Clack/FLOW//1HOUR/%s/" %run) == [round(v, 6) for v in plus(expect[("Mouth", run)], CK2)],
+          "%s at Mouth+Clack = Mouth + 2 x gage" %run)
+check(series(miniDss2, "//Mouth+Clack/FLOW//1HOUR/UNREGULATED/") == [round(v, 6) for v in plus(UNREG_CONF, M, CK2)], "UNREGULATED at Mouth+Clack")
+check(series(miniDss2, "//Mouth+Clack/FLOW//1HOUR/MODELED OBSERVED/") == [round(v, 6) for v in plus(MOUTH_OBS, CK2)], "MODELED OBSERVED at Mouth+Clack")
+def readCSV2(name):
+    return list(csv.reader(open(os.path.join(outDir2, name))))
+pre2 = readCSV2("Preliminary_per_project.csv")
+table2 = dict((row[0], row) for row in pre2[4:])
+check([row[0] for row in pre2[4:]] == ["Res1_OUT", "Conf", "Mouth+Clack"], "results in ControlPoints order; unlisted base junction not reported")
+def expectedAdded(resv):
+    unreg = r100(max(plus(UNREG_CONF, M, CK2)))
+    obs = r100(max(plus(MOUTH_OBS, CK2)))
+    withPk = r100(max(plus(expect[("Mouth", "WITH ONLY %s" %resv)], CK2)))
+    withoutPk = r100(max(plus(expect[("Mouth", "WITHOUT %s" %resv)], CK2)))
+    return ((unreg - withPk) + (withoutPk - obs))/2.
+for j, resv in ((2, "Res1"), (3, "Res2")):
+    check(float(table2["Mouth+Clack"][j]) == round(expectedAdded(resv)),
+          "reduction %s at Mouth+Clack = %.0f (got %s)" %(resv, expectedAdded(resv), table2["Mouth+Clack"][j]))
+cpPeaks2 = dict((row[0], row) for row in readCSV2("CP_Peaks.csv")[1:])
+check(cpPeaks2["Mouth+Clack"][6] == "Mouth (ResSim) + gage 14299999 x 2.0, not routed", "CP_Peaks source names the base and gage")
+check(table["Conf"] == table2["Conf"], "other control points unchanged")
+
+writeText(addFile, "Mouth+Clack,Mouth,99999999,1\n")
+txt = Txt()
+res = cMiniSims.runMiniSimulations("Obs_NWP_H", "Unreg_NWP_H", miniDss2, outDir2, cpFile2, rsFile, rereg, Bar(), txt, addFile, OBSDATA)
+check(res is None and "99999999" in txt.text(), "missing gage stops the run and names the station")
+writeText(addFile, "Mouth+Clack,No Such Junction,14299999,1\n")
+txt = Txt()
+res = cMiniSims.runMiniSimulations("Obs_NWP_H", "Unreg_NWP_H", miniDss2, outDir2, cpFile2, rsFile, rereg, Bar(), txt, addFile, OBSDATA)
+check(res is None and "No Such Junction" in txt.text(), "unknown base junction stops the run")
 
 shutil.rmtree(WS)
 print
