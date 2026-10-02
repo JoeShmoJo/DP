@@ -18,6 +18,10 @@ class Config:
         self.network_json = self._path(parser.get("paths", "network_json", fallback="network/network.json"))
         self.observed_alt = parser.get("alternatives", "observed", fallback="Obs_NWP_H").strip()
         self.unregulated_alt = parser.get("alternatives", "unregulated", fallback="UnregNWP_H").strip()
+        #Optional [window] lookback / end ('30Sep2024 2300'); default: the window network.json was exported with
+        self.window = None
+        if parser.has_section("window") and parser.get("window", "end", fallback="").strip():
+            self.window = {"lookback": parser.get("window", "lookback").strip(), "end": parser.get("window", "end").strip()}
 
     def _path(self, value):
         value = value.strip().strip('"')

@@ -1,0 +1,11 @@
+#Tributary locals computed from gage data alone. Read by DP_Python/dp/model.py.
+#Each row writes //<Bpart>/<Cpart>//<alternative time step>/COMPUTED/ to DPcalc.dss.
+#Columns:
+#  Bpart,Cpart     the record written (must match the Timeseries tab)
+#  Station         B part of the gage record read from obsData.dss (C part containing FLOW)
+#  AreaRatio       multiplier applied to the gage (blank = 1)
+#  aMOVE1,bMOVE1   MOVE.1 equation coefficients (blank = no MOVE.1); applied before AreaRatio
+#  BCF             MOVE.1 bias correction factor (optional)
+#A row whose Bpart is ADD is computed but not written; it is added to the next row.
+#Bpart,Cpart,Station,AreaRatio,aMOVE1,bMOVE1,BCF,Comments
+WILLAMETTE FALLS,FLOW-LOC,14202000,1.5,,,,"Ungaged local allowance from 2010 Modified Flow report: Pudding R at Aurora x 1.5 (1.5 Nov-Apr, 1.2 May-Oct; 1.5 used)"
