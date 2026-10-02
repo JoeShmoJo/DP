@@ -135,7 +135,9 @@ class Inputs:
         self.computed = {}        # key -> Series; Series.attrs["type"] is INST-VAL or PER-AVER
         self._cache = {}
         self.log = log
-        self.gaps = {}
+        self.gaps = {}            # key -> number of hours filled by interpolation
+        self.filled = {}          # key -> bool Series, True where an hour was filled
+        self.sources = {}         # computed key -> obsData.dss keys it was made from
 
     def zeros(self):
         return pd.Series(0.0, index=self.index)
@@ -149,12 +151,19 @@ class Inputs:
             else:
                 dtype = s.attrs.get("type", "")
                 s = s[~s.index.duplicated()].reindex(self.index)
-                n = int(s.isna().sum())
-                if n:
+                missing = s.isna()
+                if missing.any():
                     #Missing hours would turn every flow downstream into NaN. Fill them by
-                    #straight-line interpolation (nearest value at the ends) and report them;
-                    #they should be cleaned in DSSVue before a final run.
-                    self.gaps[key] = n
+                    #straight-line interpolation (nearest value at the ends). The first and
+                    #last hours of the run window are outside the period step 1 downloads,
+                    #so they are held at the nearest value without comment; any other filled
+                    #hour is reported and shaded in the plots, and should be cleaned in DSSVue
+                    #before a final run.
+                    gap = missing.copy()
+                    gap.iloc[0] = gap.iloc[-1] = False
+                    if gap.any():
+                        self.gaps[key] = int(gap.sum())
+                        self.filled[key] = gap
                     s = s.interpolate(limit_direction="both")
                 s.attrs["type"] = dtype
                 self._cache[key] = s
@@ -169,6 +178,27 @@ class Inputs:
         if compute and s is not None and s.attrs.get("type") == "INST-VAL":
             s = period_average(s)
         return s
+
+    def record_keys(self, rec):
+        """obsData.dss keys a TSRecord's series comes from (computed records: what they were made from)"""
+        if rec is None or rec.is_blank:
+            return set()
+        kind = file_kind(rec.dss_file)
+        if kind == "obsData":
+            return {path_key(rec.pathname)}
+        if kind == "computed":
+            return set(self.sources.get(path_key(rec.pathname), ()))
+        return set()
+
+    def filled_mask(self, keys):
+        """True at hours where any of these records was filled by interpolation, or None if none was"""
+        masks = [self.filled[k] for k in keys if k in self.filled]
+        if not masks:
+            return None
+        out = masks[0].copy()
+        for m in masks[1:]:
+            out = out | m
+        return out if out.any() else None
 
     def _record(self, rec, what):
         if rec is None or rec.is_blank:
@@ -189,18 +219,26 @@ class Inputs:
         raise DPError(f"{what}: mapped to {rec.dss_file}, which DP_Python does not read")
 
 
-def reservoir_elevation(net, alt_name, inputs, reservoir_name):
-    """Observed pool elevation of a reservoir (Observed tab, else its Lookback Elevation), or None"""
+def reservoir_elevation_record(net, alt_name, reservoir_name):
+    """TSRecord of a reservoir's observed pool elevation (Observed tab, else its Lookback Elevation), or None"""
     alt = net.alternatives[alt_name]
     proxy = net.elements["reservoir:" + reservoir_name]["inflowProxy"]
     for recs in (alt.observed, alt.input):
         for (name, vid), rec in recs.items():
             if name == proxy and rec.param.lower().startswith("elev") and not rec.is_blank:
-                try:
-                    return inputs.record(rec, f"{reservoir_name} pool elevation")
-                except DPError:
-                    return None
+                return rec
     return None
+
+
+def reservoir_elevation(net, alt_name, inputs, reservoir_name):
+    """Observed pool elevation of a reservoir, or None"""
+    rec = reservoir_elevation_record(net, alt_name, reservoir_name)
+    if rec is None:
+        return None
+    try:
+        return inputs.record(rec, f"{reservoir_name} pool elevation")
+    except DPError:
+        return None
 
 
 ################################################################################
@@ -244,6 +282,7 @@ def transform_gage_data(inputs, transform_csv, time_step, log=print):
     """cTransform.transformGageData: area-ratio (and ADD) records into inputs.computed"""
     written = []
     prev = None
+    prev_keys = set()
     for row in read_csv_rows(transform_csv):
         row += [""] * (7 - len(row))
         b_part, c_part, station = row[0], row[1], row[2]
@@ -255,15 +294,18 @@ def transform_gage_data(inputs, transform_csv, time_step, log=print):
         s = inputs.obsdata(found[0])
         ratio = float(row[3]) if row[3] else None
         new = s * ratio if ratio is not None else s.copy()
+        keys = {path_key(found[0])}
         if prev is not None:
             new = new + prev
+            keys |= prev_keys
         typed(new, s.attrs.get("type", "INST-VAL"))   # HEC math keeps the gage's type
         if b_part.upper() == "ADD":
-            prev = new
+            prev, prev_keys = new, keys
             continue
-        prev = None
+        prev, prev_keys = None, set()
         path = f"//{b_part}/{c_part}//{time_step}/COMPUTED/"
         inputs.computed[path_key(path)] = new
+        inputs.sources[path_key(path)] = keys
         written.append(path)
         log(f"Transformed: {path} = {station} x {ratio}")
     return written
@@ -282,7 +324,9 @@ def water_balance_locals(net, walk, alt_name, inputs, negs=True, log=print):
     vid = net.vid
     E = net.elements
     trib = {}
+    trib_keys = {}
     reg = None
+    reg_keys = set()      # obsData.dss records reg was made from (to mark filled data in the plots)
     n_locals = 0
     for eid in walk.order:
         e = E.get(eid)
@@ -294,12 +338,15 @@ def water_balance_locals(net, walk, alt_name, inputs, negs=True, log=print):
                 for rch in walk.connected_reaches(eid):
                     if rch in trib:
                         reg = reg + trib[rch] if reg is not None else trib[rch].copy()
+                        reg_keys |= trib_keys[rch]
             obs = None
             rec_obs = alt.observed_record(e["flowProxy"], vid["NODE_FLOW"])
             if rec_obs is not None and not rec_obs.is_blank:
                 obs = inputs.record(rec_obs, f"Observed flow at {name}")
+            obs_keys = inputs.record_keys(rec_obs)
             if eid in walk.headwaters:
                 reg = None
+                reg_keys = set()
             compute = []
             for loc in e["locals"]:
                 rec = alt.input_record(loc["knownFlowProxy"], vid["NODE_KNOWNFLOW"])
@@ -315,6 +362,7 @@ def water_balance_locals(net, walk, alt_name, inputs, negs=True, log=print):
                     continue  # observed expected but blank
                 s = inputs.record(rec, f"Local {loc['node']} at {name}") * loc["factor"]
                 reg = s.copy() if reg is None else reg + s
+                reg_keys |= inputs.record_keys(rec)
             if obs is not None:
                 if len(compute) > 1:
                     raise DPError(f"{len(compute)} locals at {name} are mapped to DPcalc.dss: "
@@ -325,18 +373,23 @@ def water_balance_locals(net, walk, alt_name, inputs, negs=True, log=print):
                     if not negs:
                         local = pd.Series(remove_negative_locals(local.values), index=local.index)
                     inputs.computed[path_key(rec.pathname)] = typed(local, "PER-AVER")
+                    inputs.sources[path_key(rec.pathname)] = obs_keys | reg_keys
                     n_locals += 1
                     log(f"Local flow at {name} ({node})")
                 reg = obs.copy()
+                reg_keys = set(obs_keys)
             if reg is None:
                 reg = inputs.zeros()
+                reg_keys = set()
         elif e and e["type"] == "reach":
             reach = build_reach(e["routing"])
             reg = pd.Series(reach.route(reg.values), index=reg.index)
         ds = walk.down.get(eid)
         if ds and ds in walk.confluence_junctions:
             trib[eid] = reg.copy()
+            trib_keys[eid] = set(reg_keys)
             reg = reg * 0.0
+            reg_keys = set()
     return n_locals
 
 
@@ -352,6 +405,10 @@ class Run:
         self.inflow = {}     # reservoir name -> pool inflow
         self.outflow = {}    # reservoir name -> pool outflow
         self.local = {}      # (junction id, node) -> local flow (multiplier applied)
+        # obsData.dss records each flow was made from (to mark filled data in the plots)
+        self.keys = {}       # element id -> set of keys
+        self.inflow_keys = {}
+        self.outflow_keys = {}
 
 
 def simulate(net, walk, alt_name, inputs, release, log=print):
@@ -367,22 +424,28 @@ def simulate(net, walk, alt_name, inputs, release, log=print):
     for eid in walk.order:
         e = E.get(eid)
         inflow = None
+        keys = set()
         for u in walk.up.get(eid, []):
             if u.startswith("pool:"):
                 s = run.outflow[u.split(":", 1)[1]]
+                keys |= run.outflow_keys[u.split(":", 1)[1]]
             else:
                 s = run.flow[u]
+                keys |= run.keys[u]
             inflow = s.copy() if inflow is None else inflow + s
         if eid.startswith("pool:"):
             rname = eid.split(":", 1)[1]
             run.inflow[rname] = inflow if inflow is not None else inputs.zeros()
+            run.inflow_keys[rname] = keys
             if release == "specified":
                 rec = net.specified_release(alt_name, rname)
                 if rec is None or rec.is_blank:
                     raise DPError(f"No Specified Release record for {rname} in {alt_name}")
                 run.outflow[rname] = inputs.record(rec, f"{rname} Specified Release", compute=True)
+                run.outflow_keys[rname] = inputs.record_keys(rec)
             else:
                 run.outflow[rname] = run.inflow[rname].copy()
+                run.outflow_keys[rname] = set(keys)
             continue
         if e and e["type"] == "junction":
             total = inflow if inflow is not None else inputs.zeros()
@@ -391,6 +454,7 @@ def simulate(net, walk, alt_name, inputs, release, log=print):
                 s = inputs.record(rec, f"Local {loc['node']} at {e['name']}", compute=True)
                 s = inputs.zeros() if s is None else s * loc["factor"]
                 run.local[(eid, loc["node"])] = s
+                keys |= inputs.record_keys(rec)
                 total = total + s
             run.flow[eid] = total
         elif e and e["type"] == "reach":
@@ -398,6 +462,7 @@ def simulate(net, walk, alt_name, inputs, release, log=print):
             run.flow[eid] = pd.Series(reach.route(inflow.values), index=inflow.index)
         else:
             run.flow[eid] = inflow if inflow is not None else inputs.zeros()
+        run.keys[eid] = keys
     return run
 
 
@@ -414,6 +479,8 @@ class JuncPeaks:
         self.note = None
         self.peaks = {}            # reservoir -> {"WITH": (peak, time), "WITHOUT": ..., "reduction": v}
         self.series = {}           # label -> Series (for MiniSimulations output)
+        self.filled_gage = None    # bool Series: hours of the gage record filled by interpolation
+        self.filled_inputs = None  # bool Series: hours any record the modeled flows use was filled
 
     def set_peak(self, resv, series, is_with):
         self.peaks.setdefault(resv, {})["WITH" if is_with else "WITHOUT"] = _peak(series)
@@ -471,6 +538,7 @@ def mini_simulations(net, walk, inputs, obs_alt, run_obs, run_unreg, control_poi
                 continue
             g = inputs.obsdata(found[0]).fillna(0.0) * p["factor"]
             p["add"] = g
+            p["keys"] = {path_key(found[0])}
             p["note"] = f"{p['base']} (ResSim) + gage {p['station']}" + (f" x {p['factor']}" if p["factor"] != 1.0 else "") + ", not routed"
             added_by_junc.setdefault("junction:" + p["base"], []).append(p)
             if "junction:" + p["base"] not in out_juncs:
@@ -492,16 +560,20 @@ def mini_simulations(net, walk, inputs, obs_alt, run_obs, run_unreg, control_poi
         mobs = run_obs.flow[jid]
         p.unreg, p.modeled_obs = _peak(unreg), _peak(mobs)
         p.series["UNREGULATED"], p.series["MODELED OBSERVED"] = unreg, mobs
+        model_keys = run_obs.keys[jid] | run_unreg.keys[jid]
+        p.filled_inputs = inputs.filled_mask(model_keys)
         rec = alt.observed_record(E[jid]["flowProxy"], vid["NODE_FLOW"])
         if rec is not None and not rec.is_blank:
             g = inputs.record(rec, f"Observed flow at {name}")
             p.obs = _peak(g)
             p.series["OBSERVED"] = g
             p.is_gaged = True
+            p.filled_gage = inputs.filled_mask(inputs.record_keys(rec))
         jp[name] = p
         for ap in added_by_junc.get(jid, []):
             q = JuncPeaks(ap["name"])
             q.note = ap["note"]
+            q.filled_inputs = inputs.filled_mask(model_keys | ap["keys"])
             q.series["UNREGULATED"] = unreg + ap["add"]
             q.series["MODELED OBSERVED"] = mobs + ap["add"]
             q.unreg, q.modeled_obs = _peak(q.series["UNREGULATED"]), _peak(q.series["MODELED OBSERVED"])

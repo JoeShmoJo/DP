@@ -93,8 +93,9 @@ The check settings (tolerances, spike thresholds) are at the top of
 
 Open `data/obsData.dss` in DSSVue and fix what the checks found. Fill gaps,
 remove spikes, and check the reservoir inflows above all, because they drive
-the unregulated flows. Step 2 fills any gap still left with a straight line
-and lists those records in its log, but a final run should have none.
+the unregulated flows. Step 2 fills any gap still left with a straight line,
+lists those records in its log and shades the filled hours in its plots, but
+a final run should have none.
 
 ### 4. Run Damages Prevented (step 2)
 
@@ -113,6 +114,7 @@ It takes about a minute. Each run writes a new folder,
 | `Damages/damages_prevented_ByProject.csv` | those dollars shared out to the reservoirs |
 | `Plots/ControlPoints/*.png` | unregulated and regulated flow at each control point, whole year and around the peak |
 | `Plots/Reservoirs/*.png` | unregulated flow, regulated outflow and pool elevation at each reservoir |
+| | In every plot, **orange shading** marks hours where the plotted record itself (gage, release, pool elevation) was missing and filled by step 2; **grey shading** marks hours where a record the modeled flows are built from (upstream gages, reservoir inflows and releases, locals) was filled. The grey is not lagged for routing, and in the whole-year panels short gaps are drawn about a day wide so they show up. The legend gives the number of filled hours. |
 | `TimeSeries/ControlPoints/*.csv` | every hourly series behind the results, including each WITHOUT / WITH ONLY run |
 | `TimeSeries/Reservoirs/*.csv` | inflow, outflows and pool elevation |
 | `run_log.txt`, `config_used.ini` | what ran, with which settings |
@@ -205,6 +207,6 @@ routing is a line-for-line port of the routing the ResSim scripts use
 |---|---|
 | `obsData.dss not found` | run step 1, or point `[paths] obsdata_dss` at your file |
 | `... is not in obsData.dss` | a record the network maps is missing: check the download summary, or the pathname in `RequiredRecordsDictWIL.csv` |
-| `missing hours ... were filled` | gaps left in obsData.dss; clean them in DSSVue |
+| `missing hours ... were filled` | gaps left in obsData.dss (shaded in the plots); clean them in DSSVue |
 | `Alternative ... is not in network.json` | the names in `config.ini [alternatives]` must match the export |
 | step 1 cannot reach CWMS / USGS | VPN/network access, the USGS key file, or certificates (see the notes at the top of `download/dp_download.py`) |
