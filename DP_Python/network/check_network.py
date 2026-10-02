@@ -3,7 +3,9 @@
 Checks network.json (exported from ResSim with export/ExportNetwork.py) and
 config.ini before DP_Python uses them, and prints what it found.
 
-    python check_network.py [config.ini]
+    python network/check_network.py [config.ini]
+
+Run it after re-exporting the network from ResSim (network/ExportNetwork.py).
 
 Reports:
   - element counts and any reach routing DP_Python can't reproduce
@@ -17,7 +19,7 @@ import os
 import sys
 from collections import Counter
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from dp.config import Config, DEFAULT_CONFIG
 from dp.network import Network
 

@@ -1,0 +1,20 @@
+# Draft conda environment for DP_Python. Replace this with your own working
+# environment when you have it (see environment/README.md).
+#
+#   conda env create -f environment/environment.yml
+#   conda activate dp_python
+name: dp_python
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9            # pydsstools 2.x ships Windows wheels for 3.9
+  - numpy
+  - pandas
+  - matplotlib
+  - requests
+  - certifi
+  - pip
+  - pip:
+      - pydsstools          # reads/writes DSS (2.x on Windows; 3.x also works)
+      - dataretrieval>=1.3.0  # USGS Water Data API (step 1)
+      - cwms-python         # CWMS data API (step 1)

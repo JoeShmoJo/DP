@@ -149,10 +149,14 @@ class Inputs:
             else:
                 dtype = s.attrs.get("type", "")
                 s = s[~s.index.duplicated()].reindex(self.index)
-                s.attrs["type"] = dtype
                 n = int(s.isna().sum())
                 if n:
+                    #Missing hours would turn every flow downstream into NaN. Fill them by
+                    #straight-line interpolation (nearest value at the ends) and report them;
+                    #they should be cleaned in DSSVue before a final run.
                     self.gaps[key] = n
+                    s = s.interpolate(limit_direction="both")
+                s.attrs["type"] = dtype
                 self._cache[key] = s
         return self._cache[key]
 
@@ -183,6 +187,20 @@ class Inputs:
                 raise DPError(f"{what}: {rec.pathname} is not in {self.obs.filename}")
             return s
         raise DPError(f"{what}: mapped to {rec.dss_file}, which DP_Python does not read")
+
+
+def reservoir_elevation(net, alt_name, inputs, reservoir_name):
+    """Observed pool elevation of a reservoir (Observed tab, else its Lookback Elevation), or None"""
+    alt = net.alternatives[alt_name]
+    proxy = net.elements["reservoir:" + reservoir_name]["inflowProxy"]
+    for recs in (alt.observed, alt.input):
+        for (name, vid), rec in recs.items():
+            if name == proxy and rec.param.lower().startswith("elev") and not rec.is_blank:
+                try:
+                    return inputs.record(rec, f"{reservoir_name} pool elevation")
+                except DPError:
+                    return None
+    return None
 
 
 ################################################################################
