@@ -1,0 +1,23 @@
+Control Point,Unreg Peak Flow (cfs),Date/Time of Unreg Peak,Regulated Peak Flow (cfs),Date/Time of Regulated Peak,Flow Reduction (cfs),Regulated Peak Source
+MF Willamette_at Jasper,28800,"20Dec2025, 01:00",8900,"19Dec2025, 22:00",19900,gaged
+CF WIllamette_nr Goshen,32100,"10Oct2025, 14:00",8500,"20Dec2025, 02:00",23600,gaged
+Willamette_at Eugene,40000,"20Dec2025, 08:00",16100,"20Dec2025, 01:00",23900,gaged
+McKenzie_at Vida,37000,"19Dec2025, 15:00",20300,"19Dec2025, 14:00",16700,gaged
+Willamette_at Harrisburg,86800,"20Dec2025, 10:00",49700,"20Dec2025, 08:00",37100,gaged
+Long Tom_at Monroe,9600,"25Feb2026, 04:00",3900,"20Dec2025, 05:00",5700,gaged
+Willamette_at Albany,86500,"21Dec2025, 17:00",53300,"21Dec2025, 09:00",33200,gaged
+No Santiam_at Mehama,66900,"19Dec2025, 11:00",39700,"19Dec2025, 09:00",27200,gaged
+So Santiam_at Waterloo,60000,"19Dec2025, 16:00",16900,"19Dec2025, 12:00",43100,gaged
+Santiam_at Jefferson,156800,"19Dec2025, 22:00",81300,"19Dec2025, 21:00",75500,gaged
+Willamette_at Salem,158800,"20Dec2025, 18:00",99400,"20Dec2025, 18:00",59400,gaged
+Willamette_at Newberg,167200,"21Dec2025, 17:00",119300,"21Dec2025, 17:00",47900,gaged
+Cottage Grove_OUT,26900,"10Oct2025, 01:00",1600,"19Dec2025, 20:00",25300,gaged
+Dorena_OUT,47500,"10Oct2025, 01:00",3100,"20Dec2025, 05:00",44400,gaged
+Big Cliff_OUT,36600,"19Dec2025, 13:00",8100,"26Dec2025, 11:00",28500,gaged
+Fall Creek_OUT,8500,"19Dec2025, 18:00",3100,"20Dec2025, 06:00",5400,gaged
+Foster_OUT,54900,"19Dec2025, 13:00",8800,"19Dec2025, 09:00",46100,gaged
+Willamette_abv Falls at Oregon City,201700,"21Dec2025, 17:00",155100,"21Dec2025, 13:00",46600,"ResSim simulated, not gaged"
+Willamette+Marys,77900,"21Dec2025, 07:00",47900,"21Dec2025, 01:00",30000,"ResSim simulated, not gaged"
+Mkenzie_nr Walterville,36100,"19Dec2025, 20:00",19500,"19Dec2025, 21:00",16600,"ResSim simulated, not gaged"
+MF Willamette NR Oakridge,7000,"20Dec2025, 04:00",2200,"25Dec2025, 10:00",4800,"ResSim simulated, not gaged"
+McKenzie_nr Coburg,34900,"20Dec2025, 03:00",19000,"20Dec2025, 03:00",15900,"ResSim simulated, not gaged"

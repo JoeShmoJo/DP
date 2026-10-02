@@ -1,0 +1,24 @@
+Control Point,Unreg Peak Flow,Date/Time of peak,Regulated Peak Flow,Date/Time of peak.1,Flow Reduction,Short Name,Unreg Property Damage,Reg Property Damage,Damage Difference
+MF Willamette_at Jasper,23000,"04Dec2023, 08:00",20000,"14Jan2024, 09:00",3000,Jasper,383936.0,248092.0,135844.0
+CF Willamette_nr Goshen,14900,"14Jan2024, 18:00",12100,"14Jan2024, 16:00",2800,Goshen,0.0,0.0,0.0
+Willamette_at Eugene,52600,"14Jan2024, 22:00",39500,"14Jan2024, 16:00",13100,Eugene,1925461.0,73482.0,1851979.0
+Mckenzie_at Vida,35000,"04Dec2023, 05:00",22200,"03Dec2023, 24:00",12800,Vida,176570.0,681.0,175890.0
+Willamette_at Harrisburg,66500,"04Dec2023, 21:00",39700,"18Jan2024, 23:00",26800,Harrisburg,11115.0,0.0,11115.0
+Long Tom_at Monroe,6780,"19Jan2024, 09:00",5660,"25Jan2024, 04:00",1120,Monroe,0.0,0.0,0.0
+Willamette_at Albany,84000,"20Jan2024, 14:00",67300,"20Jan2024, 07:00",16700,Albany,3716.0,742.0,2974.0
+No Santiam_at Mehama,30500,"04Dec2023, 05:00",17000,"04Dec2023, 03:00",13500,Mehama,0.0,0.0,0.0
+So Santiam_at Waterloo,25700,"04Dec2023, 08:00",19000,"18Jan2024, 24:00",6700,Waterloo,38895.0,0.0,38895.0
+Santiam_at Jefferson,55900,"04Dec2023, 15:00",43000,"04Dec2023, 13:00",12900,Jefferson,0.0,0.0,0.0
+Willamette_at Salem,154300,"21Jan2024, 01:00",94000,"20Jan2024, 19:00",60300,Salem,0.0,0.0,0.0
+Willamette_at Newberg,1,"30Jan2024, 15:00",1,"29Jan2024, 09:00",0,Newberg,0.0,0.0,0.0
+Willamette_abv Falls at Oregon City,1,"30Jan2024, 16:00",1,"29Jan2024, 06:00",0,Willamette Falls,0.0,0.0,0.0
+Willamette+Clackamas,1,"30Jan2024, 15:00",1,"29Jan2024, 04:00",0,Willamette+Clackamas,0.0,0.0,0.0
+Willamette+Marys,1,"05Dec2023, 18:00",1,"19Jan2024, 20:00",0,Corvallis,0.0,0.0,0.0
+McKenzie R. NR Walterville,37566,"04Dec2023, 10:00",28047,"04Dec2023, 10:00",9519,Walterville,6776.0,0.0,6776.0
+MF Willamette_blw NFork nr Oakridge,1,"14Jan2024, 14:00",1,"31Jan2024, 01:00",0,Oakridge,0.0,0.0,0.0
+McKenzie_nr Coburg,1,"04Dec2023, 17:00",1,"04Dec2023, 16:00",0,Coburg,0.0,0.0,0.0
+CF Willamette_blw Cottage Grove Dam,3000,"14Jan2024, 10:00",2500,"21Jan2024, 23:00",500,Cottage Grove,139400.0,0.0,139400.0
+Row_nr Cottage Grove,5000,"14Jan2024, 12:00",4000,"11Dec2023, 20:00",1000,Dorena,0.0,0.0,0.0
+No Santiam_at Niagara,17000,"04Dec2023, 05:00",10000,"04Feb2024, 24:00",7000,Big Cliff,38334.0,0.0,38334.0
+Fall_btw Winberry Cr nr Fall Creek,4500,"04Dec2023, 01:00",3800,"30Jan2024, 16:00",700,Fall Creek,87358.0,38137.0,49221.0
+So Santiam_nr Foster,18000,"04Dec2023, 06:00",15000,"20Jan2024, 17:00",3000,Foster,0.0,0.0,0.0

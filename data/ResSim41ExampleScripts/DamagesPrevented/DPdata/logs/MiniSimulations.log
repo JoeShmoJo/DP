@@ -1,0 +1,73 @@
+----------------------------------------------------------------------
+Computing Mini-Simulations
+Observed Alternative:     Obs_NWP_H
+Unregulated Alternative:  UnregNWP_H
+Control points:           C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/config/ControlPoints.txt
+Reservoirs:               C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/config/Reservoirs.txt
+Re-regs:                  {'Detroit': 'Big Cliff', 'Lookout Point': 'Dexter'}
+Output DSS File:          C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/MiniSimulations.dss
+Output CSV Folder:        C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Results
+	Reservoir: Hills Creek
+	Reservoir: Lookout Point
+	Reservoir: Fall Creek
+	Reservoir: Dorena
+	Reservoir: Cottage Grove
+	Reservoir: Cougar
+	Reservoir: Blue River
+	Reservoir: Fern Ridge
+	Reservoir: Green Peter
+	Reservoir: Foster
+	Reservoir: Detroit
+	Junction: MF Willamette_at Jasper
+	Junction: CF WIllamette_nr Goshen
+	Junction: Willamette_at Eugene
+	Junction: McKenzie_at Vida
+	Junction: Willamette_at Harrisburg
+	Junction: Long Tom_at Monroe
+	Junction: Willamette_at Albany
+	Junction: No Santiam_at Mehama
+	Junction: So Santiam_at Waterloo
+	Junction: Santiam_at Jefferson
+	Junction: Willamette_at Salem
+	Junction: Willamette_at Newberg
+	Junction: Cottage Grove_OUT
+	Junction: Dorena_OUT
+	Junction: Big Cliff_OUT
+	Junction: Fall Creek_OUT
+	Junction: Foster_OUT
+	Junction: Willamette_abv Falls at Oregon City
+	Junction: Willamette+Marys
+	Junction: Mkenzie_nr Walterville
+	Junction: MF Willamette NR Oakridge
+	Junction: McKenzie_nr Coburg
+	Reservoir: Hills Creek
+	Reservoir: Lookout Point
+	Reservoir: Fall Creek
+	Reservoir: Dorena
+	Reservoir: Cottage Grove
+	Reservoir: Cougar
+	Reservoir: Blue River
+	Reservoir: Fern Ridge
+	Reservoir: Green Peter
+	Reservoir: Foster
+	Reservoir: Detroit
+	Reservoir: Hills Creek
+	Reservoir: Lookout Point
+	Reservoir: Fall Creek
+	Reservoir: Dorena
+	Reservoir: Cottage Grove
+	Reservoir: Cougar
+	Reservoir: Blue River
+	Reservoir: Fern Ridge
+	Reservoir: Green Peter
+	Reservoir: Foster
+	Reservoir: Detroit
+Output DSS File: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/MiniSimulations.dss
+Output CSV: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Results\Preliminary_per_project.csv
+Output CSV: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Results\Mini-Simulations.csv
+Output CSV: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Results\CP_Peaks.csv
+Output CSV: C:/Projects/FIRO/watershed/NWP_Willamette_Master_2026_09_24_ScriptCleanup/scripts/DamagesPrevented/DPdata/Results\Resv_Peaks.csv
+Compute Complete!
+
+Finished logging to:
+C:\Projects\FIRO\watershed\NWP_Willamette_Master_2026_09_24_ScriptCleanup\scripts\DamagesPrevented\DPdata\logs\MiniSimulations.log
