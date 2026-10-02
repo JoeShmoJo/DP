@@ -1,10 +1,10 @@
 ==============================================================================
 Damages Prevented  01Oct2024 - 30Sep2025
 ==============================================================================
-Config:      /home/user/DP/DP_Python/config/config.ini
-obsData.dss: /home/user/DP/DP_Python/output/WY2025/2_edited_data/obsData.dss
-             last saved 02Oct2026 22:10
-Network:     /home/user/DP/DP_Python/config/network/network.json (exported 2026-10-02 11:31)
+Config:      c:\Projects\A_REPOSITORIES\DP_REPO\DP_Python\config\config.ini
+obsData.dss: c:\Projects\A_REPOSITORIES\DP_REPO\DP_Python\output\WY2025\2_edited_data\obsData.dss
+             last saved 02Oct2026 15:25
+Network:     c:\Projects\A_REPOSITORIES\DP_REPO\DP_Python\config\network\network.json (exported 2026-10-02 11:31)
 Window:      30Sep2024 23:00 to 01Oct2025 00:00 (8762 hours)
 
 1. Transformed locals
@@ -36,16 +36,28 @@ Local flow at Willamette_at Newberg (NBGO_Newberg_HMSsub_WillametteRv_S40)
 
 5. Damages prevented
    Total damages prevented: $268,854,856
-   Wrote Damages/damages_prevented.csv
-   Wrote Damages/damages_prevented_ByProject.csv
+   Wrote Damages\damages_prevented.csv
+   Wrote Damages\damages_prevented_ByProject.csv
    55 records read from obsData.dss (obsData_records_used.csv)
 
 6. Time series and plots
    wrote TimeSeries/
    23 control point and 13 reservoir plots
 
-No missing hours in the records read from obsData.dss.
+WARNING - missing hours in obsData.dss were filled by straight-line interpolation
+(shaded in the plots). Clean these records in DSSVue for a final run:
+      44 h  //BLU/FLOW-IN//1HOUR/CWMS/
+      44 h  //CGR/FLOW-IN//1HOUR/CWMS/
+      44 h  //COT/FLOW-IN//1HOUR/CWMS/
+      44 h  //DET/FLOW-IN//1HOUR/CWMS/
+      44 h  //DOR/FLOW-IN//1HOUR/CWMS/
+      44 h  //FAL/FLOW-IN//1HOUR/CWMS/
+      44 h  //FOS/FLOW-IN//1HOUR/CWMS/
+      44 h  //FRN/FLOW-IN//1HOUR/CWMS/
+      69 h  //GPR/FLOW-IN//1HOUR/CWMS/
+      44 h  //HCR/FLOW-IN//1HOUR/CWMS/
+      44 h  //LOP/FLOW-IN//1HOUR/CWMS/
 
-Done in 62 s. Everything is in:
-   /home/user/DP/DP_Python/output/WY2025/3_damages_prevented
-Run history: /home/user/DP/DP_Python/output/WY2025/run_history.csv
+Done in 58 s. Everything is in:
+   c:\Projects\A_REPOSITORIES\DP_REPO\DP_Python\output\WY2025\3_damages_prevented
+Run history: c:\Projects\A_REPOSITORIES\DP_REPO\DP_Python\output\WY2025\run_history.csv
