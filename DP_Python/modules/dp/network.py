@@ -88,12 +88,6 @@ class Network:
     def reservoirs(self):
         return self.of_type("reservoir")
 
-    def element(self, elem_id):
-        return self.elements[elem_id]
-
-    def reservoir_of_pool(self, pool_id):
-        return "reservoir:" + pool_id.split(":", 1)[1]
-
     def unsupported_reaches(self):
         return sorted((r["name"], r["routing"]["method"]) for r in self.reaches.values()
                       if not r["routing"].get("supported") or r["routing"]["method"] not in SUPPORTED_ROUTING

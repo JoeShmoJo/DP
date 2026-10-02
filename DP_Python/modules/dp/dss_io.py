@@ -5,7 +5,6 @@ Every series comes back as a pandas Series of floats on an hourly
 DatetimeIndex (naive, the times stored in the file), with DSS missing values
 (-901, -902, UNDEFINED) as NaN.
 """
-import re
 import numpy as np
 import pandas as pd
 
@@ -22,15 +21,6 @@ def _hec_window(t):
         d = t - pd.Timedelta(days=1)
         return d.strftime("%d%b%Y") + " 2400"
     return t.strftime("%d%b%Y %H%M")
-
-
-def parse_hec_time(text):
-    """'30Sep2024 2400' / '30Sep2024, 24:00' -> Timestamp (2400 = midnight of the next day)"""
-    m = re.match(r"^\s*(\d{1,2}[A-Za-z]{3}\d{4})[ ,]+(\d{1,2}):?(\d{2})\s*$", text)
-    if not m:
-        raise ValueError(f"Not a HEC time: {text!r}")
-    day = pd.Timestamp(pd.to_datetime(m.group(1), format="%d%b%Y"))
-    return day + pd.Timedelta(hours=int(m.group(2)), minutes=int(m.group(3)))
 
 
 def format_hec_time(t):
