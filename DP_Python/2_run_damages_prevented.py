@@ -151,4 +151,7 @@ def _run(cfg, run_dir, log):
 
 if __name__ == "__main__":
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
-    sys.exit(0 if main(args[0] if args else DEFAULT_CONFIG) else 1)
+    # Exit with an error code only when the run stopped. (A plain sys.exit(0) on
+    # success shows up as "SystemExit: 0" in VS Code's interactive window / Spyder.)
+    if not main(args[0] if args else DEFAULT_CONFIG):
+        sys.exit(1)
