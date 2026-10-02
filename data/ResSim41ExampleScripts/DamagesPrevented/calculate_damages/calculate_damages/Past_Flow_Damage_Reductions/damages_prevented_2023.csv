@@ -1,0 +1,24 @@
+Control Point,Unreg Peak Flow,Date/Time of peak,Regulated Peak Flow,Date/Time of peak.1,Flow Reduction,Short Name,Unreg Property Damage,Reg Property Damage,Damage Difference
+MF Willamette_at Jasper,18100,"31Dec2022, 14:00",11100,"02Jan2023, 13:00",7000,Jasper,162057.4359,0,162057.4359
+CF Willamette_nr Goshen,10000,"28Dec2022, 12:00",7900,"11Apr2023, 16:00",2100,Goshen,0,0,0
+Willamette_at Eugene,28800,"28Dec2022, 18:00",17000,"28Dec2022, 13:00",11800,Eugene,28878.6119,0,28878.6119
+Mckenzie_at Vida,16600,"28Dec2022, 06:00",11400,"05Nov2022, 06:00",5200,Vida,0,0,0
+Willamette_at Harrisburg,47400,"29Dec2022, 01:00",34300,"28Dec2022, 12:00",13100,Harrisburg,0,0,0
+Long Tom_at Monroe,4300,"29Dec2022, 23:00",4100,"31Dec2022, 05:00",200,Monroe,0,0,0
+Willamette_at Albany,58800,"29Dec2022, 23:00",44900,"29Dec2022, 07:00",13900,Albany,0,0,0
+No Santiam_at Mehama,27400,"27Dec2022, 23:00",22200,"05Nov2022, 04:00",5200,Mehama,0,0,0
+So Santiam_at Waterloo,26900,"28Dec2022, 02:00",13800,"28Dec2022, 01:00",13100,Waterloo,58739.88528,0,58739.88528
+Santiam_at Jefferson,56600,"28Dec2022, 07:00",31100,"28Dec2022, 05:00",25500,Jefferson,0,0,0
+Willamette_at Salem,98300,"29Dec2022, 11:00",75500,"29Dec2022, 09:00",22800,Salem,0,0,0
+Willamette_at Newberg,118400,"30Dec2022, 08:00",97600,"29Dec2022, 20:00",20800,Newberg,0,0,0
+Willamette_abv Falls at Oregon City,142800,"30Dec2022, 10:00",121400,"29Dec2022, 23:00",21400,Willamette Falls,0,0,0
+Willamette+Clackamas,153300,"30Dec2022, 11:00",131700,"29Dec2022, 08:00",21600,Willamette+Clackamas,0,0,0
+Willamette+Marys,49500,"29Dec2022, 19:00",36000,"29Dec2022, 05:00",13500,Corvallis,0,0,0
+McKenzie R. NR Walterville,16200,"28Dec2022, 16:00",11500,"30Dec2022, 15:00",4700,Walterville,0,0,0
+MF Willamette_blw NFork nr Oakridge,7000,"28Dec2022, 09:00",3600,"07Jan2023, 07:00",3400,Oakridge,0,0,0
+McKenzie_nr Coburg,16200,"28Dec2022, 22:00",11400,"31Dec2022, 15:00",4800,Coburg,0,0,0
+CF Willamette_blw Cottage Grove Dam,1600,"11Apr2023, 16:00",800,"11Apr2023, 11:00",800,Cottage Grove,0,0,0
+Row_nr Cottage Grove,5800,"28Dec2022, 10:00",3900,"11Apr2023, 20:00",1900,Dorena,0,0,0
+No Santiam_at Niagara,19200,"28Dec2022, 16:00",10000,"07Jan2023, 03:00",9200,Big Cliff,275228.9661,0,275228.9661
+Fall_btw Winberry Cr nr Fall Creek,3900,"11Apr2023, 19:00",2900,"22Oct2022, 23:00",1000,Fall Creek,45168.51724,0,45168.51724
+So Santiam_nr Foster,24300,"05Nov2022, 15:00",11600,"28Dec2022, 05:00",12700,Foster,5352.603597,0,5352.603597
