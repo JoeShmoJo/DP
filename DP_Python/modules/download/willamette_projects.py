@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Shared Willamette project metadata used by PareDown_Willamette.py,
-DP_Download.py (via qaqc_records.py) and DP_QAQC.py.
+Willamette project metadata used by step 1: dp_download.py (via
+qaqc_records.py) and dp_qaqc.py.
 
 Created 30Sep2026
 
@@ -41,54 +41,12 @@ PROJECTS = {
             'cwms_outflow': 'BCL.Flow-Out.Inst.0.0.MIXED-COMPUTED-REV'},
 }
 
-# Willamette CWMS locations that aren't reservoir projects
-WILLAMETTE_CWMS_OTHER = {
-    'EUGO': 'Willamette River at Eugene',
-    'SCO': 'Scoggins Dam (Henry Hagg Lake), Tualatin basin',
-    'FRMO': 'Willamette basin flow location (in RequiredRecordsDictNWP.csv; confirm)',
-}
-
-# USGS site numbers in the Willamette basin (HUC 1709) fall in this range
-# (Middle Fork headwaters ~14144900 down to the Willamette at Portland,
-# 14211720). Lower Columbia gages are numbered in and around it (14144700
-# Columbia R at Vancouver, 1421182x Columbia Slough), so any path that
-# mentions the Columbia is excluded regardless of number.
-WILLAMETTE_USGS_MIN = 14144900
-WILLAMETTE_USGS_MAX = 14211799
-EXCLUDE_KEYWORDS = ['COLUMBIA']
-
 # Words in a ResSimPath that mark a Willamette-basin record.
 WILLAMETTE_KEYWORDS = [
     'WILLAMETTE', 'SANTIAM', 'MCKENZIE', 'LONG TOM', 'COAST FORK', 'ROW R',
     'CALAPOOIA', 'MOLALLA', 'PUDDING', 'YAMHILL', 'LUCKIAMUTE', 'MARYS R',
     'TUALATIN', 'CLACKAMAS',
 ] + [kw for p in PROJECTS.values() for kw in p['keywords']]
-
-
-# ResSim alternative tabs (Observed/Timeseries csvs): location names that mark
-# a row as outside the Willamette basin, and extra Willamette names beyond
-# WILLAMETTE_KEYWORDS (gage-point names used in the ResSim network).
-NON_WILLAMETTE_LOCATIONS = [
-    'COLUMBIA', 'COWLITZ', 'MOSSYROCK', 'MAYFIELD', 'MERWIN', 'LEWIS', 'JOHN DAY', 'THE DALLES',
-    'BONNEVILLE', 'UMATILLA', 'KLICKITAT', 'DESCHUTES', 'TONGUE POINT', 'SANDY',
-]
-WILLAMETTE_LOCATIONS = WILLAMETTE_KEYWORDS + [p['name'].upper() for p in PROJECTS.values()] + [
-    'SCOGGINS', 'FERM RIDGE', 'EUGENE', 'JASPER', 'GOSHEN', 'HARRISBURG', 'MONROE', 'ALBANY', 'SALEM',
-    'JEFFERSON', 'MEHAMA', 'WATERLOO', 'VIDA', 'NEWBERG',
-]
-
-
-def location_basin(location, a_part='', b_part=''):
-    """'WIL', 'NON' or None (unknown) for a ResSim alternative-tab row."""
-    name = str(location).upper()
-    if name.startswith('WILLAMETTE'):          # e.g. Willamette+Columbia Slough
-        return 'WIL'
-    text = ' '.join([name, str(a_part).upper(), str(b_part).upper()])
-    if any(k in text for k in NON_WILLAMETTE_LOCATIONS):
-        return 'NON'
-    if any(k in text for k in WILLAMETTE_LOCATIONS):
-        return 'WIL'
-    return None
 
 
 def cwms_location(download_key):
@@ -140,19 +98,3 @@ def project_for_record(res_sim_path, download_key, source):
             return loc
     return None
 
-
-def is_willamette(res_sim_path, download_key, source):
-    """True if a RequiredRecordsDict row belongs to the Willamette basin."""
-    source = str(source).upper()
-    text = str(res_sim_path).upper()
-    if any(kw in text for kw in EXCLUDE_KEYWORDS):
-        return False
-    if source == 'USGS':
-        site = usgs_site(download_key)
-        if site.isdigit() and len(site) == 8:
-            return WILLAMETTE_USGS_MIN <= int(site) <= WILLAMETTE_USGS_MAX
-    if source == 'CWMS':
-        loc = cwms_location(download_key)
-        if loc in PROJECTS or loc in WILLAMETTE_CWMS_OTHER:
-            return True
-    return any(kw in text for kw in WILLAMETTE_KEYWORDS)

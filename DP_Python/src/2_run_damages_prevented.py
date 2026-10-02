@@ -174,7 +174,7 @@ def _run(cfg, run_dir, log):
     log("\n5. Damages prevented")
     buf = io.StringIO()
     with contextlib.redirect_stdout(buf):
-        calculate_damages.main(res_dir, os.path.join(run_dir, "Damages"))
+        calculate_damages.main(res_dir, os.path.join(run_dir, "Damages"), damage_curves_pkl=cfg.damage_curves_pkl)
     for line in buf.getvalue().splitlines():
         if line.strip() and not line.startswith("Results:"):
             log("   " + line.replace(run_dir + os.sep, ""))

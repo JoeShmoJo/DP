@@ -11,8 +11,8 @@ outflow (the observed release, hourly and daily mean, since power peaking
 makes the hourly release hard to read) and the observed pool elevation.
 
 Hours that were missing in obsData.dss and filled by straight-line
-interpolation are shaded: orange where the plotted record itself was filled,
-grey where a record the modeled flows are built from (upstream gages,
+interpolation are shaded pink: solid where the plotted record itself was
+filled, hatched where a record the modeled flows are built from (upstream gages,
 reservoir inflows and releases, locals) was filled at that hour (not lagged
 for routing). In the whole-period panels short gaps are drawn at least about
 a day wide so they can be seen.
@@ -30,7 +30,10 @@ from .model import r100
 
 COLORS = {"unreg": "#c0392b", "reg": "#1f4e9a", "modeled": "#7fa7d9", "inflow": "#7f7f7f", "elev": "#2e7d32"}
 ZOOM_DAYS = 7
-FILLED = {"own": ("#f39c12", 0.30), "inputs": ("#8c8c8c", 0.28)}
+# Shading for hours filled by interpolation: solid pink where the plotted record itself
+# was filled, pink hatching where a record the modeled flows are built from was filled
+FILLED = {"own": {"facecolor": (1.0, 0.08, 0.58, 0.40), "edgecolor": "none"},
+          "inputs": {"facecolor": (1.0, 0.08, 0.58, 0.12), "edgecolor": (1.0, 0.08, 0.58, 0.85), "hatch": "////"}}
 
 
 def safe_name(text):
@@ -80,7 +83,6 @@ def _shade(ax, mask, kind, label, zoom=None):
     runs = _runs(mask)
     if not runs:
         return False
-    color, alpha = FILLED[kind]
     half = _hours(0.5)
     min_w = _days(1) if zoom is None else _hours(1)
     hours = int(mask.sum())
@@ -89,7 +91,7 @@ def _shade(ax, mask, kind, label, zoom=None):
         if b - a < min_w:
             mid = a + (b - a) / 2
             a, b = mid - min_w / 2, mid + min_w / 2
-        ax.axvspan(a, b, color=color, alpha=alpha, linewidth=0, zorder=0,
+        ax.axvspan(a, b, linewidth=0, zorder=0, **FILLED[kind],
                    label=f"{label} ({hours:,} h)" if k == 0 else "_nolegend_")
     return True
 

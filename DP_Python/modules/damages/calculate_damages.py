@@ -138,7 +138,7 @@ def map_long_to_short(long_name, aliases_dict):
     return None  # If no match is found
 
 
-def main(results_dir, out_dir, tag=''):
+def main(results_dir, out_dir, tag='', damage_curves_pkl=DAMAGE_CURVES_PKL):
     out_suffix = '_' + tag if tag else ''
     print(f"Results: {os.path.abspath(results_dir)}")
 
@@ -147,7 +147,7 @@ def main(results_dir, out_dir, tag=''):
     Created on Wed Dec 27 10:28:06 2023
     @author: g2encjer
     """
-    damage_curves_dict = pd.read_pickle(DAMAGE_CURVES_PKL)
+    damage_curves_dict = pd.read_pickle(damage_curves_pkl)
     damages_prevented_df = read_cp_peaks(results_dir)
 
     # Map long names to short names in the Damages_Prevented table

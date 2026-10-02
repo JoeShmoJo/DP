@@ -108,8 +108,6 @@ from pydsstools.heclib.dss import HecDss
 from pydsstools.core import TimeSeriesContainer
 import numpy as np
 import time
-import pdb
-import requests
 
 import ssl
 import sys
