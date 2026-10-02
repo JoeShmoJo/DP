@@ -15,13 +15,11 @@ Find the dollar reduction associated with each project:
 
 Oct 2026: reads the CSV results written by the ResSim 4.1 Damages Prevented menu
 (DPdata/Results/CP_Peaks.csv and Preliminary_per_project.csv) instead of the old
-FlowReductions.xls. An old FlowReductions .xls/.xlsx can still be given as
-FLOW_REDUCTIONS to rerun a past year. Control points are matched to damage
-curves by their name in either the new Willamette network or the old Columbia
-one. The method itself is unchanged.
+FlowReductions.xls. Control points are matched to damage curves by their name in
+the Willamette ResSim 4.1 network. The method itself is unchanged.
 
 Usage:  python Calculate_DP.py
-        python Calculate_DP.py <Results folder or FlowReductions.xls> [output tag]
+        python Calculate_DP.py <Results folder> [output tag]
 Writes damages_prevented<_tag>.csv and damages_prevented_ByProject<_tag>.csv
 next to this script.
 '''
@@ -34,39 +32,39 @@ import numpy as np
 # USER INPUT
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# The ResSim results folder (CSV), or an old FlowReductions .xls/.xlsx
-FLOW_REDUCTIONS = os.path.join(SCRIPT_DIR, '..', 'DPdata', 'Results')
+# The folder the ResSim Damages Prevented menu writes its CSV results to
+RESULTS_DIR = os.path.join(SCRIPT_DIR, '..', 'DPdata', 'Results')
 # Added to the output file names, e.g. '2026' -> damages_prevented_2026.csv
 OUTPUT_TAG = ''
 
 DAMAGE_CURVES_PKL = os.path.join(SCRIPT_DIR, 'regulated_damage_curves.pkl')
 
 # Damage curve (tab in WV_Projects_Average_Annual_Benefits.xlsx) -> control point
-# names, new Willamette ResSim 4.1 network first, then the old network's name
+# name in the Willamette ResSim 4.1 network (old network name in the comment)
 aliases_dict = {
-    "Jasper": ["MF Willamette_at Jasper"],
-    "Goshen": ["CF WIllamette_nr Goshen", "CF Willamette_nr Goshen"],
-    "Eugene": ["Willamette_at Eugene"],
-    "Vida": ["McKenzie_at Vida", "Mckenzie_at Vida"],
-    "Harrisburg": ["Willamette_at Harrisburg"],
-    "Monroe": ["Long Tom_at Monroe"],
-    "Albany": ["Willamette_at Albany"],
-    "Mehama": ["No Santiam_at Mehama"],
-    "Waterloo": ["So Santiam_at Waterloo"],
-    "Jefferson": ["Santiam_at Jefferson"],
-    "Salem": ["Willamette_at Salem"],
-    "Newberg": ["Willamette_at Newberg"],
-    "Willamette Falls": ["Willamette_abv Falls at Oregon City"],
-    "Willamette+Clackamas": ["Willamette+Clackamas"],   # not in the new network (it ends at Willamette Falls)
-    "Corvallis": ["Willamette+Marys"],
-    "Walterville": ["Mkenzie_nr Walterville", "McKenzie R. NR Walterville"],
-    "Oakridge": ["MF Willamette NR Oakridge", "MF Willamette_blw NFork nr Oakridge"],
-    "Coburg": ["McKenzie_nr Coburg"],
-    "Cottage Grove": ["Cottage Grove_OUT", "CF Willamette_blw Cottage Grove Dam"],
-    "Dorena": ["Dorena_OUT", "Row_nr Cottage Grove"],
-    "Big Cliff": ["Big Cliff_OUT", "No Santiam_at Niagara"],
-    "Fall Creek": ["Fall Creek_OUT", "Fall_btw Winberry Cr nr Fall Creek"],
-    "Foster": ["Foster_OUT", "So Santiam_nr Foster"]
+    "Jasper": "MF Willamette_at Jasper",
+    "Goshen": "CF WIllamette_nr Goshen",
+    "Eugene": "Willamette_at Eugene",
+    "Vida": "McKenzie_at Vida",
+    "Harrisburg": "Willamette_at Harrisburg",
+    "Monroe": "Long Tom_at Monroe",
+    "Albany": "Willamette_at Albany",
+    "Mehama": "No Santiam_at Mehama",
+    "Waterloo": "So Santiam_at Waterloo",
+    "Jefferson": "Santiam_at Jefferson",
+    "Salem": "Willamette_at Salem",
+    "Newberg": "Willamette_at Newberg",
+    "Willamette Falls": "Willamette_abv Falls at Oregon City",
+    "Willamette+Clackamas": "Willamette+Clackamas",
+    "Corvallis": "Willamette+Marys",
+    "Walterville": "Mkenzie_nr Walterville",               # McKenzie R. NR Walterville
+    "Oakridge": "MF Willamette NR Oakridge",                # MF Willamette_blw NFork nr Oakridge
+    "Coburg": "McKenzie_nr Coburg",
+    "Cottage Grove": "Cottage Grove_OUT",                   # CF Willamette_blw Cottage Grove Dam
+    "Dorena": "Dorena_OUT",                                 # Row_nr Cottage Grove
+    "Big Cliff": "Big Cliff_OUT",                           # No Santiam_at Niagara
+    "Fall Creek": "Fall Creek_OUT",                         # Fall_btw Winberry Cr nr Fall Creek
+    "Foster": "Foster_OUT"                                  # So Santiam_nr Foster
 }
 
 Reservoir_Flood_Storage_Dict = {
@@ -94,38 +92,22 @@ reservoir_groups = [
 ################################################################################
 
 
-def read_cp_peaks(source):
+def read_cp_peaks(results_dir):
     """
-    CP_Peaks as a DataFrame with the columns the rest of the script uses:
+    CP_Peaks.csv with the columns the rest of the script uses:
     Control Point, Unreg Peak Flow, Regulated Peak Flow, Flow Reduction (+ dates).
     """
-    if os.path.isdir(source):
-        df = pd.read_csv(os.path.join(source, 'CP_Peaks.csv'))
-        df = df.rename(columns={
-            'Unreg Peak Flow (cfs)': 'Unreg Peak Flow',
-            'Regulated Peak Flow (cfs)': 'Regulated Peak Flow',
-            'Flow Reduction (cfs)': 'Flow Reduction'})
-    else:
-        # Old FlowReductions spreadsheet: row 2 holds the units
-        df = pd.read_excel(source, sheet_name='CP_Peaks', usecols='A:F', skiprows=[1])
-    df = df.dropna(subset=['Control Point'])
-    for col in ('Unreg Peak Flow', 'Regulated Peak Flow', 'Flow Reduction'):
-        df[col] = pd.to_numeric(df[col])
-    return df
+    df = pd.read_csv(os.path.join(results_dir, 'CP_Peaks.csv'))
+    return df.rename(columns={
+        'Unreg Peak Flow (cfs)': 'Unreg Peak Flow',
+        'Regulated Peak Flow (cfs)': 'Regulated Peak Flow',
+        'Flow Reduction (cfs)': 'Flow Reduction'})
 
 
-def read_per_project(source):
-    """Preliminary_per_project: control points down, reservoirs across, 'x' = not downstream."""
-    if os.path.isdir(source):
-        # Three description lines, then the header
-        df = pd.read_csv(os.path.join(source, 'Preliminary_per_project.csv'), header=3, index_col=0)
-    else:
-        df = pd.read_excel(source, sheet_name='Preliminary_per_project', header=3, index_col=0)
-    df = df.loc[:, [c for c in df.columns if not str(c).startswith('Unnamed')]]
-    # Stop at the first blank row: some saved workbooks have a hand-adjusted table below
-    blank = [i for i, name in enumerate(df.index) if pd.isna(name) or str(name).strip() == '']
-    if blank:
-        df = df.iloc[:blank[0]]
+def read_per_project(results_dir):
+    """Preliminary_per_project.csv: control points down, reservoirs across, 'x' = not downstream."""
+    # Three description lines, then the header
+    df = pd.read_csv(os.path.join(results_dir, 'Preliminary_per_project.csv'), header=3, index_col=0)
     df = df.replace('x', np.nan)
     return df.apply(pd.to_numeric)
 
@@ -151,18 +133,17 @@ def interpolate_damage(flow, damage_curve_df):
     return np.interp(flow, damage_curve_df['Flow (cfs)'].values, damage_curve_df['Property Damage'].values)
 
 
-# Function to map a control point name to its damage curve name (any case)
+# Function to map long names to short names
 def map_long_to_short(long_name, aliases_dict):
-    for short, longs in aliases_dict.items():
-        for long in longs:
-            if long.lower() == str(long_name).strip().lower():
-                return short
+    for short, long in aliases_dict.items():
+        if long == long_name:
+            return short
     return None  # If no match is found
 
 
-def main(source, tag):
+def main(results_dir, tag):
     out_suffix = '_' + tag if tag else ''
-    print(f"Flow reductions: {os.path.abspath(source)}")
+    print(f"Results: {os.path.abspath(results_dir)}")
 
     """
     Part 1 - Interpolate $ Damges from Damages Prevented flows and 2024 Disposition damage curves
@@ -170,7 +151,7 @@ def main(source, tag):
     @author: g2encjer
     """
     damage_curves_dict = pd.read_pickle(DAMAGE_CURVES_PKL)
-    damages_prevented_df = read_cp_peaks(source)
+    damages_prevented_df = read_cp_peaks(results_dir)
 
     # Map long names to short names in the Damages_Prevented table
     damages_prevented_df['Short Name'] = damages_prevented_df['Control Point'].apply(lambda x: map_long_to_short(x, aliases_dict))
@@ -241,7 +222,7 @@ def main(source, tag):
     # Per-project reductions ('x' already NaN). Re-regulating dams (Big Cliff,
     # Dexter) have no column: the ResSim scripts credit them to Detroit and
     # Lookout Point.
-    df = read_per_project(source)
+    df = read_per_project(results_dir)
     unknown = [c for c in df.columns if c != 'Total Flow Reduction' and c not in Reservoir_Flood_Storage_Dict]
     if unknown:
         raise KeyError(f"Reservoirs in Preliminary_per_project missing from Reservoir_Flood_Storage_Dict: {unknown}")
@@ -310,6 +291,6 @@ def main(source, tag):
 
 
 if __name__ == '__main__':
-    source = sys.argv[1] if len(sys.argv) > 1 else FLOW_REDUCTIONS
+    results_dir = sys.argv[1] if len(sys.argv) > 1 else RESULTS_DIR
     tag = sys.argv[2] if len(sys.argv) > 2 else OUTPUT_TAG
-    main(source, tag)
+    main(results_dir, tag)
