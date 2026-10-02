@@ -82,7 +82,11 @@ class DssFile:
         """{condensed upper-case pathname (no D part): a stored pathname}"""
         if self._catalog is None:
             self._catalog = {}
-            for p in self._fid.search_path("/*/*/*/*/*/*/"):
+            if hasattr(self._fid, "search_path"):                 # pydsstools 3.x
+                paths = self._fid.search_path("/*/*/*/*/*/*/")
+            else:                                                  # pydsstools 2.x
+                paths = self._fid.getPathnameList("/*/*/*/*/*/*/", sort=1)
+            for p in paths:
                 self._catalog.setdefault(self._key(p), p)
         return self._catalog
 
@@ -111,5 +115,6 @@ class DssFile:
         values[np.abs(values) > 1e30] = np.nan
         s = pd.Series(values, index=pd.DatetimeIndex(_times(ts)), name=self._key(pathname))
         s = s[(s.index >= pd.Timestamp(start)) & (s.index <= pd.Timestamp(end))]
-        s.attrs["type"] = str(getattr(ts, "data_type", "") or "").upper()
+        dtype = getattr(ts, "data_type", None) or getattr(ts, "type", None) or ""   # 3.x / 2.x
+        s.attrs["type"] = str(dtype).upper()
         return s
