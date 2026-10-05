@@ -49,6 +49,7 @@ class Config:
         self.year_dir = os.path.join(self.output_dir, self.year_label)
         self.download_dir = os.path.join(self.year_dir, DOWNLOAD_FOLDER)
         self.raw_dss = os.path.join(self.download_dir, "obsData_raw.dss")
+        self.raw_archive_dir = os.path.join(self.download_dir, "raw_archive")
         self.qaqc_dir = os.path.join(self.download_dir, "QAQC")
         self.edited_dss = os.path.join(self.year_dir, EDITED_FOLDER, "obsData.dss")
         self.results_dir = os.path.join(self.year_dir, RESULTS_FOLDER)

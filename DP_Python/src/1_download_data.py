@@ -1,29 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-STEP 1 - Download and check the observed data.
+STEP 1 - Download source data, archive it, and create hourly DSS inputs.
 
-    python src/1_download_data.py
+    python src/1_download_data.py [config.ini]
 
-Everything goes in output/WY<year>/ (the water year in config/config.ini):
-
-1_download_for_data_management_review/
-    obsData_raw.dss             every USGS and CWMS record the process needs, hourly,
-                                exactly as downloaded (rewritten on every download)
-    QAQC/                       data checks: USGS vs CWMS records that should match,
-                                and spikes / jumps / negatives / flat lines in the
-                                CWMS reservoir inflows (tables, and plots in QAQC/plots)
-    Combined_Summary_Stats.csv  missing hours and % complete for every record
-    FOR DATA MANAGEMENT REVIEW.txt
-2_edited_data/obsData.dss       a copy of the raw file, made on the first download
-                                only. This is the file you clean in DSSVue and step 2
-                                reads; a later download never replaces it.
-
-Records already downloaded for the same period are reused, so an interrupted
-download picks up where it stopped (modules/download/dp_download.py,
-ReuseDownloaded).
-
-Needs a USGS Water Data API key in config/records/usgs_api_key.txt (one line,
-never committed) and access to the CWMS data API.
+Native-resolution source tables are saved as ZIP-compressed CSVs with metadata
+in 1_download_for_data_management_review/raw_archive/. Hourly averages go to
+obsData_raw.dss; 2_edited_data/obsData.dss is created once and never overwritten.
+No data-management QA/QC runs here. Run src/3_assess_data.py separately.
 """
 import datetime
 import os
@@ -35,29 +19,21 @@ MODULES_DIR = os.path.join(DP_PYTHON_DIR, "modules")
 sys.path.insert(0, MODULES_DIR)
 from dp.config import Config, DEFAULT_CONFIG
 
-REVIEW_NOTE = """FOR DATA MANAGEMENT REVIEW
-==========================
+REVIEW_NOTE = """SOURCE DATA ARCHIVE
+===================
 
 {label} ({start:%d%b%Y} - {end:%d%b%Y}), downloaded {now:%d%b%Y %H:%M}.
 
-This folder holds the observed data for the Damages Prevented analysis exactly
-as it came from the USGS Water Data API and the CWMS data API, and the checks
-run on it. It is for reviewing the source data and reporting problems to data
-management. Nothing in this folder is edited.
+raw_archive/ contains one ZIP per source record: data.csv preserves the source
+columns and native timestamps; metadata.json identifies the source, record,
+requested period and download time. These are not hourly averages.
 
-  obsData_raw.dss              every record, hourly, as downloaded
-  Combined_Summary_Stats.csv   missing hours, longest gap and % complete per record
-  QAQC/Redundant_Pair_*.csv    CWMS records compared with the USGS record that
-                               should match them (pool elevations, project outflow
-                               vs the gage below the dam): bias, % of hours out of
-                               tolerance, datum offsets, time lags, and when
-  QAQC/Inflow_Spike_*.csv      spikes, one-hour jumps, negatives and flat lines in
-                               the CWMS reservoir inflows
-  QAQC/Inflow_Despiked.csv     the inflows with the flagged hours replaced
-  QAQC/plots/                  a plot for every pair and every inflow
+obsData_raw.dss contains hourly means for Damages Prevented. The editable copy
+is ../2_edited_data/obsData.dss and is never replaced by a later download.
 
-The data actually used for Damages Prevented is the edited copy in
-../2_edited_data/obsData.dss.
+Run python src/3_assess_data.py separately for data-management checks. It reads
+only raw_archive/ and writes reports under QAQC/. Neither DSS file is touched.
+Existing QAQC reports are not refreshed by a download.
 """
 
 
@@ -72,10 +48,8 @@ def write_review_note(cfg):
 def main(config_file=DEFAULT_CONFIG):
     os.environ["DP_CONFIG"] = os.path.abspath(config_file)
     cfg = Config(config_file)
-    print("=" * 78 + f"\nSTEP 1a - Download {cfg.year_label}\n" + "=" * 78)
+    print("=" * 78 + f"\nSTEP 1 - Download {cfg.year_label}\n" + "=" * 78)
     runpy.run_path(os.path.join(MODULES_DIR, "download", "dp_download.py"), run_name="__main__")
-    print("\n" + "=" * 78 + "\nSTEP 1b - Data checks (QAQC)\n" + "=" * 78)
-    runpy.run_path(os.path.join(MODULES_DIR, "download", "dp_qaqc.py"), run_name="__main__")
     write_review_note(cfg)
     print(f"\nFor data management review: {cfg.download_dir}"
           f"\nNext: clean {cfg.edited_dss} in DSSVue,"

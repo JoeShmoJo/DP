@@ -31,10 +31,10 @@ QA/QC of the hourly Willamette records written by DP_Download.py.
    Writes the flagged hours and a de-spiked copy (flagged hours replaced
    with the rolling median) so you can see what a cleaned record looks like.
 
-Part of step 1 of DP_Python (run by DP_Python/src/1_download_data.py after the
-download). The period comes from DP_Python/config/config.ini; inputs are the
-hourly csv in output/WY<year>/1_download_for_data_management_review and
-config/records; outputs (tables and plots/) go to its QAQC folder.
+Run independently with DP_Python/src/3_assess_data.py. Inputs are native-resolution
+ZIP source archives and record/pair configuration. Hourly means are derived in
+memory for the existing checks. Reports go to QAQC/; neither original nor edited
+DSS files are read or written. No inflow recalculation is performed in this iteration.
 
 @author: g2encjer
 """
@@ -55,6 +55,7 @@ for d in (DownloadDir, ModulesDir):
     if d not in sys.path:
         sys.path.insert(0, d)
 from dp.config import Config, DEFAULT_CONFIG
+from raw_archive import load_hourly
 cfg = Config(os.environ.get('DP_CONFIG', DEFAULT_CONFIG))
 
 from willamette_projects import (PROJECTS, param_class, project_for_record,
@@ -70,7 +71,7 @@ except ImportError:
 
 startDate = f'{cfg.start:%Y-%m-%d}'
 endDate = f'{cfg.end:%Y-%m-%d}'
-HourlyCsv = os.path.join(cfg.download_dir, f'Hourly_{startDate}_{endDate}.csv')
+RawArchiveDir = cfg.raw_archive_dir
 # Records dictionary + the QA/QC-only records built by DP_Download.py
 RecordsPaths = [os.path.join(cfg.records_dir, 'RequiredRecordsDictWIL.csv'),
                 os.path.join(cfg.records_dir, 'QAQC_RecordsWIL.csv')]
@@ -98,20 +99,6 @@ FLAT_HOURS = 12            # identical values this many hours in a row
 def norm_key(source, key):
     key = str(key).strip()
     return usgs_site(key) if str(source).upper() == 'USGS' else key
-
-
-def load_hourly(csv_file):
-    hourly = pd.read_csv(csv_file, dtype={'Download_Key': str})
-    hourly['time_utc'] = pd.to_datetime(hourly['time_utc'])
-    hourly['Key'] = [norm_key(s, k) for s, k in zip(hourly['Source'], hourly['Download_Key'])]
-    series = {}
-    paths = {}
-    for (source, key), g in hourly.groupby(['Source', 'Key']):
-        first_path = g['ResSimPath'].iloc[0]
-        g = g[g['ResSimPath'] == first_path]
-        series[(source, key)] = g.set_index('time_utc')['value'].astype(float).sort_index()
-        paths[(source, key)] = first_path
-    return series, paths
 
 
 def load_records(paths):
@@ -342,10 +329,23 @@ if __name__ == '__main__':
     if MakePlots and plt is not None:
         os.makedirs(plot_dir, exist_ok=True)
 
-    if not os.path.exists(HourlyCsv):
-        sys.exit(f'No downloaded data for {startDate} to {endDate}: {HourlyCsv} not found.\n'
-                 f'Run the download first (python src/1_download_data.py), with the same water year in config.ini.')
-    series, paths = load_hourly(HourlyCsv)
+    if not os.path.isdir(RawArchiveDir):
+        sys.exit(f'No raw source archive: {RawArchiveDir}. Run src/1_download_data.py first.')
+    series, paths = load_hourly(RawArchiveDir, startDate, endDate)
+    completeness_rows = []
+    for identity, values in series.items():
+        valid = values.dropna()
+        gaps = runs(values.isna())
+        completeness_rows.append({
+            'Source': identity[0], 'Download_Key': identity[1],
+            'DataFrame': paths[identity],
+            'First Timestamp': valid.index.min() if len(valid) else None,
+            'Last Timestamp': valid.index.max() if len(valid) else None,
+            'Hours Expected': len(values), 'Hours Missing': int(values.isna().sum()),
+            'Longest Missing Gap Hours': max((end - start + 1 for start, end in gaps), default=0),
+            'Pct Complete': 100.0 * len(valid) / len(values) if len(values) else np.nan,
+        })
+    pd.DataFrame(completeness_rows).to_csv(os.path.join(OutDir, 'Combined_Summary_Stats.csv'), index=False)
     rec = load_records(RecordsPaths)
 
     # ---- Redundant records ----
@@ -354,8 +354,9 @@ if __name__ == '__main__':
         print(f'Using pairs from {PairsPath}')
     else:
         pairs = draft_pairs(rec)
-        pairs.to_csv(PairsPath, index=False)
-        print(f'Drafted {PairsPath} - check it, edit if needed, and rerun.')
+        draft_path = os.path.join(OutDir, 'RedundantPairs_draft.csv')
+        pairs.to_csv(draft_path, index=False)
+        print(f'Drafted {draft_path} - review before adding to config/records.')
     print(pairs[['Project', 'Parameter', 'CWMS_Key', 'USGS_Key', 'Matched_By']].to_string(index=False))
 
     all_stats, all_events, all_monthly = [], [], []

@@ -130,6 +130,7 @@ ConfigDir = cfg.records_dir
 
 from willamette_projects import PROJECTS
 from qaqc_records import build_qaqc_records, catalog_entries, catalog_regex, prune_qaqc_records
+from raw_archive import save_raw, has_raw
 
 # --- SSL Certificate Setup ---
 # Build a combined CA bundle (public CAs from certifi + the Windows ROOT
@@ -197,7 +198,7 @@ QAQCRecordsPath = os.path.join(ConfigDir, 'QAQC_RecordsWIL.csv')
 startDate = f'{cfg.start:%Y-%m-%d}'
 endDate = f'{cfg.end:%Y-%m-%d}'
 # Everything step 1 writes goes in output/WY<year>/1_download_for_data_management_review:
-# summary stats, hourly csv, CWMS candidates and the raw obsData_raw.dss (DSS 7)
+# native source archives, hourly download cache, CWMS candidates and obsData_raw.dss (DSS 7)
 OutDir = cfg.download_dir
 os.makedirs(OutDir, exist_ok=True)
 ObsDataWrite = cfg.raw_dss
@@ -208,6 +209,7 @@ print(f"[INFO] Period {startDate} to {endDate}; raw download: {ObsDataWrite}")
 # Records already in HourlyCsv (same period, with values) are reused instead of
 # downloaded again. Set False to re-download everything.
 ReuseDownloaded = True
+ArchivedRecords = set()
 
 
 #Functions
@@ -482,12 +484,13 @@ def hourly_frame(source, key, pathname, df):
     })
 
 def save_record(source, key, pathname, raw):
+    """Archive the source table, then checkpoint its hourly download cache.
+
+    Archive failures stop DSS publication; cache failures are reported.
     """
-    Save one record as soon as it is downloaded: process it to hourly, append
-    it to HourlyCsv and put its row in Combined_Summary_Stats.csv. A run that
-    stops part way keeps these, and the next run reuses them (load_downloaded).
-    Never stops the download: a failure here is only reported.
-    """
+    # Archiving is required and must succeed before hourly-cache processing.
+    save_raw(cfg.raw_archive_dir, source, key, pathname, raw, startDate, endDate)
+    ArchivedRecords.add((source, str(key), pathname))
     try:
         one = {pathname: raw.copy()}
         if source == 'USGS':
@@ -498,12 +501,6 @@ def save_record(source, key, pathname, raw):
             return
         rows = hourly_frame(source, str(key), pathname, one[pathname])
         rows.to_csv(HourlyCsv, mode='a', header=not os.path.exists(HourlyCsv), index=False)
-        summary_path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
-        if os.path.exists(summary_path):
-            summary = pd.read_csv(summary_path)
-            summary = summary[summary['DataFrame'] != pathname]
-            stats = pd.concat([summary, stats], ignore_index=True)
-        stats.to_csv(summary_path, index=None)
         print(f"   saved {source} {key}")
     except Exception as e:
         print(f"[WARNING] Could not save {source} {key} as it downloaded ({e}); it is still kept for this run.")
@@ -516,27 +513,35 @@ def write_to_dss(dss_file, DataDict):
         if isinstance(df, pd.Series):
             df = df.to_frame()
         # Create the time series container
-        tsc = TimeSeriesContainer()
-        tsc.pathname = pathname
-        tsc.startDateTime = str(df.index[0])
-        tsc.numberValues = df.shape[0]
         # Check if df has the expected structure
         if df.shape[1] > 0:
-            tsc.values = df.iloc[:, 0].copy().to_numpy()
+            values = df.iloc[:, 0].copy().to_numpy()
         else:
             print(f"DataFrame {pathname} does not have any columns.")
             continue
-        tsc.interval = 1  # Assuming this is the interval
         # Set units based on the path
         if "ELEV" in pathname:
-            tsc.units = "FEET"
+            units = "FEET"
         elif "FLOW" in pathname:
-            tsc.units = "CFS"
+            units = "CFS"
         else:
-            tsc.units = 'Unknown'
+            units = 'Unknown'
             print('Not Flow or Elev!')
         # Set the type
-        tsc.type = "INST-VAL"  # Assuming this is always the type
+        interval = 1440 if '/1DAY/' in pathname.upper() else 60
+        try:
+            tsc = TimeSeriesContainer(pathname, count=len(values), interval=interval,
+                                      values=values, start_time=df.index[0].to_pydatetime(),
+                                      data_units=units, data_type="INST-VAL")
+        except TypeError:  # pydsstools 2.x
+            tsc = TimeSeriesContainer()
+            tsc.pathname = pathname
+            tsc.startDateTime = str(df.index[0])
+            tsc.numberValues = len(values)
+            tsc.values = values
+            tsc.interval = interval
+            tsc.units = units
+            tsc.type = "INST-VAL"
         # Write the data to the DSS file to the out folder
 
         with HecDss.Open(dss_file, version=7) as fid:
@@ -588,8 +593,16 @@ for source in ('USGS', 'CWMS'):
 #%%
 # Records already downloaded in an earlier run (in HourlyCsv) are reused, not downloaded again
 Downloaded = load_downloaded(HourlyCsv, startDate, endDate) if ReuseDownloaded else {}
+Downloaded = {identity: data for identity, data in Downloaded.items()
+              if any(identity == (source, str(key))
+                     and has_raw(cfg.raw_archive_dir, source, key, path, startDate, endDate)
+                     for records, source in ((USGS_Elev_dict, 'USGS'),
+                                             (USGS_Flow_dict, 'USGS'), (CWMS_dict, 'CWMS'))
+                     for key, path in records.items())}
 def still_needed(sites_dict, source):
-    return {k: v for k, v in sites_dict.items() if (source, str(k)) not in Downloaded}
+    return {k: v for k, v in sites_dict.items()
+            if (source, str(k)) not in Downloaded
+            or not has_raw(cfg.raw_archive_dir, source, k, v, startDate, endDate)}
 n_all = len(USGS_Elev_dict) + len(USGS_Flow_dict) + len(CWMS_dict)
 n_need = len(still_needed(USGS_Elev_dict, 'USGS')) + len(still_needed(USGS_Flow_dict, 'USGS')) + len(still_needed(CWMS_dict, 'CWMS'))
 print(f"{n_all - n_need} of {n_all} records already downloaded in {HourlyCsv}; downloading {n_need}")
@@ -608,6 +621,16 @@ USGS_Flow_Data_Dict = NWIS_dl(sites_dict = still_needed(USGS_Flow_dict, 'USGS'),
 
 CWMS_Data_Dict = CWMS_Download(sites_dict=still_needed(CWMS_dict, 'CWMS'), StartDate = startDate, EndDate = endDate, on_record = save_cwms)
 
+# Do not publish hourly DSS inputs if a fetched source table could not be archived.
+for source, records, keys in (
+        ('USGS', USGS_Elev_Data_Dict, USGS_Elev_dict),
+        ('USGS', USGS_Flow_Data_Dict, USGS_Flow_dict),
+        ('CWMS', CWMS_Data_Dict, CWMS_dict)):
+    reverse_keys = {path: key for key, path in keys.items()}
+    for path in records:
+        if (source, str(reverse_keys[path]), path) not in ArchivedRecords:
+            raise RuntimeError(f'Raw archive missing for {source} {reverse_keys[path]}; DSS inputs not updated.')
+
 #%%
 # Process Data and create summary stats - this process gets rid of all the metadata that comes
 # in with the data, and also creates summary stats that are written to a csv.
@@ -621,27 +644,14 @@ for sites_dict, source, DataDict in ((USGS_Elev_dict, 'USGS', USGS_Elev_Data_Dic
                                      (USGS_Flow_dict, 'USGS', USGS_Flow_Data_Dict),
                                      (CWMS_dict, 'CWMS', CWMS_Data_Dict)):
     for key, path in sites_dict.items():
-        if (source, str(key)) in Downloaded:
+        if (source, str(key)) in Downloaded and path not in DataDict:
             DataDict[path] = Downloaded[(source, str(key))].fillna(-902)
             Reused_Paths.append(path)
 
-# Summary stats for reused records come from the previous run's summary
-Previous_Summary_Path = os.path.join(OutDir, 'Combined_Summary_Stats.csv')
-Previous_Summary_Stats = pd.DataFrame()
-if Reused_Paths and os.path.exists(Previous_Summary_Path):
-    Previous_Summary_Stats = pd.read_csv(Previous_Summary_Path)
-    Previous_Summary_Stats = Previous_Summary_Stats[Previous_Summary_Stats['DataFrame'].isin(Reused_Paths)]
+# Completeness and other assessment reports are produced only by step 3.
 
 #%%
-Combined_Summary_Stats = pd.concat([CWMS_Summary_Stats,USGS_Flow_Summary_Stats,USGS_Elev_Summary_Stats,Previous_Summary_Stats], ignore_index= True)
-if 'Max Gap Hours' in Combined_Summary_Stats.columns:
-    Combined_Summary_Stats['Max Gap Hours'] = Combined_Summary_Stats['Max Gap Hours'].astype(float).round(2)
-Combined_Summary_Stats.sort_values(by='Max Gap Hours', ascending=False, inplace=True)
-Combined_Summary_Stats.reset_index(drop=True, inplace=True)
-Combined_Summary_Stats.to_csv(os.path.join(OutDir, 'Combined_Summary_Stats.csv'), index=None)
-
-#%%
-# Hourly data for QA/QC (DP_QAQC.py). Keys map ResSimPath back to the download key.
+# Hourly download cache for resuming step 1. Step 3 reads raw archives instead.
 write_hourly_csv(HourlyCsv, {
     'USGS': ({**USGS_Flow_Data_Dict, **USGS_Elev_Data_Dict},
              {v: k for k, v in {**USGS_Flow_dict, **USGS_Elev_dict}.items()}),
