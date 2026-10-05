@@ -21,8 +21,8 @@ your water year.
 | # | Do this | Command / where |
 |---|---|---|
 | 1 | Set the water year | `config/config.ini` -> `water_year = 2026` |
-| 2 | Download the data and run the data checks | `python src/1_download_data.py` |
-| 3 | Send the review folder to data management | `output/WY2026/1_download_for_data_management_review/` |
+| 2 | Download and archive the source data; create hourly DSS inputs | `python src/1_download_data.py` |
+| 3 | Run source-data QA/QC separately, then send the reports and archives to data management | `python src/3_assess_data.py` |
 | 4 | Clean the data in DSSVue | `output/WY2026/2_edited_data/obsData.dss` |
 | 5 | Run Damages Prevented | `python src/2_run_damages_prevented.py` |
 | 6 | Look at the plots and the log; any pink means data is still missing | `output/WY2026/3_damages_prevented/` |
@@ -34,6 +34,7 @@ Example on Windows:
     cd C:\Projects\DP\DP_Python
     python src\1_download_data.py
     python src\2_run_damages_prevented.py
+    python src\3_assess_data.py
 
 The scripts also run from VS Code or Spyder ("Run Python File"); they find
 their files on their own, whatever the working folder.
@@ -84,9 +85,9 @@ Everything for a water year is in `output/WY<year>/`:
 output/WY2026/
   1_download_for_data_management_review/   the data exactly as downloaded, and its checks.
       FOR DATA MANAGEMENT REVIEW.txt          Never edit anything in here.
-      obsData_raw.dss
-      Combined_Summary_Stats.csv
-      QAQC/  (tables, and plots/)
+      obsData_raw.dss                         Original hourly averages for DP.
+      raw_archive/                           Native-resolution source CSV ZIPs + metadata.
+      QAQC/  (completeness summary, tables, and plots; written only by step 3)
   2_edited_data/
       obsData.dss                           THE file you clean. Step 2 reads it.
   3_damages_prevented/                      the results of the latest step 2 run
@@ -95,41 +96,59 @@ output/WY2026/
 
 ---
 
-## Step 1: download and check the data
+## Step 1: download and archive the data
 
     python src/1_download_data.py
 
-It does the following:
+This script downloads the required USGS and CWMS records, including the extra
+records used for data-management review. It does **not** run QA/QC.
 
-- Downloads every USGS gage and CWMS reservoir record the process needs, hourly,
-  for the water year. The records are listed in
-  `config/records/RequiredRecordsDictWIL.csv`. They are saved to
-  `1_download_for_data_management_review/obsData_raw.dss`.
-- Saves each record as soon as it finishes downloading, and reuses records it
-  already has. **If the download stops part way, run it again**: it picks up
-  where it stopped.
-- **The first time only**, copies `obsData_raw.dss` to
-  `2_edited_data/obsData.dss`, the copy you will clean.
-- Runs the data checks and writes them to `QAQC/`. It also writes a
-  `FOR DATA MANAGEMENT REVIEW.txt` note explaining the folder.
+Each source table is archived **before filtering, removing missing values, or
+averaging**, in `1_download_for_data_management_review/raw_archive/`. Each ZIP
+contains `data.csv` with native-resolution timestamps and all source columns,
+and `metadata.json` with the source, record key, DSS mapping, requested period,
+download time, and column types. Filenames are hashes of source/key/mapping;
+the metadata identifies each record. These archives are local data, ignored by
+Git. Keep or share them alongside the water-year reports.
 
-**Downloading again is safe.** It replaces `obsData_raw.dss` and the checks,
-but **never your edited copy**. To start your edits over from a new download,
-delete `2_edited_data/obsData.dss` and run step 1 again. It reuses what it
-already downloaded, so this is quick.
+Hourly averages are written to `obsData_raw.dss`. On the first download only,
+this is copied to `2_edited_data/obsData.dss`, the file you clean for step 2.
+Downloading again never replaces the edited copy.
+
+Interrupted downloads reuse completed records only when both their hourly
+cache and native source archive exist. An older hourly-only cache triggers a
+new download to capture the original data; hourly means cannot recreate raw
+data. Successfully downloaded records are archived immediately. A deliberate
+refresh replaces that record's archive for the same period.
+
+## Step 3: assess the archived source data
+
+    python src/3_assess_data.py
+
+Run this independently of steps 1 and 2, whenever data management needs an
+assessment. It reads only the source ZIP archives and record/pair configuration,
+and writes reports under `1_download_for_data_management_review/QAQC/`.
+**Neither `obsData_raw.dss` nor the cleaned `obsData.dss` is read or modified.**
+The download cache and source archives are also left unchanged.
+
+For this iteration, the existing pair comparisons and inflow spike checks
+remain hourly: step 3 derives hourly means in memory from the native source
+archives. Recalculated inflows and diagnosis of elevation, datum, or rating
+changes are future work. `Inflow_Despiked.csv` is a diagnostic report only; it
+is never written back to either DSS file.
 
 ### What the checks show
 
 | File (in the review folder) | What to look for |
 |---|---|
-| `Combined_Summary_Stats.csv` | missing hours, longest gap and % complete for every record |
+| `QAQC/Combined_Summary_Stats.csv` | missing hours, longest missing hourly gap and % complete for every record |
 | `QAQC/Redundant_Pair_Summary.csv` and `QAQC/plots/pair_*.png` | CWMS and USGS records that should agree (pool elevations, project outflow vs the gage below the dam): bias, % of hours out of tolerance, datum offsets, time lags |
 | `QAQC/Redundant_Pair_Events.csv`, `Redundant_Pair_Monthly.csv` | when and where they disagree |
 | `QAQC/Inflow_Spike_Summary.csv`, `Inflow_Spike_Flags.csv`, `QAQC/plots/inflow_*.png` | spikes, one-hour jumps, negatives and flat lines in the CWMS reservoir inflows |
 | `QAQC/Inflow_Despiked.csv` | what the inflows look like with the flagged hours replaced |
 
-This folder is what to send to data management: it shows the problems in the
-source data as it came from USGS and CWMS. The check settings (tolerances,
+After step 3, send the QAQC reports and raw archives to data management: the
+reports show problems in hourly means derived from the original source data. The check settings (tolerances,
 spike thresholds) are at the top of `modules/download/dp_qaqc.py`. The records
 that are compared are listed in `config/records/RedundantPairs_WIL.csv`.
 
@@ -141,7 +160,7 @@ Open **`output/WY<year>/2_edited_data/obsData.dss`** in DSSVue. Do not open
 the raw file in the review folder. Using the checks and step 2's plots as a
 guide:
 
-- **Fill the gaps.** `Combined_Summary_Stats.csv` lists every record with
+- **Fill the gaps.** `QAQC/Combined_Summary_Stats.csv` (from step 3) lists every record with
   missing hours. Check the reservoir inflows first, because they drive the
   unregulated flows.
 - **Fix the spikes** and other bad values the inflow checks flag.
@@ -272,8 +291,9 @@ DP_Python/
     network/network.json          the network exported from ResSim
     damage_curves/                the damage curves
   src/                            the scripts you run
-    1_download_data.py            STEP 1
-    2_run_damages_prevented.py    STEP 2
+    1_download_data.py            STEP 1: download, archive, hourly DSS
+    2_run_damages_prevented.py    STEP 2: cleaned DSS -> damages prevented
+    3_assess_data.py              STEP 3: source archive -> QA/QC reports
     check_network.py              checks network.json after a re-export
   modules/                        the code the scripts use (no need to open)
     download/                     download and data checks
@@ -315,3 +335,14 @@ routing is a line-for-line port of the routing the ResSim scripts use
 | `Alternative ... is not in network.json` | The names in `config.ini [alternatives]` must match the export. |
 | Step 1 can't reach CWMS / USGS | Check VPN/network access, the USGS key file, or certificates (see the notes at the top of `modules/download/dp_download.py`). |
 | Step 1 stopped part way | Run it again. It reuses what it already downloaded. |
+
+## Offline workflow tests
+
+From `DP_Python`, with the environment active:
+
+    python -m unittest discover -s tests
+
+The tests mock API responses at native 15-minute resolution and write real
+DSS7 files. They verify archiving, hourly averages, resumable downloads,
+protection of the cleaned DSS copy, and assessment isolation from both DSS
+files. Live downloads still require USGS credentials and CWMS network access.

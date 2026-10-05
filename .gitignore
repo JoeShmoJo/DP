@@ -7,3 +7,4 @@ __pycache__/
 **/simulation.dss
 DP_Python/output/*/1_download_for_data_management_review/Hourly_*.csv
 DP_Python/output/*/3_damages_prevented/TimeSeries/
+DP_Python/output/*/1_download_for_data_management_review/raw_archive/
